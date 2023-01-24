@@ -26,8 +26,6 @@ export default defineConfig({
         typescript({
           target: "es2022",
           rootDir: "./src",
-          declaration: true,
-          declarationDir: "./dist",
           exclude: "./node_modules/**",
           allowSyntheticDefaultImports: true,
         }),
