@@ -1,6 +1,6 @@
 {
   "name": "ion-react-ds",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "description": "Ion Design Systems in React",
   "scripts": {
     "rollup": "rollup -c --bundleConfigAsCjs"
