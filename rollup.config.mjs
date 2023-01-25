@@ -7,7 +7,6 @@ import postcss from "rollup-plugin-postcss";
 
 const packageJson = require("./package.json");
 
-// eslint-disable-next-line import/no-anonymous-default-export
 export default [
   {
     input: "src/index.ts",
