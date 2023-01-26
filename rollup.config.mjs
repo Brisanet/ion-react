@@ -4,6 +4,7 @@ import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
 import postcss from "rollup-plugin-postcss";
 import terser from "@rollup/plugin-terser";
+import sourcemaps from "rollup-plugin-sourcemaps";
 
 const packageJson = require("./package.json");
 
@@ -28,11 +29,12 @@ export default [
       typescript({ tsconfig: "./tsconfig.json" }),
       postcss(),
       terser(),
+      sourcemaps(),
     ],
   },
   {
     input: "dist/esm/types/index.d.ts",
-    output: [{ file: "dist/index.d.ts", format: "esm" }],
+    output: [{ file: "dist/index.d.ts", format: "esm", sourcemap: true }],
     plugins: [dts.default()],
     external: [/\.css$/, /\.scss$/, /\.sass$/],
   },
