@@ -10,6 +10,6 @@ Ion design system in react
 
 ### How to Run Storybook
 
-- `npm run storybook`
+- `yarn storybook`
 
 This will start the Storybook server at http://localhost:6006 and you will be able to view your components in a friendly interface.
