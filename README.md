@@ -1,6 +1,4 @@
 # ion-react
-Ion design system in react
-# ion-react
 
 Ion design system in react
 
