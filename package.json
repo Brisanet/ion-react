@@ -1,7 +1,7 @@
 {
   "name": "ion-react",
-  "version": "0.0.12",
-  "description": "Ion Design Systems in React",
+  "version": "0.0.15",
+  "description": "Ion Design System in React",
   "scripts": {
     "rollup": "rollup -c"
   },
