@@ -1,0 +1,42 @@
+{
+  "name": "ion-react",
+  "version": "0.0.15",
+  "description": "Ion Design System in React",
+  "scripts": {
+    "rollup": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iurynogueira/ion-react.git"
+  },
+  "author": "Brisanet-Desenvolvimento",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iurynogueira/ion-react/issues"
+  },
+  "homepage": "https://github.com/iurynogueira/ion-react#readme",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-terser": "^0.4.0",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "@types/react": "^18.0.27",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rollup": "^3.10.1",
+    "rollup-plugin-dts": "^5.1.1",
+    "rollup-plugin-postcss": "^4.0.2",
+    "sass": "^1.57.1",
+    "tslib": "^2.4.1",
+    "typescript": "^4.9.4"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
+  },
+  "main": "dist/cjs/index.ts",
+  "module": "dist/esm/index.ts",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts"
+}
