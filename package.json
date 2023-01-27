@@ -4,7 +4,7 @@
   "description": "Ion Design System in React",
   "scripts": {
     "rollup": "rollup -c",
-    "lint": "eslint .",
+    "lint": "eslint \"**/*.{ts,tsx}\"",
     "prettier": "prettier --write ."
   },
   "repository": {
@@ -27,6 +27,7 @@
     "@typescript-eslint/parser": "^5.49.0",
     "eslint": "^8.32.0",
     "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.1",
     "prettier": "^2.8.3",
     "react": "^18.2.0",
