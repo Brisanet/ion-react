@@ -1,10 +1,12 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import Button from './button';
 
 describe('Button', () => {
   test('renders the Button component', () => {
-    render(<Button label="Hello world!" />);
+    const label = 'Hello world!';
+    render(<Button label={label} />);
+    expect(screen.queryAllByText(label)).toHaveLength(1);
   });
 });
