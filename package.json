@@ -3,7 +3,7 @@
   "version": "0.0.16",
   "description": "Ion Design System in React",
   "engines": {
-    "node": "16.19.0"
+    "node": "16.19.x"
   },
   "scripts": {
     "rollup": "rollup -c",
