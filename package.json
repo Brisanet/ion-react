@@ -2,6 +2,9 @@
   "name": "ion-react",
   "version": "0.0.16",
   "description": "Ion Design System in React",
+  "engines": {
+    "node": "16.19.x"
+  },
   "scripts": {
     "rollup": "rollup -c",
     "storybook": "start-storybook -p 6006",
