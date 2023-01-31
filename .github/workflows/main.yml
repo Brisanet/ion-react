@@ -1,0 +1,37 @@
+name: React CI - Automated Tests, Linting and Build
+
+on: [pull_request]
+
+env:
+  NODE_ENV: test
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.19.x]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: |
+        yarn install
+
+    - name: Run Tests
+      run: |
+        yarn test:coverage
+
+    - name: Run Prettier
+      run: |
+        yarn prettier
+
+    - name: Run Lint
+      run: |
+        yarn lint
+
+    - name: Run Build
+      run: |
+        yarn rollup
