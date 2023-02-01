@@ -35,3 +35,7 @@ We have the following types:
 - temp: Temporary commits that won't be included in your CHANGELOG.
 
 Example: `feat: add feature #issue_id`
+
+## Deploy 🚀
+
+<a href="https://main--63da5890a06a8f8f995110dd.chromatic.com"> Storybook </a>
