@@ -1,6 +1,9 @@
-# ion-react
+<img src="src/stories/assets/capa.svg">
 
-Ion design system in react
+<b>React Version</b>
+
+<a href="https://codeclimate.com/github/iurynogueira/ion-react/maintainability"><img src="https://api.codeclimate.com/v1/badges/48ab263c3be483f0a6d2/maintainability" /></a>
+<a href="https://codeclimate.com/github/iurynogueira/ion-react/test_coverage"><img src="https://api.codeclimate.com/v1/badges/48ab263c3be483f0a6d2/test_coverage" /></a>
 
 ## Storybook
 
