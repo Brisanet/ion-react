@@ -6,7 +6,7 @@
     "node": "16.19.x"
   },
   "scripts": {
-    "rollup": "rollup -c",
+    "build": "rollup -c",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "lint": "eslint",
