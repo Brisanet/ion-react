@@ -125,6 +125,7 @@ const injectGlobalStyles = stitches.globalCss({
       src: 'local("Source Sans Pro Bold"), url("https://fonts.cdnfonts.com/s/12183/SourceSansPro-Bold.woff")',
     },
   ],
+
   body: { margin: 0, padding: 0 },
   h1: { margin: 0 },
 });
