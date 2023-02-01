@@ -108,11 +108,6 @@ const stitches = createStitches({
       warningColor: '#f9a915',
       infoColor: '#0bb2cb',
     },
-    space: {},
-    fontSizes: {},
-  },
-  utils: {
-    marginX: (value: number) => ({ marginLeft: value, marginRight: value }),
   },
 });
 
