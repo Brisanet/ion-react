@@ -38,6 +38,3 @@ jobs:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
           coverageCommand: yarn test:coverage
-
-      - name: Run chromatic - Publish Storybook
-        run: yarn chromatic
