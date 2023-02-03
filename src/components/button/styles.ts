@@ -9,8 +9,15 @@ type ColorStyle = {
   border?: string;
 };
 
-// Função que gera cores de Background, Border e cor de
-// fonte a fim de reduzir repetições de codigo
+/* 
+  Função que gera cores de Background, Border e cor de
+  fonte a fim de reduzir repetições de codigo
+
+  Seguir o padrão de parâmetros: 
+  1- Cor do background;
+  2- Cor da fonte do botão;
+  3- (Opicional) Cor da borda;
+*/
 function generateColorStyle(
   bgColor: string,
   fontColor: string,
