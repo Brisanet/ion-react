@@ -2,22 +2,27 @@ import stitches from '../../stitches.config';
 
 const { styled } = stitches;
 
-export const StitcheButton = styled('button', {
-  width: '50%',
-  color: 'White',
-  fontSize: '$rg',
-  fontWeight: 'normal',
-  backgroundColor: '$primaryColor',
-  borderRadius: '6px',
-  padding: '10px 15px',
-  border: 'none',
-  '&:hover': {
-    backgroundColor: '$primary7',
-  },
+export const StitchesButton = styled('button', {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  minWidth: '32px',
+  height: '32px',
+  padding: '6px 16px',
+  borderRadius: '8px',
+  fontWeight: '600',
+  cursor: 'pointer',
+  gap: '8px',
+
   variants: {
-    size: {
-      sm: {
-        width: '75px',
+    type: {
+      primary: {
+        background: '$primaryColor',
+        color: '$neutral1',
+
+        '&:hover': {
+          backgroundColor: '$primary5',
+        },
       },
     },
   },

@@ -1,12 +1,12 @@
-import React, { InputHTMLAttributes } from 'react';
-import { StitcheButton } from './styles';
+import React from 'react';
+import { StitchesButton } from './styles';
 
-export interface ButtonProps extends InputHTMLAttributes<HTMLButtonElement> {
-  label: string;
-}
+type StitchesButtonProps = React.ComponentProps<typeof StitchesButton>;
 
-const Button = ({ label }: ButtonProps) => {
-  return <StitcheButton>{label}</StitcheButton>;
+export type ButtonProps = { label?: string } & StitchesButtonProps;
+
+const Button = ({ type, label }: ButtonProps) => {
+  return <StitchesButton type={type}>{label}</StitchesButton>;
 };
 
 export default Button;
