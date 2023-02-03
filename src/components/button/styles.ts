@@ -2,59 +2,84 @@ import stitches from '../../stitches.config';
 
 const { styled } = stitches;
 
-const disabledButton = {
-  backgroundColor: '$neutral2',
-  border: '1px solid $neutral5',
-  color: '$neutral5',
-  cursor: 'not-allowed',
+// Tipo para objeto de estilos  da função geradora de estilos
+type ColorStyle = {
+  background: string;
+  color: string;
+  border?: string;
 };
 
-// Função que gera cores de Background, Border e cor de fonte a fim de reduzir repetições de codigo
+// Função que gera cores de Background, Border e cor de
+// fonte a fim de reduzir repetições de codigo
 function generateColorStyle(
   bgColor: string,
-  borderColor: string,
-  fontColor: string
+  fontColor: string,
+  borderColor: string
 ) {
-  return {
-    backgroundColor: bgColor,
-    border: `1px solid ${borderColor}`,
+  let styles: ColorStyle = {
+    background: bgColor,
     color: fontColor,
   };
+
+  borderColor && (styles.border = borderColor);
+
+  return styles;
 }
 
+// Componente Button
 export const StitchesButton = styled('button', {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  minWidth: '32px',
-  height: '32px',
   padding: '6px 16px',
   borderRadius: '8px',
   fontWeight: '600',
   cursor: 'pointer',
+  minWidth: '32px',
+  height: '32px',
   gap: '8px',
 
   variants: {
     type: {
       primary: {
-        background: '$primaryColor',
-        color: '$neutral1',
+        ...generateColorStyle('$primaryColor', '$neutral1', ''),
+
         '&:hover': {
-          backgroundColor: '$primary5',
+          background: '$primary5',
         },
         '&:active': { backgroundColor: '$primary7' },
-        '&:disabled': disabledButton,
+        '&:disabled': {
+          ...generateColorStyle('$neutral2', '$neutral5', '$neutral5'),
+          cursor: 'not-allowed',
+        },
       },
-
       secondary: {
         ...generateColorStyle('$neutral1', '$neutral4', '$primaryColor'),
+
         '&:hover': generateColorStyle(
           '$secondaryColor',
           '$primary4',
           '$primary5'
         ),
         '&:active': generateColorStyle('$primary2', '$primary5', '$primary7'),
-        '&:disabled': disabledButton,
+        '&:disabled': {
+          ...generateColorStyle('$neutral2', '$neutral5', '$neutral5'),
+          cursor: 'not-allowed',
+        },
+      },
+      ghost: {
+        ...generateColorStyle('transparent', '$primaryColor', ''),
+
+        '&:hover': {
+          ...generateColorStyle('$primary1', '$primary5', ''),
+        },
+        '&:active': {
+          ...generateColorStyle('$primary2', '$primary7', ''),
+        },
+        '&:disabled': {
+          ...generateColorStyle('transparent', '$neutral5', ''),
+          cursor: 'not-allowed',
+        },
       },
     },
   },
