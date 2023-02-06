@@ -88,6 +88,24 @@ export const StitchesButton = styled('button', {
           cursor: 'not-allowed',
         },
       },
+      dashed: {
+        ...generateColorStyle('transparent', '$primaryColor', ''),
+        border: '1px dashed $neutral4',
+
+        '&:hover': {
+          ...generateColorStyle('$primary1', '$primary5', ''),
+          borderColor: '$primary4',
+        },
+        '&:active': {
+          ...generateColorStyle('$primary2', '$primary7', ''),
+          borderColor: '$primary5',
+        },
+        '&:disabled': {
+          ...generateColorStyle('$neutral3', '$neutral5', ''),
+          borderColor: '$neutral5',
+          cursor: 'not-allowed',
+        },
+      },
     },
   },
 });

@@ -13,9 +13,27 @@ const Template: ComponentStory<typeof Button> = (args: ButtonProps) => (
   <Button {...args} />
 );
 
-export const ButtonDefault = Template.bind({});
+export const ButtonPrimary = Template.bind({});
+export const ButtonSecondary = Template.bind({});
+export const ButtonGhost = Template.bind({});
+export const ButtonDashed = Template.bind({});
 
-ButtonDefault.args = {
+ButtonPrimary.args = {
   label: 'Primary',
   type: 'primary',
+};
+
+ButtonSecondary.args = {
+  label: 'Secondary',
+  type: 'secondary',
+};
+
+ButtonGhost.args = {
+  label: 'Ghost',
+  type: 'ghost',
+};
+
+ButtonDashed.args = {
+  label: 'Dashed',
+  type: 'dashed',
 };
