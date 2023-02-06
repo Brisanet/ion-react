@@ -7,7 +7,7 @@ export type ButtonProps = {
   label?: string;
   type: string;
   disabled?: boolean;
-  onClick: () => void;
+  onClick?: () => void;
 } & StitchesButtonProps;
 
 const Button = ({ type, disabled, label, onClick }: ButtonProps) => {
