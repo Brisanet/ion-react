@@ -1,9 +1,12 @@
 {
-  "name": "ion-react",
-  "version": "0.0.17",
+  "name": "@brisanet/ion-react",
+  "version": "0.0.1",
   "description": "Ion Design System in React",
   "engines": {
     "node": "16.19.x"
+  },
+  "publishConfig": {
+    "registry": "https://github.com/iurynogueira/ion-react.git"
   },
   "scripts": {
     "build": "rollup -c",
