@@ -7,11 +7,12 @@ export type ButtonProps = {
   label?: string;
   type: string;
   disabled?: boolean;
+  onClick: () => void;
 } & StitchesButtonProps;
 
-const Button = ({ type, disabled, label }: ButtonProps) => {
+const Button = ({ type, disabled, label, onClick }: ButtonProps) => {
   return (
-    <StitchesButton disabled={disabled} type={type}>
+    <StitchesButton disabled={disabled} type={type} onClick={onClick}>
       {label}
     </StitchesButton>
   );

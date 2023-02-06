@@ -28,7 +28,7 @@ function generateColorStyle(
     color: fontColor,
   };
 
-  borderColor && (styles.border = borderColor);
+  borderColor && (styles.border = `1px solid ${borderColor}`);
 
   return styles;
 }
@@ -61,13 +61,9 @@ export const StitchesButton = styled('button', {
         },
       },
       secondary: {
-        ...generateColorStyle('$neutral1', '$neutral4', '$primaryColor'),
+        ...generateColorStyle('$neutral1', '$primaryColor', '$neutral4'),
 
-        '&:hover': generateColorStyle(
-          '$secondaryColor',
-          '$primary4',
-          '$primary5'
-        ),
+        '&:hover': generateColorStyle('$primary1', '$primary5', '$primary4'),
         '&:active': generateColorStyle('$primary2', '$primary5', '$primary7'),
         '&:disabled': {
           ...generateColorStyle('$neutral2', '$neutral5', '$neutral5'),
