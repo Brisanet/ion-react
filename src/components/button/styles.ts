@@ -34,7 +34,7 @@ function generateColorStyle(
 }
 
 // Componente Button
-export const StitchesButton = styled('button', {
+export const ButtonStyles = styled('button', {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -56,8 +56,21 @@ export const StitchesButton = styled('button', {
         },
         '&:active': { backgroundColor: '$primary7' },
         '&:disabled': {
-          ...generateColorStyle('$neutral2', '$neutral5', '$neutral5'),
+          ...generateColorStyle(
+            '$neutral2 !important',
+            '$neutral5 !important',
+            ''
+          ),
           cursor: 'not-allowed',
+        },
+        '&.danger': {
+          ...generateColorStyle('$negative6', '$negative1', ''),
+          '&:hover': {
+            ...generateColorStyle('$negative5', '$neutral1', ''),
+          },
+          '&:active': {
+            background: '$negative7',
+          },
         },
       },
       secondary: {
@@ -66,8 +79,21 @@ export const StitchesButton = styled('button', {
         '&:hover': generateColorStyle('$primary1', '$primary5', '$primary4'),
         '&:active': generateColorStyle('$primary2', '$primary5', '$primary7'),
         '&:disabled': {
-          ...generateColorStyle('$neutral2', '$neutral5', '$neutral5'),
+          ...generateColorStyle(
+            '$neutral2 !important',
+            '$neutral5 !important',
+            '$neutral5 !important'
+          ),
           cursor: 'not-allowed',
+        },
+        '&.danger': {
+          color: '$negativeColor',
+          '&:hover': {
+            ...generateColorStyle('$negative1', '$negative5', '$negative3'),
+          },
+          '&:active': {
+            ...generateColorStyle('$negative2', '$negative7', ''),
+          },
         },
       },
       ghost: {
@@ -80,8 +106,21 @@ export const StitchesButton = styled('button', {
           ...generateColorStyle('$primary2', '$primary7', ''),
         },
         '&:disabled': {
-          ...generateColorStyle('transparent', '$neutral5', ''),
+          ...generateColorStyle(
+            'transparent !important',
+            '$neutral5 !important',
+            ''
+          ),
           cursor: 'not-allowed',
+        },
+        '&.danger': {
+          color: '$negative6',
+          '&:hover': {
+            ...generateColorStyle('$negative1', '$negative5', ''),
+          },
+          '&:active': {
+            ...generateColorStyle('$negative2', '$negative7', ''),
+          },
         },
       },
       dashed: {
@@ -97,9 +136,25 @@ export const StitchesButton = styled('button', {
           borderColor: '$primary5',
         },
         '&:disabled': {
-          ...generateColorStyle('$neutral3', '$neutral5', ''),
-          borderColor: '$neutral5',
+          ...generateColorStyle(
+            '$neutral3 !important',
+            '$neutral5 !important',
+            ''
+          ),
+          borderColor: '$neutral5 !important',
           cursor: 'not-allowed',
+        },
+        '&.danger': {
+          border: '1px dashed $neutral4',
+          color: '$negative6',
+          '&:hover': {
+            ...generateColorStyle('$negative1', '$negative5', ''),
+            borderColor: '$negative3',
+          },
+          '&:active': {
+            ...generateColorStyle('$negative2', '$negative7', ''),
+            borderColor: '$negative6',
+          },
         },
       },
     },

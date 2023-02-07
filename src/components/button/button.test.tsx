@@ -5,35 +5,32 @@ import '@testing-library/jest-dom';
 import Button from './button';
 import { ButtonProps } from './button';
 
-function renderAndGetButton(props: ButtonProps): HTMLElement {
-  render(<Button label={props.label || 'Button'} {...props} />);
+function sut(
+  props: ButtonProps = { label: 'Button', type: 'primary' }
+): HTMLElement {
+  render(<Button {...props} />);
   return screen.getByRole('button', { name: props.label });
 }
 
 describe('Button', () => {
-  test('renders the Button component', () => {
+  test('should render the Button component', () => {
     const label = 'Hello world!';
-    render(<Button type="primary" label={label} />);
+    render(<Button label={label} />);
     expect(screen.queryAllByText(label)).toHaveLength(1);
   });
 
-  test('execute the onClick event', () => {
+  test('should execute event when the button is clicked', () => {
     const handleClick = jest.fn();
-    const button = renderAndGetButton({
-      type: 'primary',
-      onClick: handleClick,
-    });
-    fireEvent.click(button);
+    fireEvent.click(sut({ onClick: handleClick }));
     expect(handleClick).toBeCalledTimes(1);
   });
 
-  test('is disabled', () => {
-    const button = renderAndGetButton({
-      label: 'Button',
-      type: 'secondary',
-      disabled: true,
-    });
-    expect(button).toHaveAttribute('disabled');
+  test('shold be disabled', () => {
+    expect(sut({ disabled: true })).toHaveAttribute('disabled');
+  });
+
+  test('shold be danger class', () => {
+    expect(sut({ danger: true })).toHaveClass('danger');
   });
 
   const buttonTypes: Array<ButtonProps['type']> = [
@@ -42,10 +39,13 @@ describe('Button', () => {
     'ghost',
     'dashed',
   ];
-  test.each(buttonTypes)('should render all types', async (type) => {
-    expect(renderAndGetButton({ type })).toHaveAttribute(
-      'class',
-      expect.stringContaining(`type-${type}`)
-    );
-  });
+  test.each(buttonTypes)(
+    'should render button with %s style type',
+    async (type) => {
+      expect(sut({ type })).toHaveAttribute(
+        'class',
+        expect.stringContaining(`type-${type}`)
+      );
+    }
+  );
 });

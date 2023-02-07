@@ -1,20 +1,32 @@
 import React from 'react';
-import { StitchesButton } from './styles';
+import { ButtonStyles } from './styles';
 
-type StitchesButtonProps = React.ComponentProps<typeof StitchesButton>;
+type StitchesButtonProps = React.ComponentProps<typeof ButtonStyles>;
 
 export type ButtonProps = {
   label?: string;
-  type: string;
+  type?: string;
   disabled?: boolean;
   onClick?: () => void;
+  danger?: boolean;
 } & StitchesButtonProps;
 
-const Button = ({ type, disabled, label, onClick }: ButtonProps) => {
+const Button = ({
+  type = 'primary',
+  disabled,
+  onClick,
+  danger,
+  label,
+}: ButtonProps) => {
   return (
-    <StitchesButton disabled={disabled} type={type} onClick={onClick}>
+    <ButtonStyles
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+      className={`${danger && 'danger'}`}
+    >
       {label}
-    </StitchesButton>
+    </ButtonStyles>
   );
 };
 
