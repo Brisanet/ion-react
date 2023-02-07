@@ -100,6 +100,7 @@
     }
   },
   "dependencies": {
-    "@stitches/react": "^1.2.8"
+    "@stitches/react": "^1.2.8",
+    "@testing-library/jest-dom": "^5.16.5"
   }
 }
