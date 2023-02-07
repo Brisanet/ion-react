@@ -17,7 +17,48 @@ export const ChipStyle = styled('button', {
     color: '$primary5',
   },
 
+  '&:active': {
+    border: '1px solid $primary5',
+    outline: 'none',
+    backgroundColor: '$primary2',
+    color: '$primary7',
+  },
+
+  '&:focus-visible': {
+    border: '1px solid $primary3',
+    outline: '2px solid $primary6',
+    outlineOffset: '2px',
+    backgroundColor: '$secondaryColor',
+    color: '#146ff5',
+  },
+
+  '&:disabled': {
+    border: '1px solid $neutral5',
+    outline: 'none',
+    cursor: 'not-allowed',
+    backgroundColor: '$neutral3',
+    color: '$neutral5',
+  },
+
+  defaultVariants: {
+    size: 'sm',
+  },
   variants: {
+    selected: {
+      true: {
+        border: '1.5px solid $primary5',
+        borderRadius: '100px',
+        fontWeight: '600',
+        cursor: 'pointer',
+        backgroundColor: '$primary2',
+
+        '&:hover': {
+          border: '1.5px solid $primary5',
+          backgroundColor: '$primary2',
+          color: '$primary5',
+        },
+      },
+    },
     size: {
       sm: {
         padding: '4px 8px',

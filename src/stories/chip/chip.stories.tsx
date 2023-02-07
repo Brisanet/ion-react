@@ -26,3 +26,15 @@ ChipMedium.args = {
   label: 'Medium',
   size: 'md',
 };
+
+export const ChipDisabled = Template.bind({});
+ChipDisabled.args = {
+  label: 'Disabled',
+  disabled: true,
+};
+
+export const ChipSelected = Template.bind({});
+ChipSelected.args = {
+  label: 'Selected',
+  selected: true,
+};
