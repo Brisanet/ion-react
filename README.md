@@ -6,6 +6,14 @@
 <a href="https://codeclimate.com/github/iurynogueira/ion-react/test_coverage"><img src="https://api.codeclimate.com/v1/badges/48ab263c3be483f0a6d2/test_coverage" /></a>
 [![Production](https://github.com/iurynogueira/ion-react/actions/workflows/prod.yml/badge.svg?branch=main)](https://github.com/iurynogueira/ion-react/actions/workflows/prod.yml)
 
+## Install and run project
+
+To run this project, You will need to use [node v.16.19](https://nodejs.org/en/)
+
+- Run `git clone https://github.com/iurynogueira/ion-react.git` to get a copy of the repository;
+- Run `yarn install` to install all dependencies for the project;
+- Run `yarn storybook` to open the storybook in your localhost.
+
 ## Storybook
 
 <hr>
