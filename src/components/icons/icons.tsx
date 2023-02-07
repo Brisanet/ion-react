@@ -31,6 +31,7 @@ const IonIcon = ({
   const iconPath = pathPurify(type);
   const icon = (
     <svg
+      data-testid={`ion-icon-${type}`}
       viewBox="0 0 24 24"
       height={`${size}px`}
       width={`${size}px`}
