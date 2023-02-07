@@ -19,9 +19,11 @@ function pathPurify(iconType: iconType): string {
   return pathWithoutSvg;
 }
 
+const defaultSize = 24
+
 const Icon = styled('svg', {
-  height: `${(size: number) => `${size || 24}px`}`,
-  width: `${(size: number) => `${size || 24}px`}`,
+  height: `${(size: number) => `${ size || defaultSize }px`}`,
+  width: `${(size: number) => `${ size || defaultSize }px`}`,
   fill: `${(color: string) => color || '#282B33'}`,
 });
 
