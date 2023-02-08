@@ -5,9 +5,6 @@
   "engines": {
     "node": "16.19.x"
   },
-  "publishConfig": {
-    "registry": "https://github.com/iurynogueira/ion-react.git"
-  },
   "scripts": {
     "build": "rollup -c",
     "storybook": "start-storybook -p 6006",
