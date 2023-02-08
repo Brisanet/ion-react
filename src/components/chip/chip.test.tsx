@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import IonChip, { ChipProps } from './chip';
 import React from 'react';
+import userEvent from '@testing-library/user-event';
 
 const clickEvent = jest.fn();
 const defaultChip: ChipProps = {
@@ -25,7 +26,8 @@ describe('IonChip', () => {
     expect(screen.queryAllByText(defaultChip.label)).toHaveLength(1);
   });
 
-  test('should render chip with correct value', () => {
+  test('should render chip with correct value', async () => {
+    await userEvent.click(screen.getByTestId('ion-chip'));
     expect(clickEvent).toBeCalled();
   });
 
