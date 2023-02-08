@@ -1,16 +1,14 @@
-import React from 'react';
-
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Button, { ButtonProps } from '../components/button/button';
+import IonButton, { ButtonProps } from '../components/button/button';
 
 export default {
   title: 'Buttons/Button',
-  component: Button,
-} as ComponentMeta<typeof Button>;
+  component: IonButton,
+} as ComponentMeta<typeof IonButton>;
 
-const Template: ComponentStory<typeof Button> = (args: ButtonProps) => (
-  <Button {...args} />
+const Template: ComponentStory<typeof IonButton> = (args: ButtonProps) => (
+  <IonButton {...args} />
 );
 
 export const ButtonPrimary = Template.bind({});

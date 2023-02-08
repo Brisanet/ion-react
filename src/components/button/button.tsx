@@ -11,7 +11,7 @@ export type ButtonProps = {
   danger?: boolean;
 } & StitchesButtonProps;
 
-const Button = ({
+const IonButton = ({
   type = 'primary',
   disabled,
   onClick,
@@ -30,4 +30,4 @@ const Button = ({
   );
 };
 
-export default Button;
+export default IonButton;
