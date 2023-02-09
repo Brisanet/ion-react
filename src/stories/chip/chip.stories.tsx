@@ -39,3 +39,23 @@ ChipSelected.args = {
   label: 'Selected',
   selected: true,
 };
+
+export const ChipWithIcon = Template.bind({});
+ChipWithIcon.args = {
+  label: 'Selected',
+  icon: 'pencil',
+};
+
+export const ChipSelectedWithIcon = Template.bind({});
+ChipSelectedWithIcon.args = {
+  label: 'Selected With Icon',
+  icon: 'pencil',
+  selected: true,
+};
+
+export const ChipDisabledWithIcon = Template.bind({});
+ChipDisabledWithIcon.args = {
+  label: 'Disabled',
+  icon: 'pencil',
+  disabled: true,
+};

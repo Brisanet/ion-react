@@ -10,11 +10,26 @@ export const ChipStyle = styled('button', {
   backgroundColor: '$neutral1',
   color: '$primaryColor',
   fontWeight: '600',
+  alignItems: 'center',
+
+  div: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '8px',
+
+    svg: {
+      fill: '$primaryColor',
+    },
+  },
 
   '&:hover': {
     backgroundColor: '$secondaryColor',
     border: '1px solid $primary3',
     color: '$primary5',
+
+    svg: {
+      fill: '$primary5',
+    },
   },
 
   '&:active': {
@@ -22,6 +37,10 @@ export const ChipStyle = styled('button', {
     outline: 'none',
     backgroundColor: '$primary2',
     color: '$primary7',
+
+    svg: {
+      fill: '$primary7',
+    },
   },
 
   '&:focus-visible': {
@@ -29,7 +48,11 @@ export const ChipStyle = styled('button', {
     outline: '2px solid $primary6',
     outlineOffset: '2px',
     backgroundColor: '$secondaryColor',
-    color: '#146ff5',
+    color: '$primary5',
+
+    svg: {
+      fill: '$primary5',
+    },
   },
 
   '&:disabled': {
@@ -38,6 +61,10 @@ export const ChipStyle = styled('button', {
     cursor: 'not-allowed',
     backgroundColor: '$neutral3',
     color: '$neutral5',
+
+    svg: {
+      fill: '$neutral5',
+    },
   },
 
   defaultVariants: {
@@ -56,6 +83,10 @@ export const ChipStyle = styled('button', {
           border: '1.5px solid $primary5',
           backgroundColor: '$primary2',
           color: '$primary5',
+
+          svg: {
+            fill: '$primary5',
+          },
         },
       },
     },

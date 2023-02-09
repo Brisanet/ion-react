@@ -19,15 +19,15 @@ function pathPurify(iconType: iconType): string {
   return pathWithoutSvg;
 }
 
-const defaultSize = 24
+const defaultSize = 24;
 
 const Icon = styled('svg', {
-  height: `${(size: number) => `${ size || defaultSize }px`}`,
-  width: `${(size: number) => `${ size || defaultSize }px`}`,
+  height: `${(size: number) => `${size || defaultSize}px`}`,
+  width: `${(size: number) => `${size || defaultSize}px`}`,
   fill: `${(color: string) => color || '#282B33'}`,
 });
 
-const IonIcon = ({ type, color, size }: IonIconProps) => {
+const IonIcon = ({ type, color, size = defaultSize }: IonIconProps) => {
   const iconPath = pathPurify(type);
   return (
     <Icon
