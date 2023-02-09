@@ -101,8 +101,7 @@
     }
   },
   "dependencies": {
-    "@stitches/react": "^1.2.8",
-    "@testing-library/jest-dom": "^5.16.5",
+    "@stitches/react": "^1.2.8", 
     "dompurify": "^2.4.3"
   }
 }
