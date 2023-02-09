@@ -4,7 +4,7 @@ import { ButtonStyles } from './styles';
 type StitchesButtonProps = React.ComponentProps<typeof ButtonStyles>;
 
 export type ButtonProps = {
-  label?: string;
+  label: string;
   type?: string;
   disabled?: boolean;
   onClick?: () => void;
@@ -13,17 +13,17 @@ export type ButtonProps = {
 
 const IonButton = ({
   type = 'primary',
-  disabled,
+  disabled = false,
   onClick,
-  danger,
   label,
+  danger,
 }: ButtonProps) => {
   return (
     <ButtonStyles
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`${danger && 'danger'}`}
+      danger={danger && type}
     >
       {label}
     </ButtonStyles>

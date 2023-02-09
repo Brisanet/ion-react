@@ -16,30 +16,42 @@ export const ButtonSecondary = Template.bind({});
 export const ButtonGhost = Template.bind({});
 export const ButtonDashed = Template.bind({});
 
+export const PrimaryDisabled = Template.bind({});
+
+export const PrimaryDanger = Template.bind({});
+
+// Button types
 ButtonPrimary.args = {
   label: 'Primary',
   type: 'primary',
-  danger: false,
   disabled: false,
 };
-
 ButtonSecondary.args = {
   label: 'Secondary',
   type: 'secondary',
-  danger: false,
   disabled: false,
 };
-
 ButtonGhost.args = {
   label: 'Ghost',
   type: 'ghost',
-  danger: false,
   disabled: false,
 };
-
 ButtonDashed.args = {
   label: 'Dashed',
   type: 'dashed',
-  danger: false,
   disabled: false,
+};
+
+// Button disabled
+PrimaryDisabled.args = {
+  label: 'Primary',
+  type: 'primary',
+  disabled: true,
+};
+
+//Button danger
+PrimaryDanger.args = {
+  label: 'Primary',
+  type: 'primary',
+  danger: true,
 };
