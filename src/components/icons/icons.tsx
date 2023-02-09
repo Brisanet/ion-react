@@ -1,3 +1,5 @@
+import React from 'react';
+
 import DOMPurify from 'dompurify';
 import { iconsPaths, iconType } from './svgs/icons';
 

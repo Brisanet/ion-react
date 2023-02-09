@@ -1,3 +1,5 @@
+import React from 'react';
+
 import IonIcon from '../icons/icons';
 import { ErrorBoundaryStyled } from './styled';
 
@@ -6,7 +8,7 @@ export interface ErrorBoundaryProps {
 }
 const ErrorBoundary = ({ msg }: ErrorBoundaryProps) => {
   return (
-    <ErrorBoundaryStyled>
+    <ErrorBoundaryStyled data-testid="ion-error-boundary">
       <IonIcon type="info" size={16}></IonIcon>
       <div>
         <label>Error:</label>

@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { IonTagProps } from '../../core/types/tag';
 import { TagStyle } from './styles';
 import IonIcon from '../icons/icons';
