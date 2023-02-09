@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import IonChip, { ChipProps } from './chip';
-import React from 'react';
 import userEvent from '@testing-library/user-event';
+import React from 'react';
 
 const clickEvent = jest.fn();
 const defaultChip: ChipProps = {
@@ -26,9 +26,9 @@ describe('IonChip', () => {
     expect(screen.queryAllByText(defaultChip.label)).toHaveLength(1);
   });
 
-  test('should render chip with correct value', async () => {
-    await userEvent.click(screen.getByTestId('ion-chip'));
-    expect(clickEvent).toBeCalled();
+  test('should render chip with correct value', () => {
+    userEvent.click(screen.getByTestId('ion-chip'));
+    expect(clickEvent).toHaveBeenCalled();
   });
 
   // test('should render chip not disabled by default', () => {
