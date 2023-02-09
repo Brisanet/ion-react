@@ -6,6 +6,16 @@
 <a href="https://codeclimate.com/github/iurynogueira/ion-react/test_coverage"><img src="https://api.codeclimate.com/v1/badges/48ab263c3be483f0a6d2/test_coverage" /></a>
 [![Production](https://github.com/iurynogueira/ion-react/actions/workflows/prod.yml/badge.svg?branch=main)](https://github.com/iurynogueira/ion-react/actions/workflows/prod.yml)
 
+## Installation
+
+```bash
+npm i @brisanet/ion-react
+```
+
+```bash
+yarn add @brisanet/ion-react
+```
+# Contribute
 ## Install and run project
 
 To run this project, You will need to use [node v.16.19](https://nodejs.org/en/)
