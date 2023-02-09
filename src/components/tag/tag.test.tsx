@@ -18,7 +18,7 @@ describe('IonTag', () => {
     expect(tag).toBeTruthy();
   });
 
-  it('sould rendet tag with label "example tag"', () => {
+  it('should render tag with label "example tag"', () => {
     const label = 'example tag';
     sut({ label: label });
     expect(screen.findByText(label)).toBeTruthy();
@@ -37,13 +37,13 @@ describe('IonTag', () => {
     await sut({ ...defaultTag, outline: false });
     const tag = getTag();
     screen.debug();
-    expect(tag.className).not.toContain('outiline-false');
+    expect(tag.className).not.toContain('outline-false');
   });
 
   it('should render outline in tag', async () => {
     await sut({ ...defaultTag, outline: true });
     const tag = getTag();
-    expect(tag.className).not.toContain('outiline-true');
+    expect(tag.className).toContain('outline-true');
   });
 
   it('should render tag with icon check', async () => {
@@ -60,5 +60,19 @@ describe('IonTag', () => {
     const errorBoundary = screen.getByTestId('ion-error-boundary');
     expect(errorBoundary).toBeTruthy();
     expect(screen.findAllByText(msgError)).toBeTruthy();
+  });
+
+  it('should render tag whit color custom', () => {
+    sut({ ...defaultTag, color: '#AADD00' });
+    const tag = getTag();
+    screen.debug();
+    expect(tag.className).not.toContain('status');
+  });
+
+  it('should render the tag the same as it has a custom color', () => {
+    sut({ ...defaultTag, status: 'info', color: '#AADD00' });
+    const tag = getTag();
+    screen.debug();
+    expect(tag.className).toContain('status-info');
   });
 });
