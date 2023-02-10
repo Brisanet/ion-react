@@ -25,7 +25,7 @@ export const ButtonStyles = styled('button', {
           background: '$primary5',
         },
         '&:active': { background: '$primary7' },
-        '&:disabled': { 
+        '&:disabled': {
           ...generateColorStyle('$neutral2', '$neutral5', ''),
           cursor: 'not-allowed',
         },
@@ -83,7 +83,7 @@ export const ButtonStyles = styled('button', {
         '&:active': {
           background: '$negative7',
         },
-        '&:disabled': { 
+        '&:disabled': {
           ...generateColorStyle('$neutral2', '$neutral5', ''),
           cursor: 'not-allowed',
         },
@@ -103,11 +103,11 @@ export const ButtonStyles = styled('button', {
       },
       ghost: {
         color: '$negative6',
-        '&:active': {
-          ...generateColorStyle('$negative2', '$negative7', ''),
-        },
         '&:hover': {
           ...generateColorStyle('$negative1', '$negative5', ''),
+        },
+        '&:active': {
+          ...generateColorStyle('$negative2', '$negative7', ''),
         },
         '&:disabled': {
           ...generateColorStyle('transparent', '$neutral5', ''),
@@ -124,14 +124,14 @@ export const ButtonStyles = styled('button', {
         '&:active': {
           ...generateColorStyle('$negative2', '$negative7', ''),
           borderColor: '$negative6',
-        }, 
+        },
         '&:disabled': {
           ...generateColorStyle('$neutral3', '$neutral5', ''),
           borderColor: '$neutral5',
           cursor: 'not-allowed',
         },
       },
-      none: { },
+      none: {},
     },
   },
 });

@@ -22,8 +22,8 @@ const IonButton = ({
     <ButtonStyles
       type={type}
       onClick={onClick}
-      disabled={disabled} 
-      danger={isDanger ? type : 'none' } 
+      disabled={disabled}
+      danger={isDanger ? type : 'none'}
     >
       {label}
     </ButtonStyles>

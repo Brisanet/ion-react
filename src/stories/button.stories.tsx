@@ -12,45 +12,37 @@ const Template: ComponentStory<typeof IonButton> = (args: ButtonProps) => (
 );
 
 export const ButtonPrimary = Template.bind({});
-export const ButtonSecondary = Template.bind({});
-export const ButtonGhost = Template.bind({});
-export const ButtonDashed = Template.bind({});
-
-export const PrimaryDisabled = Template.bind({});
-
-export const PrimaryDanger = Template.bind({});
-
-// Button types
 ButtonPrimary.args = {
   label: 'Primary',
   type: 'primary',
-  disabled: false,
 };
+
+export const ButtonSecondary = Template.bind({});
 ButtonSecondary.args = {
   label: 'Secondary',
   type: 'secondary',
-  disabled: false,
 };
+
+export const ButtonGhost = Template.bind({});
 ButtonGhost.args = {
   label: 'Ghost',
   type: 'ghost',
-  disabled: false,
 };
+
+export const ButtonDashed = Template.bind({});
 ButtonDashed.args = {
   label: 'Dashed',
   type: 'dashed',
-  disabled: false,
 };
 
-// Button disabled
+export const PrimaryDisabled = Template.bind({});
 PrimaryDisabled.args = {
   label: 'Primary',
   type: 'primary',
   disabled: true,
-  isDanger: true,
 };
 
-//Button danger
+export const PrimaryDanger = Template.bind({});
 PrimaryDanger.args = {
   label: 'Primary',
   type: 'primary',

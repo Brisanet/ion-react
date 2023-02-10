@@ -1,8 +1,9 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 
-import Button from './button';
+import IonButton from './button';
 import { ButtonProps } from './button';
 
 const clickEvent = jest.fn();
@@ -11,33 +12,31 @@ const defaultButton: ButtonProps = {
   onClick: clickEvent,
 };
 
-function sut(
-  props: ButtonProps = defaultButton
-): HTMLElement {
-  render(<Button {...props} />);
+function sut(props: ButtonProps = defaultButton): HTMLElement {
+  render(<IonButton {...props} />);
   return screen.getByRole('button', { name: props.label });
 }
 
 describe('Button', () => {
-  test('should render the Button component', () => {
+  it('should render the Button component', () => {
     const label = 'Hello world!';
-    render(<Button label={label} />);
-    expect(screen.queryAllByText(label)).toHaveLength(1);
+    sut({ ...defaultButton, label: label });
+    expect(screen.getByText(label)).toBeInTheDocument();
   });
 
-  test('should execute event when the button is clicked', () => {
-    fireEvent.click(sut({  ...defaultButton }));
+  it('should execute event when the button is clicked', () => {
+    userEvent.click(sut({ ...defaultButton }));
     expect(clickEvent).toBeCalledTimes(1);
   });
 
-  test('should be disabled', () => {
+  it('should be disabled', () => {
     expect(sut({ ...defaultButton, disabled: true })).toHaveAttribute(
       'disabled'
     );
   });
 });
 
-describe('Button Props', () => {
+describe('Button Types', () => {
   const buttonTypes: Array<ButtonProps['type']> = [
     'primary',
     'secondary',
@@ -45,19 +44,17 @@ describe('Button Props', () => {
     'dashed',
   ];
 
-  test.each(buttonTypes)(
-    'should render button with %s style type',
-    (type) => {
-      const {className} = sut({ ...defaultButton, type: type }); 
-      expect(className).toContain(`type-${type}`);
-    }
-  );
+  it.each(buttonTypes)('should render button with %s style type', (type) => {
+    const { className } = sut({ ...defaultButton, type: type });
+    expect(className).toContain(`type-${type}`);
+  });
 
-  test.each(buttonTypes)(
-    'should render %s danger button',
-    (type) => {
-      const {className} = sut({ ...defaultButton, type: type, isDanger: true }); 
-      expect(className).toContain(`danger-${type}`);
-    }
-  );
-})
+  it.each(buttonTypes)('should render %s danger button', (type) => {
+    const { className } = sut({ ...defaultButton, type: type, isDanger: true });
+    expect(className).toContain(`danger-${type}`);
+  });
+});
+
+afterEach(() => {
+  clickEvent.mockClear();
+});
