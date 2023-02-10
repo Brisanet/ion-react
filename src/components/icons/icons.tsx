@@ -1,3 +1,5 @@
+import React from 'react';
+
 import DOMPurify from 'dompurify';
 import { iconsPaths, iconType } from './svgs/icons';
 
@@ -20,14 +22,11 @@ function pathPurify(iconType: iconType): string {
 }
 
 const defaultSize = 24;
+const defaultColor = '#282B33';
 
-const Icon = styled('svg', {
-  height: `${(size: number) => `${size || defaultSize}px`}`,
-  width: `${(size: number) => `${size || defaultSize}px`}`,
-  fill: `${(color: string) => color || '#282B33'}`,
-});
+const Icon = styled('svg', {});
 
-const IonIcon = ({ type, color, size }: IonIconProps) => {
+const IonIcon = ({ type, color, size = defaultSize }: IonIconProps) => {
   const iconPath = pathPurify(type);
   return (
     <Icon
@@ -35,7 +34,7 @@ const IonIcon = ({ type, color, size }: IonIconProps) => {
       viewBox="0 0 24 24"
       height={size}
       width={size}
-      fill={color}
+      fill={color || defaultColor}
       dangerouslySetInnerHTML={{
         __html: iconPath,
       }}
