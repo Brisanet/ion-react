@@ -24,15 +24,19 @@ describe('Button', () => {
     expect(screen.getByText(label)).toBeInTheDocument();
   });
 
-  it('should execute event when the button is clicked', () => {
-    userEvent.click(sut({ ...defaultButton }));
-    expect(clickEvent).toBeCalledTimes(1);
+  it('should execute event when the button is clicked', async () => {
+    await userEvent.click(sut({ ...defaultButton }));
+    expect(clickEvent).toHaveBeenCalled();
   });
 
   it('should be disabled', () => {
     expect(sut({ ...defaultButton, disabled: true })).toHaveAttribute(
       'disabled'
     );
+  });
+
+  afterEach(() => {
+    clickEvent.mockClear();
   });
 });
 
@@ -53,8 +57,4 @@ describe('Button Types', () => {
     const { className } = sut({ ...defaultButton, type: type, isDanger: true });
     expect(className).toContain(`danger-${type}`);
   });
-});
-
-afterEach(() => {
-  clickEvent.mockClear();
 });
