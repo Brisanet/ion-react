@@ -21,20 +21,20 @@ describe('IonChip', () => {
       sut();
     });
 
-    test('should render chip', () => {
+    it('should render chip', () => {
       expect(screen.queryAllByTestId(chipId)).toHaveLength(1);
     });
 
-    test('should render chip with correct value', () => {
+    it('should render chip with correct value', () => {
       expect(screen.queryAllByText(defaultChip.label)).toHaveLength(1);
     });
 
-    test('should render chip with correct value', async () => {
+    it('should render chip with correct value', async () => {
       await userEvent.click(screen.getByTestId(chipId));
       expect(clickEvent).toHaveBeenCalled();
     });
 
-    test('should render chip not disabled by default', () => {
+    it('should render chip not disabled by default', () => {
       expect(screen.getByTestId(chipId)).not.toBeDisabled();
     });
   });
