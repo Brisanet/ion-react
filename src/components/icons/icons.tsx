@@ -22,12 +22,9 @@ function pathPurify(iconType: iconType): string {
 }
 
 const defaultSize = 24;
+const defaultColor = '#282B33';
 
-const Icon = styled('svg', {
-  height: `${(size: number) => `${size}px`}`,
-  width: `${(size: number) => `${size}px`}`,
-  fill: `${(color: string) => color || '#282B33'}`,
-});
+const Icon = styled('svg', {});
 
 const IonIcon = ({ type, color, size = defaultSize }: IonIconProps) => {
   const iconPath = pathPurify(type);
@@ -37,7 +34,7 @@ const IonIcon = ({ type, color, size = defaultSize }: IonIconProps) => {
       viewBox="0 0 24 24"
       height={size}
       width={size}
-      fill={color}
+      fill={color || defaultColor}
       dangerouslySetInnerHTML={{
         __html: iconPath,
       }}
