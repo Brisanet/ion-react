@@ -53,6 +53,36 @@ describe('IonChip', () => {
     });
   });
 
+  describe('With Icon', () => {
+    const iconName = 'pencil';
+
+    beforeEach(() => {
+      sut({ ...defaultChip, icon: iconName });
+    });
+
+    it('should render pencil icon', () => {
+      expect(screen.getByTestId(`ion-icon-${iconName}`)).toBeInTheDocument();
+    });
+
+    it('should render icon sm by default', () => {
+      const smSize = '16';
+      expect(screen.getByTestId(`ion-icon-${iconName}`)).toHaveAttribute(
+        'height',
+        smSize
+      );
+    });
+
+    it('should render icon md when chip is md', () => {
+      const mdSize = '20';
+      const mdIconName = 'alert';
+      sut({ ...defaultChip, size: 'md', icon: mdIconName });
+      expect(screen.getByTestId(`ion-icon-${mdIconName}`)).toHaveAttribute(
+        'height',
+        mdSize
+      );
+    });
+  });
+
   afterEach(() => {
     clickEvent.mockClear();
   });
