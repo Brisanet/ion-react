@@ -52,4 +52,8 @@ describe('IonChip', () => {
       expect(element.className).toContain(`size-${size}`);
     });
   });
+
+  afterEach(() => {
+    clickEvent.mockClear();
+  });
 });
