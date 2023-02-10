@@ -36,7 +36,6 @@ describe('IonTag', () => {
   it('should not render outline in tag', async () => {
     await sut({ ...defaultTag, outline: false });
     const tag = getTag();
-    screen.debug();
     expect(tag.className).not.toContain('outline-false');
   });
 
@@ -65,14 +64,12 @@ describe('IonTag', () => {
   it('should render tag whit color custom', () => {
     sut({ ...defaultTag, color: '#AADD00' });
     const tag = getTag();
-    screen.debug();
     expect(tag.className).not.toContain('status');
   });
 
   it('should render the tag the same as it has a custom color', () => {
     sut({ ...defaultTag, status: 'info', color: '#AADD00' });
     const tag = getTag();
-    screen.debug();
     expect(tag.className).toContain('status-info');
   });
 });
