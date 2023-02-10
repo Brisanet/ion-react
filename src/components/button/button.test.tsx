@@ -9,7 +9,7 @@ import { ButtonProps } from './button';
 const clickEvent = jest.fn();
 const defaultButton: ButtonProps = {
   label: 'Button',
-  onClick: clickEvent,
+  handleClick: clickEvent,
 };
 
 function sut(props: ButtonProps = defaultButton): HTMLElement {
