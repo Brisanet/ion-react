@@ -5,8 +5,14 @@ import '@testing-library/jest-dom';
 import Button from './button';
 import { ButtonProps } from './button';
 
+const clickEvent = jest.fn();
+const defaultButton: ButtonProps = {
+  label: 'Button',
+  onClick: clickEvent,
+};
+
 function sut(
-  props: ButtonProps = { label: 'Button', type: 'primary' }
+  props: ButtonProps = defaultButton
 ): HTMLElement {
   render(<Button {...props} />);
   return screen.getByRole('button', { name: props.label });
@@ -20,34 +26,38 @@ describe('Button', () => {
   });
 
   test('should execute event when the button is clicked', () => {
-    const handleClick = jest.fn();
-    fireEvent.click(sut({ onClick: handleClick, label: 'Button' }));
-    expect(handleClick).toBeCalledTimes(1);
+    fireEvent.click(sut({  ...defaultButton }));
+    expect(clickEvent).toBeCalledTimes(1);
   });
 
   test('should be disabled', () => {
-    expect(sut({ disabled: true, label: 'Button' })).toHaveAttribute(
+    expect(sut({ ...defaultButton, disabled: true })).toHaveAttribute(
       'disabled'
     );
   });
+});
 
-  // test('should be danger class', () => {
-  //   expect(sut({ danger: true, label: 'Button' })).toHaveClass('danger');
-  // });
-
+describe('Button Props', () => {
   const buttonTypes: Array<ButtonProps['type']> = [
     'primary',
     'secondary',
     'ghost',
     'dashed',
   ];
+
   test.each(buttonTypes)(
     'should render button with %s style type',
-    async (type) => {
-      expect(sut({ type, label: 'Button' })).toHaveAttribute(
-        'class',
-        expect.stringContaining(`type-${type}`)
-      );
+    (type) => {
+      const {className} = sut({ ...defaultButton, type: type }); 
+      expect(className).toContain(`type-${type}`);
     }
   );
-});
+
+  test.each(buttonTypes)(
+    'should render %s danger button',
+    (type) => {
+      const {className} = sut({ ...defaultButton, type: type, isDanger: true }); 
+      expect(className).toContain(`danger-${type}`);
+    }
+  );
+})

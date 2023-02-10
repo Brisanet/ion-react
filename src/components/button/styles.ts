@@ -1,37 +1,7 @@
 import stitches from '../../stitches.config';
+import { generateColorStyle } from '../utils/generateColorStyle';
 
 const { styled } = stitches;
-
-// Tipo para objeto de estilos  da função geradora de estilos
-type ColorStyle = {
-  background: string;
-  color: string;
-  border?: string;
-};
-
-/* 
-  Função que gera cores de Background, Border e cor de
-  fonte a fim de reduzir repetições de codigo
-
-  Seguir o padrão de parâmetros: 
-  1- Cor do background;
-  2- Cor da fonte do botão;
-  3- (Opicional) Cor da borda;
-*/
-function generateColorStyle(
-  bgColor: string,
-  fontColor: string,
-  borderColor: string
-) {
-  let styles: ColorStyle = {
-    background: bgColor,
-    color: fontColor,
-  };
-
-  borderColor && (styles.border = `1px solid ${borderColor}`);
-
-  return styles;
-}
 
 // Componente Button
 export const ButtonStyles = styled('button', {
@@ -55,8 +25,8 @@ export const ButtonStyles = styled('button', {
           background: '$primary5',
         },
         '&:active': { background: '$primary7' },
-        '&:disabled': {
-          ...generateColorStyle('$neutral2 ', '$neutral5 ', ''),
+        '&:disabled': { 
+          ...generateColorStyle('$neutral2', '$neutral5', ''),
           cursor: 'not-allowed',
         },
       },
@@ -113,6 +83,10 @@ export const ButtonStyles = styled('button', {
         '&:active': {
           background: '$negative7',
         },
+        '&:disabled': { 
+          ...generateColorStyle('$neutral2', '$neutral5', ''),
+          cursor: 'not-allowed',
+        },
       },
       secondary: {
         color: '$negativeColor',
@@ -122,6 +96,10 @@ export const ButtonStyles = styled('button', {
         '&:active': {
           ...generateColorStyle('$negative2', '$negative7', ''),
         },
+        '&:disabled': {
+          ...generateColorStyle('$neutral2 ', '$neutral5 ', '$neutral5 '),
+          cursor: 'not-allowed',
+        },
       },
       ghost: {
         color: '$negative6',
@@ -130,6 +108,10 @@ export const ButtonStyles = styled('button', {
         },
         '&:active': {
           ...generateColorStyle('$negative2', '$negative7', ''),
+        },
+        '&:disabled': {
+          ...generateColorStyle('transparent', '$neutral5', ''),
+          cursor: 'not-allowed',
         },
       },
       dashed: {
@@ -142,8 +124,14 @@ export const ButtonStyles = styled('button', {
         '&:active': {
           ...generateColorStyle('$negative2', '$negative7', ''),
           borderColor: '$negative6',
+        }, 
+        '&:disabled': {
+          ...generateColorStyle('$neutral3', '$neutral5', ''),
+          borderColor: '$neutral5',
+          cursor: 'not-allowed',
         },
       },
+      none: { },
     },
   },
 });

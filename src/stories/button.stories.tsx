@@ -47,11 +47,12 @@ PrimaryDisabled.args = {
   label: 'Primary',
   type: 'primary',
   disabled: true,
+  isDanger: true,
 };
 
 //Button danger
 PrimaryDanger.args = {
   label: 'Primary',
   type: 'primary',
-  danger: true,
+  isDanger: true,
 };

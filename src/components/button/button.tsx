@@ -8,22 +8,22 @@ export type ButtonProps = {
   type?: string;
   disabled?: boolean;
   onClick?: () => void;
-  danger?: boolean;
+  isDanger?: boolean;
 } & StitchesButtonProps;
 
 const IonButton = ({
   type = 'primary',
   disabled = false,
+  isDanger = false,
   onClick,
   label,
-  danger,
 }: ButtonProps) => {
   return (
     <ButtonStyles
       type={type}
       onClick={onClick}
-      disabled={disabled}
-      danger={danger && type}
+      disabled={disabled} 
+      danger={isDanger ? type : 'none' } 
     >
       {label}
     </ButtonStyles>
