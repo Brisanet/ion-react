@@ -103,11 +103,11 @@ export const ButtonStyles = styled('button', {
       },
       ghost: {
         color: '$negative6',
-        '&:hover': {
-          ...generateColorStyle('$negative1', '$negative5', ''),
-        },
         '&:active': {
           ...generateColorStyle('$negative2', '$negative7', ''),
+        },
+        '&:hover': {
+          ...generateColorStyle('$negative1', '$negative5', ''),
         },
         '&:disabled': {
           ...generateColorStyle('transparent', '$neutral5', ''),
