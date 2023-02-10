@@ -24,7 +24,7 @@ describe('Button', () => {
     expect(screen.getByText(label)).toBeInTheDocument();
   });
 
-  it('should execute event when the button is clicked', async () => {
+  it('should execute user event when the button is clicked', async () => {
     await userEvent.click(sut({ ...defaultButton }));
     expect(clickEvent).toHaveBeenCalled();
   });
