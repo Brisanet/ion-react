@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import IonTag from '../components/tag/tag';
-import { IonTagProps } from '../core/types/tag';
+import IonTag from '../../components/tag/tag';
+import { IonTagProps } from '../../core/types/tag';
 
 export default {
   title: 'Ion/Data Display/Tag',
@@ -19,7 +19,7 @@ tagDefault.args = {
 };
 
 export const TagWithoutOutline = Template.bind({});
-TagWithoutOutline.storyName = 'tag: outline';
+TagWithoutOutline.storyName = 'type: without outline';
 TagWithoutOutline.args = {
   label: 'Exemple Message',
   outline: false,
