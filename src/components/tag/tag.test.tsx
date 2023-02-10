@@ -11,17 +11,19 @@ const sut = (props = defaultTag) => render(<IonTag {...props} />);
 const tagId = 'ion-tag';
 const getTag = () => screen.getByTestId(tagId);
 
+const customColor = '#AADD00';
+
 describe('IonTag', () => {
-  it('should render default tag ', async () => {
-    await sut();
-    const tag = await getTag();
+  it('should render default tag ', () => {
+    sut();
+    const tag = getTag();
     expect(tag).toBeTruthy();
   });
 
   it('should render tag with label "example tag"', () => {
-    const label = 'example tag';
-    sut({ label: label });
-    expect(screen.findByText(label)).toBeTruthy();
+    const customLabel = 'example tag';
+    sut({ label: customLabel });
+    expect(screen.findByText(customLabel)).toBeTruthy();
   });
 
   it.each(['success', 'info', 'warning', 'negative', 'neutral'])(
@@ -62,14 +64,15 @@ describe('IonTag', () => {
   });
 
   it('should render tag whit color custom', () => {
-    sut({ ...defaultTag, color: '#AADD00' });
+    sut({ ...defaultTag, color: customColor });
     const tag = getTag();
     expect(tag.className).not.toContain('status');
   });
 
   it('should render the tag the same as it has a custom color', () => {
-    sut({ ...defaultTag, status: 'info', color: '#AADD00' });
+    const statusInfo = 'status-info';
+    sut({ ...defaultTag, status: 'info', color: customColor });
     const tag = getTag();
-    expect(tag.className).toContain('status-info');
+    expect(tag.className).toContain(statusInfo);
   });
 });
