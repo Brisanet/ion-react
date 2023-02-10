@@ -2,6 +2,14 @@ import stitches from '../../stitches.config';
 
 const { styled } = stitches;
 
+const setColors = (bgColor: string, color: string) => ({
+  backgroundColor: bgColor,
+  color: color,
+  svg: {
+    fill: color,
+  },
+});
+
 export const TagStyle = styled('div', {
   display: 'flex',
   flexDirection: 'row',
@@ -27,44 +35,19 @@ export const TagStyle = styled('div', {
   variants: {
     status: {
       success: {
-        backgroundColor: '$positive1',
-        color: '$positive7',
-
-        svg: {
-          fill: '$positive7',
-        },
+        ...setColors('$positive1', '$positive7'),
       },
       info: {
-        backgroundColor: '$info1',
-        color: '$info7',
-
-        svg: {
-          fill: '$info7',
-        },
+        ...setColors('$info1', '$info7'),
       },
       warning: {
-        backgroundColor: '$warning1',
-        color: '$warning7',
-
-        svg: {
-          fill: '$warning7',
-        },
+        ...setColors('$warning1', '$warning7'),
       },
       negative: {
-        backgroundColor: '$negative1',
-        color: '$negative7',
-
-        svg: {
-          fill: '$negative7',
-        },
+        ...setColors('$negative1', '$negative7'),
       },
       neutral: {
-        backgroundColor: '$neutral2',
-        color: '$neutral7',
-
-        svg: {
-          fill: '$neutral7',
-        },
+        ...setColors('$neutral2', '$neutral7'),
       },
     },
     outline: {
