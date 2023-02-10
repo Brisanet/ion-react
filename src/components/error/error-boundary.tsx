@@ -6,10 +6,13 @@ import { ErrorBoundaryStyled } from './styled';
 export interface ErrorBoundaryProps {
   msg: string;
 }
+const sizeIcon = 16;
+const iconType = 'info';
+
 const ErrorBoundary = ({ msg }: ErrorBoundaryProps) => {
   return (
     <ErrorBoundaryStyled data-testid="ion-error-boundary">
-      <IonIcon type="info" size={16}></IonIcon>
+      <IonIcon type={iconType} size={sizeIcon}></IonIcon>
       <div>
         <label>Error:</label>
         {msg}
