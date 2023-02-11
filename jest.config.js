@@ -3,4 +3,6 @@ module.exports = {
   moduleNameMapper: {
     '.(css|less|scss)$': 'identity-obj-proxy',
   },
+  collectCoverage: true,
+  coverageReporters: ["json", "html", "lcov", "text"],
 };

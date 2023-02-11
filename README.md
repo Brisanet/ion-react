@@ -5,6 +5,7 @@
 <a href="https://codeclimate.com/github/iurynogueira/ion-react/maintainability"><img src="https://api.codeclimate.com/v1/badges/48ab263c3be483f0a6d2/maintainability" /></a>
 <a href="https://codeclimate.com/github/iurynogueira/ion-react/test_coverage"><img src="https://api.codeclimate.com/v1/badges/48ab263c3be483f0a6d2/test_coverage" /></a>
 [![Production](https://github.com/iurynogueira/ion-react/actions/workflows/prod.yml/badge.svg?branch=main)](https://github.com/iurynogueira/ion-react/actions/workflows/prod.yml)
+[![npm version](https://badge.fury.io/js/@brisanet%2Fion-react.svg)](https://www.npmjs.com/package/@brisanet/ion-react)
 
 ## Installation
 
