@@ -1,7 +1,6 @@
-import React from 'react';
-
 import DOMPurify from 'dompurify';
 import { iconsPaths, iconType } from './svgs/icons';
+import React from 'react';
 
 export type SvgModule = typeof import('./svgs/icons');
 export type IconPaths = keyof typeof iconsPaths;
