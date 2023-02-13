@@ -4,9 +4,11 @@ import IonIcon from '../icons/icons';
 import { iconType } from '../icons/svgs/icons';
 import React from 'react';
 
+type ChipSizes = Extract<SizeType, 'sm' | 'md'>;
+
 export interface ChipProps {
   label: string;
-  size?: SizeType;
+  size?: ChipSizes;
   disabled?: boolean;
   selected?: boolean;
   icon?: iconType;
