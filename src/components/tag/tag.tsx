@@ -13,7 +13,7 @@ const defaultColor = '#505566';
 const lighteningFactor = '1A';
 
 const validateLabel = (label: string) =>
-  label || !(String(label).trim() === '');
+  label && !(String(label).trim() === '');
 
 const newColor = (color: string) => ({
   backgroundColor: color + lighteningFactor,
