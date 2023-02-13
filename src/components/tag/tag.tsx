@@ -1,12 +1,20 @@
 import React from 'react';
 
-import { IonTagProps } from '../../core/types/tag';
 import { TagStyle } from './styles';
 import IonIcon from '../icons/icons';
 
 import { validateHexColor } from '../utils/validateHexColor';
 import ErrorBoundary from '../error/error-boundary';
 import { TagStatus } from '../../core/types/status';
+import { iconType } from '../icons/svgs/icons';
+
+export interface IonTagProps {
+  outline?: boolean;
+  status?: TagStatus;
+  color?: string;
+  label: string;
+  icon?: iconType;
+}
 
 const iconSize = 12;
 const defaultColor = '#505566';
@@ -42,7 +50,7 @@ const IonTag = ({
   outline = true,
 }: IonTagProps) => {
   if (!isValidLabel(label)) {
-    return <ErrorBoundary msg="Label can't be empty" />;
+    return <ErrorBoundary msg="Label cannot be empty" />;
   }
 
   return (

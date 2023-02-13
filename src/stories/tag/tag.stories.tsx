@@ -1,7 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import IonTag from '../../components/tag/tag';
-import { IonTagProps } from '../../core/types/tag';
+import IonTag, { IonTagProps } from '../../components/tag/tag';
 
 export default {
   title: 'Ion/Data Display/Tag',
@@ -60,9 +59,9 @@ TagWithStatusNeutral.args = {
   status: 'neutral',
 };
 
-export const TagCustom = Template.bind({});
-TagCustom.storyName = 'type: custom';
-TagCustom.args = {
+export const TagCustomColor = Template.bind({});
+TagCustomColor.storyName = 'type: custom';
+TagCustomColor.args = {
   label: 'Exemple Message',
   color: '#7f0dff',
 };
