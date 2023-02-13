@@ -12,7 +12,8 @@ const iconSize = 12;
 const defaultColor = '#505566';
 const lighteningFactor = '1A';
 
-const validateLabel = (label: string) => !label || String(label).trim() === '';
+const validateLabel = (label: string) =>
+  label || !(String(label).trim() === '');
 
 const newColor = (color: string) => ({
   backgroundColor: color + lighteningFactor,
@@ -41,9 +42,9 @@ const IonTag = ({
   status,
   outline = true,
 }: IonTagProps) => {
-  const invalidLabel = validateLabel(label);
+  const isValidLabel = validateLabel(label);
 
-  if (invalidLabel) {
+  if (!isValidLabel) {
     return <ErrorBoundary msg="Label can't be empty" />;
   }
 
