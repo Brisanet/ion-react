@@ -71,7 +71,7 @@ export const ButtonStyles = styled('button', {
       dashed: {
         ...getBgFontBorderColors(
           'transparent',
-          '$primaryColor',
+          '$primary7',
           '1px dashed $neutral4'
         ),
 
