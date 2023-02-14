@@ -62,8 +62,11 @@ describe('Button Types', () => {
 describe('Button Sizes', () => {
   const buttonTypes: Array<ButtonProps['size']> = ['sm', 'md', 'lg', 'xl'];
 
-  it.each(buttonTypes)('should render button with %s style type', (size) => {
-    const { className } = sut({ ...defaultButton, size: size });
-    expect(className).toContain(`size-${size}`);
-  });
+  it.each(buttonTypes)(
+    'should render button with %s size variation',
+    (size) => {
+      const { className } = sut({ ...defaultButton, size: size });
+      expect(className).toContain(`size-${size}`);
+    }
+  );
 });
