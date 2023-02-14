@@ -1,12 +1,33 @@
-import React, { InputHTMLAttributes } from 'react';
-import { StitcheButton } from './styles';
+import React from 'react';
+import { ButtonStyles } from './styles';
 
-export interface ButtonProps extends InputHTMLAttributes<HTMLButtonElement> {
+type StitchesButtonProps = React.ComponentProps<typeof ButtonStyles>;
+
+export type ButtonProps = {
   label: string;
-}
+  type?: string;
+  disabled?: boolean;
+  handleClick?: () => void;
+  isDanger?: boolean;
+} & StitchesButtonProps;
 
-const Button = ({ label }: ButtonProps) => {
-  return <StitcheButton>{label}</StitcheButton>;
+const IonButton = ({
+  type = 'primary',
+  disabled = false,
+  isDanger = false,
+  handleClick,
+  label,
+}: ButtonProps) => {
+  return (
+    <ButtonStyles
+      type={type}
+      onClick={handleClick}
+      disabled={disabled}
+      danger={isDanger ? type : 'none'}
+    >
+      {label}
+    </ButtonStyles>
+  );
 };
 
-export default Button;
+export default IonButton;

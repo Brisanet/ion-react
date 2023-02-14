@@ -112,9 +112,14 @@ const stitches = createStitches({
 });
 
 const injectGlobalStyles = stitches.globalCss({
-  '*': { boxSizing: 'borderbox', fontFamily: 'Source Sans Pro Regular' },
-  '*:after': { boxSizing: 'borderbox', fontFamily: 'sansserif' },
-  '*:before': { boxSizing: 'borderbox', fontFamily: 'sansserif' },
+  '*': {
+    boxSizing: 'borderbox',
+    fontFamily: 'Source Sans Pro Regular',
+    border: 'none',
+    transition: 'all 0.3s',
+  },
+  '*:after': { boxSizing: 'borderbox', fontFamily: 'Source Sans Pro Regular' },
+  '*:before': { boxSizing: 'borderbox', fontFamily: 'Source Sans Pro Regular' },
   '@font-face': [
     {
       fontFamily: 'Source Sans Pro Regular',
