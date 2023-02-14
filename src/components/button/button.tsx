@@ -4,7 +4,7 @@ import { ButtonStyles } from './styles';
 
 type StitchesButtonProps = React.ComponentProps<typeof ButtonStyles>;
 
-type ButtonSizes = SizeType | 'xl';
+type ButtonSizes = Exclude<SizeType, 'xs'> | 'xl';
 
 export type ButtonProps = {
   label: string;
