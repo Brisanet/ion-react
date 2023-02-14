@@ -1,6 +1,6 @@
 import stitches from '../../stitches.config';
 import { getBgFontBorderColors } from '../utils/getBgFontBorderColors';
-import { getButtonSize } from '../utils/getButtonParameters';
+import { getButtonSize } from '../utils/getButtonSize';
 
 const { styled } = stitches;
 
