@@ -14,7 +14,7 @@ type ColorStyle = {
  * @param backgroundColor - Background color
  * @param fontColor - The font color
  * @param borderColor - Border color
- * @returns An Javascript object containing style properties.
+ * @returns A Javascript object containing style properties.
  */
 export function getFillBgFontBorderColors(
   svgFillColor: string,
