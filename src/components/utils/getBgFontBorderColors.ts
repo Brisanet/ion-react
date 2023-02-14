@@ -1,21 +1,29 @@
+interface ParamStyles {
+  background: string;
+  color: string;
+  border?: string;
+}
+
 /**
  * Function to prevent repetition of style blocks.
  *
  * @param background - Background color
  * @param color - The font color
- * @param border - Border color
+ * @param border - Border attribute - example: ´1px solid blue´
  * @returns An Javascript object containing color properties.
  */
 export function getBgFontBorderColors(
   background: string,
-  font: string,
-  border: string
-) {
-  let styles = {
-    background: background,
-    color: font,
-    border: border,
-  };
+  color: string,
+  border: string = ''
+): ParamStyles {
+  function borderSentence(border: string): string {
+    return border && border.includes('px') ? border : 'none';
+  }
 
-  return styles;
+  return {
+    background,
+    color,
+    border: borderSentence(border),
+  };
 }

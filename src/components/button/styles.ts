@@ -29,16 +29,28 @@ export const ButtonStyles = styled('button', {
         },
       },
       secondary: {
-        ...getBgFontBorderColors('$neutral1', '$primaryColor', '$neutral4'),
+        ...getBgFontBorderColors(
+          '$neutral1',
+          '$primaryColor',
+          '1px solid $neutral4'
+        ),
 
-        '&:hover': getBgFontBorderColors('$primary1', '$primary5', '$primary4'),
+        '&:hover': getBgFontBorderColors(
+          '$primary1',
+          '$primary5',
+          '1px solid $primary4'
+        ),
         '&:active': getBgFontBorderColors(
           '$primary2',
           '$primary5',
-          '$primary7'
+          '1px solid $primary7'
         ),
         '&:disabled': {
-          ...getBgFontBorderColors('$neutral2 ', '$neutral5 ', '$neutral5 '),
+          ...getBgFontBorderColors(
+            '$neutral2 ',
+            '$neutral5 ',
+            '1px solid $neutral5 '
+          ),
           cursor: 'not-allowed',
         },
       },
@@ -57,20 +69,32 @@ export const ButtonStyles = styled('button', {
         },
       },
       dashed: {
-        ...getBgFontBorderColors('transparent', '$primaryColor', ''),
-        border: '1px dashed $neutral4',
+        ...getBgFontBorderColors(
+          'transparent',
+          '$primaryColor',
+          '1px dashed $neutral4'
+        ),
 
         '&:hover': {
-          ...getBgFontBorderColors('$primary1', '$primary5', ''),
-          borderColor: '$primary4',
+          ...getBgFontBorderColors(
+            '$primary1',
+            '$primary5',
+            '1px dashed $primary4'
+          ),
         },
         '&:active': {
-          ...getBgFontBorderColors('$primary2', '$primary7', ''),
-          borderColor: '$primary5',
+          ...getBgFontBorderColors(
+            '$primary2',
+            '$primary7',
+            '1px dashed $primary5'
+          ),
         },
         '&:disabled': {
-          ...getBgFontBorderColors('$neutral3', '$neutral5', ''),
-          borderColor: '$neutral5',
+          ...getBgFontBorderColors(
+            '$neutral3',
+            '$neutral5',
+            '1px dashed $neutral5'
+          ),
           cursor: 'not-allowed',
         },
       },
@@ -93,13 +117,25 @@ export const ButtonStyles = styled('button', {
       secondary: {
         color: '$negativeColor',
         '&:hover': {
-          ...getBgFontBorderColors('$negative1', '$negative5', '$negative3'),
+          ...getBgFontBorderColors(
+            '$negative1',
+            '$negative5',
+            '1px solid $negative3'
+          ),
         },
         '&:active': {
-          ...getBgFontBorderColors('$negative2', '$negative7', ''),
+          ...getBgFontBorderColors(
+            '$negative2',
+            '$negative7',
+            '1px solid $negative7'
+          ),
         },
         '&:disabled': {
-          ...getBgFontBorderColors('$neutral2 ', '$neutral5 ', '$neutral5 '),
+          ...getBgFontBorderColors(
+            '$neutral2 ',
+            '$neutral5 ',
+            '1px solid $neutral5'
+          ),
           cursor: 'not-allowed',
         },
       },
@@ -120,16 +156,25 @@ export const ButtonStyles = styled('button', {
         border: '1px dashed $neutral4',
         color: '$negative6',
         '&:hover': {
-          ...getBgFontBorderColors('$negative1', '$negative5', ''),
-          borderColor: '$negative3',
+          ...getBgFontBorderColors(
+            '$negative1',
+            '$negative5',
+            '1px dashed $negative3'
+          ),
         },
         '&:active': {
-          ...getBgFontBorderColors('$negative2', '$negative7', ''),
-          borderColor: '$negative6',
+          ...getBgFontBorderColors(
+            '$negative2',
+            '$negative7',
+            '1px dashed $negative6'
+          ),
         },
         '&:disabled': {
-          ...getBgFontBorderColors('$neutral3', '$neutral5', ''),
-          borderColor: '$neutral5',
+          ...getBgFontBorderColors(
+            '$neutral3',
+            '$neutral5',
+            '1px dashed $neutral5'
+          ),
           cursor: 'not-allowed',
         },
       },

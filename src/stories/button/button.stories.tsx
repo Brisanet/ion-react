@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import IonButton, { ButtonProps } from '../../components/button/button';
 
 export default {
-  title: 'Buttons/Button',
+  title: 'Ion/Navigation/Buttons',
   component: IonButton,
 } as ComponentMeta<typeof IonButton>;
 
