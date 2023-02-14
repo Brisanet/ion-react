@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { StatusType } from '../../core/types/status';
+import ErrorBoundary from '../error/error-boundary';
 
 import IonIcon from '../icons/icons';
+import isValidLabel from '../utils/isValidLabel';
 import { AlertStyled } from './styled';
-
-type AlertType = 'success' | 'warning' | 'info' | 'negative';
 
 export interface AlertProps {
   message: string;
   type?: StatusType;
   closable?: boolean;
-  hideBackground: boolean;
+  hideBackground?: boolean;
 }
 
 type iconType =
@@ -21,7 +21,7 @@ type iconType =
 
 const sizeIcon = 24;
 
-const getIcon = (alertType: AlertType): iconType => {
+const getIcon = (alertType: StatusType): iconType => {
   if (alertType === 'info') {
     return 'info-solid';
   }
@@ -46,13 +46,17 @@ const IonAlert = ({
   const [showAlert, setShowAlert] = useState(true);
   const icon = getIcon(type);
 
+  if (!isValidLabel(message)) {
+    return <ErrorBoundary msg="Message cannot be empty" />;
+  }
+
   if (!showAlert) {
     return <></>;
   }
 
   return (
     <AlertStyled
-      data-testid={`ion-alert-${type}`}
+      data-testid="ion-alert"
       type={type}
       hideBackground={hideBackground}
     >

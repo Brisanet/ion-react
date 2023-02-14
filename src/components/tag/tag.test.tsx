@@ -22,8 +22,8 @@ describe('IonTag', () => {
 
   it('should render tag with label "example tag"', async () => {
     const customLabel = 'example tag';
-    await sut({ label: customLabel });
-    expect(screen.findByText(customLabel)).toBeTruthy();
+    sut({ label: customLabel });
+    expect(await screen.findByText(customLabel)).toBeTruthy();
   });
 
   it.each([
