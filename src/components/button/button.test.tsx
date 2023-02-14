@@ -60,9 +60,9 @@ describe('Button Types', () => {
 });
 
 describe('Button Sizes', () => {
-  const buttonTypes: Array<ButtonProps['size']> = ['sm', 'md', 'lg', 'xl'];
+  const buttonSizes: Array<ButtonProps['size']> = ['sm', 'md', 'lg', 'xl'];
 
-  it.each(buttonTypes)(
+  it.each(buttonSizes)(
     'should render button with %s size variation',
     (size) => {
       const { className } = sut({ ...defaultButton, size: size });
