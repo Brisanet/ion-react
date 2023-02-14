@@ -19,23 +19,16 @@ type iconType =
   | 'info-solid'
   | 'close-solid';
 
+const icons = {
+  info: 'info-solid',
+  warning: 'exclamation-solid',
+  negative: 'close-solid',
+  success: 'check-solid',
+};
+
 const sizeIcon = 24;
 
-const getIcon = (alertType: StatusType): iconType => {
-  if (alertType === 'info') {
-    return 'info-solid';
-  }
-
-  if (alertType === 'warning') {
-    return 'exclamation-solid';
-  }
-
-  if (alertType === 'negative') {
-    return 'close-solid';
-  }
-
-  return 'check-solid';
-};
+const getIcon = (alertType: StatusType) => icons[alertType] as iconType;
 
 const IonAlert = ({
   message,
