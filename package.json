@@ -104,7 +104,7 @@
     }
   },
   "dependencies": {
-    "@stitches/react": "^1.2.8",
+    "@stitches/react": "^1.2.8", 
     "dompurify": "^2.4.3"
   }
 }
