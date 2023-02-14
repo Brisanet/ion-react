@@ -20,7 +20,7 @@ export function getBgFontBorderColors(
   let styles: ColorStyle = {
     background: background,
     color: font,
-    [border]: border,
+    border: border,
   };
 
   return styles;
