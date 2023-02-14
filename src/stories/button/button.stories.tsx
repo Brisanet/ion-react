@@ -48,3 +48,10 @@ PrimaryDanger.args = {
   type: 'primary',
   isDanger: true,
 };
+
+export const PrimarySmall = Template.bind({});
+PrimarySmall.args = {
+  label: 'Primary',
+  type: 'primary',
+  size: 'sm',
+};

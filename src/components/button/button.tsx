@@ -1,7 +1,10 @@
 import React from 'react';
+import { SizeType } from '../../core/types/size';
 import { ButtonStyles } from './styles';
 
 type StitchesButtonProps = React.ComponentProps<typeof ButtonStyles>;
+
+type ButtonSizes = SizeType | 'xl';
 
 export type ButtonProps = {
   label: string;
@@ -9,14 +12,16 @@ export type ButtonProps = {
   disabled?: boolean;
   handleClick?: () => void;
   isDanger?: boolean;
+  size?: ButtonSizes;
 } & StitchesButtonProps;
 
 const IonButton = ({
   type = 'primary',
   disabled = false,
   isDanger = false,
-  handleClick,
+  size = 'md',
   label,
+  handleClick,
 }: ButtonProps) => {
   return (
     <ButtonStyles
@@ -24,6 +29,7 @@ const IonButton = ({
       onClick={handleClick}
       disabled={disabled}
       danger={isDanger ? type : 'none'}
+      size={size}
     >
       {label}
     </ButtonStyles>

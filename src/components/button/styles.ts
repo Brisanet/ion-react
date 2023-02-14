@@ -1,5 +1,6 @@
 import stitches from '../../stitches.config';
 import { getBgFontBorderColors } from '../utils/getBgFontBorderColors';
+import { getButtonSize } from '../utils/getButtonParameters';
 
 const { styled } = stitches;
 
@@ -8,12 +9,9 @@ export const ButtonStyles = styled('button', {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  padding: '6px 16px',
   borderRadius: '8px',
   fontWeight: '600',
   cursor: 'pointer',
-  minWidth: '32px',
-  height: '32px',
   gap: '8px',
 
   variants: {
@@ -136,6 +134,21 @@ export const ButtonStyles = styled('button', {
         },
       },
       none: {},
+    },
+
+    size: {
+      sm: {
+        ...getButtonSize('24px', '4px 12px', '12px'),
+      },
+      md: {
+        ...getButtonSize('32px', '6px 16px', '14px'),
+      },
+      lg: {
+        ...getButtonSize('40px', '8px 20px', '16px'),
+      },
+      xl: {
+        ...getButtonSize('48px', '12px 24px', '16px'),
+      },
     },
   },
 });
