@@ -65,8 +65,9 @@ describe('Button Sizes', () => {
   it.each(buttonSizes)(
     'should render button with %s size variation',
     (size) => {
-      const { className } = sut({ ...defaultButton, size: size });
-      expect(className).toContain(`size-${size}`);
+      expect(sut({ ...defaultButton, size: size }).className).toContain(
+        `size-${size}`
+      );
     }
   );
 });
