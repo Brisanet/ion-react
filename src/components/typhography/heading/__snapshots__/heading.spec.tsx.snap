@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<IonHeading /> snapshot tests should render heading h1 1`] = `
+exports[`<IonHeading /> snapshot tests should render snapshot headings 1`] = `
 <h1
   class="c-fXXVzC c-fXXVzC-ipNeOn-color-primary c-fXXVzC-dAfpSa-size-normal c-fXXVzC-cdWBIM-weight-medium"
   data-testid="ion-heading-h1"
@@ -9,7 +9,7 @@ exports[`<IonHeading /> snapshot tests should render heading h1 1`] = `
 </h1>
 `;
 
-exports[`<IonHeading /> snapshot tests should render heading h2 1`] = `
+exports[`<IonHeading /> snapshot tests should render snapshot headings 2`] = `
 <h2
   class="c-fXXVzC c-fXXVzC-ipNeOn-color-primary c-fXXVzC-fJNGCD-size-normal c-fXXVzC-cdWBIM-weight-medium"
   data-testid="ion-heading-h2"
@@ -18,7 +18,7 @@ exports[`<IonHeading /> snapshot tests should render heading h2 1`] = `
 </h2>
 `;
 
-exports[`<IonHeading /> snapshot tests should render heading h3 1`] = `
+exports[`<IonHeading /> snapshot tests should render snapshot headings 3`] = `
 <h3
   class="c-fXXVzC c-fXXVzC-ipNeOn-color-primary c-fXXVzC-fhGAOp-size-normal c-fXXVzC-cdWBIM-weight-medium"
   data-testid="ion-heading-h3"
@@ -27,7 +27,7 @@ exports[`<IonHeading /> snapshot tests should render heading h3 1`] = `
 </h3>
 `;
 
-exports[`<IonHeading /> snapshot tests should render heading h4 1`] = `
+exports[`<IonHeading /> snapshot tests should render snapshot headings 4`] = `
 <h4
   class="c-fXXVzC c-fXXVzC-ipNeOn-color-primary c-fXXVzC-cQlbiW-size-normal c-fXXVzC-cdWBIM-weight-medium"
   data-testid="ion-heading-h4"

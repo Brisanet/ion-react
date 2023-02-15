@@ -25,10 +25,11 @@ export const IonHeading: React.FC<IonHeadingProps> = ({
   colorScheme = 'primary',
   weight = 'medium',
 }: IonHeadingProps) => {
+  const testid = `ion-heading-${type}`;
   const headings = {
     h1: (
       <S.H1
-        data-testid={'ion-heading-' + type}
+        data-testid={testid}
         color={colorScheme}
         size={size}
         weight={weight}
@@ -38,7 +39,7 @@ export const IonHeading: React.FC<IonHeadingProps> = ({
     ),
     h2: (
       <S.H2
-        data-testid={'ion-heading-' + type}
+        data-testid={testid}
         color={colorScheme}
         size={size}
         weight={weight}
@@ -48,7 +49,7 @@ export const IonHeading: React.FC<IonHeadingProps> = ({
     ),
     h3: (
       <S.H3
-        data-testid={'ion-heading-' + type}
+        data-testid={testid}
         color={colorScheme}
         size={size}
         weight={weight}
@@ -58,7 +59,7 @@ export const IonHeading: React.FC<IonHeadingProps> = ({
     ),
     h4: (
       <S.H4
-        data-testid={'ion-heading-' + type}
+        data-testid={testid}
         color={colorScheme}
         size={size}
         weight={weight}

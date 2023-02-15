@@ -46,24 +46,15 @@ describe('<IonHeading />', () => {
   });
 
   describe('snapshot tests', () => {
-    it('should render heading h1', () => {
-      const { container } = sut({ ...defaultProps, type: 'h1' });
-      expect(container.firstChild).toMatchSnapshot();
-    });
-
-    it('should render heading h2', () => {
-      const { container } = sut({ ...defaultProps, type: 'h2' });
-      expect(container.firstChild).toMatchSnapshot();
-    });
-
-    it('should render heading h3', () => {
-      const { container } = sut({ ...defaultProps, type: 'h3' });
-      expect(container.firstChild).toMatchSnapshot();
-    });
-
-    it('should render heading h4', () => {
-      const { container } = sut({ ...defaultProps, type: 'h4' });
-      expect(container.firstChild).toMatchSnapshot();
+    it('should render snapshot headings', () => {
+      sut({ ...defaultProps, type: 'h1' });
+      expect(screen.getByTestId('ion-heading-h1')).toMatchSnapshot();
+      sut({ ...defaultProps, type: 'h2' });
+      expect(screen.getByTestId('ion-heading-h2')).toMatchSnapshot();
+      sut({ ...defaultProps, type: 'h3' });
+      expect(screen.getByTestId('ion-heading-h3')).toMatchSnapshot();
+      sut({ ...defaultProps, type: 'h4' });
+      expect(screen.getByTestId('ion-heading-h4')).toMatchSnapshot();
     });
   });
 });
