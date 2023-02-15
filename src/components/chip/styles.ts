@@ -24,44 +24,44 @@ export const ChipStyle = styled('button', {
   },
 
   '&:hover': {
-    ...getFillBgFontBorderColors(
-      '$primary5',
-      '$secondaryColor',
-      '$primary5',
-      '$primary3'
-    ),
+    ...getFillBgFontBorderColors({
+      svgFillColor: '$primary5',
+      backgroundColor: '$secondaryColor',
+      fontColor: '$primary5',
+      borderColor: '$primary3',
+    }),
   },
 
   '&:active': {
     outline: 'none',
-    ...getFillBgFontBorderColors(
-      '$primary7',
-      '$primary2',
-      '$primary7',
-      '$primary5'
-    ),
+    ...getFillBgFontBorderColors({
+      svgFillColor: '$primary7',
+      backgroundColor: '$primary2',
+      fontColor: '$primary7',
+      borderColor: '$primary5',
+    }),
   },
 
   '&:focus-visible': {
     outline: '2px solid $primary6',
     outlineOffset: '2px',
-    ...getFillBgFontBorderColors(
-      '$primary5',
-      '$secondaryColor',
-      '$primary5',
-      '$primary3'
-    ),
+    ...getFillBgFontBorderColors({
+      svgFillColor: '$primary5',
+      backgroundColor: '$secondaryColor',
+      fontColor: '$primary5',
+      borderColor: '$primary3',
+    }),
   },
 
   '&:disabled': {
     outline: 'none',
     cursor: 'not-allowed',
-    ...getFillBgFontBorderColors(
-      '$neutral5',
-      '$neutral3',
-      '$neutral5',
-      '$neutral5'
-    ),
+    ...getFillBgFontBorderColors({
+      svgFillColor: '$neutral5',
+      backgroundColor: '$neutral3',
+      fontColor: '$neutral5',
+      borderColor: '$neutral5',
+    }),
   },
 
   defaultVariants: {

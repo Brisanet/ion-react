@@ -1,4 +1,4 @@
-type ColorStyle = {
+type ColorStyleResponse = {
   border: string;
   backgroundColor: string;
   color: string;
@@ -6,6 +6,13 @@ type ColorStyle = {
     fill: string;
   };
 };
+
+interface StyleProps {
+  svgFillColor: string;
+  backgroundColor: string;
+  fontColor: string;
+  borderColor: string;
+}
 
 /**
  * Function to prevent repetition of style blocks.
@@ -16,14 +23,14 @@ type ColorStyle = {
  * @param borderColor - Border color
  * @returns A Javascript object containing style properties.
  */
-export function getFillBgFontBorderColors(
-  svgFillColor: string,
-  backgroundColor: string,
-  fontColor: string,
-  borderColor: string
-) {
-  let styles: ColorStyle = {
-    backgroundColor,
+export function getFillBgFontBorderColors({
+  backgroundColor,
+  fontColor,
+  borderColor,
+  svgFillColor,
+}: StyleProps) {
+  let styles: ColorStyleResponse = {
+    backgroundColor: backgroundColor,
     color: fontColor,
     border: `1px solid ${borderColor}`,
     svg: {
