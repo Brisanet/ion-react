@@ -1,7 +1,7 @@
-interface ParamStyles {
+interface ReturnObjStyles {
   background: string;
   color: string;
-  border?: string;
+  border: string;
 }
 
 /**
@@ -9,21 +9,17 @@ interface ParamStyles {
  *
  * @param background - Background color
  * @param color - The font color
- * @param border - Border attribute - example: ´1px solid blue´
+ * @param borderStyles - Border attribute styles - example: ´1px solid blue´
  * @returns An Javascript object containing color properties.
  */
 export function getBgFontBorderColors(
   background: string,
   color: string,
-  border: string = ''
-): ParamStyles {
-  function borderSentence(border: string): string {
-    return border && border.includes('px') ? border : 'none';
-  }
-
+  borderStyles: string = ''
+): ReturnObjStyles {
   return {
     background,
     color,
-    border: borderSentence(border),
+    border: borderStyles,
   };
 }

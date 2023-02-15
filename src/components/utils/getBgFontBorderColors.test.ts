@@ -12,7 +12,7 @@ describe('getBgFontBorderColors', () => {
   });
 
   it('should return object without border property when not specified', () => {
-    const expected = { background: 'red', color: 'white', border: 'none' };
+    const expected = { background: 'red', color: 'white', border: '' };
     const result = getBgFontBorderColors('red', 'white');
     expect(result).toMatchObject(expected);
   });

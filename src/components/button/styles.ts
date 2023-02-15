@@ -69,8 +69,11 @@ export const ButtonStyles = styled('button', {
         },
       },
       dashed: {
-        border: '1px dashed $neutral4',
-        ...getBgFontBorderColors('transparent', '$primary7', ''),
+        ...getBgFontBorderColors(
+          'transparent',
+          '$primary7',
+          '1px dashed $neutral4'
+        ),
 
         '&:hover': {
           ...getBgFontBorderColors(
