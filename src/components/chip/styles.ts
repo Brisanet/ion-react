@@ -1,4 +1,5 @@
 import stitches from '../../stitches.config';
+import { getFillBgFontBorderColors } from '../utils';
 
 const { styled } = stitches;
 
@@ -23,48 +24,44 @@ export const ChipStyle = styled('button', {
   },
 
   '&:hover': {
-    backgroundColor: '$secondaryColor',
-    border: '1px solid $primary3',
-    color: '$primary5',
-
-    svg: {
-      fill: '$primary5',
-    },
+    ...getFillBgFontBorderColors({
+      svgFillColor: '$primary5',
+      backgroundColor: '$secondaryColor',
+      fontColor: '$primary5',
+      borderColor: '$primary3',
+    }),
   },
 
   '&:active': {
-    border: '1px solid $primary5',
     outline: 'none',
-    backgroundColor: '$primary2',
-    color: '$primary7',
-
-    svg: {
-      fill: '$primary7',
-    },
+    ...getFillBgFontBorderColors({
+      svgFillColor: '$primary7',
+      backgroundColor: '$primary2',
+      fontColor: '$primary7',
+      borderColor: '$primary5',
+    }),
   },
 
   '&:focus-visible': {
-    border: '1px solid $primary3',
     outline: '2px solid $primary6',
     outlineOffset: '2px',
-    backgroundColor: '$secondaryColor',
-    color: '$primary5',
-
-    svg: {
-      fill: '$primary5',
-    },
+    ...getFillBgFontBorderColors({
+      svgFillColor: '$primary5',
+      backgroundColor: '$secondaryColor',
+      fontColor: '$primary5',
+      borderColor: '$primary3',
+    }),
   },
 
   '&:disabled': {
-    border: '1px solid $neutral5',
     outline: 'none',
     cursor: 'not-allowed',
-    backgroundColor: '$neutral3',
-    color: '$neutral5',
-
-    svg: {
-      fill: '$neutral5',
-    },
+    ...getFillBgFontBorderColors({
+      svgFillColor: '$neutral5',
+      backgroundColor: '$neutral3',
+      fontColor: '$neutral5',
+      borderColor: '$neutral5',
+    }),
   },
 
   defaultVariants: {
