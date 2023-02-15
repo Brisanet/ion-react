@@ -3,7 +3,6 @@ import { getBgFontBorderColors } from '../utils/getBgFontBorderColors';
 
 const { styled } = stitches;
 
-// Componente Button
 export const ButtonStyles = styled('button', {
   display: 'flex',
   justifyContent: 'center',
