@@ -26,47 +26,17 @@ export const IonHeading: React.FC<IonHeadingProps> = ({
   weight = 'medium',
 }: IonHeadingProps) => {
   const testid = `ion-heading-${type}`;
+  const defaultProps = {
+    'data-testid': testid,
+    color: colorScheme,
+    size,
+    weight,
+  };
   const headings = {
-    h1: (
-      <S.H1
-        data-testid={testid}
-        color={colorScheme}
-        size={size}
-        weight={weight}
-      >
-        {label}
-      </S.H1>
-    ),
-    h2: (
-      <S.H2
-        data-testid={testid}
-        color={colorScheme}
-        size={size}
-        weight={weight}
-      >
-        {label}
-      </S.H2>
-    ),
-    h3: (
-      <S.H3
-        data-testid={testid}
-        color={colorScheme}
-        size={size}
-        weight={weight}
-      >
-        {label}
-      </S.H3>
-    ),
-    h4: (
-      <S.H4
-        data-testid={testid}
-        color={colorScheme}
-        size={size}
-        weight={weight}
-      >
-        {label}
-      </S.H4>
-    ),
+    h1: <S.H1 {...defaultProps}>{label}</S.H1>,
+    h2: <S.H2 {...defaultProps}>{label}</S.H2>,
+    h3: <S.H3 {...defaultProps}>{label}</S.H3>,
+    h4: <S.H4 {...defaultProps}>{label}</S.H4>,
   };
   return headings[type];
 };
