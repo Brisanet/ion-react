@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import IonChip, { ChipProps } from './chip';
 import userEvent from '@testing-library/user-event';
-import '@testing-library/jest-dom';
 import React from 'react';
 
 const clickEvent = jest.fn();
