@@ -30,7 +30,7 @@ const sizeIcon = 24;
 
 const getIcon = (alertType: StatusType) => icons[alertType] as iconType;
 
-const IonAlert = ({
+export const IonAlert = ({
   message,
   type = 'success',
   closable = false,
@@ -63,5 +63,3 @@ const IonAlert = ({
     </AlertStyled>
   );
 };
-
-export default IonAlert;

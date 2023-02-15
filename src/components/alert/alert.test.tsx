@@ -1,7 +1,7 @@
 import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import IonAlert, { AlertProps } from './alert';
+import { IonAlert, AlertProps } from './alert';
 import { StatusType } from '../../core/types/status';
 
 const defaultAlert: AlertProps = {
