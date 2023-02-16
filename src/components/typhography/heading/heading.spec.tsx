@@ -38,7 +38,7 @@ describe('<IonHeading />', () => {
     });
   });
 
-  it('should render the heading with the correct weight', () => {
+  it('should render the heading with the correct font weight', () => {
     sut();
     expect(screen.getByTestId('ion-heading-h1')).toHaveStyle({
       'font-weight': 'bold',
