@@ -1,7 +1,7 @@
-interface ReturnObjStyles {
+interface ObjStyles {
   background: string;
   color: string;
-  border: string;
+  border?: string;
 }
 
 /**
@@ -9,17 +9,17 @@ interface ReturnObjStyles {
  *
  * @param background - Background color
  * @param color - The font color
- * @param borderStyles - Border attribute styles - example: ´1px solid blue´
- * @returns An Javascript object containing color properties.
+ * @param border - Border attribute styles - example: ´1px solid blue´
+ * @returns A Javascript object containing color properties.
  */
-export function getBgFontBorderColors(
-  background: string,
-  color: string,
-  borderStyles: string = ''
-): ReturnObjStyles {
+export function getBgFontBorderColors({
+  background,
+  color,
+  border = '',
+}: ObjStyles): ObjStyles {
   return {
     background,
     color,
-    border: borderStyles,
+    border,
   };
 }

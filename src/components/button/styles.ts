@@ -17,84 +17,102 @@ export const ButtonStyles = styled('button', {
   variants: {
     type: {
       primary: {
-        ...getBgFontBorderColors('$primaryColor', '$neutral1', ''),
+        ...getBgFontBorderColors({
+          background: '$primaryColor',
+          color: '$neutral1',
+        }),
 
         '&:hover': {
           background: '$primary5',
         },
         '&:active': { background: '$primary7' },
         '&:disabled': {
-          ...getBgFontBorderColors('$neutral2', '$neutral5', ''),
+          ...getBgFontBorderColors({
+            background: '$neutral2',
+            color: '$neutral5',
+          }),
           cursor: 'not-allowed',
         },
       },
       secondary: {
-        ...getBgFontBorderColors(
-          '$neutral1',
-          '$primaryColor',
-          '1px solid $neutral4'
-        ),
+        ...getBgFontBorderColors({
+          background: '$neutral1',
+          color: '$primaryColor',
+          border: '1px solid $neutral4',
+        }),
 
-        '&:hover': getBgFontBorderColors(
-          '$primary1',
-          '$primary5',
-          '1px solid $primary4'
-        ),
-        '&:active': getBgFontBorderColors(
-          '$primary2',
-          '$primary5',
-          '1px solid $primary7'
-        ),
+        '&:hover': getBgFontBorderColors({
+          background: '$primary1',
+          color: '$primary5',
+          border: '1px solid $primary4',
+        }),
+        '&:active': getBgFontBorderColors({
+          background: '$primary2',
+          color: '$primary5',
+          border: '1px solid $primary7',
+        }),
         '&:disabled': {
-          ...getBgFontBorderColors(
-            '$neutral2 ',
-            '$neutral5 ',
-            '1px solid $neutral5 '
-          ),
+          ...getBgFontBorderColors({
+            background: '$neutral2 ',
+            color: '$neutral5 ',
+            border: '1px solid $neutral5 ',
+          }),
           cursor: 'not-allowed',
         },
       },
       ghost: {
-        ...getBgFontBorderColors('transparent', '$primaryColor', ''),
+        ...getBgFontBorderColors({
+          background: 'transparent',
+          color: '$primaryColor',
+        }),
 
         '&:hover': {
-          ...getBgFontBorderColors('$primary1', '$primary5', ''),
+          ...getBgFontBorderColors({
+            background: '$primary1',
+            color: '$primary5',
+          }),
         },
         '&:active': {
-          ...getBgFontBorderColors('$primary2', '$primary7', ''),
+          ...getBgFontBorderColors({
+            background: '$primary2',
+            color: '$primary7',
+          }),
         },
         '&:disabled': {
-          ...getBgFontBorderColors('transparent', '$neutral5', ''),
+          ...getBgFontBorderColors({
+            background: 'transparent',
+            color: '$neutral5',
+          }),
           cursor: 'not-allowed',
         },
       },
       dashed: {
-        ...getBgFontBorderColors(
-          'transparent',
-          '$primary7',
-          '1px dashed $neutral4'
-        ),
+        ...getBgFontBorderColors({
+          background: 'transparent',
+          color: '$primary7',
+          border: '1px dashed $neutral4',
+        }),
 
         '&:hover': {
-          ...getBgFontBorderColors(
-            '$primary1',
-            '$primary5',
-            '1px dashed $primary4'
-          ),
+          ...getBgFontBorderColors({
+            background: '$primary1',
+            color: '$primary5',
+            border: '1px dashed $primary4',
+          }),
         },
         '&:active': {
-          ...getBgFontBorderColors(
-            '$primary2',
-            '$primary7',
-            '1px dashed $primary5'
-          ),
+          ...getBgFontBorderColors({
+            background: '$primary2',
+            color: '$primary7',
+            border: '1px dashed $primary5',
+          }),
         },
         '&:disabled': {
-          ...getBgFontBorderColors(
-            '$neutral3',
-            '$neutral5',
-            '1px dashed $neutral5'
-          ),
+          ...getBgFontBorderColors({
+            background: '$neutral3',
+            color: '$neutral5',
+            border: '1px dashed $neutral5',
+          }),
           cursor: 'not-allowed',
         },
       },
@@ -102,53 +120,71 @@ export const ButtonStyles = styled('button', {
 
     danger: {
       primary: {
-        ...getBgFontBorderColors('$negative6', '$negative1', ''),
+        ...getBgFontBorderColors({
+          background: '$negative6',
+          color: '$negative1',
+        }),
         '&:hover': {
-          ...getBgFontBorderColors('$negative5', '$neutral1', ''),
+          ...getBgFontBorderColors({
+            background: '$negative5',
+            color: '$neutral1',
+          }),
         },
         '&:active': {
           background: '$negative7',
         },
         '&:disabled': {
-          ...getBgFontBorderColors('$neutral2', '$neutral5', ''),
+          ...getBgFontBorderColors({
+            background: '$neutral2',
+            color: '$neutral5',
+          }),
           cursor: 'not-allowed',
         },
       },
       secondary: {
         color: '$negativeColor',
         '&:hover': {
-          ...getBgFontBorderColors(
-            '$negative1',
-            '$negative5',
-            '1px solid $negative3'
-          ),
+          ...getBgFontBorderColors({
+            background: '$negative1',
+            color: '$negative5',
+            border: '1px solid $negative3',
+          }),
         },
         '&:active': {
-          ...getBgFontBorderColors(
-            '$negative2',
-            '$negative7',
-            '1px solid $negative7'
-          ),
+          ...getBgFontBorderColors({
+            background: '$negative2',
+            color: '$negative7',
+            border: '1px solid $negative7',
+          }),
         },
         '&:disabled': {
-          ...getBgFontBorderColors(
-            '$neutral2 ',
-            '$neutral5 ',
-            '1px solid $neutral5'
-          ),
+          ...getBgFontBorderColors({
+            background: '$neutral2 ',
+            color: '$neutral5 ',
+            border: '1px solid $neutral5',
+          }),
           cursor: 'not-allowed',
         },
       },
       ghost: {
         color: '$negative6',
         '&:hover': {
-          ...getBgFontBorderColors('$negative1', '$negative5', ''),
+          ...getBgFontBorderColors({
+            background: '$negative1',
+            color: '$negative5',
+          }),
         },
         '&:active': {
-          ...getBgFontBorderColors('$negative2', '$negative7', ''),
+          ...getBgFontBorderColors({
+            background: '$negative2',
+            color: '$negative7',
+          }),
         },
         '&:disabled': {
-          ...getBgFontBorderColors('transparent', '$neutral5', ''),
+          ...getBgFontBorderColors({
+            background: 'transparent',
+            color: '$neutral5',
+          }),
           cursor: 'not-allowed',
         },
       },
@@ -156,25 +192,25 @@ export const ButtonStyles = styled('button', {
         border: '1px dashed $neutral4',
         color: '$negative6',
         '&:hover': {
-          ...getBgFontBorderColors(
-            '$negative1',
-            '$negative5',
-            '1px dashed $negative3'
-          ),
+          ...getBgFontBorderColors({
+            background: '$negative1',
+            color: '$negative5',
+            border: '1px dashed $negative3',
+          }),
         },
         '&:active': {
-          ...getBgFontBorderColors(
-            '$negative2',
-            '$negative7',
-            '1px dashed $negative6'
-          ),
+          ...getBgFontBorderColors({
+            background: '$negative2',
+            color: '$negative7',
+            border: '1px dashed $negative6',
+          }),
         },
         '&:disabled': {
-          ...getBgFontBorderColors(
-            '$neutral3',
-            '$neutral5',
-            '1px dashed $neutral5'
-          ),
+          ...getBgFontBorderColors({
+            background: '$neutral3',
+            color: '$neutral5',
+            border: '1px dashed $neutral5',
+          }),
           cursor: 'not-allowed',
         },
       },
@@ -183,16 +219,32 @@ export const ButtonStyles = styled('button', {
 
     size: {
       sm: {
-        ...getButtonSize('24px', '4px 12px', '12px'),
+        ...getButtonSize({
+          buttonSize: '24px',
+          padding: '4px 12px',
+          fontSize: '12px',
+        }),
       },
       md: {
-        ...getButtonSize('32px', '6px 16px', '14px'),
+        ...getButtonSize({
+          buttonSize: '32px',
+          padding: '6px 16px',
+          fontSize: '14px',
+        }),
       },
       lg: {
-        ...getButtonSize('40px', '8px 20px', '16px'),
+        ...getButtonSize({
+          buttonSize: '40px',
+          padding: '8px 20px',
+          fontSize: '16px',
+        }),
       },
       xl: {
-        ...getButtonSize('48px', '12px 24px', '16px'),
+        ...getButtonSize({
+          buttonSize: '48px',
+          padding: '12px 24px',
+          fontSize: '16px',
+        }),
       },
     },
   },
