@@ -52,9 +52,9 @@ AlertClosable.args = {
   closable: true,
 };
 
-export const AlertWithBackground = Template.bind({});
-AlertWithBackground.storyName = 'Alert with background';
-AlertWithBackground.args = {
+export const AlertWithoutBackground = Template.bind({});
+AlertWithoutBackground.storyName = 'Alert without background';
+AlertWithoutBackground.args = {
   message: 'Example of alert message',
   hideBackground: true,
 };
