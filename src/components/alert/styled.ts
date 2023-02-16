@@ -1,22 +1,15 @@
 import stitches from '../../stitches.config';
+import { getFillBgFontBorderColors } from '../utils';
+import { spacing } from '../utils/spacing';
 
 const { styled } = stitches;
-
-const setColors = (bgColor: string, color: string) => ({
-  backgroundColor: bgColor,
-  borderColor: color,
-
-  svg: {
-    fill: color,
-  },
-});
 
 export const AlertStyled = styled('div', {
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
-  padding: '8px 16px 8px 12px',
-  gap: 8,
+  padding: `${spacing(1)} ${spacing(2)} ${spacing(1)} ${spacing(1.5)}`,
+  gap: spacing(1),
 
   minHeight: 24,
 
@@ -35,7 +28,7 @@ export const AlertStyled = styled('div', {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
+    gap: spacing(1),
 
     fill: '$primary6',
 
@@ -53,16 +46,36 @@ export const AlertStyled = styled('div', {
   variants: {
     type: {
       info: {
-        ...setColors('$info1', '$info6'),
+        ...getFillBgFontBorderColors({
+          backgroundColor: '$info1',
+          borderColor: '$info6',
+          svgFillColor: '$info6',
+          fontColor: '$neutral8',
+        }),
       },
       warning: {
-        ...setColors('$warning1', '$warning6'),
+        ...getFillBgFontBorderColors({
+          backgroundColor: '$warning1',
+          borderColor: '$warning6',
+          svgFillColor: '$warning6',
+          fontColor: '$neutral8',
+        }),
       },
       negative: {
-        ...setColors('$negative1', '$negative6'),
+        ...getFillBgFontBorderColors({
+          backgroundColor: '$negative1',
+          borderColor: '$negative6',
+          svgFillColor: '$negative6',
+          fontColor: '$neutral8',
+        }),
       },
       success: {
-        ...setColors('$positive1', '$positive6'),
+        ...getFillBgFontBorderColors({
+          backgroundColor: '$positive1',
+          borderColor: '$positive6',
+          svgFillColor: '$positive6',
+          fontColor: '$neutral8',
+        }),
       },
     },
     hideBackground: {
