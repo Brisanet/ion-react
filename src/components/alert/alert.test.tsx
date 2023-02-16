@@ -1,5 +1,6 @@
 import React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 import { IonAlert, AlertProps } from './alert';
 import { StatusType } from '../../core/types/status';
@@ -56,7 +57,7 @@ describe('IonAlert', () => {
     const iconClose = screen.getByTestId('ion-icon-close');
     expect(getAlert()).toBeTruthy();
 
-    fireEvent.click(iconClose);
+    await userEvent.click(iconClose);
     expect(screen.queryByTestId(alertId)).not.toBeTruthy();
   });
 });
