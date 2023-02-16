@@ -1,6 +1,8 @@
 import stitches from '../../../stitches.config';
 const { styled } = stitches;
 
+type Size = { fontSize: string; lineHeight: string };
+
 const defaultSettingHeading = {
   margin: 0,
   padding: 0,
@@ -18,14 +20,25 @@ const defaultSettingHeading = {
   },
 };
 
+function defaultSizes(size: number): Size {
+  const sizes: { [x: number]: Size } = {
+    16: { fontSize: '16px', lineHeight: '24px' },
+    20: { fontSize: '20px', lineHeight: '28px' },
+    24: { fontSize: '24px', lineHeight: '32px' },
+    32: { fontSize: '32px', lineHeight: '40px' },
+    40: { fontSize: '40px', lineHeight: '48px' },
+  };
+  return sizes[size];
+}
+
 export const H1 = styled('h1', {
   ...defaultSettingHeading,
   variants: {
     ...defaultSettingHeading.variants,
     size: {
-      small: { fontSize: '24px', lineHeight: '32px' },
-      medium: { fontSize: '32px', lineHeight: '40px' },
-      normal: { fontSize: '40px', lineHeight: '48px' },
+      small: defaultSizes(24),
+      medium: defaultSizes(32),
+      normal: defaultSizes(40),
     },
   },
 });
@@ -35,9 +48,9 @@ export const H2 = styled('h2', {
   variants: {
     ...defaultSettingHeading.variants,
     size: {
-      small: { fontSize: '20px', lineHeight: '28px' },
-      medium: { fontSize: '24px', lineHeight: '32px' },
-      normal: { fontSize: '32px', lineHeight: '40px' },
+      small: defaultSizes(20),
+      medium: defaultSizes(24),
+      normal: defaultSizes(32),
     },
   },
 });
@@ -47,9 +60,9 @@ export const H3 = styled('h3', {
   variants: {
     ...defaultSettingHeading.variants,
     size: {
-      small: { fontSize: '16px', lineHeight: '24px' },
-      medium: { fontSize: '20px', lineHeight: '28px' },
-      normal: { fontSize: '24px', lineHeight: '32px' },
+      small: defaultSizes(16),
+      medium: defaultSizes(20),
+      normal: defaultSizes(24),
     },
   },
 });
@@ -60,8 +73,8 @@ export const H4 = styled('h4', {
     ...defaultSettingHeading.variants,
     size: {
       small: { lineHeight: '24px' },
-      medium: { fontSize: '16px', lineHeight: '24px' },
-      normal: { fontSize: '20px', lineHeight: '28px' },
+      medium: defaultSizes(16),
+      normal: defaultSizes(20),
     },
   },
 });
