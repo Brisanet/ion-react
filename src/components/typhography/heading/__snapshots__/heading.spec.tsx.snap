@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<IonHeading /> snapshot tests should render snapshot heading h1 1`] = `
+<h1
+  class="c-fXXVzC c-fXXVzC-ipNeOn-color-primary c-fXXVzC-cdWBIM-weight-medium c-fXXVzC-dAfpSa-size-normal"
+  data-testid="ion-heading-h1"
+>
+  Ion React
+</h1>
+`;
+
+exports[`<IonHeading /> snapshot tests should render snapshot heading h2 1`] = `
+<h2
+  class="c-fXXVzC c-fXXVzC-ipNeOn-color-primary c-fXXVzC-cdWBIM-weight-medium c-fXXVzC-fJNGCD-size-normal"
+  data-testid="ion-heading-h2"
+>
+  Ion React
+</h2>
+`;
+
+exports[`<IonHeading /> snapshot tests should render snapshot heading h3 1`] = `
+<h3
+  class="c-fXXVzC c-fXXVzC-ipNeOn-color-primary c-fXXVzC-cdWBIM-weight-medium c-fXXVzC-fhGAOp-size-normal"
+  data-testid="ion-heading-h3"
+>
+  Ion React
+</h3>
+`;
+
+exports[`<IonHeading /> snapshot tests should render snapshot heading h4 1`] = `
+<h4
+  class="c-fXXVzC c-fXXVzC-ipNeOn-color-primary c-fXXVzC-cdWBIM-weight-medium c-fXXVzC-cQlbiW-size-normal"
+  data-testid="ion-heading-h4"
+>
+  Ion React
+</h4>
+`;
