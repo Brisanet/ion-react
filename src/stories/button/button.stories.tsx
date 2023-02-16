@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import IonButton, { ButtonProps } from '../../components/button/button';
 
 export default {
-  title: 'Buttons/Button',
+  title: 'Ion/Navigation/Buttons',
   component: IonButton,
 } as ComponentMeta<typeof IonButton>;
 
@@ -47,4 +47,11 @@ PrimaryDanger.args = {
   label: 'Primary',
   type: 'primary',
   isDanger: true,
+};
+
+export const PrimarySmall = Template.bind({});
+PrimarySmall.args = {
+  label: 'Primary',
+  type: 'primary',
+  size: 'sm',
 };
