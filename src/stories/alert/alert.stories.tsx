@@ -5,14 +5,6 @@ import { IonAlert, AlertProps } from '../../components/alert/alert';
 export default {
   title: 'Ion/Feedback/Alert',
   component: IonAlert,
-  // argTypes: {
-  //   type: {
-  //     name: 'type',
-  //     defaultValue: 'success',
-  //     control: 'radio',
-  //     options: ['success', 'info', 'warning', 'negative'],
-  //   },
-  // },
 } as ComponentMeta<typeof IonAlert>;
 
 const Template: ComponentStory<typeof IonAlert> = (args: AlertProps) => (
