@@ -1,4 +1,5 @@
 import stitches from '../../../stitches.config';
+import { defaultSizes, defaultColor } from '../utils-typhography';
 const { styled } = stitches;
 
 export const Body = styled('p', {
@@ -6,10 +7,10 @@ export const Body = styled('p', {
   padding: 0,
   variants: {
     color: {
-      primary: { color: '$neutral7' },
-      secondary: { color: '$neutral6' },
-      'dark-primary': { color: '$neutral3' },
-      'dark-secondary': { color: '$neutral4' },
+      primary: defaultColor('neutral7'),
+      secondary: defaultColor('neutral6'),
+      'dark-primary': defaultColor('neutral3'),
+      'dark-secondary': defaultColor('neutral4'),
     },
     weight: {
       normal: { fontWeight: '400' },
@@ -18,8 +19,8 @@ export const Body = styled('p', {
     },
     style: { normal: { fontStyle: 'normal' }, italic: { fontStyle: 'italic' } },
     size: {
-      small: { fontSize: '14px', lineHeight: '20px' },
-      normal: { fontSize: '16px', lineHeight: '24px' },
+      small: defaultSizes(14),
+      normal: defaultSizes(16),
     },
   },
 });
