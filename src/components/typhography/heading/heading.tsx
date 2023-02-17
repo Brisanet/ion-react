@@ -1,30 +1,14 @@
 import React from 'react';
+import { IonHeadingInterface } from '../typhography.types';
 import * as S from './styles';
 
-type IonHeadingWeight = 'medium' | 'bold';
-type IonHeadingType = 'h1' | 'h2' | 'h3' | 'h4';
-type IonHeadingSize = 'small' | 'medium' | 'normal';
-type IonHeadingColorScheme =
-  | 'primary'
-  | 'secondary'
-  | 'dark-primary'
-  | 'dark-secondary';
-
-export interface IonHeadingProps {
-  label: string;
-  type: IonHeadingType;
-  size?: IonHeadingSize;
-  weight?: IonHeadingWeight;
-  colorScheme?: IonHeadingColorScheme;
-}
-
-export const IonHeading: React.FC<IonHeadingProps> = ({
+export const IonHeading: React.FC<IonHeadingInterface> = ({
   label,
   type,
   size = 'normal',
   colorScheme = 'primary',
   weight = 'medium',
-}: IonHeadingProps) => {
+}: IonHeadingInterface) => {
   const testid = `ion-heading-${type}`;
   const defaultProps = {
     'data-testid': testid,

@@ -1,31 +1,15 @@
 import React from 'react';
+import { IonBodyInterface } from '../typhography.types';
 import * as S from './styles';
 
-type IonBodyWeight = 'normal' | 'medium' | 'bold';
-type IonBodyStyle = 'normal' | 'italic';
-type IonBodySize = 'small' | 'normal';
-type IonBodyColorScheme =
-  | 'primary'
-  | 'secondary'
-  | 'dark-primary'
-  | 'dark-secondary';
-
-export interface IonBodyProps {
-  label: string;
-  size?: IonBodySize;
-  weight?: IonBodyWeight;
-  color?: IonBodyColorScheme;
-  style?: IonBodyStyle;
-}
-
-export const IonBody: React.FC<IonBodyProps> = ({
+export const IonBody: React.FC<IonBodyInterface> = ({
   label,
-  color = 'primary',
+  colorScheme = 'primary',
   size = 'normal',
-  style = 'normal',
+  style = 'italic',
   weight = 'normal',
-}: IonBodyProps) => {
-  const props = { color, size, style, weight };
+}: IonBodyInterface) => {
+  const props = { color: colorScheme, size, style, weight };
   return (
     <S.Body {...props} data-testid="ion-body">
       {label}
