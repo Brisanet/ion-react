@@ -57,3 +57,16 @@ describe('Button Types', () => {
     expect(className).toContain(`danger-${type}`);
   });
 });
+
+describe('Button Sizes', () => {
+  const buttonSizes: Array<ButtonProps['size']> = ['sm', 'md', 'lg', 'xl'];
+
+  it.each(buttonSizes)(
+    'should render button with %s size variation',
+    (size) => {
+      expect(sut({ ...defaultButton, size: size }).className).toContain(
+        `size-${size}`
+      );
+    }
+  );
+});
