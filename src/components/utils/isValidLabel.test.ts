@@ -11,7 +11,7 @@ describe('isValidLabel', () => {
   it.each(invalidLabels)(
     'should return false when it is a invalid label',
     (label) => {
-      expect(isValidLabel(label)).not.toBeTruthy();
+      expect(isValidLabel(label)).toBeFalsy();
     }
   );
 });
