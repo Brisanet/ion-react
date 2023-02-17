@@ -39,14 +39,13 @@ export const PrimaryDisabled = Template.bind({});
 PrimaryDisabled.args = {
   label: 'Primary',
   type: 'primary',
-  disabled: true,
 };
 
 export const PrimaryDanger = Template.bind({});
 PrimaryDanger.args = {
   label: 'Primary',
   type: 'primary',
-  isDanger: true,
+  danger: true,
 };
 
 export const PrimarySmall = Template.bind({});
