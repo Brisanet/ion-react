@@ -7,6 +7,7 @@ import { validateHexColor } from '../utils/validateHexColor';
 import ErrorBoundary from '../error/error-boundary';
 import { TagStatus } from '../../core/types/status';
 import { iconType } from '../icons/svgs/icons';
+import isValidLabel from '../utils/isValidLabel';
 
 export interface IonTagProps {
   outline?: boolean;
@@ -19,8 +20,6 @@ export interface IonTagProps {
 const iconSize = 12;
 const defaultColor = '#505566';
 const lighteningFactor = '1A';
-
-const isValidLabel = (label: string) => label && !(String(label).trim() === '');
 
 const newColor = (color: string) => ({
   backgroundColor: color + lighteningFactor,
