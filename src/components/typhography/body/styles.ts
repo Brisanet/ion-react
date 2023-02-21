@@ -6,12 +6,7 @@ export const Body = styled('p', {
   margin: 0,
   padding: 0,
   variants: {
-    color: {
-      primary: defaultColor('neutral7'),
-      secondary: defaultColor('neutral6'),
-      'dark-primary': defaultColor('neutral3'),
-      'dark-secondary': defaultColor('neutral4'),
-    },
+    color: defaultColor('body'),
     weight: {
       normal: { fontWeight: '400' },
       medium: { fontWeight: '600' },

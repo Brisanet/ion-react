@@ -6,12 +6,7 @@ const defaultSettingHeading = {
   margin: 0,
   padding: 0,
   variants: {
-    color: {
-      primary: defaultColor('neutral8'),
-      secondary: defaultColor('neutral7'),
-      'dark-primary': defaultColor('neutral1'),
-      'dark-secondary': defaultColor('neutral3'),
-    },
+    color: defaultColor('heading'),
     weight: {
       medium: { fontWeight: '400' },
       bold: { fontWeight: '600' },

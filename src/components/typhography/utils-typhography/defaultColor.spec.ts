@@ -1,21 +1,27 @@
-import { defaultColor, Color } from '.';
+import { defaultColor, Color, TyphographyComponent } from '.';
 
 const expected: { [x: string]: Color } = {
-  neutral1: { color: '$neutral1' },
-  neutral2: { color: '$neutral2' },
-  neutral3: { color: '$neutral3' },
-  neutral4: { color: '$neutral4' },
-  neutral5: { color: '$neutral5' },
-  neutral6: { color: '$neutral6' },
-  neutral7: { color: '$neutral7' },
-  neutral8: { color: '$neutral8' },
+  heading: {
+    primary: { color: '$neutral8' },
+    secondary: { color: '$neutral7' },
+    'dark-primary': { color: '$neutral1' },
+    'dark-secondary': { color: '$neutral3' },
+  },
+  body: {
+    primary: { color: '$neutral7' },
+    secondary: { color: '$neutral6' },
+    'dark-primary': { color: '$neutral3' },
+    'dark-secondary': { color: '$neutral4' },
+  },
 };
 
 describe('Default colors', () => {
   it.each(Object.keys(expected))(
     'should return the correct color when %s',
-    (color) => {
-      expect(defaultColor(color)).toEqual(expected[color]);
+    (component) => {
+      expect(defaultColor(component as TyphographyComponent)).toEqual(
+        expected[component]
+      );
     }
   );
 });
