@@ -12,8 +12,15 @@ jobs:
     strategy:
       matrix:
         node-version: [16.19.0]
+
     steps:
       - uses: actions/checkout@v1
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
       - name: Install dependencies
         run: yarn
         # 👇 Adds Chromatic as a step in the workflow
