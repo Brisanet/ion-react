@@ -39,6 +39,7 @@ export const PrimaryDisabled = Template.bind({});
 PrimaryDisabled.args = {
   label: 'Primary',
   type: 'primary',
+  disabled: true,
 };
 
 export const PrimaryDanger = Template.bind({});
