@@ -11,14 +11,14 @@ export type ButtonProps = {
   type?: string;
   disabled?: boolean;
   handleClick?: () => void;
-  isDanger?: boolean;
+  danger?: boolean;
   size?: ButtonSizes;
 } & StitchesButtonProps;
 
 const IonButton = ({
   type = 'primary',
   disabled = false,
-  isDanger = false,
+  danger = false,
   size = 'md',
   label,
   handleClick,
@@ -28,7 +28,7 @@ const IonButton = ({
       type={type}
       onClick={handleClick}
       disabled={disabled}
-      danger={isDanger ? type : 'none'}
+      danger={danger}
       size={size}
     >
       {label}

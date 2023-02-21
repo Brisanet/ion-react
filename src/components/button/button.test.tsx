@@ -53,8 +53,9 @@ describe('Button Types', () => {
   });
 
   it.each(buttonTypes)('should render %s danger button', (type) => {
-    const { className } = sut({ ...defaultButton, type: type, isDanger: true });
-    expect(className).toContain(`danger-${type}`);
+    const { className } = sut({ ...defaultButton, type: type, danger: true });
+    expect(className).toContain('danger-true');
+    expect(className).toContain(`type-${type}`);
   });
 });
 
