@@ -1,27 +1,36 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { IonHeading, IonHeadingProps } from './heading';
+import { IonHeading } from './heading';
+import { IonHeadingInterface } from '../typhography.types';
 
-const defaultProps: IonHeadingProps = { label: 'Ion React', type: 'h1' };
+const defaultProps: IonHeadingInterface = { label: 'Ion React', type: 'h1' };
 
-const sut = (props: IonHeadingProps = defaultProps) => {
+const sut = (props: IonHeadingInterface = defaultProps) => {
   return render(<IonHeading {...props} />);
 };
 
-const headingTypes: Array<IonHeadingProps['type']> = ['h1', 'h2', 'h3', 'h4'];
-const headingSize: Array<IonHeadingProps['size']> = [
+const headingTypes: Array<IonHeadingInterface['type']> = [
+  'h1',
+  'h2',
+  'h3',
+  'h4',
+];
+const headingSize: Array<IonHeadingInterface['size']> = [
   'medium',
   'normal',
   'small',
 ];
-const headingcolorScheme: Array<IonHeadingProps['colorScheme']> = [
+const headingcolorScheme: Array<IonHeadingInterface['colorScheme']> = [
   'dark-primary',
   'dark-secondary',
   'primary',
   'secondary',
 ];
-const headingFontWeight: Array<IonHeadingProps['weight']> = ['bold', 'medium'];
-const heading: Array<IonHeadingProps> = [
+const headingFontWeight: Array<IonHeadingInterface['weight']> = [
+  'bold',
+  'medium',
+];
+const heading: Array<IonHeadingInterface> = [
   { label: 'ion react', type: 'h1' },
   { label: 'ion react', type: 'h2' },
   { label: 'ion react', type: 'h3' },

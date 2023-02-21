@@ -1,35 +1,18 @@
 import stitches from '../../../stitches.config';
+import { defaultSizes, defaultColor } from '../utils-typhography';
 const { styled } = stitches;
-
-type Size = { fontSize: string; lineHeight: string };
 
 const defaultSettingHeading = {
   margin: 0,
   padding: 0,
   variants: {
-    color: {
-      primary: { color: '$neutral8' },
-      secondary: { color: '$neutral7' },
-      'dark-primary': { color: '$neutral1' },
-      'dark-secondary': { color: '$neutral3' },
-    },
+    color: defaultColor('heading'),
     weight: {
       medium: { fontWeight: '400' },
       bold: { fontWeight: '600' },
     },
   },
 };
-
-function defaultSizes(size: number): Size {
-  const sizes: { [x: number]: Size } = {
-    16: { fontSize: '16px', lineHeight: '24px' },
-    20: { fontSize: '20px', lineHeight: '28px' },
-    24: { fontSize: '24px', lineHeight: '32px' },
-    32: { fontSize: '32px', lineHeight: '40px' },
-    40: { fontSize: '40px', lineHeight: '48px' },
-  };
-  return sizes[size];
-}
 
 export const H1 = styled('h1', {
   ...defaultSettingHeading,
