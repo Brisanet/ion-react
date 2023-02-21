@@ -2,7 +2,6 @@ import stitches from '../../stitches.config';
 
 const { styled } = stitches;
 
-// Componente Button
 export const ButtonStyles = styled('button', {
   display: 'flex',
   justifyContent: 'center',
@@ -91,78 +90,9 @@ export const ButtonStyles = styled('button', {
     },
 
     danger: {
-      primary: {
-        background: '$negative6',
-        color: '$negative1',
-        '&:hover': {
-          background: '$negative5',
-          color: '$neutral1',
-        },
-        '&:active': {
-          background: '$negative7',
-        },
-        '&:disabled': {
-          background: '$neutral2',
-          color: '$neutral5',
-          cursor: 'not-allowed',
-        },
+      true: {
+        background: 'transparent',
       },
-      secondary: {
-        color: '$negativeColor',
-        '&:hover': {
-          background: '$negative1',
-          color: '$negative5',
-          border: '1px solid $negative3',
-        },
-        '&:active': {
-          background: '$negative2',
-          color: '$negative7',
-          border: '1px solid $negative7',
-        },
-        '&:disabled': {
-          background: '$neutral2 ',
-          color: '$neutral5 ',
-          border: '1px solid $neutral5',
-          cursor: 'not-allowed',
-        },
-      },
-      ghost: {
-        color: '$negative6',
-        '&:hover': {
-          background: '$negative1',
-          color: '$negative5',
-        },
-        '&:active': {
-          background: '$negative2',
-          color: '$negative7',
-        },
-        '&:disabled': {
-          background: 'transparent',
-          color: '$neutral5',
-          cursor: 'not-allowed',
-        },
-      },
-      dashed: {
-        border: '1px dashed $neutral4',
-        color: '$negative6',
-        '&:hover': {
-          background: '$negative1',
-          color: '$negative5',
-          border: '1px dashed $negative3',
-        },
-        '&:active': {
-          background: '$negative2',
-          color: '$negative7',
-          border: '1px dashed $negative6',
-        },
-        '&:disabled': {
-          background: '$neutral3',
-          color: '$neutral5',
-          border: '1px dashed $neutral5',
-          cursor: 'not-allowed',
-        },
-      },
-      none: {},
     },
 
     size: {
@@ -192,4 +122,94 @@ export const ButtonStyles = styled('button', {
       },
     },
   },
+
+  compoundVariants: [
+    {
+      type: 'primary',
+      danger: true,
+      css: {
+        background: '$negative6',
+        color: '$negative1',
+        '&:hover': {
+          background: '$negative5',
+          color: '$neutral1',
+        },
+        '&:active': {
+          background: '$negative7',
+        },
+        '&:disabled': {
+          background: '$neutral2',
+          color: '$neutral5',
+          cursor: 'not-allowed',
+        },
+      },
+    },
+    {
+      type: 'secondary',
+      danger: true,
+      css: {
+        color: '$negativeColor',
+        '&:hover': {
+          background: '$negative1',
+          color: '$negative5',
+          border: '1px solid $negative3',
+        },
+        '&:active': {
+          background: '$negative2',
+          color: '$negative7',
+          border: '1px solid $negative7',
+        },
+        '&:disabled': {
+          background: '$neutral2 ',
+          color: '$neutral5 ',
+          border: '1px solid $neutral5',
+          cursor: 'not-allowed',
+        },
+      },
+    },
+    {
+      type: 'ghost',
+      danger: true,
+      css: {
+        color: '$negative6',
+        '&:hover': {
+          background: '$negative1',
+          color: '$negative5',
+        },
+        '&:active': {
+          background: '$negative2',
+          color: '$negative7',
+        },
+        '&:disabled': {
+          background: 'transparent',
+          color: '$neutral5',
+          cursor: 'not-allowed',
+        },
+      },
+    },
+    {
+      type: 'dashed',
+      danger: true,
+      css: {
+        border: '1px dashed $neutral4',
+        color: '$negative6',
+        '&:hover': {
+          background: '$negative1',
+          color: '$negative5',
+          border: '1px dashed $negative3',
+        },
+        '&:active': {
+          background: '$negative2',
+          color: '$negative7',
+          border: '1px dashed $negative6',
+        },
+        '&:disabled': {
+          background: '$neutral3',
+          color: '$neutral5',
+          border: '1px dashed $neutral5',
+          cursor: 'not-allowed',
+        },
+      },
+    },
+  ],
 });
