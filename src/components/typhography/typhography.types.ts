@@ -26,8 +26,11 @@ interface BaseIonTyphography {
   colorScheme?: IonTyphographyColorScheme;
 }
 
+type BodySizes = 'small' | 'medium' | 'normal';
+type RemoveMedium<TType> = TType extends 'medium' ? never : TType;
+
 export interface IonBodyInterface extends BaseIonTyphography {
-  size?: keyof MyPick<IonTyphographySize, 'normal' | 'small'>;
+  size?: RemoveMedium<BodySizes>;
   weight?: keyof MyPick<IonTyphographyWeight, 'normal' | 'medium' | 'bold'>;
   style?: IonTyphographyStyle;
 }
