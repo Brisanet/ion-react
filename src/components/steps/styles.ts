@@ -87,8 +87,6 @@ export const StepStyle = styled('div', {
 
   defaultVariants: {
     status: 'default',
-    clickable: false,
-    disabled: false,
   },
 
   variants: {

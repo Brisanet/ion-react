@@ -38,6 +38,13 @@ export type StepCircle = {
   steps: StepType[];
 };
 
+export type StepLine = {
+  status?: StatusType;
+  index?: number;
+  steps: StepType[];
+  type: LineType;
+};
+
 export type StepDetails = {
   label: string;
   description?: string;
@@ -52,34 +59,46 @@ enum Status {
   error = 'error',
 }
 
-function StepDraw({ status, index, steps }: StepCircle) {
-  function lineVisibility(lineType: LineType): boolean {
-    return !(lineType === 'before' ? index === 1 : index === steps.length);
-  }
-
-  function beforeStepIsChecked(index: number = 0): boolean {
+function LineDraw({ type, status, index, steps }: StepLine) {
+  const beforeStepIsChecked = (index: number = 0): boolean => {
     return steps[index - 2] && steps[index - 2].status === Status.checked;
-  }
+  };
 
-  function afterStepIsChecked(index: number = 0): boolean {
+  const afterStepIsChecked = (index: number = 0): boolean => {
     if (status && status === Status.checked) return true;
     return steps[index + 2] && steps[index + 2].status !== Status.default;
+  };
+
+  if (type === 'before') {
+    return (
+      <>
+        {index !== 1 && (
+          <LineStyle bolded={beforeStepIsChecked(index)}></LineStyle>
+        )}
+      </>
+    );
   }
 
   return (
     <>
+      {index !== steps.length && (
+        <LineStyle bolded={afterStepIsChecked(index)}></LineStyle>
+      )}
+    </>
+  );
+}
+
+function StepDraw({ status, index, steps }: StepCircle) {
+  return (
+    <>
       <StepDrawStyle>
-        {lineVisibility('before') && (
-          <LineStyle bolded={beforeStepIsChecked(index)}></LineStyle>
-        )}
+        <LineDraw type={'before'} status={status} index={index} steps={steps} />
         <CircleStyle>
           <span>
             {status === 'checked' ? <IonIcon type={'check'} /> : index}
           </span>
         </CircleStyle>
-        {lineVisibility('after') && (
-          <LineStyle bolded={afterStepIsChecked(index)}></LineStyle>
-        )}
+        <LineDraw type={'after'} status={status} index={index} steps={steps} />
       </StepDrawStyle>
     </>
   );
