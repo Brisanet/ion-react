@@ -5,4 +5,7 @@ module.exports = {
   },
   collectCoverage: true,
   coverageReporters: ["json", "html", "lcov", "text"],
+  setupFilesAfterEnv: [
+    "<rootDir>/setupJest.ts"
+  ]
 };
