@@ -12,9 +12,9 @@ export const StepDrawStyle = styled('div', {
 });
 
 export const LineStyle = styled('div', {
-  width: ' 64.5px',
+  width: '64.5px',
   height: '1px',
-  backgroundColor: ' #ced2db',
+  backgroundColor: '#ced2db',
 
   variants: {
     bolded: {

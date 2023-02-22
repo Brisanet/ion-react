@@ -71,18 +71,14 @@ function LineDraw({ type, status, index, steps }: StepLine) {
 
   if (type === 'before') {
     return (
-      <>
-        {index !== 1 && (
-          <LineStyle bolded={beforeStepIsChecked(index)}></LineStyle>
-        )}
-      </>
+      <>{index !== 1 && <LineStyle bolded={beforeStepIsChecked(index)} />}</>
     );
   }
 
   return (
     <>
       {index !== steps.length && (
-        <LineStyle bolded={afterStepIsChecked(index)}></LineStyle>
+        <LineStyle bolded={afterStepIsChecked(index)} />
       )}
     </>
   );
