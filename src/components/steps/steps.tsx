@@ -119,6 +119,16 @@ function Details({ label, description, index }: StepDetails) {
   );
 }
 
+function stepStatus(step: StepType, currentIndex: number): StatusType {
+  if (step.index && step.index < currentIndex) return Status.checked;
+  if (step.index && step.index === currentIndex) return Status.selected;
+  return Status.default;
+}
+
+function checkStartedStatus(step: StepType, currentIndex: number): StatusType {
+  return step.status ? step.status : stepStatus(step, currentIndex);
+}
+
 const IonSteps = ({
   current = 1,
   steps,
@@ -131,19 +141,6 @@ const IonSteps = ({
 
   function handleClickGoesTo(index: number) {
     if (clickable && !disabled) setCurrentStep(index);
-  }
-
-  function stepStatus(step: StepType, currentIndex: number): StatusType {
-    if (step.index && step.index < currentIndex) return Status.checked;
-    if (step.index && step.index === currentIndex) return Status.selected;
-    return Status.default;
-  }
-
-  function checkStartedStatus(
-    step: StepType,
-    currentIndex: number
-  ): StatusType {
-    return step.status ? step.status : stepStatus(step, currentIndex);
   }
 
   function changeStep(currentIndex: number): void {
