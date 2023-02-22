@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<IonBody /> should render the body with the correct color dark-primary 1`] = `
+<p
+  class="c-fXXVzC c-fXXVzC-khXpfY-color-dark-primary c-fXXVzC-cdWBIM-weight-normal c-fXXVzC-bYNGXt-style-italic c-fXXVzC-cHYCsH-size-normal"
+  data-testid="ion-body"
+>
+  Ion React
+</p>
+`;
+
+exports[`<IonBody /> should render the body with the correct color dark-secondary 1`] = `
+<p
+  class="c-fXXVzC c-fXXVzC-kwrJpL-color-dark-secondary c-fXXVzC-cdWBIM-weight-normal c-fXXVzC-bYNGXt-style-italic c-fXXVzC-cHYCsH-size-normal"
+  data-testid="ion-body"
+>
+  Ion React
+</p>
+`;
+
+exports[`<IonBody /> should render the body with the correct color primary 1`] = `
+<p
+  class="c-fXXVzC c-fXXVzC-fTEIYA-color-primary c-fXXVzC-cdWBIM-weight-normal c-fXXVzC-bYNGXt-style-italic c-fXXVzC-cHYCsH-size-normal"
+  data-testid="ion-body"
+>
+  Ion React
+</p>
+`;
+
+exports[`<IonBody /> should render the body with the correct color secondary 1`] = `
+<p
+  class="c-fXXVzC c-fXXVzC-jOtQRh-color-secondary c-fXXVzC-cdWBIM-weight-normal c-fXXVzC-bYNGXt-style-italic c-fXXVzC-cHYCsH-size-normal"
+  data-testid="ion-body"
+>
+  Ion React
+</p>
+`;
+
+exports[`<IonBody /> should render the body with the correct size normal 1`] = `
+<p
+  class="c-fXXVzC c-fXXVzC-fTEIYA-color-primary c-fXXVzC-cdWBIM-weight-normal c-fXXVzC-bYNGXt-style-italic c-fXXVzC-cHYCsH-size-normal"
+  data-testid="ion-body"
+>
+  Ion React
+</p>
+`;
+
+exports[`<IonBody /> should render the body with the correct size small 1`] = `
+<p
+  class="c-fXXVzC c-fXXVzC-fTEIYA-color-primary c-fXXVzC-cdWBIM-weight-normal c-fXXVzC-bYNGXt-style-italic c-fXXVzC-cSNgox-size-small"
+  data-testid="ion-body"
+>
+  Ion React
+</p>
+`;
+
+exports[`<IonBody /> should render the body with the correct styles italic 1`] = `
+<p
+  class="c-fXXVzC c-fXXVzC-fTEIYA-color-primary c-fXXVzC-cdWBIM-weight-normal c-fXXVzC-bYNGXt-style-italic c-fXXVzC-cHYCsH-size-normal"
+  data-testid="ion-body"
+>
+  Ion React
+</p>
+`;
+
+exports[`<IonBody /> should render the body with the correct styles normal 1`] = `
+<p
+  class="c-fXXVzC c-fXXVzC-fTEIYA-color-primary c-fXXVzC-cdWBIM-weight-normal c-fXXVzC-ZzHSU-style-normal c-fXXVzC-cHYCsH-size-normal"
+  data-testid="ion-body"
+>
+  Ion React
+</p>
+`;
+
+exports[`<IonBody /> should render the body with the correct weight bold 1`] = `
+<p
+  class="c-fXXVzC c-fXXVzC-fTEIYA-color-primary c-fXXVzC-gBWVhb-weight-bold c-fXXVzC-bYNGXt-style-italic c-fXXVzC-cHYCsH-size-normal"
+  data-testid="ion-body"
+>
+  Ion React
+</p>
+`;
+
+exports[`<IonBody /> should render the body with the correct weight medium 1`] = `
+<p
+  class="c-fXXVzC c-fXXVzC-fTEIYA-color-primary c-fXXVzC-GgrlW-weight-medium c-fXXVzC-bYNGXt-style-italic c-fXXVzC-cHYCsH-size-normal"
+  data-testid="ion-body"
+>
+  Ion React
+</p>
+`;
+
+exports[`<IonBody /> should render the body with the correct weight normal 1`] = `
+<p
+  class="c-fXXVzC c-fXXVzC-fTEIYA-color-primary c-fXXVzC-cdWBIM-weight-normal c-fXXVzC-bYNGXt-style-italic c-fXXVzC-cHYCsH-size-normal"
+  data-testid="ion-body"
+>
+  Ion React
+</p>
+`;

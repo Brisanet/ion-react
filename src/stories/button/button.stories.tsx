@@ -1,20 +1,57 @@
-import React from 'react';
-
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Button, { ButtonProps } from '../../components/button/button';
+import IonButton, { ButtonProps } from '../../components/button/button';
 
 export default {
-  title: 'Button',
-  component: Button,
-} as ComponentMeta<typeof Button>;
+  title: 'Ion/Navigation/Buttons',
+  component: IonButton,
+} as ComponentMeta<typeof IonButton>;
 
-const Template: ComponentStory<typeof Button> = (args: ButtonProps) => (
-  <Button {...args} />
+const Template: ComponentStory<typeof IonButton> = (args: ButtonProps) => (
+  <IonButton {...args} />
 );
 
-export const ButtonDefault = Template.bind({});
+export const ButtonPrimary = Template.bind({});
+ButtonPrimary.args = {
+  label: 'Primary',
+  type: 'primary',
+};
 
-ButtonDefault.args = {
-  label: 'Button',
+export const ButtonSecondary = Template.bind({});
+ButtonSecondary.args = {
+  label: 'Secondary',
+  type: 'secondary',
+};
+
+export const ButtonGhost = Template.bind({});
+ButtonGhost.args = {
+  label: 'Ghost',
+  type: 'ghost',
+};
+
+export const ButtonDashed = Template.bind({});
+ButtonDashed.args = {
+  label: 'Dashed',
+  type: 'dashed',
+};
+
+export const PrimaryDisabled = Template.bind({});
+PrimaryDisabled.args = {
+  label: 'Primary',
+  type: 'primary',
+  disabled: true,
+};
+
+export const PrimaryDanger = Template.bind({});
+PrimaryDanger.args = {
+  label: 'Primary',
+  type: 'primary',
+  danger: true,
+};
+
+export const PrimarySmall = Template.bind({});
+PrimarySmall.args = {
+  label: 'Primary',
+  type: 'primary',
+  size: 'sm',
 };
