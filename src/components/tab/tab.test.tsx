@@ -80,12 +80,10 @@ describe('Tab', () => {
       expect(screen.getByTestId(`ion-icon-${iconName}`)).toBeInTheDocument();
     });
 
-    it('should render icon sm by default', () => {
-      const smSize = '16';
-      expect(screen.getByTestId(`ion-icon-${iconName}`)).toHaveAttribute(
-        'height',
-        smSize
-      );
+    it('should render sm icon size by default', () => {
+      const sm = '16';
+      const Tab = screen.getByTestId(`ion-icon-${iconName}`);
+      expect(Tab).toHaveAttribute('height', sm);
     });
   });
 });
