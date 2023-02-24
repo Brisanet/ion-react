@@ -13,16 +13,31 @@ export const TabStyles = styled('button', {
   alignItems: 'center',
   gap: spacing(1),
 
+  div: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: spacing(1),
+    svg: {
+      fill: '$neutral7',
+    },
+  },
+
   '&:hover': {
     color: '$primary5',
     background: '$primary1',
     borderColor: '$primary3',
+    svg: {
+      fill: '$primary5',
+    },
   },
   '&:disabled': {
     color: '$neutral5',
     background: '$neutral3',
     borderColor: '$neutral5',
     cursor: 'not-allowed',
+    svg: {
+      fill: '$neutral5',
+    },
   },
   '&:focus': {
     color: '$primaryColor',
@@ -33,6 +48,9 @@ export const TabStyles = styled('button', {
     cursor: 'pointer',
     display: 'flex',
     alignItems: 'center',
+    svg: {
+      fill: '$primaryColor',
+    },
   },
 
   variants: {
@@ -85,6 +103,11 @@ export const TabStyles = styled('button', {
       css: {
         background: '$neutral1',
         borderColor: '$primaryColor',
+        div: {
+          svg: {
+            fill: '$primaryColor',
+          },
+        },
         '&:hover': {
           color: '$primary5',
           background: '$primary1',
@@ -93,12 +116,22 @@ export const TabStyles = styled('button', {
             color: '$primary7',
             background: '$primary2',
             borderColor: '$primary5',
+            div: {
+              svg: {
+                fill: '$primary7',
+              },
+            },
           },
           '&:disabled': {
             color: '$neutral5',
             background: '$neutral3',
             borderColor: '$neutral5',
             cursor: 'not-allowed',
+            div: {
+              svg: {
+                fill: '$neutral5',
+              },
+            },
           },
         },
       },

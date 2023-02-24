@@ -68,3 +68,9 @@ Selected.args = {
   label: 'Selected',
   selected: true,
 };
+
+export const Icon = Template.bind({});
+Icon.args = {
+  label: 'Icon',
+  icon: 'pencil',
+};

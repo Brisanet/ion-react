@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { SizeType } from '../../core/types/size';
+import IonIcon from '../icons/icons';
+import { iconType } from '../icons/svgs/icons';
 import { TabStyles } from './styles';
 
 type StitchesTabProps = React.ComponentProps<typeof TabStyles>;
@@ -12,11 +14,13 @@ export type TabProps = {
   size?: TabSizes;
   selected?: boolean;
   disabled?: boolean;
+  icon?: iconType;
   handleClick?: () => void;
 } & StitchesTabProps;
 
 const IonTab = ({
   label,
+  icon,
   size = 'sm',
   direction = 'bottom',
   selected = false,
@@ -40,6 +44,12 @@ const IonTab = ({
     setSelectedState(selected);
   }, [selected]);
 
+  const iconSize = {
+    sm: 16,
+    md: 20,
+    lg: 24,
+  };
+
   return (
     <>
       <TabStyles
@@ -49,7 +59,10 @@ const IonTab = ({
         selected={selectedState}
         disabled={disabled}
       >
-        {label}
+        <div>
+          {icon && <IonIcon type={icon} size={iconSize[`${size}`]} />}
+          <span>{label}</span>
+        </div>
       </TabStyles>
     </>
   );
