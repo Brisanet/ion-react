@@ -3,6 +3,8 @@ import userEvent from '@testing-library/user-event';
 import React from 'react';
 import IonSteps, { StepConfig, StepType } from './steps';
 
+const clickEvent = jest.fn();
+
 const sut = (props: StepConfig = defaultProps) => {
   return render(<IonSteps {...props} />);
 };
@@ -147,5 +149,10 @@ describe('Passing through the IonStepComponent', () => {
   it('should to keep last step selected when try to pass forward', async () => {
     await sut({ ...defaultProps, current: 8 });
     expect(screen.findByTestId('step-3-selected')).toBeTruthy();
+  });
+  it('should execute user event when the step is clicked', async () => {
+    await sut({ ...defaultProps, clickable: true });
+    await userEvent.click(screen.getByTestId('step-2-default'));
+    expect(clickEvent).toBeCalledTimes(0);
   });
 });
