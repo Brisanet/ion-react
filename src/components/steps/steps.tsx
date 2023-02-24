@@ -134,8 +134,10 @@ function checkStartedStatus(step: StepType, currentIndex: number): StatusType {
   return step.status ? step.status : stepStatus(step, currentIndex);
 }
 
-function checkNecessityToChange(currentIndex: number, limit: number): boolean {
-  return !(currentIndex < 1 || currentIndex > limit);
+function validateChangeOfStep(currentIndex: number, limit: number): number {
+  if (currentIndex < 1) return 1;
+  if (currentIndex > limit) return limit;
+  return currentIndex;
 }
 
 const IonSteps = ({
@@ -153,6 +155,8 @@ const IonSteps = ({
   }
 
   function changeStep(currentIndex: number): void {
+    currentIndex = validateChangeOfStep(currentIndex, stepsOriginals.length);
+
     let stepsCopy = stepsOriginals.slice();
     stepsCopy = stepsCopy.map((step) => {
       return {
@@ -172,8 +176,7 @@ const IonSteps = ({
       step.stepNumber = index + 1;
     });
     setStepsOriginals(stepsCopy);
-    checkNecessityToChange(currentStep, stepsOriginals.length) &&
-      changeStep(currentStep);
+    changeStep(currentStep);
   }
 
   useEffect(() => {
@@ -181,8 +184,7 @@ const IonSteps = ({
   }, []);
 
   useEffect(() => {
-    checkNecessityToChange(currentStep, stepsOriginals.length) &&
-      changeStep(currentStep);
+    changeStep(currentStep);
   }, [currentStep]);
 
   return (

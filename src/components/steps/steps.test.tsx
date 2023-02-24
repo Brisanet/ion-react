@@ -3,8 +3,6 @@ import userEvent from '@testing-library/user-event';
 import React from 'react';
 import IonSteps, { StepConfig, StepType } from './steps';
 
-const clickEvent = jest.fn();
-
 const sut = (props: StepConfig = defaultProps) => {
   return render(<IonSteps {...props} />);
 };
@@ -35,12 +33,12 @@ describe('Static IonStepComponent', () => {
   it.each(stepsLabels)(
     'should render step component with 3 steps',
     async (label: string) => {
-      await sut();
+      sut();
       expect(screen.getByText(label)).toBeTruthy();
     }
   );
   it('should render first step checked', async () => {
-    await sut({
+    sut({
       current: defaultProps.current,
       steps: [
         {
@@ -62,7 +60,7 @@ describe('Static IonStepComponent', () => {
     expect(getStepById('step-1-checked').className).toContain(`${'checked'}`);
   });
   it('should render second step with error and description', async () => {
-    await sut({
+    sut({
       current: defaultProps.current,
       steps: [
         {
@@ -96,7 +94,7 @@ describe('Static IonStepComponent', () => {
   it.each(checkedStepsIds)(
     'should render step component with 3 checked steps',
     async (stepId: string) => {
-      await sut({
+      sut({
         current: defaultProps.current,
         steps: [
           {
@@ -128,7 +126,7 @@ describe('Static IonStepComponent', () => {
   it.each(defaultStepsIds)(
     'should render all steps disabled when the step component is disabled',
     async (stepId: string) => {
-      await sut({ ...defaultProps, disabled: true });
+      sut({ ...defaultProps, disabled: true });
       expect(screen.getByTestId(stepId)).toBeTruthy();
       expect(getStepById(stepId).className).toContain(`${'disabled-true'}`);
     }
@@ -137,22 +135,21 @@ describe('Static IonStepComponent', () => {
 
 describe('Passing through the IonStepComponent', () => {
   it('should initiate from step 2', async () => {
-    await sut({ ...defaultProps, current: 2 });
+    sut({ ...defaultProps, current: 2 });
     expect(getStepById('step-1-checked').className).toContain(`${'checked'}`);
     expect(getStepById('step-2-selected').className).toContain(`${'selected'}`);
   });
   it('should go to step 3 when it be clicked', async () => {
-    await sut({ ...defaultProps, clickable: true });
-    userEvent.click(screen.getByTestId('step-3-default'));
-    expect(screen.findByTestId('step-3-selected')).toBeTruthy();
+    sut({ ...defaultProps, clickable: true });
+    await userEvent.click(screen.getByTestId('step-3-default'));
+    expect(await screen.getByTestId('step-3-selected')).toBeTruthy();
   });
   it('should to keep last step selected when try to pass forward', async () => {
-    await sut({ ...defaultProps, current: 8 });
-    expect(screen.findByTestId('step-3-selected')).toBeTruthy();
+    sut({ ...defaultProps, current: 8 });
+    expect(await screen.getByTestId('step-3-selected')).toBeTruthy();
   });
-  it('should execute user event when the step is clicked', async () => {
-    await sut({ ...defaultProps, clickable: true });
-    await userEvent.click(screen.getByTestId('step-2-default'));
-    expect(clickEvent).toBeCalledTimes(0);
+  it('should to keep first step selected when try to rewind beyond the first', async () => {
+    sut({ ...defaultProps, current: -3 });
+    expect(await screen.getByTestId('step-1-selected')).toBeTruthy();
   });
 });
