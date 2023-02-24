@@ -134,6 +134,11 @@ describe('Static IonStepComponent', () => {
 });
 
 describe('Passing through the IonStepComponent', () => {
+  it('should initiate from step 2', async () => {
+    await sut({ ...defaultProps, current: 2 });
+    expect(getStepById('step-1-checked').className).toContain(`${'checked'}`);
+    expect(getStepById('step-2-selected').className).toContain(`${'selected'}`);
+  });
   it('should go to step 3 when it be clicked', async () => {
     await sut({ ...defaultProps, clickable: true });
     userEvent.click(screen.getByTestId('step-3-default'));
