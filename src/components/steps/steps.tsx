@@ -9,17 +9,12 @@ import {
   StepDrawStyle,
 } from './styles';
 
-export interface StepProps {
-  steps: any[];
-  handleClick?: () => void;
-}
-
 export type StatusType = 'default' | 'selected' | 'checked' | 'error';
 
 export interface StepType {
   label: string;
   description?: string;
-  index?: number;
+  stepNumber: number;
   status?: StatusType;
 }
 
@@ -34,90 +29,104 @@ export type StepConfig = {
 
 export type StepCircle = {
   status?: StatusType;
-  index?: number;
+  stepNumber?: number;
   steps: StepType[];
 };
 
 export type StepLine = {
   status?: StatusType;
-  index?: number;
+  stepNumber?: number;
   steps: StepType[];
   type: LineType;
 };
 
-export type StepDetails = {
+type StepDetails = {
   label: string;
   description?: string;
-  index?: number;
+  stepNumber?: number;
 };
 
-/* eslint-disable no-unused-vars */
-enum Status {
-  default = 'default',
-  selected = 'selected',
-  checked = 'checked',
-  error = 'error',
-}
+const Status = {
+  default: 'default',
+  selected: 'selected',
+  checked: 'checked',
+  error: 'error',
+} as const;
 
-function LineDraw({ type, status, index, steps }: StepLine) {
-  const beforeStepIsChecked = (index: number = 0): boolean => {
-    return steps[index - 2] && steps[index - 2].status === Status.checked;
-  };
-
-  const afterStepIsChecked = (index: number = 0): boolean => {
-    if (status && status === Status.checked) return true;
-    return steps[index + 2] && steps[index + 2].status !== Status.default;
-  };
-
-  if (type === 'before') {
+const LineDraw = ({ type, status, stepNumber, steps }: StepLine) => {
+  const beforeStepIsChecked = (stepNumber: number = 0): boolean => {
     return (
-      <>{index !== 1 && <LineStyle bolded={beforeStepIsChecked(index)} />}</>
+      steps[stepNumber - 2] && steps[stepNumber - 2].status === Status.checked
     );
+  };
+
+  const afterStepIsChecked = (stepNumber: number = 0): boolean => {
+    if (status && status === Status.checked) return true;
+    return (
+      steps[stepNumber + 2] && steps[stepNumber + 2].status !== Status.default
+    );
+  };
+
+  if (type === 'before' && stepNumber !== 1) {
+    return <LineStyle bolded={beforeStepIsChecked(stepNumber)} />;
   }
 
   return (
     <>
-      {index !== steps.length && (
-        <LineStyle bolded={afterStepIsChecked(index)} />
+      {type === 'after' && stepNumber !== steps.length && (
+        <LineStyle bolded={afterStepIsChecked(stepNumber)} />
       )}
     </>
   );
-}
+};
 
-function StepDraw({ status, index, steps }: StepCircle) {
+const StepDraw = ({ status, stepNumber, steps }: StepCircle) => {
   return (
     <>
       <StepDrawStyle>
-        <LineDraw type={'before'} status={status} index={index} steps={steps} />
+        <LineDraw
+          type={'before'}
+          status={status}
+          stepNumber={stepNumber}
+          steps={steps}
+        />
         <CircleStyle>
           <span>
-            {status === 'checked' ? <IonIcon type={'check'} /> : index}
+            {status === 'checked' ? <IonIcon type={'check'} /> : stepNumber}
           </span>
         </CircleStyle>
-        <LineDraw type={'after'} status={status} index={index} steps={steps} />
+        <LineDraw
+          type={'after'}
+          status={status}
+          stepNumber={stepNumber}
+          steps={steps}
+        />
       </StepDrawStyle>
     </>
   );
-}
+};
 
-function Details({ label, description, index }: StepDetails) {
+const Details = ({ label, description, stepNumber }: StepDetails) => {
   return (
     <>
       <DetailsStyle>
         <div className="label">{label}</div>
         {description && (
-          <div className="description" data-testid={'description-' + index}>
+          <div
+            className="description"
+            data-testid={'description-' + stepNumber}
+          >
             {description}
           </div>
         )}
       </DetailsStyle>
     </>
   );
-}
+};
 
 function stepStatus(step: StepType, currentIndex: number): StatusType {
-  if (step.index && step.index < currentIndex) return Status.checked;
-  if (step.index && step.index === currentIndex) return Status.selected;
+  if (step.stepNumber < currentIndex) return Status.checked;
+  if (step.stepNumber === currentIndex) return Status.selected;
   return Status.default;
 }
 
@@ -135,16 +144,16 @@ const IonSteps = ({
   clickable = false,
   disabled = false,
 }: StepConfig) => {
-  const [stepsOriginais, setStepsOriginais] = useState<StepType[]>(steps);
+  const [stepsOriginals, setStepsOriginals] = useState<StepType[]>(steps);
   const [currentStep, setCurrentStep] = useState<number>(current);
   const [firstCatchStatus, setFirstCatchStatus] = useState(true);
 
-  function handleClickGoesTo(index: number) {
-    if (clickable && !disabled) setCurrentStep(index);
+  function handleClickGoesTo(stepNumber: number) {
+    if (clickable && !disabled) setCurrentStep(stepNumber);
   }
 
   function changeStep(currentIndex: number): void {
-    let stepsCopy = stepsOriginais.slice();
+    let stepsCopy = stepsOriginals.slice();
     stepsCopy = stepsCopy.map((step) => {
       return {
         ...step,
@@ -153,17 +162,17 @@ const IonSteps = ({
           : stepStatus(step, currentIndex),
       };
     });
-    setStepsOriginais(stepsCopy);
+    setStepsOriginals(stepsCopy);
     setFirstCatchStatus(false);
   }
 
   function generateIndexsForStep(): void {
-    let stepsCopy = stepsOriginais.slice();
+    let stepsCopy = stepsOriginals.slice();
     stepsCopy.forEach((step: StepType, index: number) => {
-      step.index = index + 1;
+      step.stepNumber = index + 1;
     });
-    setStepsOriginais(stepsCopy);
-    checkNecessityToChange(currentStep, stepsOriginais.length) &&
+    setStepsOriginals(stepsCopy);
+    checkNecessityToChange(currentStep, stepsOriginals.length) &&
       changeStep(currentStep);
   }
 
@@ -172,32 +181,32 @@ const IonSteps = ({
   }, []);
 
   useEffect(() => {
-    checkNecessityToChange(currentStep, stepsOriginais.length) &&
+    checkNecessityToChange(currentStep, stepsOriginals.length) &&
       changeStep(currentStep);
   }, [currentStep]);
 
   return (
     <StepsContainerStyle data-testid="ion-step">
-      {stepsOriginais &&
-        stepsOriginais.map((step: StepType) => {
+      {stepsOriginals &&
+        stepsOriginals.map((step: StepType) => {
           return (
             <StepStyle
-              key={step.index}
+              key={step.stepNumber}
               status={step.status}
               disabled={disabled}
               clickable={clickable}
-              data-testid={'step-' + step.index + '-' + step.status}
-              onClick={() => handleClickGoesTo(step.index ? step.index : 0)}
+              data-testid={'step-' + step.stepNumber + '-' + step.status}
+              onClick={() => handleClickGoesTo(step.stepNumber)}
             >
               <StepDraw
                 status={step.status}
-                index={step.index}
-                steps={stepsOriginais}
+                stepNumber={step.stepNumber}
+                steps={stepsOriginals}
               />
               <Details
                 label={step.label}
                 description={step.description}
-                index={step.index}
+                stepNumber={step.stepNumber}
               />
             </StepStyle>
           );

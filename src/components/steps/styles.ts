@@ -1,4 +1,5 @@
 import stitches from '../../stitches.config';
+import { spacing } from '../utils/spacing';
 
 const { styled } = stitches;
 
@@ -14,7 +15,7 @@ export const StepDrawStyle = styled('div', {
 export const LineStyle = styled('div', {
   width: '64.5px',
   height: '1px',
-  backgroundColor: '#ced2db',
+  backgroundColor: '$neutral4',
 
   variants: {
     bolded: {
@@ -30,8 +31,8 @@ export const CircleStyle = styled('div', {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  margin: '8px',
-  padding: '4px',
+  margin: spacing(1),
+  padding: spacing(0.5),
   minWidth: '28px',
   height: '28px',
   borderRadius: '20px',
