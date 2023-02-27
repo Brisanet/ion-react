@@ -24,7 +24,7 @@ const IonTab = ({
   size = 'sm',
   direction = 'bottom',
   selected = false,
-  disabled,
+  disabled = false,
   handleClick,
 }: TabProps) => {
   const [selectedState, setSelectedState] = useState<boolean>(selected);
