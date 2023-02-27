@@ -92,7 +92,7 @@ describe('Static IonStepComponent', () => {
     'step-3-checked',
   ];
   it.each(checkedStepsIds)(
-    'should render step component with 3 checked steps',
+    'should render step with id %s',
     async (stepId: string) => {
       sut({
         current: defaultProps.current,
@@ -142,7 +142,7 @@ describe('Passing through the IonStepComponent', () => {
   it('should go to step 3 when it be clicked', async () => {
     sut({ ...defaultProps, clickable: true });
     await userEvent.click(screen.getByTestId('step-3-default'));
-    expect(await screen.getByTestId('step-3-selected')).toBeTruthy();
+    expect(screen.getByTestId('step-3-selected')).toBeTruthy();
   });
   it('should to keep last step selected when try to pass forward', async () => {
     sut({ ...defaultProps, current: 8 });
@@ -150,6 +150,6 @@ describe('Passing through the IonStepComponent', () => {
   });
   it('should to keep first step selected when try to rewind beyond the first', async () => {
     sut({ ...defaultProps, current: -3 });
-    expect(await screen.getByTestId('step-1-selected')).toBeTruthy();
+    expect(screen.getByTestId('step-1-selected')).toBeTruthy();
   });
 });

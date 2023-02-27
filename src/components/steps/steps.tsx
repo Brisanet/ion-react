@@ -108,37 +108,35 @@ const StepDraw = ({ status, stepNumber, steps }: StepCircle) => {
 
 const Details = ({ label, description, stepNumber }: StepDetails) => {
   return (
-    <>
-      <DetailsStyle>
-        <div className="label">{label}</div>
-        {description && (
-          <div
-            className="description"
-            data-testid={'description-' + stepNumber}
-          >
-            {description}
-          </div>
-        )}
-      </DetailsStyle>
-    </>
+    <DetailsStyle>
+      <div className="label">{label}</div>
+      {description && (
+        <div className="description" data-testid={'description-' + stepNumber}>
+          {description}
+        </div>
+      )}
+    </DetailsStyle>
   );
 };
 
-function stepStatus(step: StepType, currentIndex: number): StatusType {
+const stepStatus = (step: StepType, currentIndex: number): StatusType => {
   if (step.stepNumber < currentIndex) return Status.checked;
   if (step.stepNumber === currentIndex) return Status.selected;
   return Status.default;
-}
+};
 
-function checkStartedStatus(step: StepType, currentIndex: number): StatusType {
+const checkStartedStatus = (
+  step: StepType,
+  currentIndex: number
+): StatusType => {
   return step.status ? step.status : stepStatus(step, currentIndex);
-}
+};
 
-function validateChangeOfStep(currentIndex: number, limit: number): number {
+const validateChangeOfStep = (currentIndex: number, limit: number): number => {
   if (currentIndex < 1) return 1;
   if (currentIndex > limit) return limit;
   return currentIndex;
-}
+};
 
 const IonSteps = ({
   current = 1,
@@ -150,11 +148,11 @@ const IonSteps = ({
   const [currentStep, setCurrentStep] = useState<number>(current);
   const [firstCatchStatus, setFirstCatchStatus] = useState(true);
 
-  function handleClickGoesTo(stepNumber: number) {
+  const handleClickGoesTo = (stepNumber: number) => {
     if (clickable && !disabled) setCurrentStep(stepNumber);
-  }
+  };
 
-  function changeStep(currentIndex: number): void {
+  const changeStep = (currentIndex: number): void => {
     currentIndex = validateChangeOfStep(currentIndex, stepsOriginals.length);
 
     let stepsCopy = stepsOriginals.slice();
@@ -168,16 +166,16 @@ const IonSteps = ({
     });
     setStepsOriginals(stepsCopy);
     setFirstCatchStatus(false);
-  }
+  };
 
-  function generateIndexsForStep(): void {
+  const generateIndexsForStep = (): void => {
     let stepsCopy = stepsOriginals.slice();
     stepsCopy.forEach((step: StepType, index: number) => {
       step.stepNumber = index + 1;
     });
     setStepsOriginals(stepsCopy);
     changeStep(currentStep);
-  }
+  };
 
   useEffect(() => {
     generateIndexsForStep();
