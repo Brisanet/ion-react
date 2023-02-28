@@ -1,73 +1,64 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 
-import IonButton from './badge';
-import { ButtonProps } from './badge';
+import IonBadge, { BadgeType, LabelType } from './badge';
+import { BadgeProps } from './badge';
 
-const clickEvent = jest.fn();
-const defaultButton: ButtonProps = {
-  label: 'Button',
-  handleClick: clickEvent,
+const defaultBadge: BadgeProps = {
+  label: 'Badge',
+  type: 'primary',
 };
 
-function sut(props: ButtonProps = defaultButton): HTMLElement {
-  render(<IonButton {...props} />);
-  return screen.getByRole('button', { name: props.label });
+function sut(props: BadgeProps = defaultBadge) {
+  return render(<IonBadge {...props} />);
 }
 
-describe('Button', () => {
-  it('should render the Button component', () => {
-    const label = 'Hello world!';
-    sut({ ...defaultButton, label: label });
-    expect(screen.getByText(label)).toBeInTheDocument();
+describe('BadgeComponent', () => {
+  describe('Default', () => {
+    it('should render badge component', async () => {
+      const label = 'Projeto';
+      sut({ ...defaultBadge, label: label });
+      expect(screen.getByText(label)).toBeInTheDocument();
+    });
   });
 
-  it('should execute user event when the button is clicked', async () => {
-    await userEvent.click(sut({ ...defaultButton }));
-    expect(clickEvent).toHaveBeenCalled();
-  });
+  describe('Custom Props', () => {
+    it.each(['10', 99, '6', 0])(
+      'should render badge with %i label (string or number)',
+      async (label: LabelType) => {
+        sut({ label });
+        expect(screen.getByText(label)).toBeInTheDocument();
+      }
+    );
 
-  it('should be disabled', () => {
-    expect(sut({ ...defaultButton, disabled: true })).toHaveAttribute(
-      'disabled'
+    it.each([100, 101, 1000])(
+      'should render 99+ when value is %i (bigger than 100)',
+      async (label: LabelType) => {
+        sut({ label });
+        expect(screen.getByText('99+')).toBeInTheDocument();
+      }
+    );
+
+    it('should not render 99+ if string contains characters other than numbers', async () => {
+      const label = '100A';
+      sut({ ...defaultBadge, label: label });
+      expect(screen.getByText(label).textContent).toBe(label);
+    });
+
+    const badgeTypes: Array<BadgeType> = [
+      'primary',
+      'secondary',
+      'neutral',
+      'negative',
+    ];
+    it.each(badgeTypes)(
+      'should render badge %s type',
+      async (type: BadgeType) => {
+        sut({ ...defaultBadge, type: type });
+        expect(screen.getByTestId('ion-badge').className).toContain(
+          `type-${type}`
+        );
+      }
     );
   });
-
-  afterEach(() => {
-    clickEvent.mockClear();
-  });
-});
-
-describe('Button Types', () => {
-  const buttonTypes: Array<ButtonProps['type']> = [
-    'primary',
-    'secondary',
-    'ghost',
-    'dashed',
-  ];
-
-  it.each(buttonTypes)('should render button with %s style type', (type) => {
-    const { className } = sut({ ...defaultButton, type: type });
-    expect(className).toContain(`type-${type}`);
-  });
-
-  it.each(buttonTypes)('should render %s danger button', (type) => {
-    const { className } = sut({ ...defaultButton, type: type, danger: true });
-    expect(className).toContain('danger-true');
-    expect(className).toContain(`type-${type}`);
-  });
-});
-
-describe('Button Sizes', () => {
-  const buttonSizes: Array<ButtonProps['size']> = ['sm', 'md', 'lg', 'xl'];
-
-  it.each(buttonSizes)(
-    'should render button with %s size variation',
-    (size) => {
-      expect(sut({ ...defaultButton, size: size }).className).toContain(
-        `size-${size}`
-      );
-    }
-  );
 });

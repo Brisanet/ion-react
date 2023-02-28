@@ -3,11 +3,13 @@ import { BadgeStyles } from './styles';
 
 type StitchesBadgeProps = React.ComponentProps<typeof BadgeStyles>;
 
-type LabelType = string | number;
+export type LabelType = string | number;
+
+export type BadgeType = 'primary' | 'secondary' | 'neutral' | 'negative';
 
 export type BadgeProps = {
   label: LabelType;
-  type?: string;
+  type?: BadgeType;
 } & StitchesBadgeProps;
 
 const IonBadge = ({ label, type = 'primary' }: BadgeProps) => {
@@ -30,7 +32,11 @@ const IonBadge = ({ label, type = 'primary' }: BadgeProps) => {
     setBadgeValue(formatLabel(label));
   }, [label]);
 
-  return <BadgeStyles type={type}>{badgeValue}</BadgeStyles>;
+  return (
+    <BadgeStyles type={type} data-testid="ion-badge">
+      {badgeValue}
+    </BadgeStyles>
+  );
 };
 
 export default IonBadge;
