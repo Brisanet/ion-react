@@ -56,7 +56,7 @@ export const TabStyles = styled('button', {
   variants: {
     size: {
       sm: {
-        padding: '8px 16px',
+        padding: `${spacing(1)} ${spacing(2)}`,
         fontSize: '12px',
         lineHeight: '16px',
         gap: spacing(1),

@@ -45,6 +45,11 @@ describe('Tab', () => {
       expect(sut({ ...defaultTab })).toBeEnabled();
     });
 
+    it('should not call handeClick event when tab is disabled', async () => {
+      await userEvent.click(sut({ ...defaultTab, disabled: true }));
+      expect(clickEvent).toBeCalledTimes(0);
+    });
+
     afterEach(() => {
       clickEvent.mockClear();
     });
@@ -72,18 +77,26 @@ describe('Tab', () => {
   describe('With Icon', () => {
     const iconName = 'pencil';
 
-    beforeEach(() => {
-      sut({ ...defaultTab, icon: iconName });
-    });
-
     it('should render pencil icon', () => {
+      sut({ ...defaultTab, icon: iconName });
       expect(screen.getByTestId(`ion-icon-${iconName}`)).toBeInTheDocument();
     });
 
     it('should render sm icon size by default', () => {
       const sm = '16';
+      sut({ ...defaultTab, icon: iconName });
       const Tab = screen.getByTestId(`ion-icon-${iconName}`);
       expect(Tab).toHaveAttribute('height', sm);
+    });
+
+    it('should render icon md when tab is md', () => {
+      const mdSize = '20';
+      const mdIconName = 'alert';
+      sut({ ...defaultTab, name: 'tab-icon', size: 'md', icon: mdIconName });
+      expect(screen.getByTestId(`ion-icon-${mdIconName}`)).toHaveAttribute(
+        'height',
+        mdSize
+      );
     });
   });
 });
