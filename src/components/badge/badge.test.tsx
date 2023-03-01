@@ -9,9 +9,13 @@ const defaultBadge: BadgeProps = {
   type: 'primary',
 };
 
-function sut(props: BadgeProps = defaultBadge) {
+const sut = (props: BadgeProps = defaultBadge) => {
   return render(<IonBadge {...props} />);
-}
+};
+
+const getBadge = () => {
+  return screen.getByTestId('ion-badge');
+};
 
 describe('BadgeComponent', () => {
   describe('Default', () => {
@@ -22,9 +26,7 @@ describe('BadgeComponent', () => {
 
     it('should render primary badge by default', async () => {
       sut({ label: 'default' });
-      expect(screen.getByTestId('ion-badge').className).toContain(
-        'type-primary'
-      );
+      expect(getBadge().className).toContain('type-primary');
     });
   });
 
@@ -41,14 +43,14 @@ describe('BadgeComponent', () => {
       'should render 99+ when value is %i (bigger than 100)',
       async (label: LabelType) => {
         sut({ label });
-        expect(screen.getByText('99+')).toBeInTheDocument();
+        expect(getBadge().textContent).toBe('99+');
       }
     );
 
     it('should not render 99+ if string contains characters other than numbers', async () => {
       const label = '100A';
       sut({ ...defaultBadge, label: label });
-      expect(screen.getByText(label).textContent).toBe(label);
+      expect(getBadge().textContent).toBe(label);
     });
 
     const badgeTypes: Array<BadgeType> = [
@@ -61,9 +63,7 @@ describe('BadgeComponent', () => {
       'should render badge %s type',
       async (type: BadgeType) => {
         sut({ ...defaultBadge, type: type });
-        expect(screen.getByTestId('ion-badge').className).toContain(
-          `type-${type}`
-        );
+        expect(getBadge().className).toContain(`type-${type}`);
       }
     );
   });
