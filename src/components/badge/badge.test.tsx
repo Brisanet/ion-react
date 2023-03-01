@@ -16,9 +16,15 @@ function sut(props: BadgeProps = defaultBadge) {
 describe('BadgeComponent', () => {
   describe('Default', () => {
     it('should render badge component', async () => {
-      const label = 'Projeto';
-      sut({ ...defaultBadge, label: label });
-      expect(screen.getByText(label)).toBeInTheDocument();
+      sut();
+      expect(screen.getByText(defaultBadge.label)).toBeInTheDocument();
+    });
+
+    it('should render primary badge by default', async () => {
+      sut({ label: 'default' });
+      expect(screen.getByTestId('ion-badge').className).toContain(
+        'type-primary'
+      );
     });
   });
 

@@ -15,7 +15,7 @@ export type BadgeProps = {
 const IonBadge = ({ label, type = 'primary' }: BadgeProps) => {
   const [badgeValue, setBadgeValue] = useState<LabelType>(0);
 
-  function formatLabel(badgeLabel: LabelType): LabelType {
+  const formatLabel = (badgeLabel: LabelType): LabelType => {
     const parsedToNumber = Number(badgeLabel);
     const maxValue = 99;
 
@@ -26,7 +26,7 @@ const IonBadge = ({ label, type = 'primary' }: BadgeProps) => {
     return parsedToNumber > maxValue
       ? `${maxValue}+`
       : parsedToNumber.toString();
-  }
+  };
 
   useEffect(() => {
     setBadgeValue(formatLabel(label));
