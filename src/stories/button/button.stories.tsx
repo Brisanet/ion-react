@@ -56,12 +56,17 @@ PrimarySmall.args = {
   size: 'sm',
 };
 
-export const Icon = Template.bind({});
-Icon.args = {
+export const WithIcon = Template.bind({});
+WithIcon.args = {
   label: 'Primary',
   type: 'primary',
-  size: 'sm',
   icon: 'pencil',
-  danger: false,
-  disabled: false,
+};
+
+export const WithRightIcon = Template.bind({});
+WithRightIcon.args = {
+  label: 'Primary',
+  type: 'primary',
+  icon: 'pencil',
+  iconOnRight: true,
 };

@@ -175,6 +175,14 @@ export const ButtonStyles = styled('button', {
         },
       },
     },
+
+    iconOnRight: {
+      true: {
+        div: {
+          flexDirection: 'row-reverse',
+        },
+      },
+    },
   },
 
   compoundVariants: [

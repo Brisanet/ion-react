@@ -16,6 +16,7 @@ export type ButtonProps = {
   danger?: boolean;
   size?: ButtonSizes;
   icon?: iconType;
+  iconOnRight?: boolean;
 } & StitchesButtonProps;
 
 const IonButton = ({
@@ -24,6 +25,7 @@ const IonButton = ({
   danger = false,
   size = 'md',
   icon,
+  iconOnRight,
   label,
   handleClick,
 }: ButtonProps) => {
@@ -42,6 +44,7 @@ const IonButton = ({
       danger={danger}
       size={size}
       withIcon={icon && true}
+      iconOnRight={iconOnRight}
     >
       <div>
         {icon && <IonIcon type={icon} size={iconSize[`${size}`]} />}
