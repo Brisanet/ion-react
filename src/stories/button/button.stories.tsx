@@ -55,3 +55,13 @@ PrimarySmall.args = {
   type: 'primary',
   size: 'sm',
 };
+
+export const Icon = Template.bind({});
+Icon.args = {
+  label: 'Primary',
+  type: 'primary',
+  size: 'sm',
+  icon: 'pencil',
+  danger: false,
+  disabled: false,
+};

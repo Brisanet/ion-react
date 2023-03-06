@@ -1,5 +1,7 @@
 import React from 'react';
+import IonIcon from '../icons/icons';
 import { SizeType } from '../../core/types/size';
+import { iconType } from '../icons/svgs/icons';
 import { ButtonStyles } from './styles';
 
 type StitchesButtonProps = React.ComponentProps<typeof ButtonStyles>;
@@ -13,6 +15,7 @@ export type ButtonProps = {
   handleClick?: () => void;
   danger?: boolean;
   size?: ButtonSizes;
+  icon?: iconType;
 } & StitchesButtonProps;
 
 const IonButton = ({
@@ -20,9 +23,17 @@ const IonButton = ({
   disabled = false,
   danger = false,
   size = 'md',
+  icon,
   label,
   handleClick,
 }: ButtonProps) => {
+  const iconSize = {
+    sm: 16,
+    md: 20,
+    lg: 24,
+    xl: 28,
+  };
+
   return (
     <ButtonStyles
       type={type}
@@ -30,8 +41,12 @@ const IonButton = ({
       disabled={disabled}
       danger={danger}
       size={size}
+      withIcon={icon && true}
     >
-      {label}
+      <div>
+        {icon && <IonIcon type={icon} size={iconSize[`${size}`]} />}
+        <span>{label}</span>
+      </div>
     </ButtonStyles>
   );
 };
