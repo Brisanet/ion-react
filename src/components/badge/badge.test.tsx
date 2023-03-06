@@ -19,13 +19,15 @@ const getBadge = () => {
 
 describe('BadgeComponent', () => {
   describe('Default', () => {
-    it('should render badge component', async () => {
+    beforeEach(() => {
       sut();
+    });
+
+    it('should render badge component', async () => {
       expect(screen.getByText(defaultBadge.label)).toBeInTheDocument();
     });
 
     it('should render primary badge by default', async () => {
-      sut({ label: 'default' });
       expect(getBadge().className).toContain('type-primary');
     });
   });
