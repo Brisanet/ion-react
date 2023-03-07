@@ -43,10 +43,11 @@ const IonButton = ({
       disabled={disabled}
       danger={danger}
       size={size}
-      withIcon={icon && true}
+      withIcon={!!icon}
       iconOnRight={iconOnRight}
+      data-testid="ion-button"
     >
-      <div>
+      <div data-testid="ion-button-container">
         {icon && <IonIcon type={icon} size={iconSize[`${size}`]} />}
         <span>{label}</span>
       </div>

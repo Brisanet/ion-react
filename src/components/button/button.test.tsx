@@ -11,10 +11,13 @@ const defaultButton: ButtonProps = {
   handleClick: clickEvent,
 };
 
-function sut(props: ButtonProps = defaultButton): HTMLElement {
+function sut(props: ButtonProps = defaultButton) {
   render(<IonButton {...props} />);
-  return screen.getByRole('button', { name: props.label });
 }
+
+const getButton = () => {
+  return screen.getByTestId('ion-button');
+};
 
 describe('Button', () => {
   describe('Default', () => {
@@ -25,14 +28,14 @@ describe('Button', () => {
     });
 
     it('should execute user event when the button is clicked', async () => {
-      await userEvent.click(sut({ ...defaultButton }));
+      sut();
+      await userEvent.click(getButton());
       expect(clickEvent).toHaveBeenCalled();
     });
 
     it('should be disabled', () => {
-      expect(sut({ ...defaultButton, disabled: true })).toHaveAttribute(
-        'disabled'
-      );
+      sut({ ...defaultButton, disabled: true });
+      expect(getButton()).toHaveAttribute('disabled');
     });
 
     afterEach(() => {
@@ -49,12 +52,14 @@ describe('Button', () => {
     ];
 
     it.each(buttonTypes)('should render button with %s style type', (type) => {
-      const { className } = sut({ ...defaultButton, type: type });
+      sut({ ...defaultButton, type: type });
+      const { className } = getButton();
       expect(className).toContain(`type-${type}`);
     });
 
     it.each(buttonTypes)('should render %s danger button', (type) => {
-      const { className } = sut({ ...defaultButton, type: type, danger: true });
+      sut({ ...defaultButton, type: type, danger: true });
+      const { className } = getButton();
       expect(className).toContain('danger-true');
       expect(className).toContain(`type-${type}`);
     });
@@ -66,9 +71,8 @@ describe('Button', () => {
     it.each(buttonSizes)(
       'should render button with %s size variation',
       (size) => {
-        expect(sut({ ...defaultButton, size: size }).className).toContain(
-          `size-${size}`
-        );
+        sut({ ...defaultButton, size: size });
+        expect(getButton().className).toContain(`size-${size}`);
       }
     );
   });
@@ -99,9 +103,16 @@ describe('Button', () => {
 
     it('should render icon in right side', () => {
       const icon = 'alert';
-      expect(
-        sut({ ...defaultButton, icon: icon, iconOnRight: true }).className
-      ).toContain('iconOnRight-true');
+      sut({ ...defaultButton, icon: icon, iconOnRight: true });
+      expect(getButton().className).toContain('iconOnRight-true');
+    });
+
+    it('should render icon in left by default', () => {
+      sut({ ...defaultButton, icon: 'alert', iconOnRight: false });
+      const buttonContainer = screen.getByTestId('ion-button-container');
+      const ContainerFirstChild = buttonContainer.children.item(0);
+
+      expect(ContainerFirstChild?.tagName).toBe('svg');
     });
   });
 });
