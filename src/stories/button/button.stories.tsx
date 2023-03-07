@@ -55,3 +55,18 @@ PrimarySmall.args = {
   type: 'primary',
   size: 'sm',
 };
+
+export const WithIcon = Template.bind({});
+WithIcon.args = {
+  label: 'Primary',
+  type: 'primary',
+  icon: 'pencil',
+};
+
+export const WithRightIcon = Template.bind({});
+WithRightIcon.args = {
+  label: 'Primary',
+  type: 'primary',
+  icon: 'pencil',
+  iconOnRight: true,
+};
