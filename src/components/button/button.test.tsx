@@ -82,10 +82,15 @@ describe('Button', () => {
       expect(Tab).toHaveAttribute('height', sm);
     });
 
-    it('should render icon lg when tab is lg', () => {
+    it('should render icon lg when button is lg', () => {
       const lgSize = '24';
       const lgIconName = 'alert';
-      sut({ ...defaultButton, name: 'tab-icon', size: 'lg', icon: lgIconName });
+      sut({
+        ...defaultButton,
+        name: 'button-icon',
+        size: 'lg',
+        icon: lgIconName,
+      });
       expect(screen.getByTestId(`ion-icon-${lgIconName}`)).toHaveAttribute(
         'height',
         lgSize
