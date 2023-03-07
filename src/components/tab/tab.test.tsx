@@ -11,10 +11,13 @@ const defaultTab: TabProps = {
   handleClick: clickEvent,
 };
 
-function sut(props: TabProps = defaultTab): HTMLElement {
+function sut(props: TabProps = defaultTab) {
   render(<IonTab {...props} />);
-  return screen.getByRole('button', { name: props.label });
 }
+
+const getTab = () => {
+  return screen.getByTestId('ion-tab');
+};
 
 describe('Tab', () => {
   describe('Default', () => {
@@ -25,28 +28,31 @@ describe('Tab', () => {
     });
 
     it('should execute user event when the Tab is clicked', async () => {
-      await userEvent.click(sut({ ...defaultTab }));
+      sut();
+      await userEvent.click(getTab());
       expect(clickEvent).toHaveBeenCalled();
     });
 
     it('should be contain the "selected-true" class when clicked without handleClick prop', async () => {
-      const myTab = sut({ ...defaultTab, handleClick: undefined });
+      sut({ ...defaultTab, handleClick: undefined });
+      const myTab = getTab();
       await userEvent.click(myTab);
       expect(myTab.className).toContain('selected-true');
     });
 
     it('should be disabled', () => {
-      expect(sut({ ...defaultTab, disabled: true })).toHaveAttribute(
-        'disabled'
-      );
+      sut({ ...defaultTab, disabled: true });
+      expect(getTab()).toHaveAttribute('disabled');
     });
 
     it('should render tab without disabled by default', async () => {
-      expect(sut({ ...defaultTab })).toBeEnabled();
+      sut();
+      expect(getTab()).toBeEnabled();
     });
 
     it('should not call handeClick event when tab is disabled', async () => {
-      await userEvent.click(sut({ ...defaultTab, disabled: true }));
+      sut({ ...defaultTab, disabled: true });
+      await userEvent.click(getTab());
       expect(clickEvent).toBeCalledTimes(0);
     });
 
@@ -58,7 +64,8 @@ describe('Tab', () => {
   describe('Custom Props', () => {
     const tabSizes: Array<TabProps['size']> = ['sm', 'md', 'lg'];
     it.each(tabSizes)('should render Tab with %s size', (size) => {
-      const { className } = sut({ ...defaultTab, size: size });
+      sut({ ...defaultTab, size: size });
+      const { className } = getTab();
       expect(className).toContain(`size-${size}`);
     });
 
@@ -69,7 +76,8 @@ describe('Tab', () => {
       'right',
     ];
     it.each(tabDirections)('should render Tab with %s border', (direction) => {
-      const { className } = sut({ ...defaultTab, direction: direction });
+      sut({ ...defaultTab, direction: direction });
+      const { className } = getTab();
       expect(className).toContain(`direction-${direction}`);
     });
   });
@@ -97,6 +105,30 @@ describe('Tab', () => {
         'height',
         mdSize
       );
+    });
+  });
+
+  describe('With Badge', () => {
+    it('should render badge', async () => {
+      sut({ ...defaultTab, badge: { label: 2 } });
+      expect(screen.getAllByTestId('ion-badge'));
+    });
+
+    it('should not render badge when is not informed', async () => {
+      sut();
+      expect(screen.queryAllByText('ion-badge')).toHaveLength(0);
+    });
+
+    it('should render badge with string label', async () => {
+      const label = 'Skywalker';
+      sut({ ...defaultTab, badge: { label: label } });
+      expect(screen.getByTestId('ion-badge').textContent).toBe(label);
+    });
+
+    it('should render 99+ when value is bigger than 100', async () => {
+      const label = 190;
+      sut({ ...defaultTab, badge: { label: label } });
+      expect(screen.getByTestId('ion-badge').textContent).toBe('99+');
     });
   });
 });

@@ -61,6 +61,7 @@ const IonTab = ({
         onClick={handleClick}
         selected={selectedState}
         disabled={disabled}
+        data-testid="ion-tab"
       >
         <div>
           {icon && <IonIcon type={icon} size={iconSize[`${size}`]} />}
