@@ -108,7 +108,7 @@ describe('Button', () => {
     });
 
     it('should render icon in left by default', () => {
-      sut({ ...defaultButton, icon: 'alert', iconOnRight: false });
+      sut({ ...defaultButton, icon: 'alert' });
       const buttonContainer = screen.getByTestId('ion-button-container');
       const ContainerFirstChild = buttonContainer.children.item(0);
 
