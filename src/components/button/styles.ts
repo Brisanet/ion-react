@@ -1,4 +1,5 @@
 import stitches from '../../stitches.config';
+import { spacing } from '../utils/spacing';
 
 const { styled } = stitches;
 
@@ -16,6 +17,9 @@ export const ButtonStyles = styled('button', {
       primary: {
         background: '$primaryColor',
         color: '$neutral1',
+        svg: {
+          fill: '$neutral1',
+        },
 
         '&:hover': { background: '$primary5' },
         '&:active': { background: '$primary7' },
@@ -23,68 +27,107 @@ export const ButtonStyles = styled('button', {
           background: '$neutral2',
           color: '$neutral5',
           cursor: 'not-allowed',
+          svg: {
+            fill: '$neutral5',
+          },
         },
       },
       secondary: {
         background: '$neutral1',
         color: '$primaryColor',
         border: '1px solid $neutral4',
+        svg: {
+          fill: '$primaryColor',
+        },
 
         '&:hover': {
           background: '$primary1',
           color: '$primary5',
           border: '1px solid $primary4',
+          svg: {
+            fill: '$primary5',
+          },
         },
         '&:active': {
           background: '$primary2',
           color: '$primary5',
           border: '1px solid $primary7',
+          svg: {
+            fill: '$primary5',
+          },
         },
         '&:disabled': {
           background: '$neutral2 ',
           color: '$neutral5 ',
           border: '1px solid $neutral5 ',
           cursor: 'not-allowed',
+          svg: {
+            fill: '$neutral5',
+          },
         },
       },
       ghost: {
         background: 'transparent',
         color: '$primaryColor',
+        svg: {
+          fill: '$primaryColor',
+        },
 
         '&:hover': {
           background: '$primary1',
           color: '$primary5',
+          svg: {
+            fill: '$primary5',
+          },
         },
         '&:active': {
           background: '$primary2',
           color: '$primary7',
+          svg: {
+            fill: '$primary7',
+          },
         },
         '&:disabled': {
           background: 'transparent',
           color: '$neutral5',
           cursor: 'not-allowed',
+          svg: {
+            fill: '$neutral5',
+          },
         },
       },
       dashed: {
         background: 'transparent',
         color: '$primary7',
         border: '1px dashed $neutral4',
+        svg: {
+          fill: '$primary7',
+        },
 
         '&:hover': {
           background: '$primary1',
           color: '$primary5',
           border: '1px dashed $primary4',
+          svg: {
+            fill: '$primary5',
+          },
         },
         '&:active': {
           background: '$primary2',
           color: '$primary7',
           border: '1px dashed $primary5',
+          svg: {
+            fill: '$primary7',
+          },
         },
         '&:disabled': {
           background: '$neutral3',
           color: '$neutral5',
           border: '1px dashed $neutral5',
           cursor: 'not-allowed',
+          svg: {
+            fill: '$neutral5',
+          },
         },
       },
     },
@@ -121,6 +164,25 @@ export const ButtonStyles = styled('button', {
         fontSize: '16px',
       },
     },
+
+    withIcon: {
+      true: {
+        div: {
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: spacing(1),
+        },
+      },
+    },
+
+    iconOnRight: {
+      true: {
+        div: {
+          flexDirection: 'row-reverse',
+        },
+      },
+    },
   },
 
   compoundVariants: [
@@ -130,9 +192,16 @@ export const ButtonStyles = styled('button', {
       css: {
         background: '$negative6',
         color: '$negative1',
+        svg: {
+          fill: '$negative1',
+        },
+
         '&:hover': {
           background: '$negative5',
           color: '$neutral1',
+          svg: {
+            fill: '$primary1',
+          },
         },
         '&:active': {
           background: '$negative7',
@@ -141,6 +210,9 @@ export const ButtonStyles = styled('button', {
           background: '$neutral2',
           color: '$neutral5',
           cursor: 'not-allowed',
+          svg: {
+            fill: '$neutral5',
+          },
         },
       },
     },
@@ -149,21 +221,33 @@ export const ButtonStyles = styled('button', {
       danger: true,
       css: {
         color: '$negativeColor',
+        svg: {
+          fill: '$negativeColor',
+        },
         '&:hover': {
           background: '$negative1',
           color: '$negative5',
           border: '1px solid $negative3',
+          svg: {
+            fill: '$negative5',
+          },
         },
         '&:active': {
           background: '$negative2',
           color: '$negative7',
           border: '1px solid $negative7',
+          svg: {
+            fill: '$negative7',
+          },
         },
         '&:disabled': {
           background: '$neutral2 ',
           color: '$neutral5 ',
           border: '1px solid $neutral5',
           cursor: 'not-allowed',
+          svg: {
+            fill: '$neutral5',
+          },
         },
       },
     },
@@ -172,18 +256,30 @@ export const ButtonStyles = styled('button', {
       danger: true,
       css: {
         color: '$negative6',
+        svg: {
+          fill: '$negative6',
+        },
         '&:hover': {
           background: '$negative1',
           color: '$negative5',
+          svg: {
+            fill: '$negative5',
+          },
         },
         '&:active': {
           background: '$negative2',
           color: '$negative7',
+          svg: {
+            fill: '$negative7',
+          },
         },
         '&:disabled': {
           background: 'transparent',
           color: '$neutral5',
           cursor: 'not-allowed',
+          svg: {
+            fill: '$neutral5',
+          },
         },
       },
     },
@@ -193,21 +289,33 @@ export const ButtonStyles = styled('button', {
       css: {
         border: '1px dashed $neutral4',
         color: '$negative6',
+        svg: {
+          fill: '$negative6',
+        },
         '&:hover': {
           background: '$negative1',
           color: '$negative5',
           border: '1px dashed $negative3',
+          svg: {
+            fill: '$negative5',
+          },
         },
         '&:active': {
           background: '$negative2',
           color: '$negative7',
           border: '1px dashed $negative6',
+          svg: {
+            fill: '$negative7',
+          },
         },
         '&:disabled': {
           background: '$neutral3',
           color: '$neutral5',
           border: '1px dashed $neutral5',
           cursor: 'not-allowed',
+          svg: {
+            fill: '$neutral5',
+          },
         },
       },
     },
