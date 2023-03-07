@@ -69,8 +69,21 @@ Selected.args = {
   selected: true,
 };
 
-export const Icon = Template.bind({});
-Icon.args = {
+export const WithIcon = Template.bind({});
+WithIcon.args = {
   label: 'Icon',
   icon: 'pencil',
+};
+
+export const WithBadge = Template.bind({});
+WithBadge.args = {
+  label: 'Badge',
+  badge: { label: 10 },
+};
+
+export const IconAndBadge = Template.bind({});
+IconAndBadge.args = {
+  label: 'Badge',
+  icon: 'pencil',
+  badge: { label: 10 },
 };
