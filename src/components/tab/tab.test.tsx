@@ -19,6 +19,10 @@ const getTab = () => {
   return screen.getByTestId('ion-tab');
 };
 
+const getBadge = () => {
+  return screen.getByTestId('ion-badge');
+};
+
 describe('Tab', () => {
   describe('Default', () => {
     it('should render the Tab component', () => {
@@ -45,7 +49,7 @@ describe('Tab', () => {
       expect(getTab()).toHaveAttribute('disabled');
     });
 
-    it('should render tab without disabled by default', async () => {
+    it('should render tab enabled by default', async () => {
       sut();
       expect(getTab()).toBeEnabled();
     });
@@ -111,24 +115,24 @@ describe('Tab', () => {
   describe('With Badge', () => {
     it('should render badge', async () => {
       sut({ ...defaultTab, badge: { label: 2 } });
-      expect(screen.getAllByTestId('ion-badge'));
+      expect(getBadge()).toBeInTheDocument();
     });
 
     it('should not render badge when is not informed', async () => {
       sut();
-      expect(screen.queryAllByText('ion-badge')).toHaveLength(0);
+      expect(screen.queryByTestId('ion-badge')).toBeNull();
     });
 
     it('should render badge with string label', async () => {
       const label = 'Skywalker';
       sut({ ...defaultTab, badge: { label: label } });
-      expect(screen.getByTestId('ion-badge').textContent).toBe(label);
+      expect(getBadge().textContent).toBe(label);
     });
 
     it('should render 99+ when value is bigger than 100', async () => {
       const label = 190;
       sut({ ...defaultTab, badge: { label: label } });
-      expect(screen.getByTestId('ion-badge').textContent).toBe('99+');
+      expect(getBadge().textContent).toBe('99+');
     });
   });
 });
