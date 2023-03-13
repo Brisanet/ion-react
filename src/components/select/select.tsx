@@ -99,6 +99,14 @@ const isSelected = (
   return result;
 };
 
+const checkSelecteds = (options: OptionProps[]): OptionProps[] => {
+  let result: OptionProps[] = [];
+  options.forEach((option) => {
+    if (option.selected) result.push(option);
+  });
+  return result;
+};
+
 const IonSelect = ({
   allowClear,
   disabled,
@@ -121,7 +129,7 @@ const IonSelect = ({
 
   const handleSelectedOption = (data: OptionProps[]) => {
     setvalueSelected(data);
-    !multiple && setShowDropdown(false);
+    if (!multiple) setShowDropdown(false);
   };
 
   const handleCleanAll = () => {
@@ -141,16 +149,8 @@ const IonSelect = ({
     setvalueSelected(data);
   };
 
-  const checkSelecteds = (): OptionProps[] => {
-    let result: OptionProps[] = [];
-    options.forEach((option) => {
-      if (option.selected) result.push(option);
-    });
-    return result;
-  };
-
   useEffect(() => {
-    let optionsSelected = checkSelecteds();
+    let optionsSelected = checkSelecteds(options);
     optionsSelected.length && setvalueSelected(optionsSelected);
   }, []);
 
