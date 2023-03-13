@@ -40,20 +40,24 @@ const Options = ({
   indexGroup,
 }: OptionsConfig) => {
   const [optionsCopy, setOptionsCopy] = useState<OptionProps[]>(options);
-  const select = (index: number) => {
-    if (disabled || optionsCopy[index].disabled) return;
-    if (!multiple) {
+  const isDisabled = (index: number): boolean => {
+    if (disabled || optionsCopy[index].disabled) return true;
+    return false;
+  };
+  const isSelectingNotMultiple = (index: number): boolean => {
+    if (!optionsCopy[index].selected && !multiple) return true;
+    return false;
+  };
+  const select = (index: number): void => {
+    if (isDisabled(index)) return;
+    if (isSelectingNotMultiple(index)) {
       optionsCopy.forEach((option) => {
         option.selected = false;
       });
     }
     updateSelecteds(index);
   };
-  const unselect = (index: number) => {
-    if (disabled || optionsCopy[index].disabled) return;
-    updateSelecteds(index);
-  };
-  const updateSelecteds = (index: number) => {
+  const updateSelecteds = (index: number): void => {
     optionsCopy[index].selected = !optionsCopy[index].selected;
     setOptionsCopy([...optionsCopy]);
     onSelectedOption([...optionsCopy]);
@@ -79,9 +83,7 @@ const Options = ({
               }
               disabled={disabled || option.disabled}
               selected={option.selected}
-              onClick={() =>
-                option.selected ? unselect(index) : select(index)
-              }
+              onClick={() => select(index)}
             >
               <div className="label">{option.label}</div>
               {option.selected === true && (
