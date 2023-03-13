@@ -6,7 +6,7 @@ import { TabGroupStyles } from './styles';
 
 type TabAlign = 'vertical' | 'horizontal';
 
-type TabGroupSizes = Exclude<SizeType, 'xs'>;
+export type TabGroupSizes = Exclude<SizeType, 'xs'>;
 
 export interface IonTabGroupProps {
   tabs: TabProps[];
@@ -34,6 +34,20 @@ const IonTabGroup = ({
     setActiveTab(index);
   };
 
+  const defaultBorderDirection = () => {
+    const haveVerticalBorder =
+      borderDirection === 'left' || borderDirection === 'right';
+    const haveHorizontalBorder =
+      borderDirection === 'top' || borderDirection === 'bottom';
+
+    switch (align) {
+      case 'vertical':
+        return haveVerticalBorder ? borderDirection : 'right';
+      case 'horizontal':
+        return haveHorizontalBorder ? borderDirection : 'bottom';
+    }
+  };
+
   useEffect(() => {
     haveDefaultSelected();
   }, []);
@@ -46,7 +60,7 @@ const IonTabGroup = ({
             <IonTab
               {...tabItem}
               key={index}
-              direction={borderDirection}
+              direction={defaultBorderDirection()}
               handleClick={() => handleTabClick(index)}
               selected={activeTab === index ? true : false}
               size={size}

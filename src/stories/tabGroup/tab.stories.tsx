@@ -91,3 +91,38 @@ WithIcons.args = {
   tabs: tabsIcons,
   align: 'vertical',
 };
+
+export const WithBadge = Template.bind({});
+WithBadge.args = {
+  tabs: [
+    {
+      label: 'With Badge',
+      selected: true,
+      badge: { label: 100 },
+    },
+    {
+      label: 'Without Badge',
+    },
+  ],
+};
+
+export const BadgeAndIcon = Template.bind({});
+BadgeAndIcon.args = {
+  tabs: [
+    {
+      label: 'Tab 1',
+      icon: 'access',
+      badge: { label: 100 },
+    },
+    {
+      label: 'Tab 2',
+      icon: 'pencil',
+      badge: { label: 12 },
+    },
+    {
+      label: 'Tab 3',
+      icon: 'alert',
+    },
+  ],
+  align: 'vertical',
+};
