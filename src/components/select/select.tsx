@@ -150,8 +150,7 @@ const IonSelect = ({
   };
 
   useEffect(() => {
-    let optionsSelected = checkSelecteds(options);
-    optionsSelected.length && setvalueSelected(optionsSelected);
+    setvalueSelected(checkSelecteds(options));
   }, []);
 
   return (
