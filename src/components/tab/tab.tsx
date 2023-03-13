@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { SizeType } from '../../core/types/size';
+import IonBadge, { BadgeProps } from '../badge/badge';
 import IonIcon from '../icons/icons';
 import { iconType } from '../icons/svgs/icons';
 import { TabStyles } from './styles';
@@ -15,6 +16,7 @@ export type TabProps = {
   selected?: boolean;
   disabled?: boolean;
   icon?: iconType;
+  badge?: BadgeProps;
   handleClick?: () => void;
 } & StitchesTabProps;
 
@@ -26,6 +28,7 @@ const IonTab = ({
   selected = false,
   disabled = false,
   handleClick,
+  badge,
 }: TabProps) => {
   const [selectedState, setSelectedState] = useState<boolean>(selected);
 
@@ -58,10 +61,12 @@ const IonTab = ({
         onClick={handleClick}
         selected={selectedState}
         disabled={disabled}
+        data-testid="ion-tab"
       >
         <div>
           {icon && <IonIcon type={icon} size={iconSize[`${size}`]} />}
           <span>{label}</span>
+          {badge && <IonBadge label={badge.label} type={badge.type} />}
         </div>
       </TabStyles>
     </>
