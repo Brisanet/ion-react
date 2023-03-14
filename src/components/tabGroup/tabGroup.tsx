@@ -20,7 +20,7 @@ const IonTabGroup = ({
   tabs,
   size = 'sm',
   align = 'horizontal',
-  borderDirection = 'bottom',
+  borderDirection,
 }: IonTabGroupProps) => {
   const [activeTab, setActiveTab] = useState<number>();
 
@@ -34,17 +34,15 @@ const IonTabGroup = ({
   };
 
   const defaultBorderDirection = () => {
-    const haveVerticalBorder =
-      borderDirection === 'left' || borderDirection === 'right';
-    const haveHorizontalBorder =
-      borderDirection === 'top' || borderDirection === 'bottom';
+    const haveVerticalBorders =
+      borderDirection === 'left' || borderDirection == 'right';
+    const haveHorizontalBorders =
+      borderDirection === 'top' || borderDirection == 'bottom';
 
-    switch (align) {
-      case 'vertical':
-        return haveVerticalBorder ? borderDirection : 'right';
-      case 'horizontal':
-        return haveHorizontalBorder ? borderDirection : 'bottom';
+    if (align === 'vertical') {
+      return haveVerticalBorders ? borderDirection : 'right';
     }
+    return haveHorizontalBorders ? borderDirection : 'bottom';
   };
 
   useEffect(() => {
