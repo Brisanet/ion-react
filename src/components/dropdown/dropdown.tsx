@@ -33,32 +33,32 @@ export interface OptionsConfig extends DropdownProps {
 }
 
 const isDisabled = (
-  option: OptionProps,
+  disabledThisOption?: boolean,
   disabledAllOptions?: boolean
 ): boolean => {
-  const result = disabledAllOptions || option.disabled;
+  const result = disabledAllOptions || disabledThisOption;
   return result || false;
 };
 const isSelectingNotMultiple = (
-  option: OptionProps,
+  isSelecting?: boolean,
   multiple?: boolean
 ): boolean => {
-  const result = !option.selected && !multiple;
+  const result = !isSelecting && !multiple;
   return result || false;
 };
 
 const Options = ({
-  disabled,
+  disabled = false,
   options = [],
-  multiple,
+  multiple = false,
   onSelectedOption,
   indexGroup,
 }: OptionsConfig) => {
   const [optionsCopy, setOptionsCopy] = useState<OptionProps[]>(options);
 
   const select = (index: number): void => {
-    if (isDisabled(optionsCopy[index], disabled)) return;
-    if (isSelectingNotMultiple(optionsCopy[index], multiple)) {
+    if (isDisabled(optionsCopy[index].disabled, disabled)) return;
+    if (isSelectingNotMultiple(optionsCopy[index].selected, multiple)) {
       optionsCopy.forEach((option) => {
         option.selected = false;
       });
