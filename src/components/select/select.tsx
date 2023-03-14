@@ -88,25 +88,6 @@ const FormattedValue = ({
   return <div>{selectedOptions[0] && selectedOptions[0].label}</div>;
 };
 
-const isSelected = (
-  optionToCompare: OptionProps,
-  selecetedArray: OptionProps[]
-): boolean => {
-  let result = false;
-  selecetedArray.forEach((selected) => {
-    if (optionToCompare.value === selected.value) result = true;
-  });
-  return result;
-};
-
-const checkSelecteds = (options: OptionProps[]): OptionProps[] => {
-  let result: OptionProps[] = [];
-  options.forEach((option) => {
-    if (option.selected) result.push(option);
-  });
-  return result;
-};
-
 const IonSelect = ({
   allowClear,
   disabled,
@@ -122,6 +103,17 @@ const IonSelect = ({
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
   let isRemoving = false;
 
+  const isSelected = (
+    optionToCompare: OptionProps,
+    selecetedArray: OptionProps[]
+  ): boolean => {
+    let result = false;
+    selecetedArray.forEach((selected) => {
+      if (optionToCompare.value === selected.value) result = true;
+    });
+    return result;
+  };
+
   const handleClick = () => {
     if (isRemoving || disabled) return;
     setShowDropdown(!showDropdown);
@@ -131,15 +123,6 @@ const IonSelect = ({
     setvalueSelected(data);
     if (!multiple) setShowDropdown(false);
   };
-
-  // const handleCleanAll = () => {
-  //   if (disabled) return;
-  //   isRemoving = true;
-  //   options.forEach((option) => {
-  //     option.selected = false;
-  //   });
-  //   setvalueSelected([]);
-  // };
 
   const handleRemovingData = (data: OptionProps[], cleanAll?: boolean) => {
     if (disabled) return;
@@ -151,7 +134,8 @@ const IonSelect = ({
   };
 
   useEffect(() => {
-    setvalueSelected(checkSelecteds(options));
+    const onlySelecteds = options.filter((option) => option.selected);
+    setvalueSelected(onlySelecteds);
   }, []);
 
   return (
