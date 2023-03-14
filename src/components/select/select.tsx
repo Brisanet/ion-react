@@ -132,19 +132,20 @@ const IonSelect = ({
     if (!multiple) setShowDropdown(false);
   };
 
-  const handleCleanAll = () => {
+  // const handleCleanAll = () => {
+  //   if (disabled) return;
+  //   isRemoving = true;
+  //   options.forEach((option) => {
+  //     option.selected = false;
+  //   });
+  //   setvalueSelected([]);
+  // };
+
+  const handleRemovingData = (data: OptionProps[], cleanAll?: boolean) => {
     if (disabled) return;
     isRemoving = true;
     options.forEach((option) => {
-      option.selected = false;
-    });
-    setvalueSelected([]);
-  };
-
-  const handleRemovingData = (data: OptionProps[]) => {
-    isRemoving = true;
-    options.forEach((option) => {
-      option.selected = isSelected(option, data);
+      option.selected = cleanAll ? false : isSelected(option, data);
     });
     setvalueSelected(data);
   };
@@ -182,7 +183,10 @@ const IonSelect = ({
           />
         </div>
         {allowClear && (
-          <div className="clean-icon" onClick={handleCleanAll}>
+          <div
+            className="clean-icon"
+            onClick={() => handleRemovingData([], true)}
+          >
             <IonIcon type={'close'} size={iconSize[size]} />
           </div>
         )}
