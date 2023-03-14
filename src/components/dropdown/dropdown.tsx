@@ -48,9 +48,9 @@ const isSelectingNotMultiple = (
 };
 
 const Options = ({
-  disabled = false,
+  disabled,
   options = [],
-  multiple = false,
+  multiple,
   onSelectedOption,
   indexGroup,
 }: OptionsConfig) => {
