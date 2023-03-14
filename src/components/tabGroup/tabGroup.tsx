@@ -18,16 +18,15 @@ export interface IonTabGroupProps {
 
 const IonTabGroup = ({
   tabs,
+  size = 'sm',
   align = 'horizontal',
   borderDirection = 'bottom',
-  size = 'sm',
 }: IonTabGroupProps) => {
   const [activeTab, setActiveTab] = useState<number>();
 
-  const haveDefaultSelected = () => {
+  const defaultSelectedTab = () => {
     const selectedTabIndex = tabs.findIndex((tab) => tab.selected);
-    if (selectedTabIndex || selectedTabIndex === 0)
-      setActiveTab(selectedTabIndex);
+    if (selectedTabIndex !== null) setActiveTab(selectedTabIndex);
   };
 
   const handleTabClick = (index: number): void => {
@@ -49,7 +48,7 @@ const IonTabGroup = ({
   };
 
   useEffect(() => {
-    haveDefaultSelected();
+    defaultSelectedTab();
   }, []);
 
   return (
