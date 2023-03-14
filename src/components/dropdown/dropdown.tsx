@@ -32,30 +32,33 @@ export interface OptionsConfig extends DropdownProps {
   indexGroup?: number;
 }
 
-const isDisabled = (option: OptionProps, disabled?: boolean): boolean => {
-  if (disabled || option.disabled) return true;
-  return false;
+const isDisabled = (
+  disabledThisOption?: boolean,
+  disabledAllOptions?: boolean
+): boolean => {
+  const result = disabledAllOptions || disabledThisOption;
+  return result || false;
 };
 const isSelectingNotMultiple = (
-  option: OptionProps,
+  isSelecting?: boolean,
   multiple?: boolean
 ): boolean => {
-  if (!option.selected && !multiple) return true;
-  return false;
+  const result = !isSelecting && !multiple;
+  return result || false;
 };
 
 const Options = ({
-  disabled,
+  disabled = false,
   options = [],
-  multiple,
+  multiple = false,
   onSelectedOption,
   indexGroup,
 }: OptionsConfig) => {
   const [optionsCopy, setOptionsCopy] = useState<OptionProps[]>(options);
 
   const select = (index: number): void => {
-    if (isDisabled(optionsCopy[index], disabled)) return;
-    if (isSelectingNotMultiple(optionsCopy[index], multiple)) {
+    if (isDisabled(optionsCopy[index].disabled, disabled)) return;
+    if (isSelectingNotMultiple(optionsCopy[index].selected, multiple)) {
       optionsCopy.forEach((option) => {
         option.selected = false;
       });
@@ -80,7 +83,7 @@ const Options = ({
         options.map((option, index) => {
           return (
             <OptionStyle
-              key={option.value}
+              key={index}
               data-testid={
                 indexGroup
                   ? 'ion-option-' + index + '-' + indexGroup
@@ -91,7 +94,7 @@ const Options = ({
               onClick={() => select(index)}
             >
               <div className="label">{option.label}</div>
-              {option.selected === true && (
+              {option.selected && (
                 <>
                   <div className="icon check">
                     <IonIcon type={'check'} size={20} />
@@ -108,29 +111,28 @@ const Options = ({
   );
 };
 
+const isSelected = (
+  optionToCompare: OptionProps,
+  optionsUpdated: OptionProps[]
+): boolean => {
+  return optionsUpdated.some(
+    (option) => option.selected && option.value === optionToCompare.value
+  );
+};
+
 const OptionsGroup = ({
-  disabled,
+  disabled = false,
   optionsGroup = [],
   onSelectedOption,
-  multiple,
+  multiple = false,
 }: DropdownProps) => {
   const [groupCopy, setGroupCopy] = useState<OptionGroupProps[]>(optionsGroup);
   const handleSelect = (event: OptionProps[]) => {
-    const isSelected = (optionToCompare: OptionProps): boolean => {
-      let result = false;
-      event.forEach((option) => {
-        if (option.selected && optionToCompare.value === option.value) {
-          result = true;
-        }
-      });
-      return result;
-    };
-
     if (!multiple) {
       let safeCopy: OptionGroupProps[] = [...groupCopy];
-      safeCopy.forEach((optionGroup) => {
+      groupCopy.forEach((optionGroup) => {
         optionGroup.options.forEach((option) => {
-          option.selected = isSelected(option);
+          option.selected = isSelected(option, event);
         });
       });
       setGroupCopy(safeCopy);
@@ -143,7 +145,7 @@ const OptionsGroup = ({
     <div data-testid="ion-dropdown-options-group">
       {optionsGroup.map((optionGroup, index) => {
         return (
-          <OptionGroupStyle key={optionGroup.label}>
+          <OptionGroupStyle key={index}>
             <div className="label">{optionGroup.label}</div>
             <Options
               disabled={disabled}
@@ -160,8 +162,8 @@ const OptionsGroup = ({
 };
 
 const IonDropdown = ({
-  disabled,
-  multiple,
+  disabled = false,
+  multiple = false,
   options = [],
   optionsGroup,
   onSelectedOption,

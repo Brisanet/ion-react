@@ -80,8 +80,8 @@ describe('Dropdown with Options', () => {
     const classSelected = getDropdownById('ion-option-0').className;
     expect(classSelected).not.toContain(`${'selected'}`);
   });
-  it('should unselect an disabled option', async () => {
-    const propsWIthSelected: DropdownProps = {
+  it('should not unselect an disabled option', async () => {
+    const propsWithSelected: DropdownProps = {
       onSelectedOption: clickEvent,
       options: [
         {
@@ -92,8 +92,7 @@ describe('Dropdown with Options', () => {
       ],
       disabled: true,
     };
-    sut(propsWIthSelected);
-    // await userEvent.click(screen.getByTestId('ion-option-0'));
+    sut(propsWithSelected);
     await userEvent.click(screen.getByTestId('ion-option-0'));
     const classUnSelected = getDropdownById('ion-option-0').className;
     expect(classUnSelected).toContain(`${'selected'}`);
@@ -104,7 +103,8 @@ describe('Dropdown with Options', () => {
     await userEvent.click(screen.getByTestId('ion-option-1'));
     const firstSelected = getDropdownById('ion-option-0').className;
     const secondSelected = getDropdownById('ion-option-1').className;
-    expect(firstSelected && secondSelected).toContain(`${'selected'}`);
+    expect(firstSelected).toContain(`${'selected'}`);
+    expect(secondSelected).toContain(`${'selected'}`);
   });
 });
 
@@ -147,7 +147,9 @@ describe('Dropdown with Group of Options', () => {
   it('should render dropdown with group of options', async () => {
     sut(defaultGroup);
     expect(screen.getByTestId('ion-dropdown-options-group')).toBeTruthy();
-    expect(screen.getByText('Grupo 1')).toBeTruthy();
+    expect(
+      screen.getByText(defaultGroup.optionsGroup[0].label)
+    ).toBeInTheDocument();
   });
   it('should select an option', async () => {
     sut(defaultGroup);
@@ -161,7 +163,8 @@ describe('Dropdown with Group of Options', () => {
     await userEvent.click(screen.getByTestId('ion-option-1-1'));
     const firstSelected = getDropdownById('ion-option-0-1').className;
     const secondSelected = getDropdownById('ion-option-1-1').className;
-    expect(firstSelected && secondSelected).toContain(`${'selected'}`);
+    expect(firstSelected).toContain(`${'selected'}`);
+    expect(secondSelected).toContain(`${'selected'}`);
   });
   it('should unselect an option', async () => {
     sut(defaultGroup);
