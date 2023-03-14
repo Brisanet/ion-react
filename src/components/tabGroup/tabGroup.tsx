@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { BorderDirection } from '../../core/types/directions';
 import { SizeType } from '../../core/types/size';
 import IonTab, { TabProps } from '../tab/tab';
@@ -29,9 +29,9 @@ const IonTabGroup = ({
     if (selectedTabIndex !== null) setActiveTab(selectedTabIndex);
   };
 
-  const handleTabClick = (index: number): void => {
+  const handleTabClick = useCallback((index: number) => {
     setActiveTab(index);
-  };
+  }, []);
 
   const defineBorderByAlign = () => {
     const defaultHorizontal = 'bottom';
