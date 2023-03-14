@@ -9,16 +9,16 @@ import {
   StepDrawStyle,
 } from './styles';
 
-export type StatusType = 'default' | 'selected' | 'checked' | 'error';
+export type StepStatusType = 'default' | 'selected' | 'checked' | 'error';
 
 export interface StepType {
   label: string;
   description?: string;
   stepNumber: number;
-  status?: StatusType;
+  status?: StepStatusType;
 }
 
-export type LineType = 'before' | 'after';
+export type StepLineType = 'before' | 'after';
 
 export type StepConfig = {
   current?: number;
@@ -28,16 +28,16 @@ export type StepConfig = {
 };
 
 export type StepCircle = {
-  status?: StatusType;
+  status?: StepStatusType;
   stepNumber?: number;
   steps: StepType[];
 };
 
 export type StepLine = {
-  status?: StatusType;
+  status?: StepStatusType;
   stepNumber?: number;
   steps: StepType[];
-  type: LineType;
+  type: StepLineType;
 };
 
 type StepDetails = {
@@ -119,7 +119,7 @@ const Details = ({ label, description, stepNumber }: StepDetails) => {
   );
 };
 
-const stepStatus = (step: StepType, currentIndex: number): StatusType => {
+const stepStatus = (step: StepType, currentIndex: number): StepStatusType => {
   if (step.stepNumber < currentIndex) return Status.checked;
   if (step.stepNumber === currentIndex) return Status.selected;
   return Status.default;
@@ -128,7 +128,7 @@ const stepStatus = (step: StepType, currentIndex: number): StatusType => {
 const checkStartedStatus = (
   step: StepType,
   currentIndex: number
-): StatusType => {
+): StepStatusType => {
   return step.status ? step.status : stepStatus(step, currentIndex);
 };
 

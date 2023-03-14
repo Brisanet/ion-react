@@ -16,12 +16,15 @@ Basic.args = {
   steps: [
     {
       label: 'Step 1',
+      stepNumber: 1,
     },
     {
       label: 'Step 2',
+      stepNumber: 2,
     },
     {
       label: 'Step 3',
+      stepNumber: 3,
     },
   ],
 };
@@ -32,12 +35,15 @@ Disabled.args = {
     {
       label: 'First',
       status: 'checked',
+      stepNumber: 1,
     },
     {
       label: 'Second',
+      stepNumber: 2,
     },
     {
       label: 'Third',
+      stepNumber: 3,
     },
   ],
   disabled: true,
@@ -49,16 +55,20 @@ Checked.args = {
     {
       label: 'First',
       status: 'checked',
+      stepNumber: 1,
     },
     {
       label: 'Second',
       status: 'checked',
+      stepNumber: 2,
     },
     {
       label: 'Third',
+      stepNumber: 3,
     },
     {
       label: 'Fourty',
+      stepNumber: 4,
     },
   ],
 };
@@ -69,17 +79,21 @@ WithError.args = {
     {
       label: 'First',
       status: 'checked',
+      stepNumber: 1,
     },
     {
       label: 'Second',
       status: 'error',
       description: 'Atenção neste passo',
+      stepNumber: 2,
     },
     {
       label: 'Third',
+      stepNumber: 3,
     },
     {
       label: 'Fourty',
+      stepNumber: 4,
     },
   ],
 };
@@ -90,15 +104,19 @@ Clickable.args = {
     {
       label: 'First',
       status: 'checked',
+      stepNumber: 1,
     },
     {
       label: 'Second',
+      stepNumber: 2,
     },
     {
       label: 'Third',
+      stepNumber: 3,
     },
     {
       label: 'Fourty',
+      stepNumber: 4,
     },
   ],
   clickable: true,
