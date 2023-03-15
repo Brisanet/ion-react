@@ -24,11 +24,6 @@ const IonTabGroup = ({
 }: IonTabGroupProps) => {
   const [activeTab, setActiveTab] = useState<number>();
 
-  const defaultSelectedTab = () => {
-    const selectedTabIndex = tabs.findIndex((tab) => tab.selected);
-    if (selectedTabIndex !== null) setActiveTab(selectedTabIndex);
-  };
-
   const handleTabClick = useCallback((index: number) => {
     setActiveTab(index);
   }, []);
@@ -45,12 +40,12 @@ const IonTabGroup = ({
   };
 
   useEffect(() => {
-    defaultSelectedTab();
+    setActiveTab(tabs.findIndex((tab) => tab.selected));
   }, []);
 
   return (
     <TabGroupStyles align={align} data-testid="ion-tabGroup">
-      <div>
+      <div data-testid="ion-tabGroup-container">
         {tabs.map((tabItem, index) => {
           return (
             <IonTab

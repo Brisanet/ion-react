@@ -1,6 +1,6 @@
+import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import React from 'react';
 import { iconType } from '../icons/svgs/icons';
 import { TabProps } from '../tab/tab';
 import IonTabGroup, { IonTabGroupProps, TabGroupSizes } from './tabGroup';
@@ -43,6 +43,11 @@ describe('IonTabGroup', () => {
     it('should render TabGroup in vertical align by default', async () => {
       sut({ tabs: mockTabs, align: 'vertical' });
       expect(getTabGroup().className).toContain('align-vertical');
+    });
+
+    it('should render the correct number of tabs', () => {
+      sut();
+      expect(getTabs()).toHaveLength(3);
     });
 
     it('should select a Tab when it is clicked', async () => {
@@ -138,6 +143,15 @@ describe('IonTabGroup', () => {
         expect(screen.getByTestId(`ion-icon-${icon}`)).toBeInTheDocument();
       });
     });
+
+    // it('should render tabs without icons by default', async () => {
+    //   sut();
+    //   icons.forEach((icon: iconType) => {
+    //     expect(
+    //       screen.queryByTestId(`ion-icon-${icon}`)
+    //     ).not.toBeInTheDocument();
+    //   });
+    // });
   });
 
   describe('With Badge', () => {
