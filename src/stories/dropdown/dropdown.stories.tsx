@@ -31,27 +31,6 @@ DropdownDefault.args = {
   onSelectedOption: () => {},
 };
 
-export const DropdownDisabled = Template.bind({});
-DropdownDisabled.args = {
-  options: [
-    {
-      label: 'Opção 1',
-      value: 1,
-      selected: true,
-    },
-    {
-      label: 'Opção 2',
-      value: 2,
-    },
-    {
-      label: 'Opção 3',
-      value: 3,
-    },
-  ],
-  disabled: true,
-  onSelectedOption: () => {},
-};
-
 export const DropdownWithSomeDisabledOption = Template.bind({});
 DropdownWithSomeDisabledOption.args = {
   options: [
@@ -64,6 +43,7 @@ DropdownWithSomeDisabledOption.args = {
       label: 'Opção 2',
       value: 2,
       disabled: true,
+      selected: true,
     },
     {
       label: 'Opção 3',

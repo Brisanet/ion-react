@@ -13,13 +13,11 @@ export interface OptionProps {
 }
 
 export interface OptionGroupProps {
-  disabled?: boolean;
   options: OptionProps[];
   label: string;
 }
 
 export interface DropdownProps {
-  disabled?: boolean;
   multiple?: boolean;
   options?: OptionProps[];
   optionsGroup?: OptionGroupProps[];
@@ -32,23 +30,7 @@ export interface OptionsConfig extends DropdownProps {
   indexGroup?: number;
 }
 
-const isDisabled = (
-  disabledThisOption?: boolean,
-  disabledAllOptions?: boolean
-): boolean => {
-  const result = disabledAllOptions || disabledThisOption;
-  return result || false;
-};
-const isSelectingNotMultiple = (
-  isSelecting?: boolean,
-  multiple?: boolean
-): boolean => {
-  const result = !isSelecting && !multiple;
-  return result || false;
-};
-
 const Options = ({
-  disabled = false,
   options = [],
   multiple = false,
   onSelectedOption,
@@ -57,14 +39,20 @@ const Options = ({
   const [optionsCopy, setOptionsCopy] = useState<OptionProps[]>(options);
 
   const select = (index: number): void => {
-    if (isDisabled(optionsCopy[index].disabled, disabled)) return;
-    if (isSelectingNotMultiple(optionsCopy[index].selected, multiple)) {
+    if (optionsCopy[index].disabled) return;
+    if (!multiple) {
       optionsCopy.forEach((option) => {
         option.selected = false;
       });
     }
     updateSelecteds(index);
   };
+
+  const unselect = (index: number) => {
+    if (optionsCopy[index].disabled) return;
+    updateSelecteds(index);
+  };
+
   const updateSelecteds = (index: number): void => {
     optionsCopy[index].selected = !optionsCopy[index].selected;
     setOptionsCopy([...optionsCopy]);
@@ -89,9 +77,11 @@ const Options = ({
                   ? 'ion-option-' + index + '-' + indexGroup
                   : 'ion-option-' + index
               }
-              disabled={disabled || option.disabled}
+              disabled={option.disabled}
               selected={option.selected}
-              onClick={() => select(index)}
+              onClick={() =>
+                option.selected ? unselect(index) : select(index)
+              }
             >
               <div className="label">{option.label}</div>
               {option.selected && (
@@ -121,7 +111,6 @@ const isSelected = (
 };
 
 const OptionsGroup = ({
-  disabled = false,
   optionsGroup = [],
   onSelectedOption,
   multiple = false,
@@ -130,7 +119,7 @@ const OptionsGroup = ({
   const handleSelect = (event: OptionProps[]) => {
     if (!multiple) {
       let safeCopy: OptionGroupProps[] = [...groupCopy];
-      groupCopy.forEach((optionGroup) => {
+      safeCopy.forEach((optionGroup) => {
         optionGroup.options.forEach((option) => {
           option.selected = isSelected(option, event);
         });
@@ -146,9 +135,8 @@ const OptionsGroup = ({
       {optionsGroup.map((optionGroup, index) => {
         return (
           <OptionGroupStyle key={index}>
-            <div className="label">{optionGroup.label}</div>
+            <span className="label">{optionGroup.label}</span>
             <Options
-              disabled={disabled}
               options={optionGroup.options}
               multiple={multiple}
               indexGroup={index + 1}
@@ -162,7 +150,6 @@ const OptionsGroup = ({
 };
 
 const IonDropdown = ({
-  disabled = false,
   multiple = false,
   options = [],
   optionsGroup,
@@ -176,13 +163,11 @@ const IonDropdown = ({
   return (
     <DropdownStyle data-testid="ion-dropdown">
       <Options
-        disabled={disabled}
         options={options}
         multiple={multiple}
         onSelectedOption={handleSelect}
       />
       <OptionsGroup
-        disabled={disabled}
         optionsGroup={optionsGroup}
         multiple={multiple}
         onSelectedOption={handleSelect}

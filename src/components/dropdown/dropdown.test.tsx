@@ -52,12 +52,30 @@ describe('Dropdown with Options', () => {
     };
   });
 
+  const optionDisabled: OptionProps[] = [
+    {
+      label: 'Opção 1',
+      value: 1,
+      disabled: true,
+    },
+    {
+      label: 'Opção 2',
+      value: 2,
+      disabled: true,
+    },
+    {
+      label: 'Opção 3',
+      value: 3,
+      disabled: true,
+    },
+  ];
+
   it('should render default dropdown', async () => {
     sut();
     expect(screen.getByTestId('ion-dropdown')).toBeTruthy();
   });
   it('should render disabled dropdown', async () => {
-    sut({ ...defaultProps, disabled: true });
+    sut({ ...defaultProps, options: optionDisabled });
     const classDisabled = getDropdownById('ion-option-0').className;
     expect(classDisabled).toContain(`${'disabled'}`);
   });
@@ -75,7 +93,7 @@ describe('Dropdown with Options', () => {
     expect(classUnSelected).not.toContain(`${'selected'}`);
   });
   it('should not select an disabled option', async () => {
-    sut({ ...defaultProps, disabled: true });
+    sut({ ...defaultProps, options: optionDisabled });
     await userEvent.click(screen.getByTestId('ion-option-0'));
     const classSelected = getDropdownById('ion-option-0').className;
     expect(classSelected).not.toContain(`${'selected'}`);
@@ -88,14 +106,14 @@ describe('Dropdown with Options', () => {
           label: 'Opção 1',
           value: 1,
           selected: true,
+          disabled: true,
         },
       ],
-      disabled: true,
     };
     sut(propsWithSelected);
     await userEvent.click(screen.getByTestId('ion-option-0'));
-    const classUnSelected = getDropdownById('ion-option-0').className;
-    expect(classUnSelected).toContain(`${'selected'}`);
+    const classUnselected = getDropdownById('ion-option-0').className;
+    expect(classUnselected).toContain(`${'selected'}`);
   });
   it('should select multiple options at multiple dropdown', async () => {
     sut({ ...defaultProps, multiple: true });
