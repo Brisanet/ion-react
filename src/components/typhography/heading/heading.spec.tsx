@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { IonHeading } from './heading';
 import { IonHeadingInterface } from '../typhography.types';
+import IonHeading from './heading';
 
 const defaultProps: IonHeadingInterface = { label: 'Ion React', type: 'h1' };
 
