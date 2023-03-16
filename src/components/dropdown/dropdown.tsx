@@ -43,7 +43,7 @@ const Options = ({
       return;
     }
 
-    let { selected } = optionsCopy[index];
+    const { selected } = optionsCopy[index];
 
     if (!multiple) {
       optionsCopy.forEach((option) => {
