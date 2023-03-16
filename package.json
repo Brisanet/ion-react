@@ -1,6 +1,6 @@
 {
   "name": "@brisanet/ion-react",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Ion Design System in React",
   "engines": {
     "node": "16.19.x"
