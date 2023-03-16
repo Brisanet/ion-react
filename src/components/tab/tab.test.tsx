@@ -37,13 +37,6 @@ describe('Tab', () => {
       expect(clickEvent).toHaveBeenCalled();
     });
 
-    it('should be contain the "selected-true" class when clicked without handleClick prop', async () => {
-      sut({ ...defaultTab, handleClick: undefined });
-      const myTab = getTab();
-      await userEvent.click(myTab);
-      expect(myTab.className).toContain('selected-true');
-    });
-
     it('should be disabled', () => {
       sut({ ...defaultTab, disabled: true });
       expect(getTab()).toHaveAttribute('disabled');

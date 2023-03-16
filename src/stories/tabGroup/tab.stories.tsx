@@ -21,6 +21,9 @@ export default {
       options: ['sm', 'md', 'lg'],
       control: { type: 'radio' },
     },
+    handleSelectedTab: {
+      action: 'selected',
+    },
   },
 } as ComponentMeta<typeof IonTabGroup>;
 

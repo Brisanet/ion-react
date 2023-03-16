@@ -10,10 +10,11 @@ export type TabGroupSizes = Exclude<SizeType, 'xs'>;
 
 export interface IonTabGroupProps {
   tabs: TabProps[];
-  selected?: boolean;
   align?: TabAlign;
   size?: TabGroupSizes;
   borderDirection?: BorderDirection;
+  // eslint-disable-next-line no-unused-vars
+  handleSelectedTab: (tab: TabProps) => void;
 }
 
 const IonTabGroup = ({
@@ -21,10 +22,12 @@ const IonTabGroup = ({
   size = 'sm',
   align = 'horizontal',
   borderDirection = 'bottom',
+  handleSelectedTab,
 }: IonTabGroupProps) => {
   const [activeTab, setActiveTab] = useState<number>();
 
-  const handleTabClick = useCallback((index: number) => {
+  const handleTabClick = useCallback((tab: TabProps, index: number) => {
+    handleSelectedTab({ ...tab, selected: true });
     setActiveTab(index);
   }, []);
 
@@ -51,9 +54,9 @@ const IonTabGroup = ({
             <IonTab
               {...tabItem}
               key={index}
+              handleClick={() => handleTabClick(tabItem, index)}
+              selected={activeTab === index}
               direction={defineBorderByAlign()}
-              handleClick={() => handleTabClick(index)}
-              selected={activeTab === index ? true : false}
               size={size}
             />
           );

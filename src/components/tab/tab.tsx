@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { BorderDirection } from '../../core/types/directions';
 import { SizeType } from '../../core/types/size';
 import IonBadge, { BadgeProps } from '../badge/badge';
@@ -31,23 +31,6 @@ const IonTab = ({
   handleClick,
   badge,
 }: TabProps) => {
-  const [selectedState, setSelectedState] = useState<boolean>(selected);
-
-  /**
-   * If the @component IonTab is used individually outside
-   * the @param handleClick function that changes the
-   * 'selected' status will be defined to support individual IonTabs
-   */
-  if (handleClick === undefined) {
-    handleClick = () => {
-      setSelectedState(true);
-    };
-  }
-
-  useEffect(() => {
-    setSelectedState(selected);
-  }, [selected]);
-
   const iconSize = {
     sm: 16,
     md: 20,
@@ -60,7 +43,7 @@ const IonTab = ({
         size={size}
         direction={direction}
         onClick={handleClick}
-        selected={selectedState}
+        selected={selected}
         disabled={disabled}
         data-testid="ion-tab"
       >

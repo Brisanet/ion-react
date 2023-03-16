@@ -5,20 +5,23 @@ import { iconType } from '../icons/svgs/icons';
 import { TabProps } from '../tab/tab';
 import IonTabGroup, { IonTabGroupProps, TabGroupSizes } from './tabGroup';
 
-const mockTabs: TabProps[] = [
-  {
-    label: 'Tab 1',
-    selected: true,
-  },
-  {
-    label: 'Tab 2',
-  },
-  {
-    label: 'Tab 3',
-  },
-];
-
-const sut = (props: IonTabGroupProps = { tabs: mockTabs }) => {
+const mockClick = jest.fn();
+const mockProps: IonTabGroupProps = {
+  tabs: [
+    {
+      label: 'Tab 1',
+      selected: true,
+    },
+    {
+      label: 'Tab 2',
+    },
+    {
+      label: 'Tab 3',
+    },
+  ],
+  handleSelectedTab: mockClick,
+};
+const sut = (props: IonTabGroupProps = mockProps) => {
   render(<IonTabGroup {...props} />);
 };
 
@@ -41,7 +44,7 @@ describe('IonTabGroup', () => {
     });
 
     it('should render TabGroup in vertical align by default', async () => {
-      sut({ tabs: mockTabs, align: 'vertical' });
+      sut({ ...mockProps, align: 'vertical' });
       expect(getTabGroup().className).toContain('align-vertical');
     });
 
@@ -66,35 +69,35 @@ describe('IonTabGroup', () => {
 
   describe('Border', () => {
     it('should countain border right when direction is vertical', async () => {
-      sut({ tabs: mockTabs, align: 'vertical' });
+      sut({ ...mockProps, align: 'vertical' });
       getTabs().forEach((tab: HTMLElement) => {
         expect(tab.className).toContain('direction-right');
       });
     });
 
     it('should contain border left when border and align are defined', async () => {
-      sut({ tabs: mockTabs, align: 'vertical', borderDirection: 'left' });
+      sut({ ...mockProps, align: 'vertical', borderDirection: 'left' });
       getTabs().forEach((tab: HTMLElement) => {
         expect(tab.className).toContain('direction-left');
       });
     });
 
     it('should contain border top when border and align are defined', async () => {
-      sut({ tabs: mockTabs, align: 'horizontal', borderDirection: 'top' });
+      sut({ ...mockProps, align: 'horizontal', borderDirection: 'top' });
       getTabs().forEach((tab: HTMLElement) => {
         expect(tab.className).toContain('direction-top');
       });
     });
 
     it('should not contain border top when align is vertical', async () => {
-      sut({ tabs: mockTabs, align: 'vertical', borderDirection: 'top' });
+      sut({ ...mockProps, align: 'vertical', borderDirection: 'top' });
       getTabs().forEach((tab: HTMLElement) => {
         expect(tab.className).not.toContain('direction-top');
       });
     });
 
     it('should not contain border right when align is horizontal', async () => {
-      sut({ tabs: mockTabs, align: 'horizontal', borderDirection: 'right' });
+      sut({ ...mockProps, align: 'horizontal', borderDirection: 'right' });
       getTabs().forEach((tab: HTMLElement) => {
         expect(tab.className).not.toContain('direction-right');
       });
@@ -106,7 +109,7 @@ describe('IonTabGroup', () => {
       'should render tabs with %s size',
       async (size: string) => {
         sut({
-          tabs: mockTabs,
+          ...mockProps,
           size: size as TabGroupSizes,
         });
 
@@ -115,6 +118,13 @@ describe('IonTabGroup', () => {
         });
       }
     );
+
+    it('should render tabs with sm size by default', async () => {
+      sut();
+      getTabs().forEach((tab: HTMLElement) => {
+        expect(tab.className).toContain('size-sm');
+      });
+    });
   });
 
   describe('With icon', () => {
@@ -136,6 +146,7 @@ describe('IonTabGroup', () => {
 
     it('should render tabs with icons', async () => {
       sut({
+        ...mockProps,
         tabs: tabsWithIcons,
       });
 
@@ -143,15 +154,6 @@ describe('IonTabGroup', () => {
         expect(screen.getByTestId(`ion-icon-${icon}`)).toBeInTheDocument();
       });
     });
-
-    // it('should render tabs without icons by default', async () => {
-    //   sut();
-    //   icons.forEach((icon: iconType) => {
-    //     expect(
-    //       screen.queryByTestId(`ion-icon-${icon}`)
-    //     ).not.toBeInTheDocument();
-    //   });
-    // });
   });
 
   describe('With Badge', () => {
@@ -177,24 +179,28 @@ describe('IonTabGroup', () => {
       },
     ];
 
+    beforeEach(() => {
+      sut({ ...mockProps, tabs: tabsWithIconsAndBadge });
+    });
+
     it('should render a tab with badge', async () => {
-      sut({ tabs: tabsWithIconsAndBadge });
       expect(getBadge()[0]).toBeTruthy();
     });
 
-    it('should render a tab with 99+ (value > 99)', async () => {
-      sut({ tabs: tabsWithIconsAndBadge });
+    it('should render a tab with 99+ when value bigger then 99', async () => {
       expect(getBadge()[0].textContent).toBe('99+');
     });
 
-    it('should render a tab with number (value < 99)', async () => {
-      sut({ tabs: tabsWithIconsAndBadge });
-      expect(getBadge()[1].textContent).toBe('2');
+    it('should render a tab with value when less than 99', async () => {
+      expect(getBadge()[1].textContent).toBe(
+        tabsWithIconsAndBadge[1].badge?.label.toString()
+      );
     });
 
     it('should render a tab with string badge', async () => {
-      sut({ tabs: tabsWithIconsAndBadge });
-      expect(getBadge()[2].textContent).toBe('expirado');
+      expect(getBadge()[2].textContent).toBe(
+        tabsWithIconsAndBadge[2].badge?.label
+      );
     });
   });
 });
