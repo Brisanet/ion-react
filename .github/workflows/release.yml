@@ -35,6 +35,10 @@ jobs:
       - name: 📚 Install packages
         run: yarn install --frozen-lockfile
 
+      - name: 🏗️ Run Build
+        run: |
+          yarn build
+
       - name: 🚀 publish
         run: npm publish --access public
         env:

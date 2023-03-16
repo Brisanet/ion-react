@@ -2,7 +2,7 @@ import React from 'react';
 import { IonHeadingInterface } from '../typhography.types';
 import * as S from './styles';
 
-export const IonHeading: React.FC<IonHeadingInterface> = ({
+const IonHeading: React.FC<IonHeadingInterface> = ({
   label,
   type,
   size = 'normal',
@@ -24,3 +24,5 @@ export const IonHeading: React.FC<IonHeadingInterface> = ({
   };
   return headings[type];
 };
+
+export default IonHeading;
