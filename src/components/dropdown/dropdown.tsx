@@ -38,8 +38,16 @@ const Options = ({
 }: OptionsConfig) => {
   const [optionsCopy, setOptionsCopy] = useState<OptionProps[]>(options);
 
-  const select = (index: number): void => {
+  const handleClick = (index: number) => {
     if (optionsCopy[index].disabled) return;
+    if (optionsCopy[index].selected) {
+      unselect(index);
+    } else {
+      select(index);
+    }
+  };
+
+  const select = (index: number): void => {
     if (!multiple) {
       optionsCopy.forEach((option) => {
         option.selected = false;
@@ -49,7 +57,6 @@ const Options = ({
   };
 
   const unselect = (index: number) => {
-    if (optionsCopy[index].disabled) return;
     updateSelecteds(index);
   };
 
@@ -79,9 +86,7 @@ const Options = ({
               }
               disabled={option.disabled}
               selected={option.selected}
-              onClick={() =>
-                option.selected ? unselect(index) : select(index)
-              }
+              onClick={() => handleClick(index)}
             >
               <div className="label">{option.label}</div>
               {option.selected && (
