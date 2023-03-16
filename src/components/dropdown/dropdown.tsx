@@ -38,30 +38,20 @@ const Options = ({
 }: OptionsConfig) => {
   const [optionsCopy, setOptionsCopy] = useState<OptionProps[]>(options);
 
-  const handleClick = (index: number) => {
-    if (optionsCopy[index].disabled) return;
-    if (optionsCopy[index].selected) {
-      unselect(index);
-    } else {
-      select(index);
+  const handleClick = (index: number): void => {
+    if (optionsCopy[index].disabled) {
+      return;
     }
-  };
 
-  const select = (index: number): void => {
+    let { selected } = optionsCopy[index];
+
     if (!multiple) {
       optionsCopy.forEach((option) => {
         option.selected = false;
       });
     }
-    updateSelecteds(index);
-  };
 
-  const unselect = (index: number) => {
-    updateSelecteds(index);
-  };
-
-  const updateSelecteds = (index: number): void => {
-    optionsCopy[index].selected = !optionsCopy[index].selected;
+    optionsCopy[index].selected = !selected;
     setOptionsCopy([...optionsCopy]);
     onSelectedOption([...optionsCopy]);
   };
