@@ -13,7 +13,6 @@ export interface IonTabGroupProps {
   align?: TabAlign;
   size?: TabGroupSizes;
   borderDirection?: BorderDirection;
-  // eslint-disable-next-line no-unused-vars
   handleSelectedTab: (tab: TabProps) => void;
 }
 
