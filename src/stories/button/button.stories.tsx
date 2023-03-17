@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import IonButton, { ButtonProps } from '../../components/button/button';
 
 export default {
-  title: 'Buttons/Button',
+  title: 'Ion/Navigation/Buttons',
   component: IonButton,
 } as ComponentMeta<typeof IonButton>;
 
@@ -46,5 +46,27 @@ export const PrimaryDanger = Template.bind({});
 PrimaryDanger.args = {
   label: 'Primary',
   type: 'primary',
-  isDanger: true,
+  danger: true,
+};
+
+export const PrimarySmall = Template.bind({});
+PrimarySmall.args = {
+  label: 'Primary',
+  type: 'primary',
+  size: 'sm',
+};
+
+export const WithIcon = Template.bind({});
+WithIcon.args = {
+  label: 'Primary',
+  type: 'primary',
+  icon: 'pencil',
+};
+
+export const WithRightIcon = Template.bind({});
+WithRightIcon.args = {
+  label: 'Primary',
+  type: 'primary',
+  icon: 'pencil',
+  iconOnRight: true,
 };

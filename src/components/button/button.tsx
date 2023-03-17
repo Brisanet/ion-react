@@ -1,31 +1,56 @@
 import React from 'react';
+import IonIcon from '../icons/icons';
+import { SizeType } from '../../core/types/size';
+import { iconType } from '../icons/svgs/icons';
 import { ButtonStyles } from './styles';
 
 type StitchesButtonProps = React.ComponentProps<typeof ButtonStyles>;
+
+type ButtonSizes = Exclude<SizeType, 'xs'> | 'xl';
 
 export type ButtonProps = {
   label: string;
   type?: string;
   disabled?: boolean;
   handleClick?: () => void;
-  isDanger?: boolean;
+  danger?: boolean;
+  size?: ButtonSizes;
+  icon?: iconType;
+  iconOnRight?: boolean;
 } & StitchesButtonProps;
 
 const IonButton = ({
   type = 'primary',
   disabled = false,
-  isDanger = false,
-  handleClick,
+  danger = false,
+  size = 'md',
+  icon,
+  iconOnRight,
   label,
+  handleClick,
 }: ButtonProps) => {
+  const iconSize = {
+    sm: 16,
+    md: 20,
+    lg: 24,
+    xl: 28,
+  };
+
   return (
     <ButtonStyles
       type={type}
       onClick={handleClick}
       disabled={disabled}
-      danger={isDanger ? type : 'none'}
+      danger={danger}
+      size={size}
+      withIcon={!!icon}
+      iconOnRight={iconOnRight}
+      data-testid="ion-button"
     >
-      {label}
+      <div data-testid="ion-button-container">
+        {icon && <IonIcon type={icon} size={iconSize[`${size}`]} />}
+        <span>{label}</span>
+      </div>
     </ButtonStyles>
   );
 };

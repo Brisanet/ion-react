@@ -1,5 +1,5 @@
 import stitches from '../../stitches.config';
-import { getBgFontBorderColors } from '../utils/getBgFontBorderColors';
+import { spacing } from '../utils/spacing';
 
 const { styled } = stitches;
 
@@ -7,134 +7,317 @@ export const ButtonStyles = styled('button', {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
-  padding: '6px 16px',
   borderRadius: '8px',
   fontWeight: '600',
   cursor: 'pointer',
-  minWidth: '32px',
-  height: '32px',
   gap: '8px',
 
   variants: {
     type: {
       primary: {
-        ...getBgFontBorderColors('$primaryColor', '$neutral1', ''),
-
-        '&:hover': {
-          background: '$primary5',
+        background: '$primaryColor',
+        color: '$neutral1',
+        svg: {
+          fill: '$neutral1',
         },
+
+        '&:hover': { background: '$primary5' },
         '&:active': { background: '$primary7' },
         '&:disabled': {
-          ...getBgFontBorderColors('$neutral2', '$neutral5', ''),
+          background: '$neutral2',
+          color: '$neutral5',
           cursor: 'not-allowed',
+          svg: {
+            fill: '$neutral5',
+          },
         },
       },
       secondary: {
-        ...getBgFontBorderColors('$neutral1', '$primaryColor', '$neutral4'),
+        background: '$neutral1',
+        color: '$primaryColor',
+        border: '1px solid $neutral4',
+        svg: {
+          fill: '$primaryColor',
+        },
 
-        '&:hover': getBgFontBorderColors('$primary1', '$primary5', '$primary4'),
-        '&:active': getBgFontBorderColors(
-          '$primary2',
-          '$primary5',
-          '$primary7'
-        ),
+        '&:hover': {
+          background: '$primary1',
+          color: '$primary5',
+          border: '1px solid $primary4',
+          svg: {
+            fill: '$primary5',
+          },
+        },
+        '&:active': {
+          background: '$primary2',
+          color: '$primary5',
+          border: '1px solid $primary7',
+          svg: {
+            fill: '$primary5',
+          },
+        },
         '&:disabled': {
-          ...getBgFontBorderColors('$neutral2 ', '$neutral5 ', '$neutral5 '),
+          background: '$neutral2 ',
+          color: '$neutral5 ',
+          border: '1px solid $neutral5 ',
           cursor: 'not-allowed',
+          svg: {
+            fill: '$neutral5',
+          },
         },
       },
       ghost: {
-        ...getBgFontBorderColors('transparent', '$primaryColor', ''),
+        background: 'transparent',
+        color: '$primaryColor',
+        svg: {
+          fill: '$primaryColor',
+        },
 
         '&:hover': {
-          ...getBgFontBorderColors('$primary1', '$primary5', ''),
+          background: '$primary1',
+          color: '$primary5',
+          svg: {
+            fill: '$primary5',
+          },
         },
         '&:active': {
-          ...getBgFontBorderColors('$primary2', '$primary7', ''),
+          background: '$primary2',
+          color: '$primary7',
+          svg: {
+            fill: '$primary7',
+          },
         },
         '&:disabled': {
-          ...getBgFontBorderColors('transparent', '$neutral5', ''),
+          background: 'transparent',
+          color: '$neutral5',
           cursor: 'not-allowed',
+          svg: {
+            fill: '$neutral5',
+          },
         },
       },
       dashed: {
-        ...getBgFontBorderColors('transparent', '$primaryColor', ''),
+        background: 'transparent',
+        color: '$primary7',
         border: '1px dashed $neutral4',
+        svg: {
+          fill: '$primary7',
+        },
 
         '&:hover': {
-          ...getBgFontBorderColors('$primary1', '$primary5', ''),
-          borderColor: '$primary4',
+          background: '$primary1',
+          color: '$primary5',
+          border: '1px dashed $primary4',
+          svg: {
+            fill: '$primary5',
+          },
         },
         '&:active': {
-          ...getBgFontBorderColors('$primary2', '$primary7', ''),
-          borderColor: '$primary5',
+          background: '$primary2',
+          color: '$primary7',
+          border: '1px dashed $primary5',
+          svg: {
+            fill: '$primary7',
+          },
         },
         '&:disabled': {
-          ...getBgFontBorderColors('$neutral3', '$neutral5', ''),
-          borderColor: '$neutral5',
+          background: '$neutral3',
+          color: '$neutral5',
+          border: '1px dashed $neutral5',
           cursor: 'not-allowed',
+          svg: {
+            fill: '$neutral5',
+          },
         },
       },
     },
 
     danger: {
-      primary: {
-        ...getBgFontBorderColors('$negative6', '$negative1', ''),
+      true: {
+        background: 'transparent',
+      },
+    },
+
+    size: {
+      sm: {
+        minWidth: '24px',
+        height: '24px',
+        padding: '4px 12px',
+        fontSize: '12px',
+      },
+      md: {
+        minWidth: '32px',
+        height: '32px',
+        padding: '6px 16px',
+        fontSize: '14px',
+      },
+      lg: {
+        minWidth: '40px',
+        height: '40px',
+        padding: '8px 20px',
+        fontSize: '16px',
+      },
+      xl: {
+        minWidth: '48px',
+        height: '48px',
+        padding: '12px 24px',
+        fontSize: '16px',
+      },
+    },
+
+    withIcon: {
+      true: {
+        div: {
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: spacing(1),
+        },
+      },
+    },
+
+    iconOnRight: {
+      true: {
+        div: {
+          flexDirection: 'row-reverse',
+        },
+      },
+    },
+  },
+
+  compoundVariants: [
+    {
+      type: 'primary',
+      danger: true,
+      css: {
+        background: '$negative6',
+        color: '$negative1',
+        svg: {
+          fill: '$negative1',
+        },
+
         '&:hover': {
-          ...getBgFontBorderColors('$negative5', '$neutral1', ''),
+          background: '$negative5',
+          color: '$neutral1',
+          svg: {
+            fill: '$primary1',
+          },
         },
         '&:active': {
           background: '$negative7',
         },
         '&:disabled': {
-          ...getBgFontBorderColors('$neutral2', '$neutral5', ''),
+          background: '$neutral2',
+          color: '$neutral5',
           cursor: 'not-allowed',
+          svg: {
+            fill: '$neutral5',
+          },
         },
       },
-      secondary: {
+    },
+    {
+      type: 'secondary',
+      danger: true,
+      css: {
         color: '$negativeColor',
+        svg: {
+          fill: '$negativeColor',
+        },
         '&:hover': {
-          ...getBgFontBorderColors('$negative1', '$negative5', '$negative3'),
+          background: '$negative1',
+          color: '$negative5',
+          border: '1px solid $negative3',
+          svg: {
+            fill: '$negative5',
+          },
         },
         '&:active': {
-          ...getBgFontBorderColors('$negative2', '$negative7', ''),
+          background: '$negative2',
+          color: '$negative7',
+          border: '1px solid $negative7',
+          svg: {
+            fill: '$negative7',
+          },
         },
         '&:disabled': {
-          ...getBgFontBorderColors('$neutral2 ', '$neutral5 ', '$neutral5 '),
+          background: '$neutral2 ',
+          color: '$neutral5 ',
+          border: '1px solid $neutral5',
           cursor: 'not-allowed',
+          svg: {
+            fill: '$neutral5',
+          },
         },
       },
-      ghost: {
+    },
+    {
+      type: 'ghost',
+      danger: true,
+      css: {
         color: '$negative6',
+        svg: {
+          fill: '$negative6',
+        },
         '&:hover': {
-          ...getBgFontBorderColors('$negative1', '$negative5', ''),
+          background: '$negative1',
+          color: '$negative5',
+          svg: {
+            fill: '$negative5',
+          },
         },
         '&:active': {
-          ...getBgFontBorderColors('$negative2', '$negative7', ''),
+          background: '$negative2',
+          color: '$negative7',
+          svg: {
+            fill: '$negative7',
+          },
         },
         '&:disabled': {
-          ...getBgFontBorderColors('transparent', '$neutral5', ''),
+          background: 'transparent',
+          color: '$neutral5',
           cursor: 'not-allowed',
+          svg: {
+            fill: '$neutral5',
+          },
         },
       },
-      dashed: {
+    },
+    {
+      type: 'dashed',
+      danger: true,
+      css: {
         border: '1px dashed $neutral4',
         color: '$negative6',
+        svg: {
+          fill: '$negative6',
+        },
         '&:hover': {
-          ...getBgFontBorderColors('$negative1', '$negative5', ''),
-          borderColor: '$negative3',
+          background: '$negative1',
+          color: '$negative5',
+          border: '1px dashed $negative3',
+          svg: {
+            fill: '$negative5',
+          },
         },
         '&:active': {
-          ...getBgFontBorderColors('$negative2', '$negative7', ''),
-          borderColor: '$negative6',
+          background: '$negative2',
+          color: '$negative7',
+          border: '1px dashed $negative6',
+          svg: {
+            fill: '$negative7',
+          },
         },
         '&:disabled': {
-          ...getBgFontBorderColors('$neutral3', '$neutral5', ''),
-          borderColor: '$neutral5',
+          background: '$neutral3',
+          color: '$neutral5',
+          border: '1px dashed $neutral5',
           cursor: 'not-allowed',
+          svg: {
+            fill: '$neutral5',
+          },
         },
       },
-      none: {},
     },
-  },
+  ],
 });
