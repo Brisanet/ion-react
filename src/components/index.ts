@@ -4,4 +4,6 @@ export { default as IonChip } from './chip';
 export { default as IonTag } from './tag';
 export { default as IonDropdown } from './dropdown';
 export { default as IonSelect } from './select';
+export { default as IonSteps } from './steps';
+export * from './typhography';
 export * from './alert';
