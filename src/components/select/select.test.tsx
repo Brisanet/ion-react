@@ -135,7 +135,7 @@ describe('Selecting Options', () => {
   });
   it('should render select that allow clear options selected', async () => {
     sut({ ...defaultProps, allowClear: true });
-    expect(screen.getByTestId('ion-icon-close')).toBeTruthy();
+    expect(screen.getByTestId('ion-clear-all')).toBeTruthy();
     const mediumSelect = getDropdownById('ion-select').className;
     expect(mediumSelect).toContain(`${'allowClear'}`);
   });
@@ -143,7 +143,7 @@ describe('Selecting Options', () => {
     sut({ ...defaultProps, allowClear: true });
     await userEvent.click(screen.getByTestId('ion-select'));
     await userEvent.click(screen.getByTestId('ion-option-0'));
-    await userEvent.click(screen.getByTestId('ion-icon-close'));
+    await userEvent.click(screen.getByTestId('ion-clear-all'));
     expect(screen.queryByText('Opção 1')).not.toBeTruthy();
   });
   it('should not clean select with allow clear function when disabled', async () => {
@@ -153,7 +153,7 @@ describe('Selecting Options', () => {
       allowClear: true,
       disabled: true,
     });
-    await userEvent.click(screen.getByTestId('ion-icon-close'));
+    await userEvent.click(screen.getByTestId('ion-clear-all'));
     expect(screen.queryByText('Opção 1')).toBeTruthy();
   });
   it('should not select an option when disabled', async () => {

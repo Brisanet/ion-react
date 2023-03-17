@@ -123,6 +123,18 @@ const FormattedValue = ({
   // return <div>{selectedOptions[0] && selectedOptions[0].label}</div>;
 };
 
+const isSelected = (
+  optionToCompare: OptionProps,
+  selecetedArray: OptionProps[],
+  cleanAll?: boolean
+): boolean => {
+  let result = false;
+  selecetedArray.forEach((selected) => {
+    if (!cleanAll && optionToCompare.value === selected.value) result = true;
+  });
+  return result;
+};
+
 const IonSelect = ({
   allowClear,
   disabled,
@@ -138,32 +150,20 @@ const IonSelect = ({
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
   let isRemoving = false;
 
-  const isSelected = (
-    optionToCompare: OptionProps,
-    selecetedArray: OptionProps[]
-  ): boolean => {
-    let result = false;
-    selecetedArray.forEach((selected) => {
-      if (optionToCompare.value === selected.value) result = true;
-    });
-    return result;
-  };
-
   const handleClick = () => {
-    if (isRemoving || disabled) return;
     setShowDropdown(!showDropdown);
   };
 
   const handleSelectedOption = (data: OptionProps[]) => {
     setvalueSelected(data);
-    if (!multiple) setShowDropdown(false);
+    !multiple && setShowDropdown(false);
   };
 
   const handleRemovingData = (data: OptionProps[], cleanAll?: boolean) => {
     if (disabled) return;
     isRemoving = true;
     options.forEach((option) => {
-      option.selected = cleanAll ? false : isSelected(option, data);
+      option.selected = isSelected(option, data, cleanAll);
     });
     setvalueSelected(data);
   };
@@ -181,7 +181,7 @@ const IonSelect = ({
         disabled={disabled}
         size={size}
         status={status}
-        onClick={handleClick}
+        onClick={() => !(isRemoving || disabled) && handleClick()}
         contentEditable={false}
       >
         <ValuesContainerStyle>
@@ -203,6 +203,7 @@ const IonSelect = ({
         </div>
         {allowClear && (
           <div
+            data-testid="ion-clear-all"
             className="clean-icon"
             onClick={() => handleRemovingData([], true)}
           >
