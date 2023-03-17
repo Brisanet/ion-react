@@ -39,24 +39,58 @@ const FormattedValue = ({
   disabled,
   maxTagCount,
   multiple,
-  placeholder,
+  placeholder = '',
   selectedOptions,
   size = 'sm',
   passDataFromSelectField,
 }: SelectProps) => {
   const handleUnselect = (option: OptionProps) => {
-    if (disabled) return;
     let copySelected = [...selectedOptions];
     copySelected?.forEach((opt, index) => {
-      if (opt.value === option.value && opt.selected) {
+      if (opt.value === option.value && opt.selected)
         copySelected.splice(index, 1);
-      }
     });
     passDataFromSelectField(copySelected);
   };
 
-  if (placeholder && !selectedOptions.length) return <>{placeholder}</>;
+  const containSelected = selectedOptions.length ? true : false;
 
+  switch (containSelected) {
+    case true:
+      return (
+        <>
+          {selectedOptions.map((value, index) => {
+            if (!maxTagCount || (maxTagCount && index < maxTagCount)) {
+              return (
+                <ValueStyle key={value.value} multiple={multiple} size={size}>
+                  <span>{value.label}</span>
+                  <div
+                    data-testid={'close-icon-' + index}
+                    className="icon"
+                    onClick={() => !disabled && handleUnselect(value)}
+                  >
+                    <IonIcon type={'close'} size={iconSize[size]} />
+                  </div>
+                </ValueStyle>
+              );
+            }
+          })}
+          {maxTagCount && selectedOptions.length > maxTagCount && (
+            <ValueStyle multiple={multiple} size={size}>
+              <span>
+                e mais {selectedOptions.length - maxTagCount} selecionados
+              </span>
+            </ValueStyle>
+          )}
+        </>
+      );
+    default:
+      return <>{placeholder}</>;
+  }
+
+  // if (placeholder && !selectedOptions.length) return <>{placeholder}</>;
+
+  /*
   if (multiple) {
     return (
       <>
@@ -68,7 +102,7 @@ const FormattedValue = ({
                 <div
                   data-testid={'close-icon-' + index}
                   className="icon"
-                  onClick={() => handleUnselect(value)}
+                  onClick={() => !disabled && handleUnselect(value)}
                 >
                   <IonIcon type={'close'} size={iconSize[size]} />
                 </div>
@@ -84,8 +118,9 @@ const FormattedValue = ({
       </>
     );
   }
+  */
 
-  return <div>{selectedOptions[0] && selectedOptions[0].label}</div>;
+  // return <div>{selectedOptions[0] && selectedOptions[0].label}</div>;
 };
 
 const IonSelect = ({

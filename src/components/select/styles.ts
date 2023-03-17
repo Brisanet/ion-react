@@ -4,17 +4,46 @@ import { spacing } from '../utils/spacing';
 const { styled } = stitches;
 
 export const ValueStyle = styled('div', {
-  display: 'flex',
-  alignItems: 'center',
-  gap: spacing(0.5),
-  backgroundColor: '$primary2',
-  color: '$primaryColor',
-  padding: '2px 8px',
-  borderRadius: '8px',
-
   '.icon': {
-    display: 'flex',
+    display: 'none',
     alignItens: 'center',
+  },
+
+  defaultVariants: {
+    size: 'sm',
+  },
+
+  variants: {
+    multiple: {
+      true: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: spacing(0.5),
+        backgroundColor: '$primary2',
+        color: '$primaryColor',
+        padding: '2px 8px',
+        borderRadius: '8px',
+
+        '.icon': {
+          display: 'flex',
+          alignItens: 'center',
+        },
+      },
+    },
+    size: {
+      sm: {
+        span: {
+          display: 'block',
+          height: '16px',
+        },
+      },
+      md: {
+        span: {
+          display: 'block',
+          height: '20px',
+        },
+      },
+    },
   },
 });
 
