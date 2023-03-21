@@ -219,7 +219,6 @@ const IonSelect = ({
             optionsGroup={optionsGroup}
             selectedOptions={valueSelected}
             size={size}
-            disabled={disabled}
             multiple={multiple}
             onSelectedOption={handleSelectedOption}
           />
