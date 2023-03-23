@@ -1,16 +1,17 @@
 import React from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { IonHeading, IonHeadingProps } from '../../components/typhography';
+import IonHeading from '../../components/typhography/heading/heading';
+import { IonHeadingInterface } from '../../components/typhography/typhography.types';
 
 export default {
   title: 'Ion/Design Tokens/Typhopraphy/Heading',
   component: IonHeading,
 } as ComponentMeta<typeof IonHeading>;
 
-const Template: ComponentStory<typeof IonHeading> = (args: IonHeadingProps) => (
-  <IonHeading {...args} />
-);
+const Template: ComponentStory<typeof IonHeading> = (
+  args: IonHeadingInterface
+) => <IonHeading {...args} />;
 
 export const IonHeadingDefault = Template.bind({});
 IonHeadingDefault.storyName = 'Heading: default';
