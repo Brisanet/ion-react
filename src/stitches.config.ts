@@ -114,24 +114,84 @@ const stitches = createStitches({
 const injectGlobalStyles = stitches.globalCss({
   '*': {
     boxSizing: 'borderbox',
-    fontFamily: 'Source Sans Pro Regular',
+    fontFamily: 'Source Sans Pro, sans-serif',
     border: 'none',
     transition: 'all 0.3s',
   },
-  '*:after': { boxSizing: 'borderbox', fontFamily: 'Source Sans Pro Regular' },
-  '*:before': { boxSizing: 'borderbox', fontFamily: 'Source Sans Pro Regular' },
+  '*:after': {
+    boxSizing: 'borderbox',
+    fontFamily: 'Source Sans Pro, sans-serif',
+  },
+  '*:before': {
+    boxSizing: 'borderbox',
+    fontFamily: 'Source Sans Pro, sans-serif',
+  },
   '@font-face': [
     {
-      fontFamily: 'Source Sans Pro Regular',
-      src: 'local("Source Sans Pro Regular"), url("https://fonts.cdnfonts.com/s/12183/SourceSansPro-Regular.woff")',
+      fontFamily: 'Source Sans Pro',
+      src: 'local("Source Sans Pro ExtraLight"), url("https://fonts.cdnfonts.com/s/12183/SourceSansPro-ExtraLight.woff") format("woff")',
+      fontWeight: '300',
     },
     {
-      fontFamily: 'Source Sans Pro Semibold',
-      src: 'local("Source Sans Pro Bold"), url("https://fonts.cdnfonts.com/s/12183/SourceSansPro-Semibold.woff")',
+      fontFamily: 'Source Sans Pro',
+      src: 'local("Source Sans Pro ExtraLight Italic"), url("https://fonts.cdnfonts.com/s/12183/SourceSansPro-ExtraLightIt.woff") format("woff")',
+      fontWeight: '300',
+      fontStyle: 'italic',
     },
     {
-      fontFamily: 'Source Sans Pro Bold',
-      src: 'local("Source Sans Pro Bold"), url("https://fonts.cdnfonts.com/s/12183/SourceSansPro-Bold.woff")',
+      fontFamily: 'Source Sans Pro',
+      src: 'local("Source Sans Pro Light"), url("https://fonts.cdnfonts.com/s/12183/SourceSansPro-Light.woff") format("woff")',
+      fontWeight: '300',
+    },
+    {
+      fontFamily: 'Source Sans Pro',
+      src: 'local("Source Sans Pro Light Italic"), url("https://fonts.cdnfonts.com/s/12183/SourceSansPro-LightIt.woff") format("woff")',
+      fontWeight: '300',
+      fontStyle: 'italic',
+    },
+    {
+      fontFamily: 'Source Sans Pro',
+      src: 'local("Source Sans Pro Regular"), url("https://fonts.cdnfonts.com/s/12183/SourceSansPro-Regular.woff") format("woff")',
+      fontWeight: 'normal',
+    },
+    {
+      fontFamily: 'Source Sans Pro',
+      src: 'local("Source Sans Pro Italic"), url("https://fonts.cdnfonts.com/s/12183/SourceSansPro-It.woff") format("woff")',
+      fontWeight: 'normal',
+      fontStyle: 'italic',
+    },
+    {
+      fontFamily: 'Source Sans Pro',
+      src: 'local("Source Sans Pro Semibold"), url("https://fonts.cdnfonts.com/s/12183/SourceSansPro-Semibold.woff") format("woff")',
+      fontWeight: '500',
+    },
+    {
+      fontFamily: 'Source Sans Pro',
+      src: 'local("Source Sans Pro Semibold Italic"), url("https://fonts.cdnfonts.com/s/12183/SourceSansPro-SemiboldIt.woff") format("woff")',
+      fontWeight: '500',
+      fontStyle: 'italic',
+    },
+    {
+      fontFamily: 'Source Sans Pro',
+      src: 'local("Source Sans Pro Bold"), url("https://fonts.cdnfonts.com/s/12183/SourceSansPro-Bold.woff") format("woff")',
+      fontWeight: 'bold',
+    },
+    {
+      fontFamily: 'Source Sans Pro',
+      src: 'local("Source Sans Pro Bold Italic"), url("https://fonts.cdnfonts.com/s/12183/SourceSansPro-BoldIt.woff") format("woff")',
+      fontWeight: 'bold',
+      fontStyle: 'italic',
+    },
+    {
+      fontFamily: 'Source Sans Pro',
+      src: 'local("Source Sans Pro Black"), url("https://fonts.cdnfonts.com/s/12183/SourceSansPro-Black.woff") format("woff")',
+      fontWeight: '800',
+    },
+    {
+      fontFamily: 'Source Sans Pro',
+      src: 'local("Source Sans Pro Black Italic"), url("https://fonts.cdnfonts.com/s/12183/SourceSansPro-BlackIt.woff") format("woff")',
+      fontWeight: '800',
+      fontStyle: 'italic',
     },
   ],
 
