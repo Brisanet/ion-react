@@ -68,7 +68,7 @@ describe('IonTabGroup', () => {
   });
 
   describe('Border', () => {
-    it('should countain border right when direction is vertical', async () => {
+    it('should contain border right when direction is vertical', async () => {
       sut({ ...mockProps, align: 'vertical' });
       getTabs().forEach((tab: HTMLElement) => {
         expect(tab.className).toContain('direction-right');
