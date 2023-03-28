@@ -41,7 +41,7 @@ const getColorObject = (status?: TagStatus, color?: string) => {
   };
 };
 
-const IonTag = ({
+export const IonTag = ({
   label,
   color,
   icon,
@@ -64,5 +64,3 @@ const IonTag = ({
     </TagStyle>
   );
 };
-
-export default IonTag;
