@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { BreadcrumbStyles } from './styles';
+import { Icon } from '..';
 
 type StitchesBreadcrumbProps = React.ComponentProps<typeof BreadcrumbStyles>;
 
@@ -10,18 +11,29 @@ export type BreadcrumbItem = {
 
 export type BreadcrumbProps = {
   breadcrumb: Array<BreadcrumbItem>;
+  selectedBreadcrumb: (breadcrumbItem: BreadcrumbItem) => void;
 } & StitchesBreadcrumbProps;
 
-const IonBreadcrumb = ({ breadcrumb }: BreadcrumbProps) => {
+const IonBreadcrumb = ({ breadcrumb, selectedBreadcrumb }: BreadcrumbProps) => {
+  const handleBreadcrumbClick = useCallback(
+    (breadcrumbItem: BreadcrumbItem) => {
+      if (breadcrumbItem !== breadcrumb[breadcrumb.length - 1]) {
+        selectedBreadcrumb(breadcrumbItem);
+      }
+    },
+    [breadcrumb, selectedBreadcrumb]
+  );
+
   return (
     <BreadcrumbStyles>
-      <ol>
+      <ol role="navigation">
         {breadcrumb.map((breadcrumbItem, index) => {
           return (
-            <li>
-              <a href={breadcrumbItem.link} key={index}>
+            <li key={index}>
+              <a onClick={() => handleBreadcrumbClick(breadcrumbItem)}>
                 {breadcrumbItem.label}
               </a>
+              <Icon type="right2" size={16} />
             </li>
           );
         })}

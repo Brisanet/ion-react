@@ -1,3 +1,4 @@
+import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import IonBreadcrumb, {
@@ -7,6 +8,11 @@ import IonBreadcrumb, {
 export default {
   title: 'Ion/Navigation/Breadcrumb',
   component: IonBreadcrumb,
+  argTypes: {
+    selectedBreadcrumb: {
+      action: 'selected',
+    },
+  },
 } as ComponentMeta<typeof IonBreadcrumb>;
 
 const Template: ComponentStory<typeof IonBreadcrumb> = (

@@ -1,8 +1,9 @@
 import stitches from '../../stitches.config';
+import { spacing } from '../utils/spacing';
 const { styled } = stitches;
 
 export const BreadcrumbStyles = styled('nav', {
-  padding: '5px 7px',
+  padding: `${spacing(0.6)} ${spacing(0.9)}`,
   textDecoration: 'none',
   fontFamily: 'sans-serif',
   fontSize: '15px',
@@ -10,28 +11,42 @@ export const BreadcrumbStyles = styled('nav', {
   '& > ol': {
     display: 'inline-flex',
     margin: '0',
-    padding: '10px',
+    padding: `${spacing(1.25)}`,
 
     '& li': {
-      display: 'block',
+      display: 'flex',
+      alignItems: 'center',
+      textAlign: 'center',
 
-      '&::after': {
-        content: '/',
-        marginRight: '0px',
-        color: '#b9cbdf',
+      svg: {
+        fill: '$neutral6',
       },
-      '&:last-child::after': {
-        content: '',
-      },
-      '& a': {
-        padding: '10px',
+
+      a: {
+        padding: `${spacing(1.25)}`,
         textDecoration: 'none',
-        color: '#54718f',
+        color: '$neutral6',
         fontFamily: 'sans-serif',
         fontSize: '14px',
+        fontWeight: '400',
+        cursor: 'pointer',
         '&:hover': {
-          color: 'blue',
+          color: '$primary6',
         },
+        '&:active': {
+          fontWeight: '600',
+          fontSize: '14px',
+          color: '$primary6',
+        },
+      },
+
+      '&:last-child': {
+        a: {
+          color: '$primary6',
+          fontWeight: '600',
+          cursor: 'default',
+        },
+        svg: { display: 'none' },
       },
     },
   },
