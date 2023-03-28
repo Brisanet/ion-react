@@ -1,6 +1,6 @@
 import { ChipStyle } from './styles';
 import { SizeType } from '../../core/types/size';
-import IonIcon from '../icons/icons';
+import { IonIcon } from '../icons/icons';
 import { iconType } from '../icons/svgs/icons';
 import React from 'react';
 

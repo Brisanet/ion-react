@@ -1,5 +1,5 @@
 import React from 'react';
-import IonIcon from '../icons/icons';
+import { IonIcon } from '../icons/icons';
 import { SizeType } from '../../core/types/size';
 import { iconType } from '../icons/svgs/icons';
 import { ButtonStyles } from './styles';

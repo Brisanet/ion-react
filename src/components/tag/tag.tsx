@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { TagStyle } from './styles';
-import IonIcon from '../icons/icons';
+import { IonIcon } from '../icons/icons';
 
 import { validateHexColor } from '../utils/validateHexColor';
 import ErrorBoundary from '../error/error-boundary';

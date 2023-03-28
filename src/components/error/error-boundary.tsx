@@ -1,6 +1,6 @@
 import React from 'react';
 
-import IonIcon from '../icons/icons';
+import { IonIcon } from '../icons/icons';
 import { ErrorBoundaryStyled } from './styled';
 
 export interface ErrorBoundaryProps {

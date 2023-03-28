@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StatusType } from '../../core/types/status';
 import ErrorBoundary from '../error/error-boundary';
 
-import IonIcon from '../icons/icons';
+import { IonIcon } from '../icons/icons';
 import isValidLabel from '../utils/isValidLabel';
 import { AlertStyled } from './styled';
 

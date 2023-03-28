@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import IonIcon from '../icons/icons';
+import { IonIcon } from '../icons/icons';
 import {
   CircleStyle,
   LineStyle,
