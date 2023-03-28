@@ -13,7 +13,8 @@
     "outDir": "dist",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "emitDeclarationOnly": true,
-    "rootDir": "src"
-  }
+    "emitDeclarationOnly": true
+  },
+  "include": ["src"]
+  // "exclude": ["src/stories"]
 }
