@@ -1,14 +1,15 @@
 import React from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { IonBody, IonBodyProps } from '../../components/typhography';
+import { IonBody } from '../../components/typhography';
+import { IonBodyInterface } from '../../components/typhography/typhography.types';
 
 export default {
   title: 'Ion/Design Tokens/Typhopraphy/Body',
   component: IonBody,
 } as ComponentMeta<typeof IonBody>;
 
-const Template: ComponentStory<typeof IonBody> = (args: IonBodyProps) => (
+const Template: ComponentStory<typeof IonBody> = (args: IonBodyInterface) => (
   <IonBody {...args} />
 );
 
@@ -50,19 +51,19 @@ export const IonBodyColorSecondary = Template.bind({});
 IonBodyColorSecondary.storyName = 'Color: Secondary';
 IonBodyColorSecondary.args = {
   label: 'Ion React',
-  color: 'secondary',
+  colorScheme: 'secondary',
 };
 
 export const IonBodyColordarkPrimary = Template.bind({});
 IonBodyColordarkPrimary.storyName = 'Color: dark-primary';
 IonBodyColordarkPrimary.args = {
   label: 'Ion React',
-  color: 'dark-primary',
+  colorScheme: 'dark-primary',
 };
 
 export const IonBodyColordarkSecondary = Template.bind({});
 IonBodyColordarkSecondary.storyName = 'Color: dark-secondary';
 IonBodyColordarkSecondary.args = {
   label: 'Ion React',
-  color: 'dark-secondary',
+  colorScheme: 'dark-secondary',
 };

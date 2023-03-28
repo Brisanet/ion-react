@@ -4,6 +4,7 @@ import typescript from '@rollup/plugin-typescript';
 import dts from 'rollup-plugin-dts';
 import postcss from 'rollup-plugin-postcss';
 import terser from '@rollup/plugin-terser';
+import babel from '@rollup/plugin-babel';
 
 import packageJson from './package.json' assert { type: 'json' };
 
@@ -22,8 +23,13 @@ export default [
         sourcemap: true,
       },
     ],
+    external: ['react'],
     plugins: [
       resolve(),
+      babel({
+        exclude: 'node_modules/**',
+        babelHelpers: 'runtime',
+      }),
       commonjs(),
       typescript({ tsconfig: './tsconfig.json' }),
       postcss(),
