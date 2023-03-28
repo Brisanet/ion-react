@@ -1,5 +1,5 @@
 import React from 'react';
-import IonIcon from '../icons/icons';
+import { IonIcon } from '../icons/icons';
 import { SizeType } from '../../core/types/size';
 import { iconType } from '../icons/svgs/icons';
 import { ButtonStyles } from './styles';
@@ -19,7 +19,7 @@ export type ButtonProps = {
   iconOnRight?: boolean;
 } & StitchesButtonProps;
 
-const IonButton = ({
+export const IonButton = ({
   type = 'primary',
   disabled = false,
   danger = false,
@@ -54,5 +54,3 @@ const IonButton = ({
     </ButtonStyles>
   );
 };
-
-export default IonButton;

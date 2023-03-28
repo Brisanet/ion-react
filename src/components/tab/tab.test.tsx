@@ -2,8 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import IonTab from './tab';
-import { TabProps } from './tab';
+import { IonTab, TabProps } from './tab';
 
 const clickEvent = jest.fn();
 const defaultTab: TabProps = {

@@ -1,9 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import IonBreadcrumb, {
-  BreadcrumbProps,
-} from '../../components/breadcrumb/breadcrumb';
+import { IonBreadcrumb, BreadcrumbProps } from '../../components/index';
 
 export default {
   title: 'Ion/Navigation/Breadcrumb',
