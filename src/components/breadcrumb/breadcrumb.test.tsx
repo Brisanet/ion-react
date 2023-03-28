@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import IonBreadcrumb, { BreadcrumbProps } from './breadcrumb';
+import { BreadcrumbProps, IonBreadcrumb } from './breadcrumb';
 
 const mockClick = jest.fn();
 const defaultBreadcrumb: BreadcrumbProps = {
