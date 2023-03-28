@@ -20,7 +20,7 @@ export type TabProps = {
   handleClick?: () => void;
 } & StitchesTabProps;
 
-const IonTab = ({
+export const IonTab = ({
   label,
   icon,
   size = 'sm',
@@ -72,5 +72,3 @@ const IonTab = ({
     </>
   );
 };
-
-export default IonTab;
