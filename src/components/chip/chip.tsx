@@ -15,7 +15,7 @@ export interface ChipProps {
   handleClick?: () => void;
 }
 
-const IonChip = ({
+export const IonChip = ({
   label,
   size = 'sm',
   disabled = false,
@@ -45,5 +45,3 @@ const IonChip = ({
     </ChipStyle>
   );
 };
-
-export default IonChip;
