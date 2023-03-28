@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import IonBreadcrumb, { BreadcrumbProps } from './breadcrumb';
 
+const mockClick = jest.fn();
 const defaultBreadcrumb: BreadcrumbProps = {
   breadcrumb: [
     {
@@ -13,6 +14,7 @@ const defaultBreadcrumb: BreadcrumbProps = {
       link: '/recursos',
     },
   ],
+  selectedBreadcrumb: mockClick,
 };
 
 function sut(props: BreadcrumbProps = defaultBreadcrumb) {
@@ -25,16 +27,15 @@ describe('Breadcrumb', () => {
     expect(container.querySelector('nav')).toBeInTheDocument();
   });
 
-  it('should render a breadcrumb with a link and a label', () => {
+  it('should render a breadcrumb with a label', () => {
     const { container } = sut();
     const links = container.querySelectorAll('a');
     expect(links).toHaveLength(2);
-    expect(links[0].getAttribute('href')).toEqual('/home');
     expect(links[0].textContent).toEqual('Inicio');
   });
 
   it('should render a breadcrumb with no links', () => {
-    const { container } = sut({ breadcrumb: [] });
+    const { container } = sut({ ...defaultBreadcrumb, breadcrumb: [] });
     const links = container.querySelectorAll('a');
     expect(links).toHaveLength(0);
   });

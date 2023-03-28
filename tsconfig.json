@@ -16,5 +16,5 @@
     "emitDeclarationOnly": true
   },
   "include": ["src"],
-  "exclude": ["src/stories"]
+  //"exclude": ["src/stories"]
 }
