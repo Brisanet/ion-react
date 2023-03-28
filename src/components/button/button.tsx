@@ -19,7 +19,7 @@ export type ButtonProps = {
   iconOnRight?: boolean;
 } & StitchesButtonProps;
 
-const IonButton = ({
+export const IonButton = ({
   type = 'primary',
   disabled = false,
   danger = false,
@@ -54,5 +54,3 @@ const IonButton = ({
     </ButtonStyles>
   );
 };
-
-export default IonButton;
