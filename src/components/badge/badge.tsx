@@ -12,7 +12,7 @@ export type BadgeProps = {
   type?: BadgeType;
 } & StitchesBadgeProps;
 
-const IonBadge = ({ label, type = 'primary' }: BadgeProps) => {
+export const IonBadge = ({ label, type = 'primary' }: BadgeProps) => {
   const [badgeValue, setBadgeValue] = useState<LabelType>(0);
 
   const formatLabel = (badgeLabel: LabelType): LabelType => {
@@ -38,5 +38,3 @@ const IonBadge = ({ label, type = 'primary' }: BadgeProps) => {
     </BadgeStyles>
   );
 };
-
-export default IonBadge;
