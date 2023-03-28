@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import IonSteps, { StepConfig } from '../../components/steps/steps';
+import { IonSteps, StepConfig } from '../../components/steps/steps';
 
 export default {
   title: 'Ion/Navigation/Steps',

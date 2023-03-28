@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import IonBadge, { BadgeProps } from '../../components/badge/badge';
+import { IonBadge, BadgeProps } from '../../components/badge/badge';
 
 export default {
   title: 'Ion/Data display/Badges',

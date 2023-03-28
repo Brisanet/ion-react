@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import IonIcon from '../icons/icons';
+import { IonIcon } from '../icons/icons';
 import {
   CircleStyle,
   LineStyle,
@@ -138,7 +138,7 @@ const validateChangeOfStep = (currentIndex: number, limit: number): number => {
   return currentIndex;
 };
 
-const IonSteps = ({
+export const IonSteps = ({
   current = 1,
   steps,
   clickable = false,
@@ -214,5 +214,3 @@ const IonSteps = ({
     </StepsContainerStyle>
   );
 };
-
-export default IonSteps;

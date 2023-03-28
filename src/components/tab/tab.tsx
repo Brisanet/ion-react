@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { SizeType } from '../../core/types/size';
-import IonBadge, { BadgeProps } from '../badge/badge';
-import IonIcon from '../icons/icons';
+import { IonBadge, BadgeProps } from '../badge/badge';
+import { IonIcon } from '../icons/icons';
 import { iconType } from '../icons/svgs/icons';
 import { TabStyles } from './styles';
 
@@ -20,7 +20,7 @@ export type TabProps = {
   handleClick?: () => void;
 } & StitchesTabProps;
 
-const IonTab = ({
+export const IonTab = ({
   label,
   icon,
   size = 'sm',
@@ -72,5 +72,3 @@ const IonTab = ({
     </>
   );
 };
-
-export default IonTab;

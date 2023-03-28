@@ -1,6 +1,6 @@
 import { ChipStyle } from './styles';
 import { SizeType } from '../../core/types/size';
-import IonIcon from '../icons/icons';
+import { IonIcon } from '../icons/icons';
 import { iconType } from '../icons/svgs/icons';
 import React from 'react';
 
@@ -15,7 +15,7 @@ export interface ChipProps {
   handleClick?: () => void;
 }
 
-const IonChip = ({
+export const IonChip = ({
   label,
   size = 'sm',
   disabled = false,
@@ -45,5 +45,3 @@ const IonChip = ({
     </ChipStyle>
   );
 };
-
-export default IonChip;

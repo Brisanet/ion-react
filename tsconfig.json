@@ -15,6 +15,6 @@
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true
   },
-  "include": ["src"],
-  "exclude": ["src/stories"]
+  "include": ["src"]
+  // "exclude": ["src/stories"]
 }
