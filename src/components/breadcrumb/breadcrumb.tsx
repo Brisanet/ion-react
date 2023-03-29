@@ -28,12 +28,15 @@ export const IonBreadcrumb = ({
   );
 
   return (
-    <BreadcrumbStyles>
+    <BreadcrumbStyles data-testid="ion-breadcrumb">
       <ol role="navigation">
         {breadcrumb.map((breadcrumbItem, index) => {
           return (
             <li key={index}>
-              <a onClick={() => handleBreadcrumbClick(breadcrumbItem)}>
+              <a
+                onClick={() => handleBreadcrumbClick(breadcrumbItem)}
+                data-testid="ion-breadcrumb-link"
+              >
                 {breadcrumbItem.label}
               </a>
               <IonIcon type="right2" size={16} />
