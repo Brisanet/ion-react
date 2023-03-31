@@ -6,10 +6,15 @@ type StitchesCheckboxProps = React.ComponentProps<typeof CheckboxStyles>;
 export type CheckboxProps = {
   label: string;
   checked?: boolean;
+  disabled?: boolean;
   onChange?: () => void;
 } & StitchesCheckboxProps;
 
-export const IonCheckbox = ({ label, checked }: CheckboxProps) => {
+export const IonCheckbox = ({
+  label,
+  checked,
+  disabled = false,
+}: CheckboxProps) => {
   const [isChecked, setIsChecked] = useState<boolean>(checked || false);
 
   const handleChange = () => {
@@ -20,11 +25,12 @@ export const IonCheckbox = ({ label, checked }: CheckboxProps) => {
   };
 
   return (
-    <CheckboxStyles>
+    <CheckboxStyles disabled={disabled}>
       <input
         type="checkbox"
         name={label}
         checked={isChecked}
+        disabled={disabled}
         onClick={handleChange}
       />
       <label>{label}</label>
