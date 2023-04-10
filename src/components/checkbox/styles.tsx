@@ -32,24 +32,42 @@ export const CheckboxStyles = styled('div', {
       '&:hover': {
         boxShadow: '0 0 2px 2px #b5d2fc',
         borderColor: '$primary3',
-        ...setBackgroundChecked('$primary2'),
+        ...setBackgroundChecked('#b5d2fc'),
       },
       '&:active': {
         boxShadow: 'none',
         backgroundColor: '$primary2',
         borderColor: '$primary5',
-        ...setBackgroundChecked('$primary1'),
+        ...setBackgroundChecked('#ebf3fe'),
       },
       '&:checked': {
         border: 'none',
         backgroundColor: '$primaryColor',
-        ...setBackgroundChecked('$primary1'),
+        ...setBackgroundChecked('#ebf3fe'),
         '&:hover': {
           backgroundColor: '$primary5',
         },
         '&:active': {
           backgroundColor: '$primary7',
         },
+      },
+      '&:focus-visible': {
+        outlineStyle: 'solid',
+        outlineWidth: '1.5px',
+        outlineColor: 'primary5',
+        outlineOffset: '2px',
+      },
+    },
+
+    '&:disabled': {
+      backgroundColor: '$neutral2',
+      border: '1px solid $neutral4',
+      borderRadius: '4px',
+      cursor: 'not-allowed',
+      '&:checked': {
+        backgroundColor: '$neutral2',
+        border: 'none',
+        ...setBackgroundChecked('#ced2db'),
       },
     },
   },

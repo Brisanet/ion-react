@@ -15,7 +15,7 @@ export const IonCheckbox = ({
   checked,
   disabled = false,
 }: CheckboxProps) => {
-  const [isChecked, setIsChecked] = useState<boolean>(checked || false);
+  const [isChecked, setIsChecked] = useState<boolean>(checked || true);
 
   const handleChange = () => {
     setIsChecked(!isChecked);
@@ -30,8 +30,8 @@ export const IonCheckbox = ({
         type="checkbox"
         name={label}
         checked={isChecked}
-        disabled={disabled}
-        onClick={handleChange}
+        disabled={true}
+        onChange={handleChange}
       />
       <label>{label}</label>
     </CheckboxStyles>
