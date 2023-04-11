@@ -1,1 +1,1 @@
-export { default } from './tabGroup';
+export * from './tabGroup';

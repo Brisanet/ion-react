@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { iconType } from '../icons/svgs/icons';
 import { TabProps } from '../tab/tab';
-import IonTabGroup, { IonTabGroupProps, TabGroupSizes } from './tabGroup';
+import { IonTabGroup, IonTabGroupProps, TabGroupSizes } from './tabGroup';
 
 const mockClick = jest.fn();
 const mockProps: IonTabGroupProps = {

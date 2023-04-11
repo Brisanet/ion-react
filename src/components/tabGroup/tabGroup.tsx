@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { BorderDirection } from '../../core/types/directions';
 import { SizeType } from '../../core/types/size';
-import IonTab, { TabProps } from '../tab/tab';
+import { IonTab, TabProps } from '../tab/tab';
 import { TabGroupStyles } from './styles';
 
 type TabAlign = 'vertical' | 'horizontal';
@@ -16,7 +16,7 @@ export interface IonTabGroupProps {
   handleSelectedTab: (tab: TabProps) => void;
 }
 
-const IonTabGroup = ({
+export const IonTabGroup = ({
   tabs,
   size = 'sm',
   align = 'horizontal',
@@ -64,5 +64,3 @@ const IonTabGroup = ({
     </TabGroupStyles>
   );
 };
-
-export default IonTabGroup;
