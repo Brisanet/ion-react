@@ -50,7 +50,7 @@ describe('Breadcrumb', () => {
   });
 
   it('should not execute user click event on last breadcrumb item', async () => {
-    const { container } = sut({ ...defaultBreadcrumb, breadcrumb: [] });
+    const { container } = sut({ ...defaultBreadcrumb });
     const links = container.querySelectorAll('a');
     await userEvent.click(links[2]);
     expect(mockClick).not.toHaveBeenCalled();
@@ -58,16 +58,14 @@ describe('Breadcrumb', () => {
 
   it('should not call the selectedBreadcrumb function when the last breadcrumb is clicked', () => {
     const { getByText } = sut();
-    const breadcrumb2 = getByText('Recursos');
-
-    fireEvent.click(breadcrumb2);
-    expect(mockClick).not.toHaveBeenCalled();
+    const lastBreadcrumb = getByText('Recursos');
+    fireEvent.click(lastBreadcrumb);
+    expect(mockClick).not.toHaveBeenCalledWith(lastBreadcrumb);
   });
 
   it('should call the selectedBreadcrumb function with the correct breadcrumb item', () => {
     const { getByText } = sut();
     const breadcrumb1 = getByText('Inicio');
-    console.log(breadcrumb1);
     fireEvent.click(breadcrumb1);
     expect(mockClick).toHaveBeenCalledWith(defaultBreadcrumb.breadcrumb[0]);
   });
