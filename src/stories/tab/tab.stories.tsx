@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import IonTab, { TabProps } from '../../components/tab/tab';
+import { IonTab, TabProps } from '../../components/tab/tab';
 
 export default {
   title: 'Ion/Navigation/Tab',

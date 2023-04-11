@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 
-import IonIcon from './icons';
+import { IonIcon } from './icons';
 import { IonIconProps } from './icons';
 import { iconType } from './svgs/icons';
 

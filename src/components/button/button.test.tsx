@@ -2,8 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import IonButton from './button';
-import { ButtonProps } from './button';
+import { IonButton, ButtonProps } from './button';
 
 const clickEvent = jest.fn();
 const defaultButton: ButtonProps = {

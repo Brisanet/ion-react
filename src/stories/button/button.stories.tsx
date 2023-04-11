@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import IonButton, { ButtonProps } from '../../components/button/button';
+import { IonButton, ButtonProps } from '../../components/button/button';
 
 export default {
   title: 'Ion/Navigation/Buttons',

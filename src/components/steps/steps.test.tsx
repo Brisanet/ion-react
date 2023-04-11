@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
-import IonSteps, { StepConfig, StepType } from './steps';
+import { IonSteps, StepConfig, StepType } from './steps';
 
 const sut = (props: StepConfig = defaultProps) => {
   return render(<IonSteps {...props} />);

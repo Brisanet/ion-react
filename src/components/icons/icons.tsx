@@ -25,7 +25,7 @@ const defaultColor = '#282B33';
 
 const Icon = styled('svg', {});
 
-const IonIcon = ({ type, color, size = defaultSize }: IonIconProps) => {
+export const IonIcon = ({ type, color, size = defaultSize }: IonIconProps) => {
   const iconPath = pathPurify(type);
   return (
     <Icon
@@ -40,5 +40,3 @@ const IonIcon = ({ type, color, size = defaultSize }: IonIconProps) => {
     ></Icon>
   );
 };
-
-export default IonIcon;

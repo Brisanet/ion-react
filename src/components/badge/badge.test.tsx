@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 
-import IonBadge, { BadgeType, LabelType } from './badge';
+import { IonBadge, BadgeType, LabelType } from './badge';
 import { BadgeProps } from './badge';
 
 const defaultBadge: BadgeProps = {
