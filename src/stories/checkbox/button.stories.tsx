@@ -14,4 +14,5 @@ const Template: ComponentStory<typeof IonCheckbox> = (args: CheckboxProps) => (
 export const ButtonPrimary = Template.bind({});
 ButtonPrimary.args = {
   label: 'Primary',
+  disabled: false,
 };

@@ -12,16 +12,13 @@ export type CheckboxProps = {
 
 export const IonCheckbox = ({
   label,
-  checked,
+  checked = false,
   disabled = false,
 }: CheckboxProps) => {
-  const [isChecked, setIsChecked] = useState<boolean>(checked || true);
+  const [isChecked, setIsChecked] = useState<boolean>(checked || false);
 
   const handleChange = () => {
     setIsChecked(!isChecked);
-    // if (onChange) {
-    //   onChange(!isChecked);
-    // }
   };
 
   return (
@@ -30,7 +27,7 @@ export const IonCheckbox = ({
         type="checkbox"
         name={label}
         checked={isChecked}
-        disabled={true}
+        disabled={disabled}
         onChange={handleChange}
       />
       <label>{label}</label>
