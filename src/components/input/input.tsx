@@ -1,9 +1,10 @@
+import { InputType } from '../../core/types/input';
 import { InputContainer, InputRow, InputStyles } from './styles';
 import React from 'react';
 
 export type InputProps = {
   placeholder?: string;
-  type?: string;
+  type?: InputType;
   disabled?: boolean;
 };
 

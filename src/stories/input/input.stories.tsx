@@ -22,6 +22,12 @@ Password.args = {
   type: 'password',
 };
 
+export const Number = Template.bind({});
+Number.args = {
+  placeholder: 'Digite sua idade',
+  type: 'number',
+};
+
 export const Disabled = Template.bind({});
 Disabled.args = {
   placeholder: 'Campo desabilitado',

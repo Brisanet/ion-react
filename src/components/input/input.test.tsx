@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { InputProps, IonInput } from './input';
 import userEvent from '@testing-library/user-event';
+import { InputType } from '../../core/types/input';
 import React from 'react';
 
 const defaultInput: InputProps = {
@@ -41,9 +42,9 @@ describe('IonInput', () => {
   });
 
   describe('Alternatives cases', () => {
-    it.each(['password', 'number'])(
+    it.each(['password', 'number', 'email', 'text'] as InputType[])(
       'should render input type %s',
-      (type: string) => {
+      (type) => {
         sut({ ...defaultInput, type: type });
         expect(getInput()).toHaveAttribute('type', type);
       }
