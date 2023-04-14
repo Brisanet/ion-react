@@ -7,7 +7,7 @@ import {
 import { SizeType } from '../../core/types/size';
 import React, { useEffect, useState } from 'react';
 import Dropdown from '../dropdown';
-import IonIcon from '../icons';
+import { IonIcon } from '../icons';
 import { OptionGroupProps, OptionProps } from '../dropdown/dropdown';
 
 type SelectSizes = Extract<SizeType, 'sm' | 'md'>;

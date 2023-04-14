@@ -1,7 +1,7 @@
 import { DropdownStyle, OptionGroupStyle, OptionStyle } from './styles';
 import { SizeType } from '../../core/types/size';
-import IonIcon from '../icons';
 import React, { useState } from 'react';
+import { IonIcon } from '../icons';
 
 type SelectSizes = Extract<SizeType, 'sm' | 'md'>;
 
