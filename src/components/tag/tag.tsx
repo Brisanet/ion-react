@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { TagStyle } from './styles';
-import IonIcon from '../icons/icons';
+import { IonIcon } from '../icons/icons';
 
 import { validateHexColor } from '../utils/validateHexColor';
 import ErrorBoundary from '../error/error-boundary';
@@ -41,7 +41,7 @@ const getColorObject = (status?: TagStatus, color?: string) => {
   };
 };
 
-const IonTag = ({
+export const IonTag = ({
   label,
   color,
   icon,
@@ -64,5 +64,3 @@ const IonTag = ({
     </TagStyle>
   );
 };
-
-export default IonTag;

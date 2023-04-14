@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import IonTag, { IonTagProps } from '../../components/tag/tag';
+import { IonTag, IonTagProps } from '../../components/tag/tag';
 
 export default {
   title: 'Ion/Data Display/Tag',

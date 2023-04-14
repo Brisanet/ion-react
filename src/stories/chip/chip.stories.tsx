@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import IonChip, { ChipProps } from '../../components/chip/chip';
+import { IonChip, ChipProps } from '../../components/chip/chip';
 
 export default {
   title: 'Ion/Navigation/Chips',

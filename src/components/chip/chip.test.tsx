@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import IonChip, { ChipProps } from './chip';
+import { IonChip, ChipProps } from './chip';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 

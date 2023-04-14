@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 
-import IonTag, { IonTagProps } from './tag';
+import { IonTag, IonTagProps } from './tag';
 import { StatusType } from '../../core/types/status';
 
 const defaultTag: IonTagProps = {

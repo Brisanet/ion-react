@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import IonIcon, { IonIconProps } from '../components/icons/icons';
+import { IonIcon, IonIconProps } from '../components/icons/icons';
 
 export default {
   title: 'Ion/Design Tokens/Icons',
