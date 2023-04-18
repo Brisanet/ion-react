@@ -25,6 +25,7 @@ export const IonCheckbox = ({
     <CheckboxStyles disabled={disabled}>
       <input
         type="checkbox"
+        data-testid="ion-checkbox"
         name={label}
         checked={isChecked}
         disabled={disabled}
