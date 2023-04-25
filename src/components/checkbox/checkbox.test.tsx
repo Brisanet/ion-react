@@ -1,13 +1,9 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-
+import { fireEvent, render, screen } from '@testing-library/react';
 import { IonCheckbox, CheckboxProps } from './checkbox';
 
-const onChange = jest.fn();
 const defaultCheckbox: CheckboxProps = {
   label: 'Checkbox',
-  onChange: onChange,
 };
 
 function sut(props: CheckboxProps = defaultCheckbox) {
@@ -25,6 +21,11 @@ describe('Checkbox', () => {
       expect(getCheckbox()).toBeInTheDocument();
     });
 
+    it('should render checkbox unchecked by default', () => {
+      sut({ ...defaultCheckbox });
+      expect(getCheckbox()).not.toBeChecked();
+    });
+
     it('should render checked checkbox', () => {
       sut({ ...defaultCheckbox, checked: true });
       expect(getCheckbox()).toBeChecked();
@@ -35,12 +36,25 @@ describe('Checkbox', () => {
       expect(getCheckbox()).toBeDisabled();
     });
 
-    it('calls onChange when checked state changes', () => {
+    it('should render checkbox without label by default', () => {
+      sut({});
+      expect(getCheckbox().textContent).toBe('');
+    });
+
+    it('should render checkbox with label', () => {
       sut();
-      userEvent.click(getCheckbox());
-      expect(onChange).toHaveBeenCalledTimes(1);
+      expect(screen.getByText('Checkbox').textContent).toBe(
+        defaultCheckbox.label
+      );
+    });
+
+    it('should change checked state when clicked', () => {
+      sut();
+      const checkbox = getCheckbox();
+      fireEvent.click(checkbox);
+      expect(checkbox).toBeChecked();
+      fireEvent.click(checkbox);
+      expect(checkbox).not.toBeChecked();
     });
   });
-
-  describe('With Icon', () => {});
 });

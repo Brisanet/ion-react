@@ -4,10 +4,9 @@ import { CheckboxStyles } from './styles';
 type StitchesCheckboxProps = React.ComponentProps<typeof CheckboxStyles>;
 
 export type CheckboxProps = {
-  label: string;
+  label?: string;
   checked?: boolean;
   disabled?: boolean;
-  onChange?: () => void;
 } & StitchesCheckboxProps;
 
 export const IonCheckbox = ({
