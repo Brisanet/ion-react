@@ -48,7 +48,7 @@ describe('Checkbox', () => {
       );
     });
 
-    it('should change checked state when clicked', () => {
+    it('should change checked state when checkbox is clicked', () => {
       sut();
       const checkbox = getCheckbox();
       fireEvent.click(checkbox);
