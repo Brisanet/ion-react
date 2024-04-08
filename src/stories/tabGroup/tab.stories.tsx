@@ -1,7 +1,8 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { iconsPaths, iconType } from '../../components/icons/svgs/icons';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { iconType, iconsPaths } from '../../components/icons/svgs/icons';
 
-import IonTabGroup, {
+import {
+  IonTabGroup,
   IonTabGroupProps,
 } from '../../components/tabGroup/tabGroup';
 
