@@ -33,8 +33,6 @@ export default [
       commonjs(),
       typescript({
         tsconfig: './tsconfig.json',
-        declaration: true,
-        declarationDir: 'dist',
       }),
       postcss(),
       terser(),
