@@ -1,10 +1,10 @@
-import resolve from '@rollup/plugin-node-resolve';
+import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
+import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
 import dts from 'rollup-plugin-dts';
 import postcss from 'rollup-plugin-postcss';
-import terser from '@rollup/plugin-terser';
-import babel from '@rollup/plugin-babel';
 
 import packageJson from './package.json' assert { type: 'json' };
 
@@ -31,13 +31,15 @@ export default [
         babelHelpers: 'runtime',
       }),
       commonjs(),
-      typescript({ tsconfig: './tsconfig.json' }),
+      typescript({
+        tsconfig: './tsconfig.json',
+      }),
       postcss(),
       terser(),
     ],
   },
   {
-    input: 'dist/esm/types/index.d.ts',
+    input: 'dist/esm/types/src/index.d.ts',
     output: [{ file: 'dist/index.d.ts', format: 'esm' }],
     plugins: [dts()],
     external: [/\.css$/, /\.scss$/, /\.sass$/],
