@@ -4,7 +4,7 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
     'src/**/*.ts(x)?',
-    '!src/**/stories.tsx',
+    '!src/**/*.stories.tsx',
     '!src/styles/**/*.ts',
     '!src/core/**/*.ts',
   ],
