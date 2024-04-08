@@ -1,18 +1,19 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
+import theme from '@ion/styles/theme';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-
-import { IonButton, ButtonProps } from './button';
+import 'jest-styled-components';
+import { renderWithTheme } from '../utils/test-utils';
+import { ButtonProps, ButtonSizes, ButtonVariants, IonButton } from './button';
+import { variantsColors } from './styles';
 
 const clickEvent = jest.fn();
 const defaultButton: ButtonProps = {
   label: 'Button',
-  handleClick: clickEvent,
+  onClick: clickEvent,
 };
 
-function sut(props: ButtonProps = defaultButton) {
-  render(<IonButton {...props} />);
-}
+const sut = (props: ButtonProps = defaultButton) =>
+  renderWithTheme(<IonButton {...props} />);
 
 const getButton = () => {
   return screen.getByTestId('ion-button');
@@ -23,7 +24,7 @@ describe('Button', () => {
     it('should render the Button component', () => {
       const label = 'Hello world!';
       sut({ ...defaultButton, label: label });
-      expect(screen.getByText(label)).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: label })).toBeInTheDocument();
     });
 
     it('should execute user event when the button is clicked', async () => {
@@ -34,7 +35,7 @@ describe('Button', () => {
 
     it('should be disabled', () => {
       sut({ ...defaultButton, disabled: true });
-      expect(getButton()).toHaveAttribute('disabled');
+      expect(getButton()).toBeDisabled();
     });
 
     afterEach(() => {
@@ -43,35 +44,56 @@ describe('Button', () => {
   });
 
   describe('Button Types', () => {
-    const buttonTypes: Array<ButtonProps['type']> = [
+    const buttonTypes: ButtonVariants[] = [
       'primary',
       'secondary',
       'ghost',
       'dashed',
     ];
 
-    it.each(buttonTypes)('should render button with %s style type', (type) => {
-      sut({ ...defaultButton, type: type });
-      const { className } = getButton();
-      expect(className).toContain(`type-${type}`);
+    it.each(buttonTypes)('should render button with %s styles', (type) => {
+      const colors = variantsColors(theme, type);
+      sut({ ...defaultButton, variant: type });
+      expect(getButton()).toHaveStyleRule(
+        'background-color',
+        colors.default.background
+      );
+      expect(getButton()).toHaveStyleRule('color', colors.default.color);
     });
 
-    it.each(buttonTypes)('should render %s danger button', (type) => {
-      sut({ ...defaultButton, type: type, danger: true });
-      const { className } = getButton();
-      expect(className).toContain('danger-true');
-      expect(className).toContain(`type-${type}`);
-    });
+    it.each(buttonTypes)(
+      'should render %s button with danger styles',
+      (type) => {
+        const colors = variantsColors(theme, type, true);
+        sut({ ...defaultButton, variant: type, danger: true });
+        expect(getButton()).toHaveStyleRule(
+          'background-color',
+          colors.default.background
+        );
+        expect(getButton()).toHaveStyleRule('color', colors.default.color);
+      }
+    );
   });
 
   describe('Button Sizes', () => {
-    const buttonSizes: Array<ButtonProps['size']> = ['sm', 'md', 'lg', 'xl'];
+    const buttonSizes: ButtonSizes[] = ['sm', 'md', 'lg', 'xl'];
 
     it.each(buttonSizes)(
       'should render button with %s size variation',
       (size) => {
         sut({ ...defaultButton, size: size });
-        expect(getButton().className).toContain(`size-${size}`);
+        expect(getButton()).toMatchSnapshot();
+      }
+    );
+
+    it.each<{ borderRadius: string; size: ButtonSizes }>([
+      { borderRadius: '6px', size: 'md' },
+      { borderRadius: '10px', size: 'lg' },
+    ])(
+      'should render borderRadius as $borderRadius for button with size $size',
+      ({ borderRadius, size }) => {
+        sut({ ...defaultButton, size });
+        expect(getButton()).toHaveStyleRule('border-radius', borderRadius);
       }
     );
   });
@@ -103,15 +125,18 @@ describe('Button', () => {
     it('should render icon in right side', () => {
       const icon = 'alert';
       sut({ ...defaultButton, icon: icon, iconOnRight: true });
-      expect(getButton().className).toContain('iconOnRight-true');
+      expect(screen.getByRole('button')).toHaveStyleRule(
+        'flex-direction',
+        'row-reverse'
+      );
     });
 
     it('should render icon in left by default', () => {
       sut({ ...defaultButton, icon: 'alert' });
-      const buttonContainer = screen.getByTestId('ion-button-container');
-      const ContainerFirstChild = buttonContainer.children.item(0);
-
-      expect(ContainerFirstChild?.tagName).toBe('svg');
+      expect(screen.getByRole('button')).toHaveStyleRule(
+        'flex-direction',
+        'row'
+      );
     });
   });
 });
