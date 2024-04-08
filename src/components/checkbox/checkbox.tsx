@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import { CheckboxStyles } from './styles';
-
-type StitchesCheckboxProps = React.ComponentProps<typeof CheckboxStyles>;
+import { InputHTMLAttributes, useState } from 'react';
+import { Checkbox, CheckboxContainer, Label } from './styles';
 
 export type CheckboxProps = {
   label?: string;
   checked?: boolean;
   disabled?: boolean;
-} & StitchesCheckboxProps;
+} & InputHTMLAttributes<HTMLInputElement>;
 
 export const IonCheckbox = ({
   label,
   checked = false,
   disabled = false,
+  id,
+  ...props
 }: CheckboxProps) => {
   const [isChecked, setIsChecked] = useState<boolean>(checked || false);
 
@@ -21,16 +21,17 @@ export const IonCheckbox = ({
   };
 
   return (
-    <CheckboxStyles disabled={disabled}>
-      <input
-        type="checkbox"
-        data-testid="ion-checkbox"
-        name={label}
+    <CheckboxContainer>
+      <Checkbox
+        {...props}
+        id={id}
+        type='checkbox'
+        data-testid='ion-checkbox'
         checked={isChecked}
         disabled={disabled}
         onChange={handleChange}
       />
-      <label>{label}</label>
-    </CheckboxStyles>
+      {!!label && <Label htmlFor={id}>{label}</Label>}
+    </CheckboxContainer>
   );
 };
