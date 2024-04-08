@@ -1,7 +1,7 @@
 import React from 'react';
 import { BorderDirection } from '../../core/types/directions';
 import { SizeType } from '../../core/types/size';
-import { IonBadge, BadgeProps } from '../badge/badge';
+import { BadgeProps, IonBadge } from '../badge/badge';
 import { IonIcon } from '../icons/icons';
 import { iconType } from '../icons/svgs/icons';
 import { TabStyles } from './styles';
@@ -31,11 +31,12 @@ export const IonTab = ({
   handleClick,
   badge,
 }: TabProps) => {
-  const iconSize = {
-    sm: 16,
-    md: 20,
-    lg: 24,
-  };
+  const getIconSize = (size: TabSizes) =>
+    ({
+      sm: 16,
+      md: 20,
+      lg: 24,
+    }[size]);
 
   return (
     <>
@@ -45,10 +46,10 @@ export const IonTab = ({
         onClick={handleClick}
         selected={selected}
         disabled={disabled}
-        data-testid="ion-tab"
+        data-testid='ion-tab'
       >
         <div>
-          {icon && <IonIcon type={icon} size={iconSize[`${size}`]} />}
+          {icon && <IonIcon type={icon} size={getIconSize(size)} />}
           <span>{label}</span>
           {badge && <IonBadge label={badge.label} type={badge.type} />}
         </div>
