@@ -1,33 +1,30 @@
-import React from 'react';
-import { IonIcon } from '../icons/icons';
+import { ButtonHTMLAttributes } from 'react';
 import { SizeType } from '../../core/types/size';
+import { IonIcon } from '../icons';
 import { iconType } from '../icons/svgs/icons';
-import { ButtonStyles } from './styles';
+import { Button } from './styles';
 
-type StitchesButtonProps = React.ComponentProps<typeof ButtonStyles>;
+export type ButtonSizes = Exclude<SizeType, 'xs'> | 'xl';
 
-type ButtonSizes = Exclude<SizeType, 'xs'> | 'xl';
+export type ButtonVariants = 'primary' | 'secondary' | 'ghost' | 'dashed';
 
 export type ButtonProps = {
   label: string;
-  type?: string;
-  disabled?: boolean;
-  handleClick?: () => void;
+  variant?: ButtonVariants;
   danger?: boolean;
   size?: ButtonSizes;
   icon?: iconType;
   iconOnRight?: boolean;
-} & StitchesButtonProps;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const IonButton = ({
-  type = 'primary',
-  disabled = false,
+  variant = 'primary',
   danger = false,
   size = 'md',
   icon,
   iconOnRight,
   label,
-  handleClick,
+  ...props
 }: ButtonProps) => {
   const iconSize = {
     sm: 16,
@@ -37,20 +34,17 @@ export const IonButton = ({
   };
 
   return (
-    <ButtonStyles
-      type={type}
-      onClick={handleClick}
-      disabled={disabled}
-      danger={danger}
-      size={size}
-      withIcon={!!icon}
-      iconOnRight={iconOnRight}
-      data-testid="ion-button"
+    <Button
+      data-testid='ion-button'
+      $variant={variant}
+      $size={size}
+      $danger={danger}
+      $hasIcon={!!icon}
+      $iconOnRight={iconOnRight}
+      {...props}
     >
-      <div data-testid="ion-button-container">
-        {icon && <IonIcon type={icon} size={iconSize[`${size}`]} />}
-        <span>{label}</span>
-      </div>
-    </ButtonStyles>
+      {icon && <IonIcon type={icon} size={iconSize[size]} />}
+      <span>{label}</span>
+    </Button>
   );
 };

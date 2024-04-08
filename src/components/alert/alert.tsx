@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { StatusType } from '../../core/types/status';
 import ErrorBoundary from '../error/error-boundary';
 
@@ -40,7 +40,7 @@ export const IonAlert = ({
   const icon = getIcon(type);
 
   if (!isValidLabel(message)) {
-    return <ErrorBoundary msg="Message cannot be empty" />;
+    return <ErrorBoundary msg='Message cannot be empty' />;
   }
 
   if (!showAlert) {
@@ -49,7 +49,7 @@ export const IonAlert = ({
 
   return (
     <AlertStyled
-      data-testid="ion-alert"
+      data-testid='ion-alert'
       type={type}
       hideBackground={hideBackground}
     >
@@ -57,7 +57,7 @@ export const IonAlert = ({
       <span>{message}</span>
       {closable && (
         <div onClick={() => setShowAlert(false)}>
-          <IonIcon type="close" size={sizeIcon}></IonIcon>
+          <IonIcon type='close' size={sizeIcon}></IonIcon>
         </div>
       )}
     </AlertStyled>
