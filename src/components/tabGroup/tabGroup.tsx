@@ -2,9 +2,9 @@ import { useCallback, useEffect, useState } from 'react';
 import { BorderDirection } from '../../core/types/directions';
 import { SizeType } from '../../core/types/size';
 import { IonTab, TabProps } from '../tab/tab';
-import { TabGroupStyles } from './styles';
+import { TabGroup } from './styles';
 
-type TabAlign = 'vertical' | 'horizontal';
+export type TabAlign = 'vertical' | 'horizontal';
 
 export type TabGroupSizes = Exclude<SizeType, 'xs'>;
 
@@ -46,21 +46,19 @@ export const IonTabGroup = ({
   }, []);
 
   return (
-    <TabGroupStyles align={align} data-testid='ion-tabGroup'>
-      <div data-testid='ion-tabGroup-container'>
-        {tabs.map((tabItem, index) => {
-          return (
-            <IonTab
-              {...tabItem}
-              key={index}
-              handleClick={() => handleTabClick(tabItem, index)}
-              selected={activeTab === index}
-              direction={defineBorderByAlign()}
-              size={size}
-            />
-          );
-        })}
-      </div>
-    </TabGroupStyles>
+    <TabGroup align={align} data-testid='ion-tabGroup'>
+      {tabs.map((tabItem, index) => {
+        return (
+          <IonTab
+            {...tabItem}
+            key={index}
+            handleClick={() => handleTabClick(tabItem, index)}
+            selected={activeTab === index}
+            direction={defineBorderByAlign()}
+            size={size}
+          />
+        );
+      })}
+    </TabGroup>
   );
 };

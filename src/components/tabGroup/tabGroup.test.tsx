@@ -34,7 +34,7 @@ describe('IonTabGroup', () => {
   describe('Default', () => {
     it('should render TabGroup in horizontal align by default', async () => {
       sut();
-      expect(getTabGroup().className).toContain('align-horizontal');
+      expect(getTabGroup()).toHaveStyleRule('flex-direction', 'row');
     });
 
     it('should render tabs with border bottom by default', async () => {
@@ -46,7 +46,7 @@ describe('IonTabGroup', () => {
 
     it('should render TabGroup in vertical align by default', async () => {
       sut({ ...mockProps, align: 'vertical' });
-      expect(getTabGroup()).toMatchSnapshot();
+      expect(getTabGroup()).toHaveStyleRule('flex-direction', 'column');
     });
 
     it('should render the correct number of tabs', () => {
@@ -100,7 +100,7 @@ describe('IonTabGroup', () => {
     it('should not contain border right when align is horizontal', async () => {
       sut({ ...mockProps, align: 'horizontal', borderDirection: 'right' });
       getTabs().forEach((tab: HTMLElement) => {
-        expect(tab.className).not.toContain('direction-right');
+        expect(tab).not.toHaveStyleRule('border-right', '2px solid');
       });
     });
   });

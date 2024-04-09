@@ -1,33 +1,15 @@
-import stitches from '../../stitches.config';
+import { css, styled } from 'styled-components';
+import { TabAlign } from './tabGroup';
 
-const { styled } = stitches;
+type TabGroupStylesProps = {
+  align: TabAlign;
+};
 
-export const TabGroupStyles = styled('div', {
-  display: 'flex',
-
-  div: {
-    display: 'flex',
-  },
-
-  variants: {
-    align: {
-      horizontal: {
-        div: {
-          flexDirection: 'row',
-        },
-      },
-      vertical: {
-        width: '100%',
-
-        div: {
-          flexDirection: 'column',
-          textAlign: 'left',
-          'button > div': {
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-          },
-        },
-      },
-    },
-  },
-});
+export const TabGroup = styled.div<TabGroupStylesProps>`
+  ${({ align }) =>
+    css`
+      display: flex;
+      flex-direction: ${align === 'horizontal' ? 'row' : 'column'};
+      width: max-content;
+    `}
+`;
