@@ -1,14 +1,11 @@
-import React from 'react';
 import { BorderDirection } from '../../core/types/directions';
 import { SizeType } from '../../core/types/size';
-import { IonBadge, BadgeProps } from '../badge/badge';
+import { BadgeProps, IonBadge } from '../badge/badge';
 import { IonIcon } from '../icons/icons';
 import { iconType } from '../icons/svgs/icons';
-import { TabStyles } from './styles';
+import { Tab } from './styles';
 
-type StitchesTabProps = React.ComponentProps<typeof TabStyles>;
-
-type TabSizes = Exclude<SizeType, 'xs'>;
+export type TabSizes = Exclude<SizeType, 'xs'>;
 
 export type TabProps = {
   label: string;
@@ -19,7 +16,7 @@ export type TabProps = {
   icon?: iconType;
   badge?: BadgeProps;
   handleClick?: () => void;
-} & StitchesTabProps;
+};
 
 export const IonTab = ({
   label,
@@ -31,28 +28,25 @@ export const IonTab = ({
   handleClick,
   badge,
 }: TabProps) => {
-  const iconSize = {
-    sm: 16,
-    md: 20,
-    lg: 24,
-  };
+  const getIconSize = (size: TabSizes) =>
+    ({
+      sm: 16,
+      md: 20,
+      lg: 24,
+    }[size]);
 
   return (
-    <>
-      <TabStyles
-        size={size}
-        direction={direction}
-        onClick={handleClick}
-        selected={selected}
-        disabled={disabled}
-        data-testid="ion-tab"
-      >
-        <div>
-          {icon && <IonIcon type={icon} size={iconSize[`${size}`]} />}
-          <span>{label}</span>
-          {badge && <IonBadge label={badge.label} type={badge.type} />}
-        </div>
-      </TabStyles>
-    </>
+    <Tab
+      data-testid='ion-tab'
+      $size={size}
+      $direction={direction}
+      $selected={selected}
+      disabled={disabled}
+      onClick={handleClick}
+    >
+      {icon && <IonIcon type={icon} size={getIconSize(size)} />}
+      <span>{label}</span>
+      {badge && <IonBadge label={badge.label} type={badge.type} />}
+    </Tab>
   );
 };

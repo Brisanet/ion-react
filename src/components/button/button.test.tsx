@@ -1,7 +1,6 @@
 import theme from '@ion/styles/theme';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import 'jest-styled-components';
 import { renderWithTheme } from '../utils/test-utils';
 import { ButtonProps, ButtonSizes, ButtonVariants, IonButton } from './button';
 import { variantsColors } from './styles';
