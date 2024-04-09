@@ -17,6 +17,16 @@ export interface IonTagProps {
 
 const ICON_SIZE = 12;
 
+const validateProps = ({ color, label }: IonTagProps) => {
+  if (!isValidLabel(label)) {
+    return <ErrorBoundary msg='Label cannot be empty' />;
+  }
+  if (color && !validateHexColor(color)) {
+    return <ErrorBoundary msg='Invalid color' />;
+  }
+  return null;
+};
+
 export const IonTag = ({
   label,
   icon,
@@ -24,13 +34,9 @@ export const IonTag = ({
   status,
   outline = true,
 }: IonTagProps) => {
-  if (!isValidLabel(label)) {
-    return <ErrorBoundary msg='Label cannot be empty' />;
-  }
+  const validation = validateProps({ color, label });
 
-  if (color && !validateHexColor(color)) {
-    return <ErrorBoundary msg='Invalid color' />;
-  }
+  if (validation) return validation;
 
   return (
     <Tag data-testid='ion-tag' status={status} $outline={outline} color={color}>
