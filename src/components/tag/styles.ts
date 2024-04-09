@@ -1,59 +1,66 @@
-import stitches from '../../stitches.config';
+import { TagStatus } from '@ion/core/types/status';
+import { css, DefaultTheme, RuleSet, styled } from 'styled-components';
 
-const { styled } = stitches;
+const TRANSPARENCY_FACTOR = '1A';
 
-const setColors = (bgColor: string, color: string) => ({
-  backgroundColor: bgColor,
-  color: color,
-  svg: {
-    fill: color,
-  },
+type TagStyleProps = {
+  status?: TagStatus;
+  color?: string;
+  $outline: boolean;
+};
+
+type TagColors = {
+  background: string;
+  color: string;
+};
+
+export const getColorsByStatus: (
+  theme: DefaultTheme,
+  status: TagStatus
+) => TagColors = ({ colors }, status) =>
+  ({
+    success: { background: colors.positive[1], color: colors.positive[7] },
+    info: { background: colors.info[1], color: colors.info[7] },
+    warning: { background: colors.warning[1], color: colors.warning[7] },
+    negative: { background: colors.negative[1], color: colors.negative[7] },
+    neutral: {
+      background: colors.transparency.white[90],
+      color: colors.neutral[7],
+    },
+  }[status]);
+
+const getColorsByVariableColor: (color: string) => TagColors = (color) => ({
+  background: color + TRANSPARENCY_FACTOR,
+  color,
 });
 
-export const TagStyle = styled('div', {
-  display: 'flex',
-  flexDirection: 'row',
-  justifyContent: 'center',
-  alignItems: 'center',
-  padding: '2px 8px',
-  gap: '6px',
+const setColors: (colors: TagColors) => RuleSet<object> = (colors) => css`
+  background-color: ${colors.background};
+  color: ${colors.color};
+  border-color: ${colors.color};
 
-  width: 'max-content',
-  height: 'max-content',
-  minHeight: '20px',
+  svg {
+    fill: ${colors.color};
+  }
+`;
 
-  backgroundColor: '$whitetransparence90',
-  color: '$neutral7',
-  borderRadius: '50px',
-
-  span: {
-    fontSize: '12px',
-    fontWeight: '400',
-    lineHeight: '16px',
-  },
-
-  variants: {
-    status: {
-      success: {
-        ...setColors('$positive1', '$positive7'),
-      },
-      info: {
-        ...setColors('$info1', '$info7'),
-      },
-      warning: {
-        ...setColors('$warning1', '$warning7'),
-      },
-      negative: {
-        ...setColors('$negative1', '$negative7'),
-      },
-      neutral: {
-        ...setColors('$neutral2', '$neutral7'),
-      },
-    },
-    outline: {
-      true: {
-        border: '1px solid',
-      },
-    },
-  },
-});
+export const Tag = styled.div<TagStyleProps>`
+  ${({ theme, status, $outline, color }) => css`
+    ${theme.utils.flex.center(6)};
+    ${theme.font.size[12]}
+    ${theme.utils.focus}
+    font-weight: 400;
+    width: max-content;
+    height: 20px;
+    padding: 2px 8px;
+    background-color: ${theme.colors.transparency.white[90]};
+    color: ${theme.colors.neutral[7]};
+    border-radius: 50px;
+    ${!!$outline &&
+    css`
+      border: 1px solid;
+    `};
+    ${!!color && setColors(getColorsByVariableColor(color))};
+    ${!!status && setColors(getColorsByStatus(theme, status))};
+  `}
+`;
