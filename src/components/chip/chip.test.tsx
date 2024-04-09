@@ -1,7 +1,7 @@
-import { render, screen } from '@testing-library/react';
-import { IonChip, ChipProps } from './chip';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import React from 'react';
+import { renderWithTheme } from '../utils/test-utils';
+import { ChipProps, ChipSizes, IonChip } from './chip';
 
 const clickEvent = jest.fn();
 const defaultChip: ChipProps = {
@@ -11,7 +11,7 @@ const defaultChip: ChipProps = {
 const chipId = 'ion-chip';
 
 const sut = (props: ChipProps = defaultChip) => {
-  return render(<IonChip {...props} />);
+  return renderWithTheme(<IonChip {...props} />);
 };
 
 describe('IonChip', () => {
@@ -41,14 +41,12 @@ describe('IonChip', () => {
   describe('Custom Props', () => {
     it('should render chip selected', () => {
       const { container } = sut({ ...defaultChip, selected: true });
-      const element = container.firstChild as Element;
-      expect(element.className).toContain('selected-true');
+      expect(container).toMatchSnapshot();
     });
 
-    it.each(['sm', 'md'])('should render chip %s size', (size: any) => {
-      const { container } = sut({ ...defaultChip, size: size });
-      const element = container.firstChild as Element;
-      expect(element.className).toContain(`size-${size}`);
+    it.each<ChipSizes>(['sm', 'md'])('should render chip %s size', (size) => {
+      const { container } = sut({ ...defaultChip, size });
+      expect(container).toMatchSnapshot();
     });
   });
 

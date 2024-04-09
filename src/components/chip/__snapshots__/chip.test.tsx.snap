@@ -1,0 +1,264 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IonChip Custom Props should render chip md size 1`] = `
+.c0 {
+  background-color: #fcfcfd;
+  border: 1px solid #ced2db;
+  border-radius: 100px;
+  color: #0858ce;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 32px;
+  padding: 6px 12px;
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
+
+.c0:focus-visible {
+  outline: 2px solid #146ff5;
+  outline-offset: 2px;
+}
+
+.c0 svg {
+  fill: #0858ce;
+}
+
+.c0:hover,
+.c0:focus-visible {
+  background-color: #ebf3fe;
+  border-color: #84b4fa;
+  color: #146ff5;
+}
+
+.c0:hover svg,
+.c0:focus-visible svg {
+  fill: #146ff5;
+}
+
+.c0:active {
+  background-color: #b5d2fc;
+  border-color: #146ff5;
+  color: #06439d;
+}
+
+.c0:active svg {
+  fill: #06439d;
+}
+
+.c0:disabled {
+  cursor: not-allowed;
+  background-color: #e4e6eb;
+  border-color: #aeb2bd;
+  color: #aeb2bd;
+}
+
+.c0:disabled svg {
+  fill: #aeb2bd;
+}
+
+<div>
+  <button
+    class="c0"
+    data-testid="ion-chip"
+  >
+    <span>
+      Ragnarok!
+    </span>
+  </button>
+</div>
+`;
+
+exports[`IonChip Custom Props should render chip selected 1`] = `
+.c0 {
+  background-color: #fcfcfd;
+  border: 1px solid #ced2db;
+  border-radius: 100px;
+  color: #0858ce;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 24px;
+  padding: 4px 8px;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  background-color: #ebf3fe;
+  border: 1.5px solid #0858ce;
+  color: #0858ce;
+}
+
+.c0:focus-visible {
+  outline: 2px solid #146ff5;
+  outline-offset: 2px;
+}
+
+.c0 svg {
+  fill: #0858ce;
+}
+
+.c0:hover,
+.c0:focus-visible {
+  background-color: #ebf3fe;
+  border-color: #84b4fa;
+  color: #146ff5;
+}
+
+.c0:hover svg,
+.c0:focus-visible svg {
+  fill: #146ff5;
+}
+
+.c0:active {
+  background-color: #b5d2fc;
+  border-color: #146ff5;
+  color: #06439d;
+}
+
+.c0:active svg {
+  fill: #06439d;
+}
+
+.c0:disabled {
+  cursor: not-allowed;
+  background-color: #e4e6eb;
+  border-color: #aeb2bd;
+  color: #aeb2bd;
+}
+
+.c0:disabled svg {
+  fill: #aeb2bd;
+}
+
+.c0 svg {
+  fill: #0858ce;
+}
+
+.c0:hover {
+  background-color: #b5d2fc;
+  border-color: #146ff5;
+  color: #146ff5;
+}
+
+.c0:hover svg {
+  fill: #146ff5;
+}
+
+.c0:focus-visible {
+  background-color: #ebf3fe;
+  border-color: #5396f8;
+  color: #146ff5;
+}
+
+.c0:focus-visible svg {
+  fill: #146ff5;
+}
+
+.c0:active {
+  background-color: #84b4fa;
+  border-color: #06439d;
+  color: #06439d;
+}
+
+.c0:active svg {
+  fill: #06439d;
+}
+
+.c0:disabled {
+  background-color: #e4e6eb;
+  border-color: #aeb2bd;
+  color: #aeb2bd;
+}
+
+.c0:disabled svg {
+  fill: #aeb2bd;
+}
+
+<div>
+  <button
+    class="c0"
+    data-testid="ion-chip"
+  >
+    <span>
+      Ragnarok!
+    </span>
+  </button>
+</div>
+`;
+
+exports[`IonChip Custom Props should render chip sm size 1`] = `
+.c0 {
+  background-color: #fcfcfd;
+  border: 1px solid #ced2db;
+  border-radius: 100px;
+  color: #0858ce;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 24px;
+  padding: 4px 8px;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+}
+
+.c0:focus-visible {
+  outline: 2px solid #146ff5;
+  outline-offset: 2px;
+}
+
+.c0 svg {
+  fill: #0858ce;
+}
+
+.c0:hover,
+.c0:focus-visible {
+  background-color: #ebf3fe;
+  border-color: #84b4fa;
+  color: #146ff5;
+}
+
+.c0:hover svg,
+.c0:focus-visible svg {
+  fill: #146ff5;
+}
+
+.c0:active {
+  background-color: #b5d2fc;
+  border-color: #146ff5;
+  color: #06439d;
+}
+
+.c0:active svg {
+  fill: #06439d;
+}
+
+.c0:disabled {
+  cursor: not-allowed;
+  background-color: #e4e6eb;
+  border-color: #aeb2bd;
+  color: #aeb2bd;
+}
+
+.c0:disabled svg {
+  fill: #aeb2bd;
+}
+
+<div>
+  <button
+    class="c0"
+    data-testid="ion-chip"
+  >
+    <span>
+      Ragnarok!
+    </span>
+  </button>
+</div>
+`;
