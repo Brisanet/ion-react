@@ -34,13 +34,16 @@ const getColorsByVariableColor: (color: string) => TagColors = (color) => ({
   color,
 });
 
-const setColors: (colors: TagColors) => RuleSet<object> = (colors) => css`
-  background-color: ${colors.background};
-  color: ${colors.color};
-  border-color: ${colors.color};
+const setColors: (colors: TagColors) => RuleSet<object> = ({
+  background,
+  color,
+}) => css`
+  background-color: ${background};
+  color: ${color};
+  border-color: ${color};
 
   svg {
-    fill: ${colors.color};
+    fill: ${color};
   }
 `;
 
