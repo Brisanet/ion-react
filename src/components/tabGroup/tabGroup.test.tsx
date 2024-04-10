@@ -1,8 +1,8 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { iconType } from '../icons/svgs/icons';
 import { TabProps } from '../tab/tab';
+import { renderWithTheme } from '../utils/test-utils';
 import { IonTabGroup, IonTabGroupProps, TabGroupSizes } from './tabGroup';
 
 const mockClick = jest.fn();
@@ -22,7 +22,7 @@ const mockProps: IonTabGroupProps = {
   handleSelectedTab: mockClick,
 };
 const sut = (props: IonTabGroupProps = mockProps) => {
-  render(<IonTabGroup {...props} />);
+  renderWithTheme(<IonTabGroup {...props} />);
 };
 
 const getTabGroup = () => screen.getByTestId('ion-tabGroup');
