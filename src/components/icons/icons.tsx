@@ -1,6 +1,5 @@
 import DOMPurify from 'dompurify';
 import { iconsPaths, iconType } from './svgs/icons';
-import React from 'react';
 
 export type SvgModule = typeof import('./svgs/icons');
 export type IconPaths = keyof typeof iconsPaths;
@@ -30,7 +29,7 @@ export const IonIcon = ({ type, color, size = defaultSize }: IonIconProps) => {
   return (
     <Icon
       data-testid={`ion-icon-${type}`}
-      viewBox="0 0 24 24"
+      viewBox='0 0 24 24'
       height={size}
       width={size}
       fill={color || defaultColor}
