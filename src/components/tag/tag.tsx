@@ -1,13 +1,11 @@
-import React from 'react';
-
-import { TagStyle } from './styles';
 import { IonIcon } from '../icons/icons';
+import { TagStyle } from './styles';
 
-import { validateHexColor } from '../utils/validateHexColor';
-import ErrorBoundary from '../error/error-boundary';
 import { TagStatus } from '../../core/types/status';
+import ErrorBoundary from '../error/error-boundary';
 import { iconType } from '../icons/svgs/icons';
 import isValidLabel from '../utils/isValidLabel';
+import { validateHexColor } from '../utils/validateHexColor';
 
 export interface IonTagProps {
   outline?: boolean;
@@ -49,12 +47,12 @@ export const IonTag = ({
   outline = true,
 }: IonTagProps) => {
   if (!isValidLabel(label)) {
-    return <ErrorBoundary msg="Label cannot be empty" />;
+    return <ErrorBoundary message='Label cannot be empty' />;
   }
 
   return (
     <TagStyle
-      data-testid="ion-tag"
+      data-testid='ion-tag'
       status={status}
       outline={outline}
       css={{ ...getColorObject(status, color) }}

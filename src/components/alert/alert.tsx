@@ -40,7 +40,7 @@ export const IonAlert = ({
   const icon = getIcon(type);
 
   if (!isValidLabel(message)) {
-    return <ErrorBoundary msg='Message cannot be empty' />;
+    return <ErrorBoundary message='Message cannot be empty' />;
   }
 
   if (!showAlert) {
