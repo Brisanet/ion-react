@@ -141,7 +141,7 @@ describe('Button', () => {
 
     it('should render correct styles when there is no label', () => {
       sut({ ...defaultButton, icon: 'alert', label: '' });
-      expect(getButton()).toHaveStyleRule('padding', '6px');
+      expect(getButton()).toHaveStyleRule('padding', '0');
     });
   });
 
