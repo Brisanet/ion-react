@@ -9,7 +9,7 @@ export type ButtonSizes = Exclude<SizeType, 'xs'> | 'xl';
 export type ButtonVariants = 'primary' | 'secondary' | 'ghost' | 'dashed';
 
 export type ButtonProps = {
-  label: string;
+  label?: string;
   variant?: ButtonVariants;
   danger?: boolean;
   size?: ButtonSizes;
