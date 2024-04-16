@@ -15,12 +15,14 @@ export type ButtonProps = {
   size?: ButtonSizes;
   icon?: iconType;
   iconOnRight?: boolean;
+  circular?: boolean;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const IonButton = ({
   variant = 'primary',
   danger = false,
   size = 'md',
+  circular = false,
   icon,
   iconOnRight,
   label,
@@ -40,11 +42,13 @@ export const IonButton = ({
       $size={size}
       $danger={danger}
       $hasIcon={!!icon}
+      $hasLabel={!!label}
       $iconOnRight={iconOnRight}
+      $circular={circular}
       {...props}
     >
       {icon && <IonIcon type={icon} size={iconSize[size]} />}
-      <span>{label}</span>
+      {label && <span>{label}</span>}
     </Button>
   );
 };
