@@ -137,5 +137,17 @@ describe('Button', () => {
         'row'
       );
     });
+
+    it('should render correct styles when there is no label', () => {
+      sut({ ...defaultButton, icon: 'alert', label: '' });
+      expect(getButton()).toHaveStyleRule('padding', '0');
+    });
+  });
+
+  describe('Circular Button', () => {
+    it('should render circular button when there is no label', () => {
+      sut({ ...defaultButton, circular: true, label: '' });
+      expect(getButton()).toHaveStyleRule('border-radius', '50%');
+    });
   });
 });

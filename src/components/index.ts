@@ -6,6 +6,6 @@ export * from './chip';
 export * from './icons';
 export * from './steps';
 export * from './tab';
-export * from './tag';
 export * from './tabGroup';
-export * from './typhography';
+export * from './tag';
+export * from './typography';
