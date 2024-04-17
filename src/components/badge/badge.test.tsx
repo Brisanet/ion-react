@@ -1,8 +1,9 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 
-import { IonBadge, BadgeType, LabelType } from './badge';
-import { BadgeProps } from './badge';
+import theme from '@ion/styles/theme';
+import { renderWithTheme } from '../utils/test-utils';
+import { BadgeProps, BadgeType, IonBadge, LabelType } from './badge';
+import { typeColors } from './styles';
 
 const defaultBadge: BadgeProps = {
   label: 'Badge',
@@ -10,7 +11,7 @@ const defaultBadge: BadgeProps = {
 };
 
 const sut = (props: BadgeProps = defaultBadge) => {
-  return render(<IonBadge {...props} />);
+  return renderWithTheme(<IonBadge {...props} />);
 };
 
 const getBadge = () => {
@@ -28,7 +29,12 @@ describe('BadgeComponent', () => {
     });
 
     it('should render primary badge by default', async () => {
-      expect(getBadge().className).toContain('type-primary');
+      const { background, color } = typeColors(theme, 'primary');
+      expect(getBadge()).toHaveStyleRule('background-color', background);
+      expect(getBadge()).toHaveStyleRule(
+        'color',
+        color || theme.colors.neutral[1]
+      );
     });
   });
 
@@ -59,13 +65,18 @@ describe('BadgeComponent', () => {
       'primary',
       'secondary',
       'neutral',
-      'negative',
+      'danger',
     ];
     it.each(badgeTypes)(
       'should render badge %s type',
       async (type: BadgeType) => {
+        const { background, color } = typeColors(theme, type);
         sut({ ...defaultBadge, type: type });
-        expect(getBadge().className).toContain(`type-${type}`);
+        expect(getBadge()).toHaveStyleRule('background-color', background);
+        expect(getBadge()).toHaveStyleRule(
+          'color',
+          color || theme.colors.neutral[1]
+        );
       }
     );
   });

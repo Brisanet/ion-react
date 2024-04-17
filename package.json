@@ -16,9 +16,15 @@
     "test:coverage": "jest -i --coverage",
     "test:watch": "jest -i --watchAll",
     "prepare": "husky install",
-    "lint-staged": "lint-staged",
     "commit": "git-cz",
     "chromatic": "npx chromatic --project-token=CHROMATIC_PROJECT_TOKEN"
+  },
+  "lint-staged": {
+    "src/**/*.+(js|jsx|ts|tsx|md|mdx|yml|yaml)": [
+      "eslint --fix",
+      "prettier --write",
+      "yarn test --findRelatedTests --bail  --passWithNoTests"
+    ]
   },
   "repository": {
     "type": "git",
