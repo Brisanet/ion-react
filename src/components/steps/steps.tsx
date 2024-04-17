@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IonIcon } from '../icons/icons';
 import {
   CircleStyle,
-  LineStyle,
   DetailsStyle,
+  LineStyle,
+  StepDrawStyle,
   StepsContainerStyle,
   StepStyle,
-  StepDrawStyle,
 } from './styles';
 
 export type StepStatusType = 'default' | 'selected' | 'checked' | 'error';
@@ -54,13 +54,13 @@ const Status = {
 } as const;
 
 const LineDraw = ({ type, status, stepNumber, steps }: StepLine) => {
-  const beforeStepIsChecked = (stepNumber: number = 0): boolean => {
+  const beforeStepIsChecked = (stepNumber = 0): boolean => {
     return (
       steps[stepNumber - 2] && steps[stepNumber - 2].status === Status.checked
     );
   };
 
-  const afterStepIsChecked = (stepNumber: number = 0): boolean => {
+  const afterStepIsChecked = (stepNumber = 0): boolean => {
     if (status && status === Status.checked) return true;
     return (
       steps[stepNumber + 2] && steps[stepNumber + 2].status !== Status.default
@@ -109,9 +109,9 @@ const StepDraw = ({ status, stepNumber, steps }: StepCircle) => {
 const Details = ({ label, description, stepNumber }: StepDetails) => {
   return (
     <DetailsStyle>
-      <div className="label">{label}</div>
+      <div className='label'>{label}</div>
       {description && (
-        <div className="description" data-testid={'description-' + stepNumber}>
+        <div className='description' data-testid={'description-' + stepNumber}>
           {description}
         </div>
       )}
@@ -169,7 +169,7 @@ export const IonSteps = ({
   };
 
   const generateIndexsForStep = (): void => {
-    let stepsCopy = stepsOriginals.slice();
+    const stepsCopy = stepsOriginals.slice();
     stepsCopy.forEach((step: StepType, index: number) => {
       step.stepNumber = index + 1;
     });
@@ -186,7 +186,7 @@ export const IonSteps = ({
   }, [currentStep]);
 
   return (
-    <StepsContainerStyle data-testid="ion-step">
+    <StepsContainerStyle data-testid='ion-step'>
       {stepsOriginals &&
         stepsOriginals.map((step: StepType) => {
           return (

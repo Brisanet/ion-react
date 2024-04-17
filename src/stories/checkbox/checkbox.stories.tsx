@@ -1,6 +1,6 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { IonCheckbox, CheckboxProps } from '../../components/checkbox/checkbox';
+import { CheckboxProps, IonCheckbox } from '../../components/checkbox/checkbox';
 
 export default {
   title: 'Ion/Data Entry/Checkbox',
@@ -32,5 +32,6 @@ DisabledChecked.args = {
 
 export const WithLabel = Template.bind({});
 WithLabel.args = {
-  label: 'label',
+  label: 'Label',
+  id: 'checkbox',
 };

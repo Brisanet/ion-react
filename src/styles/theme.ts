@@ -137,6 +137,12 @@ export default {
   },
   utils: {
     flex: {
+      start: (gap = 0) => css`
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: ${gap}px;
+      `,
       center: (gap = 0) => css`
         display: flex;
         align-items: center;

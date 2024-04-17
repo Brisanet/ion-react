@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { InputProps, IonInput } from '../../components/input/input';
 
@@ -20,6 +20,7 @@ export const Password = Template.bind({});
 Password.args = {
   placeholder: 'Digite sua senha',
   type: 'password',
+  autoComplete: 'off',
 };
 
 export const Number = Template.bind({});

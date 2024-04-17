@@ -1,27 +1,25 @@
+import { InputHTMLAttributes, useRef } from 'react';
 import { InputType } from '../../core/types/input';
-import { InputContainer, InputRow, InputStyles } from './styles';
-import React from 'react';
+import { Container, Input } from './styles';
 
 export type InputProps = {
-  placeholder?: string;
   type?: InputType;
-  disabled?: boolean;
-};
+} & InputHTMLAttributes<HTMLInputElement>;
 
 export const IonInput = ({
-  placeholder,
   type = 'text',
   disabled = false,
+  ...props
 }: InputProps) => {
+  const ref = useRef<HTMLInputElement>(null);
+
+  const handleContainerClick = () => {
+    ref.current && ref.current.focus();
+  };
+
   return (
-    <InputContainer>
-      <InputRow disabled={disabled}>
-        <InputStyles
-          type={type}
-          placeholder={placeholder}
-          disabled={disabled}
-        />
-      </InputRow>
-    </InputContainer>
+    <Container onClick={handleContainerClick} disabled={disabled}>
+      <Input ref={ref} type={type} disabled={disabled} {...props} />
+    </Container>
   );
 };
