@@ -1,13 +1,13 @@
-import React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
-import { IonCheckbox, CheckboxProps } from './checkbox';
+import { fireEvent, screen } from '@testing-library/react';
+import { renderWithTheme } from '../utils/test-utils';
+import { CheckboxProps, IonCheckbox } from './checkbox';
 
 const defaultCheckbox: CheckboxProps = {
   label: 'Checkbox',
 };
 
 function sut(props: CheckboxProps = defaultCheckbox) {
-  render(<IonCheckbox {...props} />);
+  renderWithTheme(<IonCheckbox {...props} />);
 }
 
 const getCheckbox = () => {

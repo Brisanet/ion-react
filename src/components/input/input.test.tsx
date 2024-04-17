@@ -1,19 +1,19 @@
-import { render, screen } from '@testing-library/react';
-import { InputProps, IonInput } from './input';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { inputTypes } from '../../core/types/input';
-import React from 'react';
+import { renderWithTheme } from '../utils/test-utils';
+import { InputProps, IonInput } from './input';
 
-const defaultInput: InputProps = {
+const defaultInput = {
   placeholder: 'Digite o seu nome',
 };
 
 const sut = (props: InputProps = defaultInput) => {
-  return render(<IonInput {...props} />);
+  return renderWithTheme(<IonInput {...props} />);
 };
 
 const getInput = () => {
-  return screen.queryByPlaceholderText(defaultInput.placeholder!);
+  return screen.getByPlaceholderText(defaultInput.placeholder);
 };
 
 describe('IonInput', () => {
@@ -36,7 +36,7 @@ describe('IonInput', () => {
 
     it('should type value on input', async () => {
       const textToType = 'Olá eu sou o Goku!';
-      await userEvent.type(getInput()!, textToType);
+      await userEvent.type(getInput(), textToType);
       expect(getInput()).toHaveValue(textToType);
     });
   });

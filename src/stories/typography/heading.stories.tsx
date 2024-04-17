@@ -1,11 +1,9 @@
-import React from 'react';
-
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import IonHeading from '../../components/typhography/heading/heading';
-import { IonHeadingInterface } from '../../components/typhography/typhography.types';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import IonHeading from '../../components/typography/heading/heading';
+import { IonHeadingInterface } from '../../components/typography/typography.types';
 
 export default {
-  title: 'Ion/Design Tokens/Typhopraphy/Heading',
+  title: 'Ion/Design Tokens/Typography/Heading',
   component: IonHeading,
 } as ComponentMeta<typeof IonHeading>;
 

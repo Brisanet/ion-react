@@ -1,11 +1,9 @@
-import React from 'react';
-
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { IonBody } from '../../components/typhography';
-import { IonBodyInterface } from '../../components/typhography/typhography.types';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { IonBody } from '../../components/typography';
+import { IonBodyInterface } from '../../components/typography/typography.types';
 
 export default {
-  title: 'Ion/Design Tokens/Typhopraphy/Body',
+  title: 'Ion/Design Tokens/Typography/Body',
   component: IonBody,
 } as ComponentMeta<typeof IonBody>;
 
