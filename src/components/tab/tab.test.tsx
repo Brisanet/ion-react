@@ -1,7 +1,7 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import { renderWithTheme } from '../utils/test-utils';
 import { IonTab, TabProps } from './tab';
 
 const clickEvent = jest.fn();
@@ -11,7 +11,7 @@ const defaultTab: TabProps = {
 };
 
 function sut(props: TabProps = defaultTab) {
-  render(<IonTab {...props} />);
+  renderWithTheme(<IonTab {...props} />);
 }
 
 const getTab = () => {

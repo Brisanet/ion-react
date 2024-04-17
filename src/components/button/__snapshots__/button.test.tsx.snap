@@ -1,0 +1,245 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Button Sizes should render button with lg size variation 1`] = `
+.c0 {
+  appearance: none;
+  font-family: Source Sans Pro,sans-serif;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  flex-direction: row;
+  padding: 8px 20px;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  background-color: #0858ce;
+  color: #fcfcfd;
+  border: 1px solid #0858ce;
+}
+
+.c0 svg {
+  fill: #fcfcfd;
+}
+
+.c0:hover,
+.c0:focus-visible {
+  background-color: #146ff5;
+  border: 1px solid #146ff5;
+}
+
+.c0:active {
+  background-color: #06439d;
+  border: 1px solid #06439d;
+}
+
+.c0:disabled {
+  background-color: #e4e6eb;
+  color: #aeb2bd;
+  border: 1px solid #e4e6eb;
+  cursor: not-allowed;
+}
+
+.c0:disabled svg {
+  fill: #aeb2bd;
+}
+
+.c0:focus-visible {
+  outline: 2px solid #146ff5;
+  outline-offset: 2px;
+}
+
+<button
+  class="c0"
+  data-testid="ion-button"
+>
+  <span>
+    Button
+  </span>
+</button>
+`;
+
+exports[`Button Button Sizes should render button with md size variation 1`] = `
+.c0 {
+  appearance: none;
+  font-family: Source Sans Pro,sans-serif;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  flex-direction: row;
+  padding: 6px 16px;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  background-color: #0858ce;
+  color: #fcfcfd;
+  border: 1px solid #0858ce;
+}
+
+.c0 svg {
+  fill: #fcfcfd;
+}
+
+.c0:hover,
+.c0:focus-visible {
+  background-color: #146ff5;
+  border: 1px solid #146ff5;
+}
+
+.c0:active {
+  background-color: #06439d;
+  border: 1px solid #06439d;
+}
+
+.c0:disabled {
+  background-color: #e4e6eb;
+  color: #aeb2bd;
+  border: 1px solid #e4e6eb;
+  cursor: not-allowed;
+}
+
+.c0:disabled svg {
+  fill: #aeb2bd;
+}
+
+.c0:focus-visible {
+  outline: 2px solid #146ff5;
+  outline-offset: 2px;
+}
+
+<button
+  class="c0"
+  data-testid="ion-button"
+>
+  <span>
+    Button
+  </span>
+</button>
+`;
+
+exports[`Button Button Sizes should render button with sm size variation 1`] = `
+.c0 {
+  appearance: none;
+  font-family: Source Sans Pro,sans-serif;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  flex-direction: row;
+  padding: 4px 12px;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  background-color: #0858ce;
+  color: #fcfcfd;
+  border: 1px solid #0858ce;
+}
+
+.c0 svg {
+  fill: #fcfcfd;
+}
+
+.c0:hover,
+.c0:focus-visible {
+  background-color: #146ff5;
+  border: 1px solid #146ff5;
+}
+
+.c0:active {
+  background-color: #06439d;
+  border: 1px solid #06439d;
+}
+
+.c0:disabled {
+  background-color: #e4e6eb;
+  color: #aeb2bd;
+  border: 1px solid #e4e6eb;
+  cursor: not-allowed;
+}
+
+.c0:disabled svg {
+  fill: #aeb2bd;
+}
+
+.c0:focus-visible {
+  outline: 2px solid #146ff5;
+  outline-offset: 2px;
+}
+
+<button
+  class="c0"
+  data-testid="ion-button"
+>
+  <span>
+    Button
+  </span>
+</button>
+`;
+
+exports[`Button Button Sizes should render button with xl size variation 1`] = `
+.c0 {
+  appearance: none;
+  font-family: Source Sans Pro,sans-serif;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  flex-direction: row;
+  padding: 12px 24px;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  background-color: #0858ce;
+  color: #fcfcfd;
+  border: 1px solid #0858ce;
+}
+
+.c0 svg {
+  fill: #fcfcfd;
+}
+
+.c0:hover,
+.c0:focus-visible {
+  background-color: #146ff5;
+  border: 1px solid #146ff5;
+}
+
+.c0:active {
+  background-color: #06439d;
+  border: 1px solid #06439d;
+}
+
+.c0:disabled {
+  background-color: #e4e6eb;
+  color: #aeb2bd;
+  border: 1px solid #e4e6eb;
+  cursor: not-allowed;
+}
+
+.c0:disabled svg {
+  fill: #aeb2bd;
+}
+
+.c0:focus-visible {
+  outline: 2px solid #146ff5;
+  outline-offset: 2px;
+}
+
+<button
+  class="c0"
+  data-testid="ion-button"
+>
+  <span>
+    Button
+  </span>
+</button>
+`;

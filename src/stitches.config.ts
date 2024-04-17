@@ -116,7 +116,6 @@ const injectGlobalStyles = stitches.globalCss({
     boxSizing: 'borderbox',
     fontFamily: 'Source Sans Pro, sans-serif',
     border: 'none',
-    transition: 'all 0.3s',
   },
   '*:after': {
     boxSizing: 'borderbox',

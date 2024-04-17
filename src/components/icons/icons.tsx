@@ -1,4 +1,5 @@
 import DOMPurify from 'dompurify';
+
 import { iconsPaths, IconType } from './svgs/icons';
 
 export interface IonIconProps {
