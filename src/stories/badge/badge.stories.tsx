@@ -1,6 +1,6 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { IonBadge, BadgeProps } from '../../components/badge/badge';
+import { BadgeProps, IonBadge } from '../../components/badge/badge';
 
 export default {
   title: 'Ion/Data display/Badges',
@@ -18,34 +18,34 @@ StringLabel.args = {
 
 export const NumberLabel = Template.bind({});
 NumberLabel.args = {
-  label: '10',
+  label: 10,
 };
 
 export const BiggerValue = Template.bind({});
 BiggerValue.args = {
-  label: '100',
+  label: 100,
 };
 
 export const Primary = Template.bind({});
 Primary.args = {
-  label: 'Primary',
+  label: 'Badge',
   type: 'primary',
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  label: 'Secondary',
+  label: 'Badge',
   type: 'secondary',
 };
 
 export const Neutral = Template.bind({});
 Neutral.args = {
-  label: 'Neutral',
+  label: 'Badge',
   type: 'neutral',
 };
 
-export const Negative = Template.bind({});
-Negative.args = {
-  label: 'Negative',
-  type: 'negative',
+export const Danger = Template.bind({});
+Danger.args = {
+  label: 'Badge',
+  type: 'danger',
 };

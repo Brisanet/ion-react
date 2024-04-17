@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { BadgeStyles } from './styles';
-
-type StitchesBadgeProps = React.ComponentProps<typeof BadgeStyles>;
+import { useEffect, useState } from 'react';
+import { Badge } from './styles';
 
 export type LabelType = string | number;
 
-export type BadgeType = 'primary' | 'secondary' | 'neutral' | 'negative';
+export type BadgeType = 'primary' | 'secondary' | 'neutral' | 'danger';
 
 export type BadgeProps = {
   label: LabelType;
   type?: BadgeType;
-} & StitchesBadgeProps;
+};
 
 export const IonBadge = ({ label, type = 'primary' }: BadgeProps) => {
   const [badgeValue, setBadgeValue] = useState<LabelType>(0);
@@ -33,8 +31,8 @@ export const IonBadge = ({ label, type = 'primary' }: BadgeProps) => {
   }, [label]);
 
   return (
-    <BadgeStyles type={type} data-testid="ion-badge">
+    <Badge $type={type} data-testid='ion-badge'>
       {badgeValue}
-    </BadgeStyles>
+    </Badge>
   );
 };
