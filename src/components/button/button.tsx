@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes } from 'react';
 import { SizeType } from '../../core/types/size';
 import { IonIcon } from '../icons';
-import { iconType } from '../icons/svgs/icons';
+import { IconType } from '../icons/svgs/icons';
 import { Button } from './styles';
 
 export type ButtonSizes = Exclude<SizeType, 'xs'> | 'xl';
@@ -13,7 +13,7 @@ export type ButtonProps = {
   variant?: ButtonVariants;
   danger?: boolean;
   size?: ButtonSizes;
-  icon?: iconType;
+  icon?: IconType;
   iconOnRight?: boolean;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
