@@ -1,19 +1,13 @@
 import DOMPurify from 'dompurify';
-import { iconsPaths, iconType } from './svgs/icons';
-import React from 'react';
-
-export type SvgModule = typeof import('./svgs/icons');
-export type IconPaths = keyof typeof iconsPaths;
-
-import { styled } from '@stitches/react';
+import { iconsPaths, IconType } from './svgs/icons';
 
 export interface IonIconProps {
-  type: iconType;
+  type: IconType;
   size?: number;
   color?: string;
 }
 
-function pathPurify(iconType: iconType): string {
+function pathPurify(iconType: IconType): string {
   const iconPath = iconsPaths[iconType];
   const iconPathPurify = DOMPurify.sanitize(`<svg> ${iconPath} </svg>`);
   const pathWithoutSvg = iconPathPurify.substring(5, iconPathPurify.length - 6);
@@ -23,20 +17,22 @@ function pathPurify(iconType: iconType): string {
 const defaultSize = 24;
 const defaultColor = '#282B33';
 
-const Icon = styled('svg', {});
-
-export const IonIcon = ({ type, color, size = defaultSize }: IonIconProps) => {
+export const IonIcon = ({
+  type,
+  color = defaultColor,
+  size = defaultSize,
+}: IonIconProps) => {
   const iconPath = pathPurify(type);
   return (
-    <Icon
+    <svg
       data-testid={`ion-icon-${type}`}
-      viewBox="0 0 24 24"
+      viewBox='0 0 24 24'
       height={size}
       width={size}
-      fill={color || defaultColor}
+      fill={color}
       dangerouslySetInnerHTML={{
         __html: iconPath,
       }}
-    ></Icon>
+    ></svg>
   );
 };
