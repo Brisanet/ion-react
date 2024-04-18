@@ -1,10 +1,9 @@
-import { ChipStyle } from './styles';
 import { SizeType } from '../../core/types/size';
 import { IonIcon } from '../icons/icons';
 import { IconType } from '../icons/svgs/icons';
-import React from 'react';
+import { Chip } from './styles';
 
-type ChipSizes = Extract<SizeType, 'sm' | 'md'>;
+export type ChipSizes = Extract<SizeType, 'sm' | 'md'>;
 
 export interface ChipProps {
   label: string;
@@ -31,17 +30,15 @@ export const IonChip = ({
   };
 
   return (
-    <ChipStyle
-      size={size}
-      disabled={disabled}
-      selected={selected}
-      onClick={handleClick}
+    <Chip
       data-testid='ion-chip'
+      $size={size}
+      $selected={selected}
+      disabled={disabled}
+      onClick={handleClick}
     >
-      <div>
-        {icon ? <IonIcon type={icon} size={iconSize[size]} /> : null}
-        <span>{label}</span>
-      </div>
-    </ChipStyle>
+      {!!icon && <IonIcon type={icon} size={iconSize[size]} />}
+      <span>{label}</span>
+    </Chip>
   );
 };

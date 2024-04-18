@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonHeadingInterface } from '../typhography.types';
+import { IonHeadingInterface } from '../typography.types';
 import * as S from './styles';
 
 const IonHeading: React.FC<IonHeadingInterface> = ({
@@ -12,9 +12,9 @@ const IonHeading: React.FC<IonHeadingInterface> = ({
   const testid = `ion-heading-${type}`;
   const defaultProps = {
     'data-testid': testid,
-    color: colorScheme,
-    size,
-    weight,
+    $color: colorScheme,
+    $size: size,
+    $weight: weight,
   };
   const headings = {
     h1: <S.H1 {...defaultProps}>{label}</S.H1>,

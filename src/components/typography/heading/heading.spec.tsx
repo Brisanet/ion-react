@@ -1,20 +1,14 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import { IonHeadingInterface } from '../typhography.types';
+import { renderWithTheme } from '@ion/components/utils/test-utils';
+import { screen } from '@testing-library/react';
+import { IonHeadingInterface } from '../typography.types';
 import IonHeading from './heading';
 
 const defaultProps: IonHeadingInterface = { label: 'Ion React', type: 'h1' };
 
 const sut = (props: IonHeadingInterface = defaultProps) => {
-  return render(<IonHeading {...props} />);
+  return renderWithTheme(<IonHeading {...props} />);
 };
 
-const headingTypes: Array<IonHeadingInterface['type']> = [
-  'h1',
-  'h2',
-  'h3',
-  'h4',
-];
 const headingSize: Array<IonHeadingInterface['size']> = [
   'medium',
   'normal',
@@ -52,8 +46,7 @@ describe('<IonHeading />', () => {
     'should render the heading with the correct size %s',
     (size) => {
       const { container } = sut({ ...defaultProps, size });
-      const element = container.firstChild as Element;
-      expect(element.className).toContain(`size-${size}`);
+      expect(container).toMatchSnapshot();
     }
   );
 
@@ -61,8 +54,7 @@ describe('<IonHeading />', () => {
     'should render the heading with the correct color %s',
     (colorScheme) => {
       const { container } = sut({ ...defaultProps, colorScheme });
-      const element = container.firstChild as Element;
-      expect(element.className).toContain(`color-${colorScheme}`);
+      expect(container).toMatchSnapshot();
     }
   );
 
@@ -70,15 +62,7 @@ describe('<IonHeading />', () => {
     'should render the heading with the correct color %s',
     (weight) => {
       const { container } = sut({ ...defaultProps, weight });
-      const element = container.firstChild as Element;
-      expect(element.className).toContain(`weight-${weight}`);
+      expect(container).toMatchSnapshot();
     }
   );
-
-  describe('snapshot tests', () => {
-    it.each(headingTypes)('should render snapshot heading %s', (type) => {
-      const { container } = sut({ ...defaultProps, type });
-      expect(container.firstChild).toMatchSnapshot();
-    });
-  });
 });

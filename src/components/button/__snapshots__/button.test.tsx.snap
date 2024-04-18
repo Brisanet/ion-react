@@ -12,12 +12,14 @@ exports[`Button Button Sizes should render button with lg size variation 1`] = `
   justify-content: center;
   gap: 0px;
   flex-direction: row;
+  height: 40px;
+  min-width: 40px;
   padding: 8px 20px;
   font-size: 1.6rem;
   line-height: 2.4rem;
   background-color: #0858ce;
   color: #fcfcfd;
-  border: 1px solid #0858ce;
+  border: none;
 }
 
 .c0 svg {
@@ -27,18 +29,18 @@ exports[`Button Button Sizes should render button with lg size variation 1`] = `
 .c0:hover,
 .c0:focus-visible {
   background-color: #146ff5;
-  border: 1px solid #146ff5;
+  border: none;
 }
 
 .c0:active {
   background-color: #06439d;
-  border: 1px solid #06439d;
+  border: none;
 }
 
 .c0:disabled {
   background-color: #e4e6eb;
   color: #aeb2bd;
-  border: 1px solid #e4e6eb;
+  border: none;
   cursor: not-allowed;
 }
 
@@ -73,12 +75,14 @@ exports[`Button Button Sizes should render button with md size variation 1`] = `
   justify-content: center;
   gap: 0px;
   flex-direction: row;
+  height: 32px;
+  min-width: 32px;
   padding: 6px 16px;
   font-size: 1.4rem;
   line-height: 2rem;
   background-color: #0858ce;
   color: #fcfcfd;
-  border: 1px solid #0858ce;
+  border: none;
 }
 
 .c0 svg {
@@ -88,18 +92,18 @@ exports[`Button Button Sizes should render button with md size variation 1`] = `
 .c0:hover,
 .c0:focus-visible {
   background-color: #146ff5;
-  border: 1px solid #146ff5;
+  border: none;
 }
 
 .c0:active {
   background-color: #06439d;
-  border: 1px solid #06439d;
+  border: none;
 }
 
 .c0:disabled {
   background-color: #e4e6eb;
   color: #aeb2bd;
-  border: 1px solid #e4e6eb;
+  border: none;
   cursor: not-allowed;
 }
 
@@ -134,12 +138,14 @@ exports[`Button Button Sizes should render button with sm size variation 1`] = `
   justify-content: center;
   gap: 0px;
   flex-direction: row;
+  height: 24px;
+  min-width: 24px;
   padding: 4px 12px;
   font-size: 1.2rem;
   line-height: 1.6rem;
   background-color: #0858ce;
   color: #fcfcfd;
-  border: 1px solid #0858ce;
+  border: none;
 }
 
 .c0 svg {
@@ -149,18 +155,18 @@ exports[`Button Button Sizes should render button with sm size variation 1`] = `
 .c0:hover,
 .c0:focus-visible {
   background-color: #146ff5;
-  border: 1px solid #146ff5;
+  border: none;
 }
 
 .c0:active {
   background-color: #06439d;
-  border: 1px solid #06439d;
+  border: none;
 }
 
 .c0:disabled {
   background-color: #e4e6eb;
   color: #aeb2bd;
-  border: 1px solid #e4e6eb;
+  border: none;
   cursor: not-allowed;
 }
 
@@ -195,12 +201,14 @@ exports[`Button Button Sizes should render button with xl size variation 1`] = `
   justify-content: center;
   gap: 0px;
   flex-direction: row;
+  height: 48px;
+  min-width: 48px;
   padding: 12px 24px;
   font-size: 1.6rem;
   line-height: 2.4rem;
   background-color: #0858ce;
   color: #fcfcfd;
-  border: 1px solid #0858ce;
+  border: none;
 }
 
 .c0 svg {
@@ -210,18 +218,18 @@ exports[`Button Button Sizes should render button with xl size variation 1`] = `
 .c0:hover,
 .c0:focus-visible {
   background-color: #146ff5;
-  border: 1px solid #146ff5;
+  border: none;
 }
 
 .c0:active {
   background-color: #06439d;
-  border: 1px solid #06439d;
+  border: none;
 }
 
 .c0:disabled {
   background-color: #e4e6eb;
   color: #aeb2bd;
-  border: 1px solid #e4e6eb;
+  border: none;
   cursor: not-allowed;
 }
 
