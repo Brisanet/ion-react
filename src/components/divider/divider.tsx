@@ -9,16 +9,19 @@ export type DividerProps = {
   type?: DividerType;
 };
 
+const defaultDirection = 'horizontal';
+const defaultType = 'solid';
+
 export const IonDivider = ({
   label,
-  direction = 'horizontal',
-  type = 'solid',
+  direction = defaultDirection,
+  type = defaultType,
 }: DividerProps) => {
   return label ? (
     <DividerContainer>
-      <Divider $direction='horizontal' $type={type} />
+      <Divider $direction={defaultDirection} $type={type} />
       <span>{label}</span>
-      <Divider $direction='horizontal' $type={type} />
+      <Divider $direction={defaultDirection} $type={type} />
     </DividerContainer>
   ) : (
     <Divider $direction={direction} $type={type} />
