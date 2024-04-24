@@ -3,7 +3,7 @@ import { BorderDirection } from '../../core/types/directions';
 import { SizeType } from '../../core/types/size';
 import { BadgeProps, IonBadge } from '../badge/badge';
 import { IonIcon } from '../icons/icons';
-import { iconType } from '../icons/svgs/icons';
+import { IconType } from '../icons/svgs/icons';
 import { TabStyles } from './styles';
 
 type StitchesTabProps = React.ComponentProps<typeof TabStyles>;
@@ -16,7 +16,7 @@ export type TabProps = {
   size?: TabSizes;
   selected?: boolean;
   disabled?: boolean;
-  icon?: iconType;
+  icon?: IconType;
   badge?: BadgeProps;
   handleClick?: () => void;
 } & StitchesTabProps;
