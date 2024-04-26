@@ -1,0 +1,181 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<IonHeading /> should render the heading with the correct color bold 1`] = `
+.c0 {
+  margin: 0;
+  padding: 0;
+  color: #282b33;
+  font-weight: 600;
+  font-size: 4rem;
+  line-height: 4.8rem;
+}
+
+<div>
+  <h1
+    class="c0"
+    data-testid="ion-heading-h1"
+  >
+    Ion React
+  </h1>
+</div>
+`;
+
+exports[`<IonHeading /> should render the heading with the correct color dark-primary 1`] = `
+.c0 {
+  margin: 0;
+  padding: 0;
+  color: #fcfcfd;
+  font-weight: 400;
+  font-size: 4rem;
+  line-height: 4.8rem;
+}
+
+<div>
+  <h1
+    class="c0"
+    data-testid="ion-heading-h1"
+  >
+    Ion React
+  </h1>
+</div>
+`;
+
+exports[`<IonHeading /> should render the heading with the correct color dark-secondary 1`] = `
+.c0 {
+  margin: 0;
+  padding: 0;
+  color: #e4e6eb;
+  font-weight: 400;
+  font-size: 4rem;
+  line-height: 4.8rem;
+}
+
+<div>
+  <h1
+    class="c0"
+    data-testid="ion-heading-h1"
+  >
+    Ion React
+  </h1>
+</div>
+`;
+
+exports[`<IonHeading /> should render the heading with the correct color medium 1`] = `
+.c0 {
+  margin: 0;
+  padding: 0;
+  color: #282b33;
+  font-weight: 400;
+  font-size: 4rem;
+  line-height: 4.8rem;
+}
+
+<div>
+  <h1
+    class="c0"
+    data-testid="ion-heading-h1"
+  >
+    Ion React
+  </h1>
+</div>
+`;
+
+exports[`<IonHeading /> should render the heading with the correct color primary 1`] = `
+.c0 {
+  margin: 0;
+  padding: 0;
+  color: #282b33;
+  font-weight: 400;
+  font-size: 4rem;
+  line-height: 4.8rem;
+}
+
+<div>
+  <h1
+    class="c0"
+    data-testid="ion-heading-h1"
+  >
+    Ion React
+  </h1>
+</div>
+`;
+
+exports[`<IonHeading /> should render the heading with the correct color secondary 1`] = `
+.c0 {
+  margin: 0;
+  padding: 0;
+  color: #505566;
+  font-weight: 400;
+  font-size: 4rem;
+  line-height: 4.8rem;
+}
+
+<div>
+  <h1
+    class="c0"
+    data-testid="ion-heading-h1"
+  >
+    Ion React
+  </h1>
+</div>
+`;
+
+exports[`<IonHeading /> should render the heading with the correct size medium 1`] = `
+.c0 {
+  margin: 0;
+  padding: 0;
+  color: #282b33;
+  font-weight: 400;
+  font-size: 3.2rem;
+  line-height: 4rem;
+}
+
+<div>
+  <h1
+    class="c0"
+    data-testid="ion-heading-h1"
+  >
+    Ion React
+  </h1>
+</div>
+`;
+
+exports[`<IonHeading /> should render the heading with the correct size normal 1`] = `
+.c0 {
+  margin: 0;
+  padding: 0;
+  color: #282b33;
+  font-weight: 400;
+  font-size: 4rem;
+  line-height: 4.8rem;
+}
+
+<div>
+  <h1
+    class="c0"
+    data-testid="ion-heading-h1"
+  >
+    Ion React
+  </h1>
+</div>
+`;
+
+exports[`<IonHeading /> should render the heading with the correct size small 1`] = `
+.c0 {
+  margin: 0;
+  padding: 0;
+  color: #282b33;
+  font-weight: 400;
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+}
+
+<div>
+  <h1
+    class="c0"
+    data-testid="ion-heading-h1"
+  >
+    Ion React
+  </h1>
+</div>
+`;

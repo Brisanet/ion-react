@@ -1,64 +1,51 @@
-import stitches from '../../stitches.config';
-const { styled } = stitches;
+import { css, styled } from 'styled-components';
 
-export const InputContainer = styled('div', {
-  display: 'flex',
-  lineHeight: '0',
-  width: '100%',
-});
+export const Container = styled.div<{ disabled: boolean }>`
+  ${({ theme }) => css`
+    ${theme.utils.flex.start(8)};
+    width: 100%;
+    background: ${theme.colors.neutral[1]};
+    border: 1px solid ${theme.colors.neutral[5]};
+    border-radius: 8px;
+    padding: 0.8rem 1.2rem;
+    cursor: text;
+    ${theme.utils.focus};
 
-export const InputRow = styled('div', {
-  display: 'flex',
-  alignItems: 'center',
-  gap: '8px',
-  background: '$neutral1',
-  border: '1px solid $neutral5',
-  borderRadius: '8px',
-  padding: '8px 12px',
-  width: '100%',
+    &:hover {
+      border-color: ${theme.colors.primary[4]};
+    }
 
-  variants: {
-    disabled: {
-      true: {
-        background: '$neutral2',
-        border: '1px solid $neutral4',
-        cursor: 'not-allowed',
-        outline: 'none',
-        color: '$neutral4',
+    &:focus-within {
+      border-color: ${theme.colors.primary[5]};
+    }
 
-        '&:hover': {
-          borderColor: '$neutral4',
-        },
+    &[disabled] {
+      cursor: not-allowed;
+      outline: none;
+      background: ${theme.colors.neutral[2]};
+      color: ${theme.colors.neutral[4]};
+      border-color: ${theme.colors.neutral[4]};
 
-        '::placeholder': {
-          color: '$neutral5',
-        },
-      },
-    },
-  },
+      &::placeholder {
+        color: ${theme.colors.neutral[4]};
+      }
+    }
+  `}
+`;
 
-  '&:focus-within': {
-    borderColor: '$primary5',
-    outline: '2px solid',
-    outlineColor: '$primary2',
-  },
+export const Input = styled.input`
+  ${({ theme }) => css`
+    ${theme.font.size[14]}
+    border: none;
+    width: 100%;
+    outline: none;
+    color: ${theme.colors.neutral[7]};
+    background: ${theme.colors.neutral[1]};
 
-  '&:hover': {
-    borderColor: '$primary4',
-  },
-});
-
-export const InputStyles = styled('input', {
-  border: 'none',
-  width: '100%',
-  outline: 'none',
-  color: '$neutral7',
-  background: '$neutral1',
-  fontSize: '14px',
-
-  '&[disabled]': {
-    background: '$neutral2',
-    cursor: 'not-allowed',
-    outline: 'none',
-  },
-});
+    &:disabled {
+      background: ${theme.colors.neutral[2]};
+      cursor: not-allowed;
+      outline: none;
+    }
+  `}
+`;

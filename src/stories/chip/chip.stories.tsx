@@ -1,10 +1,12 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { IonChip, ChipProps } from '../../components/chip/chip';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ChipProps, IonChip } from '../../components/chip/chip';
 
 export default {
   title: 'Ion/Navigation/Chips',
   component: IonChip,
-  argTypes: { handleClick: { action: 'clicked' } },
+  argTypes: {
+    handleClick: { action: 'clicked' },
+  },
 } as ComponentMeta<typeof IonChip>;
 
 const Template: ComponentStory<typeof IonChip> = (args: ChipProps) => (
