@@ -10,6 +10,9 @@ const variants: IonSpinnerProps['variant'][] = [
   'danger',
 ];
 
+const size = 62;
+const customColor = '#f00';
+
 const sut = (props?: IonSpinnerProps) => {
   return renderWithTheme(<IonSpinner {...props} />);
 };
@@ -35,19 +38,19 @@ describe('Spinner', () => {
   });
   describe('Size', () => {
     it('should render spinner with 64px size', () => {
-      const { container } = sut({ size: 64 });
+      const { container } = sut({ size });
       const spinner = screen.getByTestId('ion-spinner');
-      expect(spinner).toHaveStyleRule('width', '64px');
-      expect(spinner).toHaveStyleRule('height', '64px');
+      expect(spinner).toHaveStyleRule('width', `${size}px`);
+      expect(spinner).toHaveStyleRule('height', `${size}px`);
       expect(container).toMatchSnapshot();
     });
   });
   describe('Custom color', () => {
     it('should render spinner with custom color', () => {
-      const { container } = sut({ customColor: '#f00' });
+      const { container } = sut({ customColor });
       expect(screen.getByTestId('ion-spinner')).toHaveStyleRule(
         'border-left-color',
-        '#f00'
+        customColor
       );
       expect(container).toMatchSnapshot();
     });

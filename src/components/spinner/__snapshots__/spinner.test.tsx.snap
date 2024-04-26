@@ -25,8 +25,8 @@ exports[`Spinner Custom color should render spinner with custom color 1`] = `
 
 exports[`Spinner Size should render spinner with 64px size 1`] = `
 .c0 {
-  width: 64px;
-  height: 64px;
+  width: 62px;
+  height: 62px;
   display: block;
   border: 2px solid transparent;
   border-left-color: #0858ce;
