@@ -98,7 +98,7 @@ describe('Tab', () => {
     it('should render icon md when tab is md', () => {
       const mdSize = '20';
       const mdIconName = 'alert';
-      sut({ ...defaultTab, name: 'tab-icon', size: 'md', icon: mdIconName });
+      sut({ ...defaultTab, size: 'md', icon: mdIconName });
       expect(screen.getByTestId(`ion-icon-${mdIconName}`)).toHaveAttribute(
         'height',
         mdSize
