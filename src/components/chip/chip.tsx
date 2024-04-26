@@ -1,6 +1,6 @@
 import { SizeType } from '../../core/types/size';
 import { IonIcon } from '../icons/icons';
-import { iconType } from '../icons/svgs/icons';
+import { IconType } from '../icons/svgs/icons';
 import { Chip } from './styles';
 
 export type ChipSizes = Extract<SizeType, 'sm' | 'md'>;
@@ -10,7 +10,7 @@ export interface ChipProps {
   size?: ChipSizes;
   disabled?: boolean;
   selected?: boolean;
-  icon?: iconType;
+  icon?: IconType;
   handleClick?: () => void;
 }
 
