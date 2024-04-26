@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spinner Custom color should render spinner with custom color 1`] = `
+.c0 {
+  width: 32px;
+  height: 32px;
+  display: block;
+  border: 2px solid transparent;
+  border-left-color: #f00;
+  border-radius: 50%;
+  animation: bKPVWD 1s linear infinite;
+}
+
+<div>
+  <span
+    class=""
+  >
+    <span
+      class="c0"
+      data-testid="ion-spinner"
+    />
+  </span>
+</div>
+`;
+
+exports[`Spinner Size should render spinner with 64px size 1`] = `
+.c0 {
+  width: 62px;
+  height: 62px;
+  display: block;
+  border: 2px solid transparent;
+  border-left-color: #0858ce;
+  border-radius: 50%;
+  animation: bKPVWD 1s linear infinite;
+}
+
+<div>
+  <span
+    class=""
+  >
+    <span
+      class="c0"
+      data-testid="ion-spinner"
+    />
+  </span>
+</div>
+`;
+
+exports[`Spinner Variants should render spinner with danger variant 1`] = `
+.c0 {
+  width: 32px;
+  height: 32px;
+  display: block;
+  border: 2px solid transparent;
+  border-left-color: #d6293a;
+  border-radius: 50%;
+  animation: bKPVWD 1s linear infinite;
+}
+
+<div>
+  <span
+    class=""
+  >
+    <span
+      class="c0"
+      data-testid="ion-spinner"
+    />
+  </span>
+</div>
+`;
+
+exports[`Spinner Variants should render spinner with primary variant 1`] = `
+.c0 {
+  width: 32px;
+  height: 32px;
+  display: block;
+  border: 2px solid transparent;
+  border-left-color: #0858ce;
+  border-radius: 50%;
+  animation: bKPVWD 1s linear infinite;
+}
+
+<div>
+  <span
+    class=""
+  >
+    <span
+      class="c0"
+      data-testid="ion-spinner"
+    />
+  </span>
+</div>
+`;
+
+exports[`Spinner Variants should render spinner with secondary variant 1`] = `
+.c0 {
+  width: 32px;
+  height: 32px;
+  display: block;
+  border: 2px solid transparent;
+  border-left-color: #ebf3fe;
+  border-radius: 50%;
+  animation: bKPVWD 1s linear infinite;
+}
+
+<div>
+  <span
+    class=""
+  >
+    <span
+      class="c0"
+      data-testid="ion-spinner"
+    />
+  </span>
+</div>
+`;
+
+exports[`Spinner should render spinner with default props 1`] = `
+.c0 {
+  width: 32px;
+  height: 32px;
+  display: block;
+  border: 2px solid transparent;
+  border-left-color: #0858ce;
+  border-radius: 50%;
+  animation: bKPVWD 1s linear infinite;
+}
+
+<div>
+  <span
+    class=""
+  >
+    <span
+      class="c0"
+      data-testid="ion-spinner"
+    />
+  </span>
+</div>
+`;
