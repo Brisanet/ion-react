@@ -2,8 +2,8 @@ import { BorderDirection } from '../../core/types/directions';
 import { SizeType } from '../../core/types/size';
 import { BadgeProps, IonBadge } from '../badge/badge';
 import { IonIcon } from '../icons/icons';
-import { Tab } from './styles';
 import { IconType } from '../icons/svgs/icons';
+import { Tab } from './styles';
 
 export type TabSizes = Exclude<SizeType, 'xs'>;
 
