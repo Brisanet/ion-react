@@ -1,140 +1,112 @@
-import stitches from '../../stitches.config';
-import { spacing } from '../utils/spacing';
+import { BorderDirection } from '@ion/core/types/directions';
+import { css, DefaultTheme, RuleSet, styled } from 'styled-components';
+import { TabSizes } from './tab';
 
-const { styled } = stitches;
+type TabProps = {
+  $size: TabSizes;
+  $direction: BorderDirection;
+  $selected: boolean;
+};
 
-export const TabStyles = styled('button', {
-  fontStyle: 'normal',
-  fontWeight: '600',
-  color: '$neutral7',
-  background: '$neutral1',
-  cursor: 'pointer',
-  display: 'flex',
-  alignItems: 'center',
-  gap: spacing(1),
+const sizes: (theme: DefaultTheme, size: TabSizes) => RuleSet<object> = (
+  { font },
+  size
+) => {
+  return {
+    sm: css`
+      padding: 8px 16px;
+      ${font.size[12]}
+    `,
+    md: css`
+      padding: 10px 24px;
+      ${font.size[14]}
+    `,
+    lg: css`
+      padding: 12px 32px;
+      ${font.size[16]}
+    `,
+  }[size];
+};
 
-  div: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: spacing(1),
-    svg: {
-      fill: '$neutral7',
-    },
-  },
+const directions: (direction: BorderDirection) => RuleSet<object> = (
+  direction
+) => {
+  return {
+    bottom: css`
+      border-bottom: 2px solid;
+      border-radius: 6px 6px 0px 0px;
+    `,
+    top: css`
+      border-top: 2px solid;
+      border-radius: 0px 0px 6px 6px;
+    `,
+    right: css`
+      border-right: 2px solid;
+      border-radius: 6px 0px 0px 6px;
+    `,
+    left: css`
+      border-left: 2px solid;
+      border-radius: 0px 6px 6px 0px;
+    `,
+  }[direction];
+};
 
-  '&:hover': {
-    color: '$primary5',
-    background: '$primary1',
-    borderColor: '$primary3',
-    svg: {
-      fill: '$primary5',
-    },
-  },
-  '&:disabled': {
-    color: '$neutral5',
-    background: '$neutral3',
-    borderColor: '$neutral5',
-    cursor: 'not-allowed',
-    svg: {
-      fill: '$neutral5',
-    },
-  },
-  '&:focus': {
-    color: '$primaryColor',
-    background: '$neutral1',
-    borderColor: '$primaryColor',
-    fontStyle: 'normal',
-    fontWeight: '600',
-    cursor: 'pointer',
-    display: 'flex',
-    alignItems: 'center',
-    svg: {
-      fill: '$primaryColor',
-    },
-  },
+export const Tab = styled.button<TabProps>`
+  ${({ theme, $size, $direction, $selected }) => css`
+    font-weight: 600;
+    color: ${theme.colors.neutral[7]};
+    background: ${theme.colors.neutral[1]};
+    cursor: pointer;
+    ${theme.utils.flex.spaceBetween(8)};
+    ${sizes(theme, $size)};
+    ${directions($direction)};
+    border-color: ${theme.colors.neutral[4]};
+    ${theme.utils.focus}
 
-  variants: {
-    size: {
-      sm: {
-        padding: `${spacing(1)} ${spacing(2)}`,
-        fontSize: '12px',
-        lineHeight: '16px',
-        gap: spacing(1),
-      },
-      md: {
-        padding: '10px 24px',
-        fontSize: '14px',
-        lineHeight: '20px',
-        gap: spacing(1.5),
-      },
-      lg: {
-        padding: '12px 32px',
-        fontSize: '16px',
-        lineHeight: '24px',
-        gap: spacing(2),
-      },
-    },
-    direction: {
-      bottom: {
-        borderBottom: '2px solid $neutral3',
-        borderRadius: '6px 6px 0px 0px',
-      },
-      top: {
-        borderTop: '2px solid $neutral3',
-        borderRadius: '0px 0px 6px 6px',
-      },
-      right: {
-        borderRight: '2px solid $neutral3',
-      },
-      left: {
-        borderLeft: '2px solid $neutral3',
-      },
-    },
-    selected: {
-      true: {
-        color: '$primaryColor',
-      },
-    },
-  },
+    svg {
+      fill: ${theme.colors.neutral[7]};
+    }
 
-  compoundVariants: [
-    {
-      selected: true,
-      css: {
-        background: '$neutral1',
-        borderColor: '$primaryColor',
-        div: {
-          svg: {
-            fill: '$primaryColor',
-          },
-        },
-        '&:hover': {
-          color: '$primary5',
-          background: '$primary1',
-          borderColor: '$primary3',
-          '&:active': {
-            color: '$primary7',
-            background: '$primary2',
-            borderColor: '$primary5',
-            div: {
-              svg: {
-                fill: '$primary7',
-              },
-            },
-          },
-          '&:disabled': {
-            color: '$neutral5',
-            background: '$neutral3',
-            borderColor: '$neutral5',
-            cursor: 'not-allowed',
-            div: {
-              svg: {
-                fill: '$neutral5',
-              },
-            },
-          },
-        },
-      },
-    },
-  ],
-});
+    &:hover,
+    &:focus-visible {
+      color: ${theme.colors.primary[5]};
+      background: ${theme.colors.primary[1]};
+      border-color: ${theme.colors.primary[3]};
+
+      svg {
+        fill: ${theme.colors.primary[5]};
+      }
+    }
+
+    &:active {
+      color: ${theme.colors.primary[7]};
+      background: ${theme.colors.primary[2]};
+      border-color: ${theme.colors.primary[5]};
+
+      svg {
+        fill: ${theme.colors.primary[7]};
+      }
+    }
+
+    &:disabled {
+      color: ${theme.colors.neutral[5]};
+      background: ${theme.colors.neutral[3]};
+      border-color: ${theme.colors.neutral[5]};
+      cursor: not-allowed;
+
+      svg {
+        fill: ${theme.colors.neutral[5]};
+      }
+    }
+
+    ${$selected &&
+    css`
+      color: ${theme.colors.main.primary};
+      border-color: ${theme.colors.main.primary};
+
+      svg {
+        fill: ${theme.colors.main.primary};
+      }
+    `}
+  `}
+`;

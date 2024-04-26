@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { BorderDirection } from '../../core/types/directions';
 import { SizeType } from '../../core/types/size';
 import { IonTab, TabProps } from '../tab/tab';
@@ -46,8 +46,8 @@ export const IonTabGroup = ({
   }, []);
 
   return (
-    <TabGroupStyles align={align} data-testid="ion-tabGroup">
-      <div data-testid="ion-tabGroup-container">
+    <TabGroupStyles align={align} data-testid='ion-tabGroup'>
+      <div data-testid='ion-tabGroup-container'>
         {tabs.map((tabItem, index) => {
           return (
             <IonTab
