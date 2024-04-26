@@ -38,7 +38,6 @@ exports[`IonAlert should render alert with type: info 1`] = `
       class="c1 c2"
     >
       <svg
-        class="c-PJLV"
         data-testid="ion-icon-info-solid"
         fill="#282B33"
         height="24"
@@ -99,7 +98,6 @@ exports[`IonAlert should render alert with type: negative 1`] = `
       class="c1 c2"
     >
       <svg
-        class="c-PJLV"
         data-testid="ion-icon-close-solid"
         fill="#282B33"
         height="24"
@@ -160,7 +158,6 @@ exports[`IonAlert should render alert with type: success 1`] = `
       class="c1 c2"
     >
       <svg
-        class="c-PJLV"
         data-testid="ion-icon-check-solid"
         fill="#282B33"
         height="24"
@@ -221,8 +218,7 @@ exports[`IonAlert should render alert with type: warning 1`] = `
       class="c1 c2"
     >
       <svg
-        class="c-PJLV"
-        data-testid="ion-icon-exclamation-solid"
+        data-testid="ion-icon-attention-solid"
         fill="#282B33"
         height="24"
         viewBox="0 0 24 24"

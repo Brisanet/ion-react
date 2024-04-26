@@ -5,6 +5,7 @@ import ErrorBoundary from '../error/error-boundary';
 import { IonIcon } from '../icons/icons';
 import isValidLabel from '../utils/isValidLabel';
 import { Alert, Wrapper } from './styled';
+import { IconType } from '../icons/svgs/icons';
 
 export interface AlertProps {
   message: string;
@@ -20,16 +21,16 @@ type iconType =
   | 'info-solid'
   | 'close-solid';
 
-const icons: Record<StatusType, iconType> = {
+const icons: Record<StatusType, IconType> = {
   info: 'info-solid',
-  warning: 'exclamation-solid',
+  warning: 'attention-solid',
   negative: 'close-solid',
   success: 'check-solid',
 };
 
 const SIZE_ICON = 24;
 
-const getIcon = (alertType: StatusType): iconType => icons[alertType];
+const getIcon = (alertType: StatusType): IconType => icons[alertType];
 
 export const IonAlert = ({
   message,
