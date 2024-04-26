@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { iconType, iconsPaths } from '../../components/icons/svgs/icons';
+import { IconType, iconsPaths } from '../../components/icons/svgs/icons';
 
 import {
   IonTabGroup,
@@ -88,7 +88,7 @@ const tabsIcons = Object.keys(iconsPaths).map((icon) => {
   return {
     label: icon,
     selected: false,
-    icon: icon as iconType,
+    icon: icon as IconType,
   };
 });
 WithIcons.args = {

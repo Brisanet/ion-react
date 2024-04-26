@@ -3,7 +3,7 @@ import { TagStyle } from './styles';
 
 import { TagStatus } from '../../core/types/status';
 import ErrorBoundary from '../error/error-boundary';
-import { iconType } from '../icons/svgs/icons';
+import { IconType } from '../icons/svgs/icons';
 import isValidLabel from '../utils/isValidLabel';
 import { validateHexColor } from '../utils/validateHexColor';
 
@@ -12,7 +12,7 @@ export interface IonTagProps {
   status?: TagStatus;
   color?: string;
   label: string;
-  icon?: iconType;
+  icon?: IconType;
 }
 
 const iconSize = 12;

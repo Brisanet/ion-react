@@ -1,7 +1,7 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import { renderWithTheme } from '../utils/test-utils';
 import { IonTab, TabProps } from './tab';
 
 const clickEvent = jest.fn();
@@ -11,7 +11,7 @@ const defaultTab: TabProps = {
 };
 
 function sut(props: TabProps = defaultTab) {
-  render(<IonTab {...props} />);
+  return renderWithTheme(<IonTab {...props} />);
 }
 
 const getTab = () => {
@@ -60,9 +60,8 @@ describe('Tab', () => {
   describe('Custom Props', () => {
     const tabSizes: Array<TabProps['size']> = ['sm', 'md', 'lg'];
     it.each(tabSizes)('should render Tab with %s size', (size) => {
-      sut({ ...defaultTab, size: size });
-      const { className } = getTab();
-      expect(className).toContain(`size-${size}`);
+      const { container } = sut({ ...defaultTab, size: size });
+      expect(container).toMatchSnapshot();
     });
 
     const tabDirections: Array<TabProps['direction']> = [
@@ -72,9 +71,12 @@ describe('Tab', () => {
       'right',
     ];
     it.each(tabDirections)('should render Tab with %s border', (direction) => {
-      sut({ ...defaultTab, direction: direction });
-      const { className } = getTab();
-      expect(className).toContain(`direction-${direction}`);
+      const { container } = sut({ ...defaultTab, direction: direction });
+      expect(container).toMatchSnapshot();
+    });
+    it('should render selected tab', () => {
+      const { container } = sut({ ...defaultTab, selected: true });
+      expect(container).toMatchSnapshot();
     });
   });
 

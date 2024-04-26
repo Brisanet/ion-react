@@ -1,0 +1,210 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<IonBody /> should render the body with the correct color dark-primary 1`] = `
+.c0 {
+  margin: 0;
+  padding: 0;
+  color: #e4e6eb;
+  font-weight: 400;
+  font-style: normal;
+}
+
+<div>
+  <p
+    class="c0"
+    data-testid="ion-body"
+  >
+    Ion React
+  </p>
+</div>
+`;
+
+exports[`<IonBody /> should render the body with the correct color dark-secondary 1`] = `
+.c0 {
+  margin: 0;
+  padding: 0;
+  color: #ced2db;
+  font-weight: 400;
+  font-style: normal;
+}
+
+<div>
+  <p
+    class="c0"
+    data-testid="ion-body"
+  >
+    Ion React
+  </p>
+</div>
+`;
+
+exports[`<IonBody /> should render the body with the correct color primary 1`] = `
+.c0 {
+  margin: 0;
+  padding: 0;
+  color: #505566;
+  font-weight: 400;
+  font-style: normal;
+}
+
+<div>
+  <p
+    class="c0"
+    data-testid="ion-body"
+  >
+    Ion React
+  </p>
+</div>
+`;
+
+exports[`<IonBody /> should render the body with the correct color secondary 1`] = `
+.c0 {
+  margin: 0;
+  padding: 0;
+  color: #8d93a5;
+  font-weight: 400;
+  font-style: normal;
+}
+
+<div>
+  <p
+    class="c0"
+    data-testid="ion-body"
+  >
+    Ion React
+  </p>
+</div>
+`;
+
+exports[`<IonBody /> should render the body with the correct size normal 1`] = `
+.c0 {
+  margin: 0;
+  padding: 0;
+  color: #505566;
+  font-weight: 400;
+  font-style: normal;
+}
+
+<div>
+  <p
+    class="c0"
+    data-testid="ion-body"
+  >
+    Ion React
+  </p>
+</div>
+`;
+
+exports[`<IonBody /> should render the body with the correct size small 1`] = `
+.c0 {
+  margin: 0;
+  padding: 0;
+  color: #505566;
+  font-weight: 400;
+  font-style: normal;
+}
+
+<div>
+  <p
+    class="c0"
+    data-testid="ion-body"
+  >
+    Ion React
+  </p>
+</div>
+`;
+
+exports[`<IonBody /> should render the body with the correct styles italic 1`] = `
+.c0 {
+  margin: 0;
+  padding: 0;
+  color: #505566;
+  font-weight: 400;
+  font-style: italic;
+}
+
+<div>
+  <p
+    class="c0"
+    data-testid="ion-body"
+  >
+    Ion React
+  </p>
+</div>
+`;
+
+exports[`<IonBody /> should render the body with the correct styles normal 1`] = `
+.c0 {
+  margin: 0;
+  padding: 0;
+  color: #505566;
+  font-weight: 400;
+  font-style: normal;
+}
+
+<div>
+  <p
+    class="c0"
+    data-testid="ion-body"
+  >
+    Ion React
+  </p>
+</div>
+`;
+
+exports[`<IonBody /> should render the body with the correct weight bold 1`] = `
+.c0 {
+  margin: 0;
+  padding: 0;
+  color: #505566;
+  font-weight: 700;
+  font-style: normal;
+}
+
+<div>
+  <p
+    class="c0"
+    data-testid="ion-body"
+  >
+    Ion React
+  </p>
+</div>
+`;
+
+exports[`<IonBody /> should render the body with the correct weight medium 1`] = `
+.c0 {
+  margin: 0;
+  padding: 0;
+  color: #505566;
+  font-weight: 600;
+  font-style: normal;
+}
+
+<div>
+  <p
+    class="c0"
+    data-testid="ion-body"
+  >
+    Ion React
+  </p>
+</div>
+`;
+
+exports[`<IonBody /> should render the body with the correct weight normal 1`] = `
+.c0 {
+  margin: 0;
+  padding: 0;
+  color: #505566;
+  font-weight: 400;
+  font-style: normal;
+}
+
+<div>
+  <p
+    class="c0"
+    data-testid="ion-body"
+  >
+    Ion React
+  </p>
+</div>
+`;

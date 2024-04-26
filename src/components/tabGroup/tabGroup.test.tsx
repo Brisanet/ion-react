@@ -1,8 +1,9 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
+import theme from '@ion/styles/theme';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { iconType } from '../icons/svgs/icons';
+import { IconType } from '../icons/svgs/icons';
 import { TabProps } from '../tab/tab';
+import { renderWithTheme } from '../utils/test-utils';
 import { IonTabGroup, IonTabGroupProps, TabGroupSizes } from './tabGroup';
 
 const mockClick = jest.fn();
@@ -22,7 +23,7 @@ const mockProps: IonTabGroupProps = {
   handleSelectedTab: mockClick,
 };
 const sut = (props: IonTabGroupProps = mockProps) => {
-  render(<IonTabGroup {...props} />);
+  renderWithTheme(<IonTabGroup {...props} />);
 };
 
 const getTabGroup = () => screen.getByTestId('ion-tabGroup');
@@ -39,13 +40,13 @@ describe('IonTabGroup', () => {
     it('should render tabs with border bottom by default', async () => {
       sut();
       getTabs().forEach((tab: HTMLElement) => {
-        expect(tab.className).toContain('direction-bottom');
+        expect(tab).toHaveStyleRule('border-bottom', '2px solid');
       });
     });
 
     it('should render TabGroup in vertical align by default', async () => {
       sut({ ...mockProps, align: 'vertical' });
-      expect(getTabGroup().className).toContain('align-vertical');
+      expect(getTabGroup()).toMatchSnapshot();
     });
 
     it('should render the correct number of tabs', () => {
@@ -57,13 +58,13 @@ describe('IonTabGroup', () => {
       sut();
       const secondTab = getTabs()[1];
       await userEvent.click(secondTab);
-      expect(secondTab.className).toContain('selected-true');
+      expect(secondTab).toHaveStyleRule('color', theme.colors.main.primary);
     });
 
     it('should contain first Tab selected by default', async () => {
       sut();
       const firstTab = getTabs()[0];
-      expect(firstTab.className).toContain('selected-true');
+      expect(firstTab).toHaveStyleRule('color', theme.colors.main.primary);
     });
   });
 
@@ -71,28 +72,28 @@ describe('IonTabGroup', () => {
     it('should contain border right when direction is vertical', async () => {
       sut({ ...mockProps, align: 'vertical' });
       getTabs().forEach((tab: HTMLElement) => {
-        expect(tab.className).toContain('direction-right');
+        expect(tab).toHaveStyleRule('border-right', '2px solid');
       });
     });
 
     it('should contain border left when border and align are defined', async () => {
       sut({ ...mockProps, align: 'vertical', borderDirection: 'left' });
       getTabs().forEach((tab: HTMLElement) => {
-        expect(tab.className).toContain('direction-left');
+        expect(tab).toHaveStyleRule('border-left', '2px solid');
       });
     });
 
     it('should contain border top when border and align are defined', async () => {
       sut({ ...mockProps, align: 'horizontal', borderDirection: 'top' });
       getTabs().forEach((tab: HTMLElement) => {
-        expect(tab.className).toContain('direction-top');
+        expect(tab).toHaveStyleRule('border-top', '2px solid');
       });
     });
 
     it('should not contain border top when align is vertical', async () => {
       sut({ ...mockProps, align: 'vertical', borderDirection: 'top' });
       getTabs().forEach((tab: HTMLElement) => {
-        expect(tab.className).not.toContain('direction-top');
+        expect(tab).not.toHaveStyleRule('border-top', '2px solid');
       });
     });
 
@@ -114,7 +115,7 @@ describe('IonTabGroup', () => {
         });
 
         getTabs().forEach((tab: HTMLElement) => {
-          expect(tab.className).toContain(`size-${size}`);
+          expect(tab).toMatchSnapshot();
         });
       }
     );
@@ -122,13 +123,13 @@ describe('IonTabGroup', () => {
     it('should render tabs with sm size by default', async () => {
       sut();
       getTabs().forEach((tab: HTMLElement) => {
-        expect(tab.className).toContain('size-sm');
+        expect(tab).toMatchSnapshot();
       });
     });
   });
 
   describe('With icon', () => {
-    const icons: iconType[] = ['pencil', 'close', 'access'];
+    const icons: IconType[] = ['pencil', 'close', 'access'];
     const tabsWithIcons: TabProps[] = [
       {
         label: 'Tab 1',
@@ -150,7 +151,7 @@ describe('IonTabGroup', () => {
         tabs: tabsWithIcons,
       });
 
-      icons.forEach((icon: iconType) => {
+      icons.forEach((icon: IconType) => {
         expect(screen.getByTestId(`ion-icon-${icon}`)).toBeInTheDocument();
       });
     });
