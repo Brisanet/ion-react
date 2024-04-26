@@ -1,5 +1,15 @@
 import { css, keyframes, styled } from 'styled-components';
 
+interface SkeletonStyleProps {
+  $width: string | number;
+  $height: string | number;
+  $radius: string | number;
+}
+
+const convertToStyle = (value: string | number) => {
+  return typeof value === 'number' ? `${value}px` : value;
+};
+
 const shimmer = keyframes`
   75% {
     transform: translateX(100%);
@@ -9,12 +19,15 @@ const shimmer = keyframes`
   }
 `;
 
-export const Skeleton = styled.span`
-  ${({ theme }) => css`
+export const Skeleton = styled.span<SkeletonStyleProps>`
+  ${({ theme, $width, $height, $radius }) => css`
     display: block;
     position: relative;
     overflow: hidden;
     background-color: ${theme.colors.neutral[1]};
+    width: ${convertToStyle($width)};
+    height: ${convertToStyle($height)};
+    border-radius: ${convertToStyle($radius)};
 
     &::after {
       content: '';
