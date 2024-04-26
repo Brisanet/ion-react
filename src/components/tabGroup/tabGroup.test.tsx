@@ -1,7 +1,7 @@
 import theme from '@ion/styles/theme';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { iconType } from '../icons/svgs/icons';
+import { IconType } from '../icons/svgs/icons';
 import { TabProps } from '../tab/tab';
 import { renderWithTheme } from '../utils/test-utils';
 import { IonTabGroup, IonTabGroupProps, TabGroupSizes } from './tabGroup';
@@ -129,7 +129,7 @@ describe('IonTabGroup', () => {
   });
 
   describe('With icon', () => {
-    const icons: iconType[] = ['pencil', 'close', 'access'];
+    const icons: IconType[] = ['pencil', 'close', 'access'];
     const tabsWithIcons: TabProps[] = [
       {
         label: 'Tab 1',
@@ -151,7 +151,7 @@ describe('IonTabGroup', () => {
         tabs: tabsWithIcons,
       });
 
-      icons.forEach((icon: iconType) => {
+      icons.forEach((icon: IconType) => {
         expect(screen.getByTestId(`ion-icon-${icon}`)).toBeInTheDocument();
       });
     });

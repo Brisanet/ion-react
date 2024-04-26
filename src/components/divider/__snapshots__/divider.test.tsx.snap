@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Divider Default should render dashed divider 1`] = `
+.c0 {
+  border-width: 0px;
+  border-top: 1px;
+  width: 100%;
+  border-style: dashed;
+  border-color: #ced2db;
+}
+
+<div>
+  <hr
+    class="c0"
+  />
+</div>
+`;
+
+exports[`Divider Default should render horizontal divider 1`] = `
+.c0 {
+  border-width: 0px;
+  border-top: 1px;
+  width: 100%;
+  border-style: solid;
+  border-color: #ced2db;
+}
+
+<div>
+  <hr
+    class="c0"
+  />
+</div>
+`;
+
+exports[`Divider Default should render solid divider 1`] = `
+.c0 {
+  border-width: 0px;
+  border-top: 1px;
+  width: 100%;
+  border-style: solid;
+  border-color: #ced2db;
+}
+
+<div>
+  <hr
+    class="c0"
+  />
+</div>
+`;
+
+exports[`Divider Default should render vertical divider 1`] = `
+.c0 {
+  border-width: 0px;
+  border-left: 1px;
+  height: 100%;
+  width: 0;
+  border-style: solid;
+  border-color: #ced2db;
+}
+
+<div>
+  <hr
+    class="c0"
+  />
+</div>
+`;

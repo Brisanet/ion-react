@@ -13,7 +13,7 @@ export type TabProps = {
   size?: TabSizes;
   selected?: boolean;
   disabled?: boolean;
-  icon?: iconType;
+  icon?: IconType;
   badge?: BadgeProps;
   handleClick?: () => void;
 };

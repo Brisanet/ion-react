@@ -1,4 +1,4 @@
-import styled, { RuleSet, css } from 'styled-components';
+import { css, RuleSet, styled } from 'styled-components';
 import { DefaultTheme } from 'styled-components/dist/types';
 import { ButtonProps, ButtonSizes, ButtonVariants } from './button';
 
@@ -7,6 +7,8 @@ type ButtonStylesProps = {
   $danger?: ButtonProps['danger'];
   $size?: ButtonProps['size'];
   $hasIcon?: boolean;
+  $hasLabel?: boolean;
+  $circular?: boolean;
   $iconOnRight?: ButtonProps['iconOnRight'];
 };
 
@@ -23,27 +25,45 @@ type ColorDefinitions = {
   disabled: ColorByState;
 };
 
-const sizes: (theme: DefaultTheme) => Record<ButtonSizes, RuleSet<object>> = ({
-  font,
-}) => {
+const sizes: (
+  theme: DefaultTheme,
+  hasLabel?: boolean
+) => Record<ButtonSizes, RuleSet<object>> = ({ font }, hasLabel) => {
   return {
     sm: css`
-      padding: 4px 12px;
+      height: 24px;
+      min-width: 24px;
+      padding: ${hasLabel ? '4px 12px' : '0'};
       ${font.size[12]}
     `,
     md: css`
-      padding: 6px 16px;
+      height: 32px;
+      min-width: 32px;
+      padding: ${hasLabel ? '6px 16px' : '0'};
       ${font.size[14]}
     `,
     lg: css`
-      padding: 8px 20px;
+      height: 40px;
+      min-width: 40px;
+      padding: ${hasLabel ? '8px 20px' : '0'};
       ${font.size[16]}
     `,
     xl: css`
-      padding: 12px 24px;
+      height: 48px;
+      min-width: 48px;
+      padding: ${hasLabel ? '12px 24px' : '0'};
       ${font.size[16]}
     `,
   };
+};
+
+const borderRadius = (
+  size: ButtonProps['size'],
+  circular?: boolean,
+  hasLabel?: boolean
+) => {
+  if (circular && !hasLabel) return '50%';
+  return size && ['lg', 'xl'].includes(size) ? '10px' : '6px';
 };
 
 export const variantsColors: (
@@ -118,7 +138,7 @@ export const variantsColors: (
       },
       hover: {
         background: colors[type][1],
-        hoverBorder: `1px dashed ${colors[type][3]}`,
+        border: `1px dashed ${colors[type][3]}`,
         color: colors[type][5],
       },
       active: {
@@ -145,8 +165,7 @@ const variants: (
   return css`
     background-color: ${colorDef.default.background};
     color: ${colorDef.default.color};
-    border: ${colorDef.default.border ||
-    `1px solid ${colorDef.default.background}`};
+    border: ${colorDef.default.border || 'none'};
 
     svg {
       fill: ${colorDef.default.color};
@@ -156,8 +175,7 @@ const variants: (
     &:focus-visible {
       background-color: ${colorDef.hover.background};
       ${colorDef.hover.color && `color: ${colorDef.hover.color}`};
-      border: ${colorDef.hover.border ||
-      `1px solid ${colorDef.hover.background}`};
+      border: ${colorDef.hover.border || 'none'};
 
       ${colorDef.hover.color && `svg { fill: ${colorDef.hover.color} }`}
     }
@@ -165,8 +183,7 @@ const variants: (
     &:active {
       background-color: ${colorDef.active.background};
       ${colorDef.active.color && `color: ${colorDef.active.color}`};
-      border: ${colorDef.active.border ||
-      `1px solid ${colorDef.active.background}`};
+      border: ${colorDef.active.border || 'none'};
 
       ${colorDef.active.color && `svg { fill: ${colorDef.active.color} }`}
     }
@@ -174,8 +191,7 @@ const variants: (
     &:disabled {
       background-color: ${colorDef.disabled.background};
       color: ${colorDef.disabled.color};
-      border: ${colorDef.disabled.border ||
-      `1px solid ${colorDef.disabled.background}`};
+      border: ${colorDef.disabled.border || 'none'};
       cursor: not-allowed;
 
       svg {
@@ -186,18 +202,27 @@ const variants: (
 };
 
 export const Button = styled.button<ButtonStylesProps>`
-  ${({ theme, $variant, $danger, $size, $hasIcon, $iconOnRight }) =>
+  ${({
+    theme,
+    $variant,
+    $danger,
+    $size,
+    $hasIcon,
+    $iconOnRight,
+    $hasLabel,
+    $circular,
+  }) =>
     css`
       appearance: none;
       font-family: ${theme.font.family};
       font-weight: 600;
-      border-radius: ${$size && ['lg', 'xl'].includes($size) ? '10px' : '6px'};
+      border-radius: ${borderRadius($size, $circular, $hasLabel)};
       cursor: pointer;
 
       ${theme.utils.flex.center($hasIcon ? 8 : 0)};
       flex-direction: ${$iconOnRight ? 'row-reverse' : 'row'};
 
-      ${!!$size && sizes(theme)[$size]}
+      ${!!$size && sizes(theme, $hasLabel)[$size]}
       ${!!$variant && variants(theme, $variant, $danger)}
       ${theme.utils.focus}
     `}
