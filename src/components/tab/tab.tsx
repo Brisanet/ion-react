@@ -2,8 +2,8 @@ import { BorderDirection } from '../../core/types/directions';
 import { SizeType } from '../../core/types/size';
 import { BadgeProps, IonBadge } from '../badge/badge';
 import { IonIcon } from '../icons/icons';
-import { iconType } from '../icons/svgs/icons';
 import { Tab } from './styles';
+import { IconType } from '../icons/svgs/icons';
 
 export type TabSizes = Exclude<SizeType, 'xs'>;
 
@@ -13,7 +13,7 @@ export type TabProps = {
   size?: TabSizes;
   selected?: boolean;
   disabled?: boolean;
-  icon?: iconType;
+  icon?: IconType;
   badge?: BadgeProps;
   handleClick?: () => void;
 };

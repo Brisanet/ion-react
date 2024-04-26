@@ -1,46 +1,59 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 
 import { IonIcon } from './icons';
 import { IonIconProps } from './icons';
-import { iconType } from './svgs/icons';
+import { IconType } from './svgs/icons';
 
 const defaultIcon: IonIconProps = {
+  size: 24,
   type: 'pencil',
+  color: '#282B33',
+};
+
+const customIcon: IonIconProps = {
+  type: 'access',
+  size: 12,
+  color: 'purple',
 };
 
 const sut = (props = defaultIcon) => render(<IonIcon {...props} />);
-const getIcon = (type: iconType) => screen.getByTestId(`ion-icon-${type}`);
+const getIcon = (type: IconType) => screen.getByTestId(`ion-icon-${type}`);
 
 describe('IonIcon', () => {
-  it('should render default size icon of type pencil', () => {
-    sut();
-    const defaultSize = 24;
-    const icon = getIcon(defaultIcon.type);
-    expect(icon).toBeTruthy();
-    expect(icon.getAttribute('width')).toBe(`${defaultSize}`);
-    expect(icon.getAttribute('height')).toBe(`${defaultSize}`);
+  let iconElement: HTMLElement;
+  describe('Default Props', () => {
+    beforeEach(() => {
+      sut();
+      iconElement = getIcon(defaultIcon.type);
+    });
+
+    it('should render the icon', () => {
+      expect(iconElement).toBeVisible();
+    });
+
+    it('should render with the default size', () => {
+      expect(iconElement.getAttribute('width')).toBe(`${defaultIcon.size}`);
+      expect(iconElement.getAttribute('height')).toBe(`${defaultIcon.size}`);
+    });
+
+    it('should render with the default color', () => {
+      expect(iconElement.getAttribute('fill')).toBe(defaultIcon.color);
+    });
   });
 
-  it('should render default color icon', () => {
-    sut();
-    const icon = getIcon(defaultIcon.type);
-    const defaultColor = '#282B33';
-    expect(icon.getAttribute('fill')).toBe(defaultColor);
-  });
+  describe('Custom Props', () => {
+    beforeEach(() => {
+      sut(customIcon);
+      iconElement = getIcon(customIcon.type);
+    });
 
-  it('should render icon with size 12', () => {
-    const customSize = 12;
-    sut({ ...defaultIcon, size: customSize });
-    const icon = getIcon(defaultIcon.type);
-    expect(icon.getAttribute('width')).toBe(`${customSize}`);
-    expect(icon.getAttribute('height')).toBe(`${customSize}`);
-  });
+    it('should render with custom size', () => {
+      expect(iconElement.getAttribute('width')).toBe(`${customIcon.size}`);
+      expect(iconElement.getAttribute('height')).toBe(`${customIcon.size}`);
+    });
 
-  it('should render icon with color purple', () => {
-    const customColor = 'purple';
-    sut({ ...defaultIcon, color: customColor });
-    const icon = getIcon(defaultIcon.type);
-    expect(icon.getAttribute('fill')).toBe(customColor);
+    it('should render icon with color purple', () => {
+      expect(iconElement.getAttribute('fill')).toBe(customIcon.color);
+    });
   });
 });
