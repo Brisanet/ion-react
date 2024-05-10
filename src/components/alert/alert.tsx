@@ -1,10 +1,10 @@
-import { useState } from 'react';
 import { StatusType } from '../../core/types/status';
+import { IonButton } from '../button';
 import ErrorBoundary from '../error/error-boundary';
 
 import { IonIcon } from '../icons/icons';
 import isValidLabel from '../utils/isValidLabel';
-import { AlertStyled } from './styled';
+import { Alert, Wrapper } from './styled';
 import { IconType } from '../icons/svgs/icons';
 
 export interface AlertProps {
@@ -12,7 +12,14 @@ export interface AlertProps {
   type?: StatusType;
   closable?: boolean;
   hideBackground?: boolean;
+  onClose?: () => void;
 }
+
+type iconType =
+  | 'check-solid'
+  | 'exclamation-solid'
+  | 'info-solid'
+  | 'close-solid';
 
 const icons: Record<StatusType, IconType> = {
   info: 'info-solid',
@@ -21,40 +28,41 @@ const icons: Record<StatusType, IconType> = {
   success: 'check-solid',
 };
 
-const sizeIcon = 24;
+const SIZE_ICON = 24;
 
-const getIcon = (alertType: StatusType) => icons[alertType];
+const getIcon = (alertType: StatusType): IconType => icons[alertType];
 
 export const IonAlert = ({
   message,
   type = 'success',
   closable = false,
   hideBackground = false,
+  onClose,
 }: AlertProps) => {
-  const [showAlert, setShowAlert] = useState(true);
-  const icon = getIcon(type);
-
   if (!isValidLabel(message)) {
     return <ErrorBoundary message='Message cannot be empty' />;
   }
 
-  if (!showAlert) {
-    return <></>;
-  }
-
   return (
-    <AlertStyled
+    <Alert
       data-testid='ion-alert'
-      type={type}
-      hideBackground={hideBackground}
+      $type={type}
+      $hideBackground={hideBackground}
+      $closable={closable}
     >
-      <IonIcon type={icon} size={sizeIcon}></IonIcon>
-      <span>{message}</span>
+      <Wrapper>
+        <IonIcon type={getIcon(type)} size={SIZE_ICON}></IonIcon>
+        <span>{message}</span>
+      </Wrapper>
       {closable && (
-        <div onClick={() => setShowAlert(false)}>
-          <IonIcon type='close' size={sizeIcon}></IonIcon>
-        </div>
+        <IonButton
+          circular
+          variant='ghost'
+          icon='close'
+          size='sm'
+          onClick={onClose}
+        />
       )}
-    </AlertStyled>
+    </Alert>
   );
 };
