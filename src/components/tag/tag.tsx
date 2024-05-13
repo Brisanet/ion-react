@@ -1,5 +1,5 @@
 import { IonIcon } from '../icons/icons';
-import { TagStyle } from './styles';
+import { Tag } from './styles';
 
 import { TagStatus } from '../../core/types/status';
 import ErrorBoundary from '../error/error-boundary';
@@ -8,57 +8,40 @@ import isValidLabel from '../utils/isValidLabel';
 import { validateHexColor } from '../utils/validateHexColor';
 
 export interface IonTagProps {
+  label: string;
   outline?: boolean;
   status?: TagStatus;
   color?: string;
-  label: string;
   icon?: IconType;
 }
 
-const iconSize = 12;
-const defaultColor = '#505566';
-const lighteningFactor = '1A';
+const ICON_SIZE = 12;
 
-const newColor = (color: string) => ({
-  backgroundColor: color + lighteningFactor,
-  color: color,
-  fill: color,
-});
-
-const getColorObject = (status?: TagStatus, color?: string) => {
-  if (status) {
-    return {};
+const validateProps = ({ color, label }: IonTagProps) => {
+  if (!isValidLabel(label)) {
+    return <ErrorBoundary msg='Label cannot be empty' />;
   }
-
-  if (!color || !validateHexColor(color)) {
-    return { ...newColor(defaultColor) };
+  if (color && !validateHexColor(color)) {
+    return <ErrorBoundary msg='Invalid color' />;
   }
-
-  return {
-    ...newColor(color),
-  };
+  return null;
 };
 
 export const IonTag = ({
   label,
-  color,
   icon,
+  color,
   status,
   outline = true,
 }: IonTagProps) => {
-  if (!isValidLabel(label)) {
-    return <ErrorBoundary msg='Label cannot be empty' />;
-  }
+  const validation = validateProps({ color, label });
+
+  if (validation) return validation;
 
   return (
-    <TagStyle
-      data-testid='ion-tag'
-      status={status}
-      outline={outline}
-      css={{ ...getColorObject(status, color) }}
-    >
-      {icon && <IonIcon type={icon} size={iconSize} />}
+    <Tag data-testid='ion-tag' status={status} $outline={outline} color={color}>
+      {icon && <IonIcon type={icon} size={ICON_SIZE} />}
       <span>{label}</span>
-    </TagStyle>
+    </Tag>
   );
 };
