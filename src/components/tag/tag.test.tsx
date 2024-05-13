@@ -1,14 +1,16 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
+import theme from '@ion/styles/theme';
+import { screen } from '@testing-library/react';
 
-import { IonTag, IonTagProps } from './tag';
 import { StatusType } from '../../core/types/status';
+import { renderWithTheme } from '../utils/test-utils';
+import { getColorsByStatus } from './styles';
+import { IonTag, IonTagProps } from './tag';
 
 const defaultTag: IonTagProps = {
   label: 'tag label',
 };
 
-const sut = (props = defaultTag) => render(<IonTag {...props} />);
+const sut = (props = defaultTag) => renderWithTheme(<IonTag {...props} />);
 const tagId = 'ion-tag';
 const getTag = () => screen.getByTestId(tagId);
 
@@ -34,17 +36,19 @@ describe('IonTag', () => {
     'neutral',
   ] as StatusType[])('should render tag with status: %s', (status) => {
     sut({ ...defaultTag, status: status });
-    expect(getTag().className).toContain(`status-${status}`);
+    const { background, color } = getColorsByStatus(theme, status);
+    expect(getTag()).toHaveStyleRule('background-color', background);
+    expect(getTag()).toHaveStyleRule('color', color);
   });
 
-  it('should not render outline in tag', async () => {
-    await sut({ ...defaultTag, outline: false });
-    expect(getTag().className).not.toContain('outline-false');
+  it('should not render outline in tag', () => {
+    sut({ ...defaultTag, outline: false });
+    expect(getTag()).not.toHaveStyleRule('border', '1px solid');
   });
 
-  it('should render outline in tag', async () => {
-    await sut({ ...defaultTag, outline: true });
-    expect(getTag().className).toContain('outline-true');
+  it('should render outline in tag', () => {
+    sut({ ...defaultTag, outline: true });
+    expect(getTag()).toHaveStyleRule('border', '1px solid');
   });
 
   it('should render tag with icon check', async () => {
@@ -62,14 +66,17 @@ describe('IonTag', () => {
     expect(await screen.findByText(msgError)).toBeTruthy();
   });
 
-  it('should render tag with custom color', async () => {
-    await sut({ ...defaultTag, color: customColor });
-    expect(getTag().className).not.toContain('status');
+  it('should render ErrorBoundary component when color is invalid', async () => {
+    sut({ ...defaultTag, color: 'invalid-color' });
+    const msgError = 'Invalid color';
+    const errorBoundary = screen.getByTestId('ion-error-boundary');
+    expect(errorBoundary).toBeTruthy();
+    expect(await screen.findByText(msgError)).toBeTruthy();
   });
 
-  it('should render the tag the same as it has a custom color', async () => {
-    const statusInfo = 'status-info';
-    await sut({ ...defaultTag, status: 'info', color: customColor });
-    expect(getTag().className).toContain(statusInfo);
+  it('should render tag with custom color', () => {
+    sut({ ...defaultTag, color: customColor });
+    expect(getTag()).toHaveStyleRule('background-color', `${customColor}1A`);
+    expect(getTag()).toHaveStyleRule('color', customColor);
   });
 });
