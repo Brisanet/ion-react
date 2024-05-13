@@ -150,4 +150,61 @@ describe('Button', () => {
       expect(getButton()).toHaveStyleRule('border-radius', '50%');
     });
   });
+
+  describe('Loading Button', () => {
+    it('should render spinner when loading is true', () => {
+      sut({ ...defaultButton, loading: true });
+      expect(screen.getByTestId('ion-spinner')).toBeInTheDocument();
+    });
+
+    it('should render spinner with danger variant when danger is true and variant is not primary', () => {
+      sut({
+        ...defaultButton,
+        loading: true,
+        danger: true,
+        variant: 'secondary',
+      });
+      expect(screen.getByTestId('ion-spinner')).toHaveStyleRule(
+        'border-left-color',
+        theme.colors.main.negative
+      );
+    });
+
+    it('should render spinner with variant secondary when danger is true and variant is primary', () => {
+      sut({
+        ...defaultButton,
+        loading: true,
+        danger: true,
+        variant: 'primary',
+      });
+      expect(screen.getByTestId('ion-spinner')).toHaveStyleRule(
+        'border-left-color',
+        theme.colors.main.secondary
+      );
+    });
+
+    it('should render spinner with variant primary when danger is false and variant is not primary', () => {
+      sut({
+        ...defaultButton,
+        loading: true,
+        danger: false,
+        variant: 'secondary',
+      });
+      expect(screen.getByTestId('ion-spinner')).toHaveStyleRule(
+        'border-left-color',
+        theme.colors.main.primary
+      );
+    });
+
+    it('should not render icon when loading is true', () => {
+      sut({ ...defaultButton, loading: true, icon: 'alert' });
+      expect(screen.queryByTestId('ion-icon-alert')).not.toBeInTheDocument();
+    });
+
+    it('should not allow user to click when loading is true', async () => {
+      const onClick = jest.fn();
+      sut({ ...defaultButton, loading: true, onClick });
+      expect(getButton()).toHaveStyleRule('pointer-events', 'none');
+    });
+  });
 });
