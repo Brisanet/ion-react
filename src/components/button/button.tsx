@@ -2,6 +2,7 @@ import { ButtonHTMLAttributes } from 'react';
 import { SizeType } from '../../core/types/size';
 import { IonIcon } from '../icons';
 import { IconType } from '../icons/svgs/icons';
+import { IonSpinner } from '../spinner';
 import { Button } from './styles';
 
 export type ButtonSizes = Exclude<SizeType, 'xs'> | 'xl';
@@ -16,7 +17,15 @@ export type ButtonProps = {
   icon?: IconType;
   iconOnRight?: boolean;
   circular?: boolean;
+  loading?: boolean;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
+
+const ICON_SIZE = {
+  sm: 16,
+  md: 20,
+  lg: 24,
+  xl: 24,
+};
 
 export const IonButton = ({
   variant = 'primary',
@@ -26,13 +35,13 @@ export const IonButton = ({
   icon,
   iconOnRight,
   label,
+  loading,
   ...props
 }: ButtonProps) => {
-  const iconSize = {
-    sm: 16,
-    md: 20,
-    lg: 24,
-    xl: 28,
+  const loadingVariant = () => {
+    if (danger && variant !== 'primary') return 'danger';
+    if (variant === 'primary') return 'secondary';
+    return 'primary';
   };
 
   return (
@@ -45,9 +54,14 @@ export const IonButton = ({
       $hasLabel={!!label}
       $iconOnRight={iconOnRight}
       $circular={circular}
+      $loading={loading}
       {...props}
     >
-      {icon && <IonIcon type={icon} size={iconSize[size]} />}
+      {loading ? (
+        <IonSpinner variant={loadingVariant()} size={ICON_SIZE[size]} />
+      ) : (
+        icon && <IonIcon type={icon} size={ICON_SIZE[size]} />
+      )}
       {label && <span>{label}</span>}
     </Button>
   );
