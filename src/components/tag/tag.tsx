@@ -19,10 +19,10 @@ const ICON_SIZE = 12;
 
 const validateProps = ({ color, label }: IonTagProps) => {
   if (!isValidLabel(label)) {
-    return <ErrorBoundary msg='Label cannot be empty' />;
+    return <ErrorBoundary message='Label cannot be empty' />;
   }
   if (color && !validateHexColor(color)) {
-    return <ErrorBoundary msg='Invalid color' />;
+    return <ErrorBoundary message='Invalid color' />;
   }
   return null;
 };

@@ -1,24 +1,14 @@
-import React from 'react';
-
-import { IonIcon } from '../icons/icons';
+import { IonAlert } from '../alert';
 import { ErrorBoundaryStyled } from './styled';
 
 export interface ErrorBoundaryProps {
-  msg: string;
+  message: string;
 }
-const sizeIcon = 16;
-const iconType = 'info';
 
-const ErrorBoundary = ({ msg }: ErrorBoundaryProps) => {
-  return (
-    <ErrorBoundaryStyled data-testid="ion-error-boundary">
-      <IonIcon type={iconType} size={sizeIcon}></IonIcon>
-      <div>
-        <label>Error:</label>
-        {msg}
-      </div>
-    </ErrorBoundaryStyled>
-  );
-};
+const ErrorBoundary = ({ message }: ErrorBoundaryProps) => (
+  <ErrorBoundaryStyled data-testid='ion-error-boundary'>
+    <IonAlert type='warning' message={message} />
+  </ErrorBoundaryStyled>
+);
 
 export default ErrorBoundary;
