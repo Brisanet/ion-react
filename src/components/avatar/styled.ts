@@ -47,8 +47,9 @@ export const AvatarContainer = styled.div<AvatarProps>`
     ${theme.utils.flex.center()}
 
     span {
-      ${fontSize(theme)[$size]}
-      font-weight: 600,
+      color: ${theme.colors.primary[7]};
+      ${fontSize(theme)[$size]};
+      font-weight: 600;
     }
   `}
 `;
