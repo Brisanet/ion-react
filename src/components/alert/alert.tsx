@@ -40,7 +40,7 @@ export const IonAlert = ({
   onClose,
 }: AlertProps) => {
   if (!isValidLabel(message)) {
-    return <ErrorBoundary msg='Message cannot be empty' />;
+    return <ErrorBoundary message='Message cannot be empty' />;
   }
 
   return (

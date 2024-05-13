@@ -80,3 +80,10 @@ WithRightIcon.args = {
   icon: 'pencil',
   iconOnRight: true,
 };
+
+export const Loading = Template.bind({});
+Loading.args = {
+  label: 'Primary',
+  variant: 'primary',
+  loading: true,
+};
