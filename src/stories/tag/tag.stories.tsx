@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { IonTag, IonTagProps } from '../../components/tag/tag';
 
@@ -14,13 +14,13 @@ const Template: ComponentStory<typeof IonTag> = (args: IonTagProps) => (
 export const tagDefault = Template.bind({});
 tagDefault.storyName = 'type: default';
 tagDefault.args = {
-  label: 'Exemple Message',
+  label: 'Example Message',
 };
 
 export const TagWithoutOutline = Template.bind({});
 TagWithoutOutline.storyName = 'type: without outline';
 TagWithoutOutline.args = {
-  label: 'Exemple Message',
+  label: 'Example Message',
   outline: false,
 };
 
@@ -34,42 +34,42 @@ TagWithStatusSuccess.args = {
 export const TagWithStatusWarning = Template.bind({});
 TagWithStatusWarning.storyName = 'type: warning';
 TagWithStatusWarning.args = {
-  label: 'Exemple Message',
+  label: 'Example Message',
   status: 'warning',
 };
 
 export const TagWithStatusInfo = Template.bind({});
 TagWithStatusInfo.storyName = 'type: info';
 TagWithStatusInfo.args = {
-  label: 'Exemple Message',
+  label: 'Example Message',
   status: 'info',
 };
 
 export const TagWithStatusNegative = Template.bind({});
 TagWithStatusNegative.storyName = 'type: negative';
 TagWithStatusNegative.args = {
-  label: 'Exemple Message',
+  label: 'Example Message',
   status: 'negative',
 };
 
 export const TagWithStatusNeutral = Template.bind({});
 TagWithStatusNeutral.storyName = 'type: neutral';
 TagWithStatusNeutral.args = {
-  label: 'Exemple Message',
+  label: 'Example Message',
   status: 'neutral',
 };
 
 export const TagCustomColor = Template.bind({});
 TagCustomColor.storyName = 'type: custom';
 TagCustomColor.args = {
-  label: 'Exemple Message',
+  label: 'Example Message',
   color: '#7f0dff',
 };
 
 export const tagWithIcon = Template.bind({});
 tagWithIcon.storyName = 'type: with icon';
 tagWithIcon.args = {
-  label: 'Exemple Message',
+  label: 'Example Message',
   icon: 'check',
   status: 'success',
   outline: true,
