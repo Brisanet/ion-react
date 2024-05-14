@@ -10,6 +10,7 @@ type ButtonStylesProps = {
   $hasLabel?: boolean;
   $circular?: boolean;
   $iconOnRight?: ButtonProps['iconOnRight'];
+  $loading?: ButtonProps['loading'];
 };
 
 type ColorByState = {
@@ -23,6 +24,7 @@ type ColorDefinitions = {
   hover: ColorByState;
   active: ColorByState;
   disabled: ColorByState;
+  loading: ColorByState;
 };
 
 const sizes: (
@@ -89,6 +91,9 @@ export const variantsColors: (
         background: colors.neutral[3],
         color: colors.neutral[5],
       },
+      loading: {
+        background: colors[type][5],
+      },
     },
     secondary: {
       default: {
@@ -111,6 +116,11 @@ export const variantsColors: (
         color: colors.neutral[5],
         border: `1px solid ${colors.neutral[5]}`,
       },
+      loading: {
+        background: colors[type][1],
+        border: `1px solid ${colors[type][3]}`,
+        color: colors.main[type],
+      },
     },
     ghost: {
       default: {
@@ -128,6 +138,10 @@ export const variantsColors: (
       disabled: {
         background: 'transparent',
         color: colors.neutral[5],
+      },
+      loading: {
+        background: colors[type][1],
+        color: colors.main[type],
       },
     },
     dashed: {
@@ -150,6 +164,11 @@ export const variantsColors: (
         background: colors.neutral[3],
         color: colors.neutral[5],
         border: `1px dashed ${colors.neutral[5]}`,
+      },
+      loading: {
+        background: colors[type][1],
+        border: `1px dashed ${colors[type][3]}`,
+        color: colors.main[type],
       },
     },
   }[variant];
@@ -211,6 +230,7 @@ export const Button = styled.button<ButtonStylesProps>`
     $iconOnRight,
     $hasLabel,
     $circular,
+    $loading,
   }) =>
     css`
       appearance: none;
@@ -219,11 +239,22 @@ export const Button = styled.button<ButtonStylesProps>`
       border-radius: ${borderRadius($size, $circular, $hasLabel)};
       cursor: pointer;
 
-      ${theme.utils.flex.center($hasIcon ? 8 : 0)};
+      ${theme.utils.flex.center($hasIcon || $loading ? 8 : 0)};
       flex-direction: ${$iconOnRight ? 'row-reverse' : 'row'};
 
       ${!!$size && sizes(theme, $hasLabel)[$size]}
       ${!!$variant && variants(theme, $variant, $danger)}
       ${theme.utils.focus}
+
+      ${!!$variant &&
+      $loading &&
+      css`
+        pointer-events: none;
+        background-color: ${variantsColors(theme, $variant, $danger).loading
+          .background};
+        border: ${variantsColors(theme, $variant, $danger).loading.border ||
+        'none'};
+        color: ${variantsColors(theme, $variant, $danger).loading.color};
+      `}
     `}
 `;
