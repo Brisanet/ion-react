@@ -1,6 +1,7 @@
 import { SizeType } from '@ion/core/types/size';
 import { AvatarContainer, AvatarPhoto } from './styled';
 import { IonIcon } from '../icons';
+import { useState } from 'react';
 
 export enum AvatarType {
   initials = 'initials',
@@ -9,11 +10,11 @@ export enum AvatarType {
 }
 
 export type AvatarProps = {
-  type: AvatarType;
+  type?: AvatarType;
   size?: SizeType;
   value?: string;
   image?: string;
-  onErrorImage?: string;
+  onErrorImg?: string;
 };
 
 const getIconSize = (size: SizeType): number =>
@@ -36,19 +37,33 @@ const getInitials = (name?: string) => {
 };
 
 const defaultSize = 'md';
+const defaultType = AvatarType.initials;
 
 export const IonAvatar = ({
-  type,
+  type = defaultType,
   size = defaultSize,
   value,
   image,
-  onErrorImage,
+  onErrorImg,
 }: AvatarProps) => {
+  const [imgSrc, setImgSrc] = useState(image);
   const avatarTypes = {
-    initials: <span>{getInitials(value)}</span>,
-    icon: <IonIcon type='users' size={getIconSize(size)} />,
-    photo: <AvatarPhoto src={image} defaultValue={onErrorImage} />,
+    initials: (
+      <span data-testid='ion-avatar-initials'>{getInitials(value)}</span>
+    ),
+    icon: <IonIcon type='user' color='#06439d' size={getIconSize(size)} />,
+    photo: image && (
+      <AvatarPhoto
+        data-testid='ion-avatar-photo'
+        src={imgSrc}
+        onError={() => setImgSrc(onErrorImg)}
+      />
+    ),
   };
 
-  return <AvatarContainer $size={size}>{avatarTypes[type]}</AvatarContainer>;
+  return (
+    <AvatarContainer data-testid='ion-avatar' $size={size}>
+      {avatarTypes[type]}
+    </AvatarContainer>
+  );
 };
