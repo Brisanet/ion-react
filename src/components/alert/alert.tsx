@@ -4,7 +4,7 @@ import ErrorBoundary from '../error/error-boundary';
 
 import { IonIcon } from '../icons/icons';
 import isValidLabel from '../utils/isValidLabel';
-import { Alert, Wrapper } from './styled';
+import { Alert, Wrapper } from './styles';
 import { IconType } from '../icons/svgs/icons';
 
 export interface AlertProps {

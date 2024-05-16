@@ -1,4 +1,4 @@
-import { Divider, DividerContainer } from './styled';
+import { Divider, DividerContainer } from './styles';
 
 export type DividerDirection = 'horizontal' | 'vertical';
 export type DividerType = 'solid' | 'dashed';
