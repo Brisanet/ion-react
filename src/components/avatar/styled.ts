@@ -1,9 +1,11 @@
 import { SizeType } from '@ion/core/types/size';
-import styled, { DefaultTheme, RuleSet, css } from 'styled-components';
+import styled, { RuleSet, css } from 'styled-components';
 
 type AvatarProps = {
   $size: SizeType;
 };
+
+type initialsFontSizes = 12 | 14 | 16;
 
 const sizes: (size: SizeType) => RuleSet<object> = (size) => {
   const sizeOptions = {
@@ -19,23 +21,15 @@ const sizes: (size: SizeType) => RuleSet<object> = (size) => {
   `;
 };
 
-const fontSize: (theme: DefaultTheme) => Record<SizeType, RuleSet<object>> = (
-  theme
-) => {
-  return {
-    lg: css`
-      ${theme.font.size[16]}
-    `,
-    md: css`
-      ${theme.font.size[14]}
-    `,
-    sm: css`
-      ${theme.font.size[12]}
-    `,
-    xs: css`
-      ${theme.font.size[12]}
-    `,
-  };
+const fontSize: (size: SizeType) => initialsFontSizes = (size) => {
+  const sizeOptions = {
+    lg: 16,
+    md: 14,
+    sm: 12,
+    xs: 12,
+  } as const;
+
+  return sizeOptions[size];
 };
 
 export const AvatarContainer = styled.div<AvatarProps>`
@@ -48,7 +42,7 @@ export const AvatarContainer = styled.div<AvatarProps>`
 
     span {
       color: ${theme.colors.primary[7]};
-      ${fontSize(theme)[$size]};
+      ${theme.font.size[fontSize($size)]};
       font-weight: 600;
     }
   `}

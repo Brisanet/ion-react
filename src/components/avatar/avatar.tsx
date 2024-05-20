@@ -1,13 +1,9 @@
 import { SizeType } from '@ion/core/types/size';
 import { AvatarContainer, AvatarPhoto } from './styled';
 import { IonIcon } from '../icons';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-export enum AvatarType {
-  initials = 'initials',
-  icon = 'icon',
-  photo = 'photo',
-}
+export type AvatarType = 'initials' | 'icon' | 'photo';
 
 export type AvatarProps = {
   type?: AvatarType;
@@ -17,27 +13,16 @@ export type AvatarProps = {
   onErrorImg?: string;
 };
 
-const getIconSize = (size: SizeType): number =>
-  ({
-    lg: 24,
-    md: 20,
-    sm: 16,
-    xs: 12,
-  }[size]);
-
-const getInitials = (name?: string) => {
-  return name
-    ? name
-        .split(' ')
-        .map((word) => word[0])
-        .slice(0, 2)
-        .join('')
-        .toUpperCase()
-    : '--';
-};
+const getInitials = (name: string): string =>
+  name
+    .split(' ')
+    .map((word) => word[0])
+    .slice(0, 2)
+    .join('')
+    .toUpperCase();
 
 const defaultSize = 'md';
-const defaultType = AvatarType.initials;
+const defaultType = 'initials';
 
 export const IonAvatar = ({
   type = defaultType,
@@ -46,17 +31,29 @@ export const IonAvatar = ({
   image,
   onErrorImg,
 }: AvatarProps) => {
-  const [imgSrc, setImgSrc] = useState(image);
+  const [errorImage, setErrorImage] = useState<string | null>(null);
+
+  const initials = value ? getInitials(value) : '--';
+
+  const iconSize = {
+    lg: 24,
+    md: 20,
+    sm: 16,
+    xs: 12,
+  }[size];
+
+  useEffect(() => {
+    setErrorImage(null);
+  }, [image]);
+
   const avatarTypes = {
-    initials: (
-      <span data-testid='ion-avatar-initials'>{getInitials(value)}</span>
-    ),
-    icon: <IonIcon type='user' color='#06439d' size={getIconSize(size)} />,
+    initials: <span data-testid='ion-avatar-initials'>{initials}</span>,
+    icon: <IonIcon type='user' color='#06439d' size={iconSize} />,
     photo: image && (
       <AvatarPhoto
         data-testid='ion-avatar-photo'
-        src={imgSrc}
-        onError={() => setImgSrc(onErrorImg)}
+        src={errorImage || image}
+        onError={() => onErrorImg && setErrorImage(onErrorImg)}
       />
     ),
   };

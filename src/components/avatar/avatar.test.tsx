@@ -1,6 +1,6 @@
 import { fireEvent, screen } from '@testing-library/dom';
 import { renderWithTheme } from '../utils/test-utils';
-import { AvatarProps, AvatarType, IonAvatar } from './avatar';
+import { AvatarProps, IonAvatar } from './avatar';
 import { SizeType } from '@ion/core/types/size';
 
 const photoUrl =
@@ -12,7 +12,7 @@ const onErrorImg =
 const avatarSizes: SizeType[] = ['lg', 'md', 'sm', 'xs'];
 
 const photoAvatar: AvatarProps = {
-  type: AvatarType.photo,
+  type: 'photo',
   image: photoUrl,
 };
 
@@ -52,7 +52,7 @@ describe('Avatar', () => {
 
   describe('Icon', () => {
     it('should render a icon', () => {
-      sut({ type: AvatarType.icon });
+      sut({ type: 'icon' });
       expect(screen.getByTestId('ion-icon-user')).toBeVisible();
     });
   });
