@@ -42,13 +42,25 @@ export const IonAvatar = ({
     xs: 12,
   }[size];
 
+  const iconProps = {
+    type: 'user',
+    color: '#06439d',
+    size: iconSize,
+  } as const;
+
   useEffect(() => {
     setErrorImage(null);
   }, [image]);
 
   const avatarTypes = {
     initials: <span data-testid='ion-avatar-initials'>{initials}</span>,
-    icon: <IonIcon type='user' color='#06439d' size={iconSize} />,
+    icon: (
+      <IonIcon
+        type={iconProps.type}
+        color={iconProps.color}
+        size={iconProps.size}
+      />
+    ),
     photo: image && (
       <AvatarPhoto
         data-testid='ion-avatar-photo'
