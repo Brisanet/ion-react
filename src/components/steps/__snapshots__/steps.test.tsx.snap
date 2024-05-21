@@ -1,0 +1,1420 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Passing through the IonStepComponent should initiate from step 2 1`] = `
+.c0 {
+  display: flex;
+}
+
+.c2 {
+  display: flex;
+  align-items: center;
+}
+
+.c9 {
+  width: 64.5px;
+  height: 1px;
+  background-color: #ced2db;
+}
+
+.c5 {
+  width: 64.5px;
+  height: 1px;
+  background-color: #0858ce;
+}
+
+.c4 {
+  box-sizing: content-box;
+  margin: 8px;
+  padding: 4px;
+  min-width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.c7 {
+  text-align: center;
+  color: #8d93a5;
+  font-style: normal;
+  font-weight: 400;
+  word-break: break-all;
+  padding: 3px 8px;
+  max-width: 183px;
+  box-sizing: border-box;
+}
+
+.c7 .label,
+.c7 .description {
+  font-family: 'Inter',sans-serif;
+}
+
+.c7 .label {
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
+
+.c7 .description {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+}
+
+.c10 {
+  display: flex;
+  flex-direction: column;
+}
+
+.c10:first-child .c6 .label,
+.c10:first-child .c6 .description {
+  text-align: left;
+  max-width: 118.5px;
+}
+
+.c10:last-child .c6 .label,
+.c10:last-child .c6 .description {
+  text-align: right;
+  max-width: 118.5px;
+}
+
+.c10 .c3 {
+  border-color: #8d93a5;
+  background-color: #fcfcfd;
+  color: #282b33;
+}
+
+.c1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.c1:first-child .c6 .label,
+.c1:first-child .c6 .description {
+  text-align: left;
+  max-width: 118.5px;
+}
+
+.c1:last-child .c6 .label,
+.c1:last-child .c6 .description {
+  text-align: right;
+  max-width: 118.5px;
+}
+
+.c1 .c3 {
+  border-color: #0858ce;
+  background-color: #ebf3fe;
+  color: #0858ce;
+}
+
+.c1 .c3 svg {
+  margin-top: 5px;
+  fill: #0858ce;
+}
+
+.c8 {
+  display: flex;
+  flex-direction: column;
+}
+
+.c8:first-child .c6 .label,
+.c8:first-child .c6 .description {
+  text-align: left;
+  max-width: 118.5px;
+}
+
+.c8:last-child .c6 .label,
+.c8:last-child .c6 .description {
+  text-align: right;
+  max-width: 118.5px;
+}
+
+.c8 .c3 {
+  border-color: #0858ce;
+  background-color: #0858ce;
+  color: #fcfcfd;
+}
+
+.c8 .c6 .label {
+  color: #505566;
+}
+
+<div>
+  <div
+    class="c0"
+    data-testid="ion-step"
+  >
+    <div
+      class="c1"
+      data-testid="step-1-checked"
+    >
+      <div
+        class="c2"
+      >
+        <div
+          class="c3 c4"
+        >
+          <span>
+            <svg
+              data-testid="ion-icon-check"
+              fill="#282B33"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+            >
+               
+              <path
+                d="M19.4603 8.3002C19.9022 7.76993 19.8306 6.98172 19.3002 6.5397C18.7699 6.09781 17.9817 6.16946 17.5397 6.69986L10.8752 14.6973L6.34085 10.5751C5.83003 10.1107 5.03947 10.1483 4.57508 10.6592C4.1107 11.1699 4.14835 11.9606 4.65917 12.425L10.1592 17.425C10.4114 17.6542 10.7463 17.7705 11.0863 17.7471C11.4264 17.7235 11.7421 17.5622 11.9603 17.3002L19.4603 8.3002Z"
+              />
+               
+            </svg>
+          </span>
+        </div>
+        <div
+          class="c5"
+        />
+      </div>
+      <div
+        class="c6 c7"
+      >
+        <div
+          class="label"
+        >
+          Step 1
+        </div>
+      </div>
+    </div>
+    <div
+      class="c8"
+      data-testid="step-2-selected"
+    >
+      <div
+        class="c2"
+      >
+        <div
+          class="c5"
+        />
+        <div
+          class="c3 c4"
+        >
+          <span>
+            2
+          </span>
+        </div>
+        <div
+          class="c9"
+        />
+      </div>
+      <div
+        class="c6 c7"
+      >
+        <div
+          class="label"
+        >
+          Step 2
+        </div>
+      </div>
+    </div>
+    <div
+      class="c10"
+      data-testid="step-3-default"
+    >
+      <div
+        class="c2"
+      >
+        <div
+          class="c9"
+        />
+        <div
+          class="c3 c4"
+        >
+          <span>
+            3
+          </span>
+        </div>
+      </div>
+      <div
+        class="c6 c7"
+      >
+        <div
+          class="label"
+        >
+          Step 3
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Static IonStepComponent should render first step checked 1`] = `
+.c0 {
+  display: flex;
+}
+
+.c2 {
+  display: flex;
+  align-items: center;
+}
+
+.c5 {
+  width: 64.5px;
+  height: 1px;
+  background-color: #0858ce;
+}
+
+.c9 {
+  width: 64.5px;
+  height: 1px;
+  background-color: #ced2db;
+}
+
+.c4 {
+  box-sizing: content-box;
+  margin: 8px;
+  padding: 4px;
+  min-width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.c7 {
+  text-align: center;
+  color: #8d93a5;
+  font-style: normal;
+  font-weight: 400;
+  word-break: break-all;
+  padding: 3px 8px;
+  max-width: 183px;
+  box-sizing: border-box;
+}
+
+.c7 .label,
+.c7 .description {
+  font-family: 'Inter',sans-serif;
+}
+
+.c7 .label {
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
+
+.c7 .description {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+}
+
+.c1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.c1:first-child .c6 .label,
+.c1:first-child .c6 .description {
+  text-align: left;
+  max-width: 118.5px;
+}
+
+.c1:last-child .c6 .label,
+.c1:last-child .c6 .description {
+  text-align: right;
+  max-width: 118.5px;
+}
+
+.c1 .c3 {
+  border-color: #0858ce;
+  background-color: #ebf3fe;
+  color: #0858ce;
+}
+
+.c1 .c3 svg {
+  margin-top: 5px;
+  fill: #0858ce;
+}
+
+.c8 {
+  display: flex;
+  flex-direction: column;
+}
+
+.c8:first-child .c6 .label,
+.c8:first-child .c6 .description {
+  text-align: left;
+  max-width: 118.5px;
+}
+
+.c8:last-child .c6 .label,
+.c8:last-child .c6 .description {
+  text-align: right;
+  max-width: 118.5px;
+}
+
+.c8 .c3 {
+  border-color: #8d93a5;
+  background-color: #fcfcfd;
+  color: #282b33;
+}
+
+<div>
+  <div
+    class="c0"
+    data-testid="ion-step"
+  >
+    <div
+      class="c1"
+      data-testid="step-1-checked"
+    >
+      <div
+        class="c2"
+      >
+        <div
+          class="c3 c4"
+        >
+          <span>
+            <svg
+              data-testid="ion-icon-check"
+              fill="#282B33"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+            >
+               
+              <path
+                d="M19.4603 8.3002C19.9022 7.76993 19.8306 6.98172 19.3002 6.5397C18.7699 6.09781 17.9817 6.16946 17.5397 6.69986L10.8752 14.6973L6.34085 10.5751C5.83003 10.1107 5.03947 10.1483 4.57508 10.6592C4.1107 11.1699 4.14835 11.9606 4.65917 12.425L10.1592 17.425C10.4114 17.6542 10.7463 17.7705 11.0863 17.7471C11.4264 17.7235 11.7421 17.5622 11.9603 17.3002L19.4603 8.3002Z"
+              />
+               
+            </svg>
+          </span>
+        </div>
+        <div
+          class="c5"
+        />
+      </div>
+      <div
+        class="c6 c7"
+      >
+        <div
+          class="label"
+        >
+          Step 1
+        </div>
+      </div>
+    </div>
+    <div
+      class="c8"
+      data-testid="step-2-default"
+    >
+      <div
+        class="c2"
+      >
+        <div
+          class="c5"
+        />
+        <div
+          class="c3 c4"
+        >
+          <span>
+            2
+          </span>
+        </div>
+        <div
+          class="c9"
+        />
+      </div>
+      <div
+        class="c6 c7"
+      >
+        <div
+          class="label"
+        >
+          Step 2
+        </div>
+      </div>
+    </div>
+    <div
+      class="c8"
+      data-testid="step-3-default"
+    >
+      <div
+        class="c2"
+      >
+        <div
+          class="c9"
+        />
+        <div
+          class="c3 c4"
+        >
+          <span>
+            3
+          </span>
+        </div>
+      </div>
+      <div
+        class="c6 c7"
+      >
+        <div
+          class="label"
+        >
+          Step 3
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Static IonStepComponent should render step step-1-selected disabled when the step component is disabled 1`] = `
+.c1 {
+  display: flex;
+  align-items: center;
+}
+
+.c5 {
+  width: 64.5px;
+  height: 1px;
+  background-color: #ced2db;
+}
+
+.c3 {
+  box-sizing: content-box;
+  margin: 8px;
+  padding: 4px;
+  min-width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.c7 {
+  text-align: center;
+  color: #8d93a5;
+  font-style: normal;
+  font-weight: 400;
+  word-break: break-all;
+  padding: 3px 8px;
+  max-width: 183px;
+  box-sizing: border-box;
+}
+
+.c7 .label,
+.c7 .description {
+  font-family: 'Inter',sans-serif;
+}
+
+.c7 .label {
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
+
+.c7 .description {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+}
+
+.c8:first-child .c6 .label,
+.c8:first-child .c6 .description {
+  text-align: left;
+  max-width: 118.5px;
+}
+
+.c8:last-child .c6 .label,
+.c8:last-child .c6 .description {
+  text-align: right;
+  max-width: 118.5px;
+}
+
+.c8 .c2 {
+  border-color: #8d93a5;
+  background-color: #fcfcfd;
+  color: #282b33;
+}
+
+.c8:hover .c6 .label,
+.c8:active .c6 .label,
+.c8:hover .c6 .description,
+.c8:active .c6 .description {
+  color: #aeb2bd;
+}
+
+.c8 .c4 {
+  background-color: #ced2db;
+}
+
+.c8 .c2 {
+  border-color: #ced2db;
+  background-color: #ced2db;
+  color: #aeb2bd;
+}
+
+.c8 .c2 svg {
+  margin-top: 5px;
+  fill: #aeb2bd;
+}
+
+.c8 .c6 .label,
+.c8 .c6 .description {
+  color: #aeb2bd;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  cursor: not-allowed;
+}
+
+.c0:first-child .c6 .label,
+.c0:first-child .c6 .description {
+  text-align: left;
+  max-width: 118.5px;
+}
+
+.c0:last-child .c6 .label,
+.c0:last-child .c6 .description {
+  text-align: right;
+  max-width: 118.5px;
+}
+
+.c0 .c2 {
+  border-color: #0858ce;
+  background-color: #0858ce;
+  color: #fcfcfd;
+}
+
+.c0 .c6 .label {
+  color: #505566;
+}
+
+.c0:hover .c6 .label,
+.c0:active .c6 .label,
+.c0:hover .c6 .description,
+.c0:active .c6 .description {
+  color: #aeb2bd;
+}
+
+.c0 .c4 {
+  background-color: #ced2db;
+}
+
+.c0 .c2 {
+  border-color: #ced2db;
+  background-color: #ced2db;
+  color: #aeb2bd;
+}
+
+.c0 .c2 svg {
+  margin-top: 5px;
+  fill: #aeb2bd;
+}
+
+.c0 .c6 .label,
+.c0 .c6 .description {
+  color: #aeb2bd;
+}
+
+<div
+  class="c0"
+  data-testid="step-1-selected"
+>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2 c3"
+    >
+      <span>
+        1
+      </span>
+    </div>
+    <div
+      class="c4 c5"
+    />
+  </div>
+  <div
+    class="c6 c7"
+  >
+    <div
+      class="label"
+    >
+      Step 1
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Static IonStepComponent should render step step-2-default disabled when the step component is disabled 1`] = `
+.c1 {
+  display: flex;
+  align-items: center;
+}
+
+.c3 {
+  width: 64.5px;
+  height: 1px;
+  background-color: #ced2db;
+}
+
+.c5 {
+  box-sizing: content-box;
+  margin: 8px;
+  padding: 4px;
+  min-width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.c7 {
+  text-align: center;
+  color: #8d93a5;
+  font-style: normal;
+  font-weight: 400;
+  word-break: break-all;
+  padding: 3px 8px;
+  max-width: 183px;
+  box-sizing: border-box;
+}
+
+.c7 .label,
+.c7 .description {
+  font-family: 'Inter',sans-serif;
+}
+
+.c7 .label {
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
+
+.c7 .description {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  cursor: not-allowed;
+}
+
+.c0:first-child .c6 .label,
+.c0:first-child .c6 .description {
+  text-align: left;
+  max-width: 118.5px;
+}
+
+.c0:last-child .c6 .label,
+.c0:last-child .c6 .description {
+  text-align: right;
+  max-width: 118.5px;
+}
+
+.c0 .c4 {
+  border-color: #8d93a5;
+  background-color: #fcfcfd;
+  color: #282b33;
+}
+
+.c0:hover .c6 .label,
+.c0:active .c6 .label,
+.c0:hover .c6 .description,
+.c0:active .c6 .description {
+  color: #aeb2bd;
+}
+
+.c0 .c2 {
+  background-color: #ced2db;
+}
+
+.c0 .c4 {
+  border-color: #ced2db;
+  background-color: #ced2db;
+  color: #aeb2bd;
+}
+
+.c0 .c4 svg {
+  margin-top: 5px;
+  fill: #aeb2bd;
+}
+
+.c0 .c6 .label,
+.c0 .c6 .description {
+  color: #aeb2bd;
+}
+
+.c8:first-child .c6 .label,
+.c8:first-child .c6 .description {
+  text-align: left;
+  max-width: 118.5px;
+}
+
+.c8:last-child .c6 .label,
+.c8:last-child .c6 .description {
+  text-align: right;
+  max-width: 118.5px;
+}
+
+.c8 .c4 {
+  border-color: #0858ce;
+  background-color: #0858ce;
+  color: #fcfcfd;
+}
+
+.c8 .c6 .label {
+  color: #505566;
+}
+
+.c8:hover .c6 .label,
+.c8:active .c6 .label,
+.c8:hover .c6 .description,
+.c8:active .c6 .description {
+  color: #aeb2bd;
+}
+
+.c8 .c2 {
+  background-color: #ced2db;
+}
+
+.c8 .c4 {
+  border-color: #ced2db;
+  background-color: #ced2db;
+  color: #aeb2bd;
+}
+
+.c8 .c4 svg {
+  margin-top: 5px;
+  fill: #aeb2bd;
+}
+
+.c8 .c6 .label,
+.c8 .c6 .description {
+  color: #aeb2bd;
+}
+
+<div
+  class="c0"
+  data-testid="step-2-default"
+>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2 c3"
+    />
+    <div
+      class="c4 c5"
+    >
+      <span>
+        2
+      </span>
+    </div>
+    <div
+      class="c2 c3"
+    />
+  </div>
+  <div
+    class="c6 c7"
+  >
+    <div
+      class="label"
+    >
+      Step 2
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Static IonStepComponent should render step step-3-default disabled when the step component is disabled 1`] = `
+.c1 {
+  display: flex;
+  align-items: center;
+}
+
+.c3 {
+  width: 64.5px;
+  height: 1px;
+  background-color: #ced2db;
+}
+
+.c5 {
+  box-sizing: content-box;
+  margin: 8px;
+  padding: 4px;
+  min-width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.c7 {
+  text-align: center;
+  color: #8d93a5;
+  font-style: normal;
+  font-weight: 400;
+  word-break: break-all;
+  padding: 3px 8px;
+  max-width: 183px;
+  box-sizing: border-box;
+}
+
+.c7 .label,
+.c7 .description {
+  font-family: 'Inter',sans-serif;
+}
+
+.c7 .label {
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
+
+.c7 .description {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+  cursor: not-allowed;
+}
+
+.c0:first-child .c6 .label,
+.c0:first-child .c6 .description {
+  text-align: left;
+  max-width: 118.5px;
+}
+
+.c0:last-child .c6 .label,
+.c0:last-child .c6 .description {
+  text-align: right;
+  max-width: 118.5px;
+}
+
+.c0 .c4 {
+  border-color: #8d93a5;
+  background-color: #fcfcfd;
+  color: #282b33;
+}
+
+.c0:hover .c6 .label,
+.c0:active .c6 .label,
+.c0:hover .c6 .description,
+.c0:active .c6 .description {
+  color: #aeb2bd;
+}
+
+.c0 .c2 {
+  background-color: #ced2db;
+}
+
+.c0 .c4 {
+  border-color: #ced2db;
+  background-color: #ced2db;
+  color: #aeb2bd;
+}
+
+.c0 .c4 svg {
+  margin-top: 5px;
+  fill: #aeb2bd;
+}
+
+.c0 .c6 .label,
+.c0 .c6 .description {
+  color: #aeb2bd;
+}
+
+.c8:first-child .c6 .label,
+.c8:first-child .c6 .description {
+  text-align: left;
+  max-width: 118.5px;
+}
+
+.c8:last-child .c6 .label,
+.c8:last-child .c6 .description {
+  text-align: right;
+  max-width: 118.5px;
+}
+
+.c8 .c4 {
+  border-color: #0858ce;
+  background-color: #0858ce;
+  color: #fcfcfd;
+}
+
+.c8 .c6 .label {
+  color: #505566;
+}
+
+.c8:hover .c6 .label,
+.c8:active .c6 .label,
+.c8:hover .c6 .description,
+.c8:active .c6 .description {
+  color: #aeb2bd;
+}
+
+.c8 .c2 {
+  background-color: #ced2db;
+}
+
+.c8 .c4 {
+  border-color: #ced2db;
+  background-color: #ced2db;
+  color: #aeb2bd;
+}
+
+.c8 .c4 svg {
+  margin-top: 5px;
+  fill: #aeb2bd;
+}
+
+.c8 .c6 .label,
+.c8 .c6 .description {
+  color: #aeb2bd;
+}
+
+<div
+  class="c0"
+  data-testid="step-3-default"
+>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2 c3"
+    />
+    <div
+      class="c4 c5"
+    >
+      <span>
+        3
+      </span>
+    </div>
+  </div>
+  <div
+    class="c6 c7"
+  >
+    <div
+      class="label"
+    >
+      Step 3
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Static IonStepComponent should render step with id step-1-checked 1`] = `
+.c1 {
+  display: flex;
+  align-items: center;
+}
+
+.c4 {
+  width: 64.5px;
+  height: 1px;
+  background-color: #0858ce;
+}
+
+.c3 {
+  box-sizing: content-box;
+  margin: 8px;
+  padding: 4px;
+  min-width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.c6 {
+  text-align: center;
+  color: #8d93a5;
+  font-style: normal;
+  font-weight: 400;
+  word-break: break-all;
+  padding: 3px 8px;
+  max-width: 183px;
+  box-sizing: border-box;
+}
+
+.c6 .label,
+.c6 .description {
+  font-family: 'Inter',sans-serif;
+}
+
+.c6 .label {
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
+
+.c6 .description {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+}
+
+.c0:first-child .c5 .label,
+.c0:first-child .c5 .description {
+  text-align: left;
+  max-width: 118.5px;
+}
+
+.c0:last-child .c5 .label,
+.c0:last-child .c5 .description {
+  text-align: right;
+  max-width: 118.5px;
+}
+
+.c0 .c2 {
+  border-color: #0858ce;
+  background-color: #ebf3fe;
+  color: #0858ce;
+}
+
+.c0 .c2 svg {
+  margin-top: 5px;
+  fill: #0858ce;
+}
+
+<div
+  class="c0"
+  data-testid="step-1-checked"
+>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2 c3"
+    >
+      <span>
+        <svg
+          data-testid="ion-icon-check"
+          fill="#282B33"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+        >
+           
+          <path
+            d="M19.4603 8.3002C19.9022 7.76993 19.8306 6.98172 19.3002 6.5397C18.7699 6.09781 17.9817 6.16946 17.5397 6.69986L10.8752 14.6973L6.34085 10.5751C5.83003 10.1107 5.03947 10.1483 4.57508 10.6592C4.1107 11.1699 4.14835 11.9606 4.65917 12.425L10.1592 17.425C10.4114 17.6542 10.7463 17.7705 11.0863 17.7471C11.4264 17.7235 11.7421 17.5622 11.9603 17.3002L19.4603 8.3002Z"
+          />
+           
+        </svg>
+      </span>
+    </div>
+    <div
+      class="c4"
+    />
+  </div>
+  <div
+    class="c5 c6"
+  >
+    <div
+      class="label"
+    >
+      Step 1
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Static IonStepComponent should render step with id step-2-checked 1`] = `
+.c1 {
+  display: flex;
+  align-items: center;
+}
+
+.c2 {
+  width: 64.5px;
+  height: 1px;
+  background-color: #0858ce;
+}
+
+.c4 {
+  box-sizing: content-box;
+  margin: 8px;
+  padding: 4px;
+  min-width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.c6 {
+  text-align: center;
+  color: #8d93a5;
+  font-style: normal;
+  font-weight: 400;
+  word-break: break-all;
+  padding: 3px 8px;
+  max-width: 183px;
+  box-sizing: border-box;
+}
+
+.c6 .label,
+.c6 .description {
+  font-family: 'Inter',sans-serif;
+}
+
+.c6 .label {
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
+
+.c6 .description {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+}
+
+.c0:first-child .c5 .label,
+.c0:first-child .c5 .description {
+  text-align: left;
+  max-width: 118.5px;
+}
+
+.c0:last-child .c5 .label,
+.c0:last-child .c5 .description {
+  text-align: right;
+  max-width: 118.5px;
+}
+
+.c0 .c3 {
+  border-color: #0858ce;
+  background-color: #ebf3fe;
+  color: #0858ce;
+}
+
+.c0 .c3 svg {
+  margin-top: 5px;
+  fill: #0858ce;
+}
+
+<div
+  class="c0"
+  data-testid="step-2-checked"
+>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2"
+    />
+    <div
+      class="c3 c4"
+    >
+      <span>
+        <svg
+          data-testid="ion-icon-check"
+          fill="#282B33"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+        >
+           
+          <path
+            d="M19.4603 8.3002C19.9022 7.76993 19.8306 6.98172 19.3002 6.5397C18.7699 6.09781 17.9817 6.16946 17.5397 6.69986L10.8752 14.6973L6.34085 10.5751C5.83003 10.1107 5.03947 10.1483 4.57508 10.6592C4.1107 11.1699 4.14835 11.9606 4.65917 12.425L10.1592 17.425C10.4114 17.6542 10.7463 17.7705 11.0863 17.7471C11.4264 17.7235 11.7421 17.5622 11.9603 17.3002L19.4603 8.3002Z"
+          />
+           
+        </svg>
+      </span>
+    </div>
+    <div
+      class="c2"
+    />
+  </div>
+  <div
+    class="c5 c6"
+  >
+    <div
+      class="label"
+    >
+      Step 2
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Static IonStepComponent should render step with id step-3-checked 1`] = `
+.c1 {
+  display: flex;
+  align-items: center;
+}
+
+.c2 {
+  width: 64.5px;
+  height: 1px;
+  background-color: #0858ce;
+}
+
+.c4 {
+  box-sizing: content-box;
+  margin: 8px;
+  padding: 4px;
+  min-width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.c6 {
+  text-align: center;
+  color: #8d93a5;
+  font-style: normal;
+  font-weight: 400;
+  word-break: break-all;
+  padding: 3px 8px;
+  max-width: 183px;
+  box-sizing: border-box;
+}
+
+.c6 .label,
+.c6 .description {
+  font-family: 'Inter',sans-serif;
+}
+
+.c6 .label {
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
+
+.c6 .description {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+}
+
+.c0 {
+  display: flex;
+  flex-direction: column;
+}
+
+.c0:first-child .c5 .label,
+.c0:first-child .c5 .description {
+  text-align: left;
+  max-width: 118.5px;
+}
+
+.c0:last-child .c5 .label,
+.c0:last-child .c5 .description {
+  text-align: right;
+  max-width: 118.5px;
+}
+
+.c0 .c3 {
+  border-color: #0858ce;
+  background-color: #ebf3fe;
+  color: #0858ce;
+}
+
+.c0 .c3 svg {
+  margin-top: 5px;
+  fill: #0858ce;
+}
+
+<div
+  class="c0"
+  data-testid="step-3-checked"
+>
+  <div
+    class="c1"
+  >
+    <div
+      class="c2"
+    />
+    <div
+      class="c3 c4"
+    >
+      <span>
+        <svg
+          data-testid="ion-icon-check"
+          fill="#282B33"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+        >
+           
+          <path
+            d="M19.4603 8.3002C19.9022 7.76993 19.8306 6.98172 19.3002 6.5397C18.7699 6.09781 17.9817 6.16946 17.5397 6.69986L10.8752 14.6973L6.34085 10.5751C5.83003 10.1107 5.03947 10.1483 4.57508 10.6592C4.1107 11.1699 4.14835 11.9606 4.65917 12.425L10.1592 17.425C10.4114 17.6542 10.7463 17.7705 11.0863 17.7471C11.4264 17.7235 11.7421 17.5622 11.9603 17.3002L19.4603 8.3002Z"
+          />
+           
+        </svg>
+      </span>
+    </div>
+  </div>
+  <div
+    class="c5 c6"
+  >
+    <div
+      class="label"
+    >
+      Step 3
+    </div>
+  </div>
+</div>
+`;
