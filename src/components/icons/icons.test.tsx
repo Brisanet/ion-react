@@ -17,7 +17,8 @@ const customIcon: IonIconProps = {
   color: 'purple',
 };
 
-const sut = (props = defaultIcon) => renderWithTheme(<IonIcon {...props} />);
+const sut = (props: IonIconProps = { type: 'pencil' }) =>
+  renderWithTheme(<IonIcon {...props} />);
 const getIcon = (type: IconType) => screen.getByTestId(`ion-icon-${type}`);
 const getOuterHighlight = () => screen.getByTestId('ion-icon-outer-highlight');
 const getInnerHighlight = () => screen.getByTestId('ion-icon-inner-highlight');
@@ -50,6 +51,18 @@ describe('IonIcon', () => {
     it('should render the highlights background color as transparent', () => {
       expect(outerHighlight).toHaveStyleRule('background-color', 'transparent');
       expect(innerHighlight).toHaveStyleRule('background-color', 'transparent');
+    });
+  });
+
+  describe('Invalid Hex', () => {
+    it('should render the highlights with the default props when the color informed is not Hexadecimal', () => {
+      sut({ ...defaultIcon, color: 'red' });
+      expect(outerHighlight).toHaveStyleRule('background-color', 'transparent');
+      expect(innerHighlight).toHaveStyleRule('background-color', 'transparent');
+      expect(outerHighlight).toHaveStyleRule('width', 'unset');
+      expect(outerHighlight).toHaveStyleRule('height', 'unset');
+      expect(innerHighlight).toHaveStyleRule('width', 'unset');
+      expect(innerHighlight).toHaveStyleRule('height', 'unset');
     });
   });
 
