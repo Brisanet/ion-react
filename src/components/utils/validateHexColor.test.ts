@@ -10,7 +10,7 @@ describe('validateHexColor', () => {
     }
   );
   it.each(validHexColors)(
-    'should return false if an invalid hexadecimal color is provided',
+    'should return false if a valid hexadecimal color is provided',
     (value) => {
       expect(validateHexColor(value)).toBe(true);
     }
