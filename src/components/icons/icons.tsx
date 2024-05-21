@@ -120,13 +120,13 @@ export const IonIcon = ({
     <IconHighlight
       $color={outerStylesControl[highlight].color}
       $size={outerStylesControl[highlight].size}
-      $isHighlighted={highlight !== 'none' && isHex(color)}
+      $isHighlighted={highlight !== 'none'}
       data-testid='ion-icon-outer-highlight'
     >
       <IconHighlight
         $color={innerStylesControl[highlight].color}
         $size={innerStylesControl[highlight].size}
-        $isHighlighted={highlight !== 'none' && isHex(color)}
+        $isHighlighted={highlight !== 'none'}
         data-testid='ion-icon-inner-highlight'
       >
         {iconContent}
