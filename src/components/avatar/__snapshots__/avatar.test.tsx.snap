@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar Default should render avatar with lg size variation 1`] = `
+.c0 {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #b5d2fc;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+}
+
+.c0 span {
+  color: #06439d;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  font-weight: 600;
+}
+
+<div
+  class="c0"
+  data-testid="ion-avatar"
+>
+  <span
+    data-testid="ion-avatar-initials"
+  >
+    --
+  </span>
+</div>
+`;
+
+exports[`Avatar Default should render avatar with md size variation 1`] = `
+.c0 {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #b5d2fc;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+}
+
+.c0 span {
+  color: #06439d;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  font-weight: 600;
+}
+
+<div
+  class="c0"
+  data-testid="ion-avatar"
+>
+  <span
+    data-testid="ion-avatar-initials"
+  >
+    --
+  </span>
+</div>
+`;
+
+exports[`Avatar Default should render avatar with sm size variation 1`] = `
+.c0 {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #b5d2fc;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+}
+
+.c0 span {
+  color: #06439d;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  font-weight: 600;
+}
+
+<div
+  class="c0"
+  data-testid="ion-avatar"
+>
+  <span
+    data-testid="ion-avatar-initials"
+  >
+    --
+  </span>
+</div>
+`;
+
+exports[`Avatar Default should render avatar with xs size variation 1`] = `
+.c0 {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #b5d2fc;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+}
+
+.c0 span {
+  color: #06439d;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  font-weight: 600;
+}
+
+<div
+  class="c0"
+  data-testid="ion-avatar"
+>
+  <span
+    data-testid="ion-avatar-initials"
+  >
+    --
+  </span>
+</div>
+`;
