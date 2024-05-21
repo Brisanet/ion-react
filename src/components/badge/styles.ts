@@ -1,8 +1,15 @@
-import styled, { DefaultTheme, RuleSet, css } from 'styled-components';
-import { BadgeType } from './badge';
+import styled, { css, DefaultTheme, RuleSet } from 'styled-components';
+import { BadgeStatus, BadgeType } from './badge';
 
 type BadgeStylesProps = {
   $type: BadgeType;
+};
+
+type DotStylesProps = {
+  $size: number;
+  $status: BadgeStatus;
+  $customColor?: string;
+  $hasIcon?: boolean;
 };
 
 type ColorByVariant = {
@@ -54,5 +61,32 @@ export const Badge = styled.span<BadgeStylesProps>`
     border-radius: 50rem;
     user-select: none;
     ${type(theme, $type)};
+  `}
+`;
+
+export const DotContainer = styled.div`
+  ${({ theme }) => css`
+    ${theme.utils.flex.start(8)}
+
+    span {
+      ${theme.font.size[14]};
+      font-weight: 400;
+      color: ${theme.colors.neutral[7]};
+    }
+  `}
+`;
+
+export const Dot = styled.div<DotStylesProps>`
+  ${({ theme, $size, $status, $customColor, $hasIcon }) => css`
+    width: ${!$hasIcon ? 8 : $size}px;
+    height: ${!$hasIcon ? 8 : $size}px;
+    border-radius: 50%;
+
+    ${$hasIcon &&
+    css`
+      ${theme.utils.flex.center()}
+    `}
+
+    background-color: ${$customColor || theme.colors[$status][6]};
   `}
 `;

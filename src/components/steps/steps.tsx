@@ -68,13 +68,13 @@ const LineDraw = ({ type, status, stepNumber, steps }: StepLine) => {
   };
 
   if (type === 'before' && stepNumber !== 1) {
-    return <LineStyle bolded={beforeStepIsChecked(stepNumber)} />;
+    return <LineStyle $bolded={beforeStepIsChecked(stepNumber)} />;
   }
 
   return (
     <>
       {type === 'after' && stepNumber !== steps.length && (
-        <LineStyle bolded={afterStepIsChecked(stepNumber)} />
+        <LineStyle $bolded={afterStepIsChecked(stepNumber)} />
       )}
     </>
   );
@@ -85,7 +85,7 @@ const StepDraw = ({ status, stepNumber, steps }: StepCircle) => {
     <>
       <StepDrawStyle>
         <LineDraw
-          type={'before'}
+          type='before'
           status={status}
           stepNumber={stepNumber}
           steps={steps}
@@ -96,7 +96,7 @@ const StepDraw = ({ status, stepNumber, steps }: StepCircle) => {
           </span>
         </CircleStyle>
         <LineDraw
-          type={'after'}
+          type='after'
           status={status}
           stepNumber={stepNumber}
           steps={steps}
@@ -192,9 +192,9 @@ export const IonSteps = ({
           return (
             <StepStyle
               key={step.stepNumber}
-              status={step.status}
-              disabled={disabled}
-              clickable={clickable}
+              $status={step.status || 'default'}
+              $disabled={disabled}
+              $clickable={clickable}
               data-testid={'step-' + step.stepNumber + '-' + step.status}
               onClick={() => handleClickGoesTo(step.stepNumber)}
             >
