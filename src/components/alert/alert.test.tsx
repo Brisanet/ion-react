@@ -1,15 +1,15 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { IonAlert, AlertProps } from './alert';
 import { StatusType } from '../../core/types/status';
+import { renderWithTheme } from '../utils/test-utils';
+import { AlertProps, IonAlert } from './alert';
 
 const defaultAlert: AlertProps = {
   message: 'Example message',
 };
 
-const sut = (props = defaultAlert) => render(<IonAlert {...props} />);
+const sut = (props = defaultAlert) => renderWithTheme(<IonAlert {...props} />);
 const alertId = 'ion-alert';
 const getAlert = () => screen.getByTestId(alertId);
 
@@ -36,14 +36,17 @@ describe('IonAlert', () => {
   it.each(['success', 'info', 'warning', 'negative'] as StatusType[])(
     'should render alert with type: %s',
     (type) => {
-      sut({ ...defaultAlert, type });
-      expect(getAlert().className).toContain(`type-${type}`);
+      const { container } = sut({ ...defaultAlert, type });
+      expect(container).toMatchSnapshot();
     }
   );
 
   it('should not render background alert when hideBackground is true', async () => {
     await sut({ ...defaultAlert, hideBackground: true });
-    expect(getAlert().className).toContain('hideBackground-true');
+    expect(getAlert()).not.toHaveStyleRule(
+      'background-color',
+      expect.any(String)
+    );
   });
 
   it('should render icon close when closable is true', async () => {
@@ -52,12 +55,11 @@ describe('IonAlert', () => {
     expect(iconClose).toBeTruthy();
   });
 
-  it('should remove alert when click on close icon', async () => {
-    await sut({ ...defaultAlert, closable: true });
-    const iconClose = screen.getByTestId('ion-icon-close');
-    expect(getAlert()).toBeTruthy();
+  it('should emit onClose function when click on close icon', async () => {
+    const onClose = jest.fn();
+    await sut({ ...defaultAlert, closable: true, onClose });
 
-    await userEvent.click(iconClose);
-    expect(screen.queryByTestId(alertId)).not.toBeTruthy();
+    await userEvent.click(screen.getByTestId('ion-icon-close'));
+    expect(onClose).toHaveBeenCalledTimes(1);
   });
 });
