@@ -3,8 +3,11 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { BadgeProps, IonBadge } from '../../components/badge/badge';
 
 export default {
-  title: 'Ion/Data display/Badges',
+  title: 'Ion/Data display/Badges/Value',
   component: IonBadge,
+  parameters: {
+    controls: { include: ['label', 'type'] },
+  },
 } as ComponentMeta<typeof IonBadge>;
 
 const Template: ComponentStory<typeof IonBadge> = (args: BadgeProps) => (

@@ -1,270 +1,286 @@
-import stitches from '../../stitches.config';
-import { spacing } from '../utils/spacing';
+import { css, DefaultTheme, RuleSet, styled } from 'styled-components';
+import { StepStatusType } from './steps';
 
-const { styled } = stitches;
+type StepStylesProps = {
+  $status: StepStatusType;
+  $clickable: boolean;
+  $disabled: boolean;
+};
 
-export const StepsContainerStyle = styled('div', {
-  display: 'flex',
-});
+export const StepsContainerStyle = styled.div`
+  display: flex;
+`;
 
-export const StepDrawStyle = styled('div', {
-  display: 'flex',
-  alignItems: 'center',
-});
+export const StepDrawStyle = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
-export const LineStyle = styled('div', {
-  width: '64.5px',
-  height: '1px',
-  backgroundColor: '$neutral4',
+export const LineStyle = styled.div<{ $bolded: boolean }>`
+  ${({ theme, $bolded }) => css`
+    width: 64.5px;
+    height: 1px;
+    background-color: ${$bolded
+      ? theme.colors.primary[6]
+      : theme.colors.neutral[4]};
+  `}
+`;
 
-  variants: {
-    bolded: {
-      true: {
-        backgroundColor: '$primary6',
-      },
-    },
-  },
-});
+export const CircleStyle = styled.div`
+  ${({ theme }) => css`
+    box-sizing: content-box;
+    margin: 8px;
+    padding: 4px;
+    min-width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid;
+    ${theme.utils.flex.center()}
+    ${theme.font.size[14]}
+    font-style: normal;
+    font-weight: 600;
+  `}
+`;
 
-export const CircleStyle = styled('div', {
-  boxSizing: 'content-box',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  margin: spacing(1),
-  padding: spacing(0.5),
-  minWidth: '28px',
-  height: '28px',
-  borderRadius: '20px',
-  border: '1px solid',
-  fontFamily: '"Source Sans Pro", sans-serif',
-  fontStyle: 'normal',
-  fontWeight: '600',
-  fontSize: '14px',
-  lineHeight: '20px',
-});
+export const DetailsStyle = styled.div`
+  ${({ theme }) => css`
+    text-align: center;
+    color: ${theme.colors.neutral[6]};
+    font-style: normal;
+    font-weight: 400;
+    word-break: break-all;
+    padding: 3px 8px;
+    max-width: 183px;
+    box-sizing: border-box;
 
-export const DetailsStyle = styled('div', {
-  textAlign: 'center',
-  color: '$neutral6',
-  fontFamily: '"Inter", sans-serif',
-  fontStyle: 'normal',
-  fontWeight: '400',
-  wordBreak: 'break-all',
-  padding: '3px 8px',
-  maxWidth: '183px',
-  boxSizing: 'border-box',
+    .label,
+    .description {
+      font-family: 'Inter', sans-serif;
+    }
 
-  '.label': {
-    fontSize: '14px',
-    lineHeight: '20px',
-  },
+    .label {
+      ${theme.font.size[14]}
+    }
 
-  '.description': {
-    fontSize: '12px',
-    lineHeight: '16px',
-  },
-});
+    .description {
+      ${theme.font.size[12]}
+    }
+  `}
+`;
 
-export const StepStyle = styled('div', {
-  display: 'flex',
-  flexDirection: 'column',
-  '&:first-child': {
-    [`& ${DetailsStyle}`]: {
-      '.label, .description': {
-        textAlign: 'left',
-        maxWidth: '118.5px',
-      },
-    },
-  },
-  '&:last-child': {
-    [`& ${DetailsStyle}`]: {
-      '.label, .description': {
-        textAlign: 'right',
-        maxWidth: '118.5px',
-      },
-    },
-  },
+export const stylesByStatus = (
+  theme: DefaultTheme,
+  status: StepStatusType
+): RuleSet<object> => {
+  return {
+    default: css`
+      ${CircleStyle} {
+        border-color: ${theme.colors.neutral[6]};
+        background-color: ${theme.colors.neutral[1]};
+        color: ${theme.colors.neutral[8]};
+      }
+    `,
+    selected: css`
+      ${CircleStyle} {
+        border-color: ${theme.colors.primary[6]};
+        background-color: ${theme.colors.primary[6]};
+        color: ${theme.colors.neutral[1]};
+      }
 
-  defaultVariants: {
-    status: 'default',
-  },
+      ${DetailsStyle} {
+        .label {
+          color: ${theme.colors.neutral[7]};
+        }
+      }
+    `,
+    checked: css`
+      ${CircleStyle} {
+        border-color: ${theme.colors.primary[6]};
+        background-color: ${theme.colors.primary[1]};
+        color: ${theme.colors.primary[6]};
 
-  variants: {
-    status: {
-      default: {
-        [`& ${CircleStyle}`]: {
-          borderColor: '$neutral6',
-          backgroundColor: '$neutral1',
-          color: '$neutral8',
-        },
-      },
-      selected: {
-        [`& ${CircleStyle}`]: {
-          borderColor: '$primary6',
-          backgroundColor: '$primary6',
-          color: '$neutral1',
-        },
+        svg {
+          margin-top: 5px;
+          fill: ${theme.colors.primary[6]};
+        }
+      }
+    `,
+    error: css`
+      ${CircleStyle} {
+        border-color: ${theme.colors.negative[6]};
+        background-color: ${theme.colors.negative[6]};
+        color: ${theme.colors.neutral[1]};
+      }
+    `,
+  }[status];
+};
 
-        [`& ${DetailsStyle}`]: {
-          '.label': {
-            color: '$neutral7',
-          },
-        },
-      },
-      checked: {
-        [`& ${CircleStyle}`]: {
-          borderColor: '$primary6',
-          backgroundColor: '$primary1',
-          color: '$primary6',
+export const clickableStyles = (theme: DefaultTheme) => css`
+  cursor: pointer;
 
-          svg: {
-            marginTop: '5px',
-            fill: '$primary6',
-          },
-        },
-      },
-      error: {
-        [`& ${CircleStyle}`]: {
-          borderColor: '$negative6',
-          backgroundColor: '$negative6',
-          color: '$neutral1',
-        },
-      },
-    },
-    clickable: {
-      true: {
-        cursor: 'pointer',
-        '&:hover, &:active': {
-          [`& ${DetailsStyle}`]: {
-            '.label, .description': {
-              color: '$primary5',
-            },
-          },
-        },
-      },
-    },
-    disabled: {
-      true: {
-        cursor: 'not-allowed',
-        [`& ${LineStyle}`]: {
-          backgroundColor: '#ced2db',
-        },
+  &:hover,
+  &:active {
+    ${DetailsStyle} {
+      .label,
+      .description {
+        color: ${theme.colors.primary[5]};
+      }
+    }
+  }
+`;
 
-        [`& ${CircleStyle}`]: {
-          borderColor: '$neutral4',
-          backgroundColor: '$neutral4',
-          color: '$neutral5',
+export const clickableStylesByStatus = (
+  theme: DefaultTheme,
+  status: StepStatusType
+): RuleSet<object> => {
+  return {
+    default: css`
+      &:hover {
+        ${CircleStyle} {
+          border-color: ${theme.colors.primary[4]};
+          background-color: ${theme.colors.neutral[1]};
+          color: ${theme.colors.primary[7]};
+        }
+      }
 
-          svg: {
-            marginTop: '5px',
-            fill: '$neutral5',
-          },
-        },
+      &:active {
+        ${CircleStyle} {
+          border-color: ${theme.colors.primary[6]};
+          background-color: ${theme.colors.primary[1]};
+          color: ${theme.colors.primary[7]};
+        }
+      }
+    `,
+    selected: css`
+      &:hover {
+        ${CircleStyle} {
+          border-color: ${theme.colors.primary[5]};
+          background-color: ${theme.colors.primary[5]};
+          color: ${theme.colors.neutral[1]};
+        }
+      }
 
-        [`& ${DetailsStyle}`]: {
-          '.label, .description': {
-            color: '$neutral5',
-          },
-        },
-      },
-    },
-  },
+      &:active {
+        ${CircleStyle} {
+          border-color: ${theme.colors.primary[7]};
+          background-color: ${theme.colors.primary[7]};
+          color: ${theme.colors.neutral[1]};
+        }
+      }
+    `,
+    checked: css`
+      &:hover {
+        ${CircleStyle} {
+          border-color: ${theme.colors.primary[6]};
+          background-color: ${theme.colors.primary[2]};
+          color: ${theme.colors.primary[6]};
 
-  compoundVariants: [
-    {
-      clickable: true,
-      status: 'default',
-      disabled: false,
-      css: {
-        '&:hover': {
-          [`& ${CircleStyle}`]: {
-            borderColor: '$primary4',
-            backgroundColor: '$neutral1',
-            color: '$primary7',
-          },
-        },
-        '&:active': {
-          [`& ${CircleStyle}`]: {
-            borderColor: '$primary6',
-            backgroundColor: '$primary1',
-            color: '$primary7',
-          },
-        },
-      },
-    },
-    {
-      clickable: true,
-      status: 'selected',
-      disabled: false,
-      css: {
-        '&:hover': {
-          [`& ${CircleStyle}`]: {
-            borderColor: '$primary5',
-            backgroundColor: '$primary5',
-            color: '$neutral1',
-          },
-        },
-        '&:active': {
-          [`& ${CircleStyle}`]: {
-            borderColor: '$primary7',
-            backgroundColor: '$primary7',
-            color: '$neutral1',
-          },
-        },
-      },
-    },
-    {
-      clickable: true,
-      status: 'checked',
-      disabled: false,
-      css: {
-        '&:hover': {
-          [`& ${CircleStyle}`]: {
-            borderColor: '$primary6',
-            backgroundColor: '$primary2',
-            color: '$primary6',
+          svg {
+            margin-top: 5px;
+            fill: ${theme.colors.primary[6]};
+          }
+        }
+      }
 
-            svg: {
-              marginTop: '5px',
-              fill: '$primary6',
-            },
-          },
-        },
-        '&:active': {
-          [`& ${CircleStyle}`]: {
-            borderColor: '$primary6',
-            backgroundColor: '$primary2',
-            color: '$primary7',
+      &:active {
+        ${CircleStyle} {
+          border-color: ${theme.colors.primary[6]};
+          background-color: ${theme.colors.primary[2]};
+          color: ${theme.colors.primary[7]};
 
-            svg: {
-              marginTop: '5px',
-              fill: '$primary7',
-            },
-          },
-        },
-      },
-    },
-    {
-      clickable: true,
-      status: 'error',
-      disabled: false,
-      css: {
-        '&:hover': {
-          [`& ${CircleStyle}`]: {
-            borderColor: '$negative5',
-            backgroundColor: '$negative5',
-            color: '$neutral1',
-          },
-        },
-        '&:active': {
-          [`& ${CircleStyle}`]: {
-            borderColor: '$negative7',
-            backgroundColor: '$negative7',
-            color: '$neutral1',
-          },
-        },
-      },
-    },
-  ],
-});
+          svg {
+            margin-top: 5px;
+            fill: ${theme.colors.primary[7]};
+          }
+        }
+      }
+    `,
+    error: css`
+      &:hover {
+        ${CircleStyle} {
+          border-color: ${theme.colors.negative[5]};
+          background-color: ${theme.colors.negative[5]};
+          color: ${theme.colors.neutral[1]};
+        }
+      }
+
+      &:active {
+        ${CircleStyle} {
+          border-color: ${theme.colors.negative[7]};
+          background-color: ${theme.colors.negative[7]};
+          color: ${theme.colors.neutral[1]};
+        }
+      }
+    `,
+  }[status];
+};
+
+export const disabledStyles = (theme: DefaultTheme) => css`
+  cursor: not-allowed;
+
+  &:hover,
+  &:active {
+    ${DetailsStyle} {
+      .label,
+      .description {
+        color: ${theme.colors.neutral[5]};
+      }
+    }
+  }
+
+  ${LineStyle} {
+    background-color: ${theme.colors.neutral[4]};
+  }
+
+  ${CircleStyle} {
+    border-color: ${theme.colors.neutral[4]};
+    background-color: ${theme.colors.neutral[4]};
+    color: ${theme.colors.neutral[5]};
+
+    svg {
+      margin-top: 5px;
+      fill: ${theme.colors.neutral[5]};
+    }
+  }
+
+  ${DetailsStyle} {
+    .label,
+    .description {
+      color: ${theme.colors.neutral[5]};
+    }
+  }
+`;
+
+export const StepStyle = styled.div<StepStylesProps>`
+  ${({ theme, $status, $clickable, $disabled }) => css`
+    display: flex;
+    flex-direction: column;
+
+    &:first-child {
+      ${DetailsStyle} {
+        .label,
+        .description {
+          text-align: left;
+          max-width: 118.5px;
+        }
+      }
+    }
+
+    &:last-child {
+      ${DetailsStyle} {
+        .label,
+        .description {
+          text-align: right;
+          max-width: 118.5px;
+        }
+      }
+    }
+
+    ${stylesByStatus(theme, $status)}
+
+    ${$clickable && clickableStyles(theme)}
+    ${$clickable && !$disabled && clickableStylesByStatus(theme, $status)}
+
+    ${$disabled && disabledStyles(theme)}
+  `}
+`;

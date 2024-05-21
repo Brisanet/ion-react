@@ -1,10 +1,10 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import React from 'react';
+import { renderWithTheme } from '../utils/test-utils';
 import { IonSteps, StepConfig, StepType } from './steps';
 
 const sut = (props: StepConfig = defaultProps) => {
-  return render(<IonSteps {...props} />);
+  return renderWithTheme(<IonSteps {...props} />);
 };
 const getStepById = (testId: string) => screen.getByTestId(testId);
 
@@ -38,7 +38,7 @@ describe('Static IonStepComponent', () => {
     }
   );
   it('should render first step checked', async () => {
-    sut({
+    const { container } = sut({
       current: defaultProps.current,
       steps: [
         {
@@ -56,8 +56,8 @@ describe('Static IonStepComponent', () => {
         },
       ],
     });
-    expect(screen.getByTestId('step-1-checked')).toBeTruthy();
-    expect(getStepById('step-1-checked').className).toContain(`${'checked'}`);
+    expect(screen.getByTestId('step-1-checked')).toBeInTheDocument();
+    expect(container).toMatchSnapshot();
   });
   it('should render second step with error and description', async () => {
     sut({
@@ -80,11 +80,8 @@ describe('Static IonStepComponent', () => {
         },
       ],
     });
-    expect(screen.getByTestId('step-2-error')).toBeTruthy();
-    expect(getStepById('step-2-error').className).toContain(`${'error'}`);
-    expect(screen.getByText('Error').getAttribute('class')).toMatch(
-      /description/
-    );
+    expect(screen.getByTestId('step-2-error')).toBeInTheDocument();
+    expect(screen.getByText('Error')).toHaveClass('description');
   });
   const checkedStepsIds = [
     'step-1-checked',
@@ -114,8 +111,8 @@ describe('Static IonStepComponent', () => {
           },
         ],
       });
-      expect(screen.getByTestId(stepId)).toBeTruthy();
-      expect(getStepById(stepId).className).toContain(`${'checked'}`);
+      expect(screen.getByTestId(stepId)).toBeInTheDocument();
+      expect(getStepById(stepId)).toMatchSnapshot();
     }
   );
   const defaultStepsIds = [
@@ -124,32 +121,32 @@ describe('Static IonStepComponent', () => {
     'step-3-default',
   ];
   it.each(defaultStepsIds)(
-    'should render all steps disabled when the step component is disabled',
+    'should render step %s disabled when the step component is disabled',
     async (stepId: string) => {
       sut({ ...defaultProps, disabled: true });
-      expect(screen.getByTestId(stepId)).toBeTruthy();
-      expect(getStepById(stepId).className).toContain(`${'disabled-true'}`);
+      expect(screen.getByTestId(stepId)).toBeInTheDocument();
+      expect(getStepById(stepId)).toMatchSnapshot();
     }
   );
 });
 
 describe('Passing through the IonStepComponent', () => {
   it('should initiate from step 2', async () => {
-    sut({ ...defaultProps, current: 2 });
-    expect(getStepById('step-1-checked').className).toContain(`${'checked'}`);
-    expect(getStepById('step-2-selected').className).toContain(`${'selected'}`);
+    const { container } = sut({ ...defaultProps, current: 2 });
+    expect(screen.getByTestId('step-2-selected')).toBeInTheDocument();
+    expect(container).toMatchSnapshot();
   });
   it('should go to step 3 when it be clicked', async () => {
     sut({ ...defaultProps, clickable: true });
     await userEvent.click(screen.getByTestId('step-3-default'));
-    expect(screen.getByTestId('step-3-selected')).toBeTruthy();
+    expect(screen.getByTestId('step-3-selected')).toBeInTheDocument();
   });
   it('should to keep last step selected when try to pass forward', async () => {
     sut({ ...defaultProps, current: 8 });
-    expect(await screen.getByTestId('step-3-selected')).toBeTruthy();
+    expect(await screen.getByTestId('step-3-selected')).toBeInTheDocument();
   });
   it('should to keep first step selected when try to rewind beyond the first', async () => {
     sut({ ...defaultProps, current: -3 });
-    expect(screen.getByTestId('step-1-selected')).toBeTruthy();
+    expect(screen.getByTestId('step-1-selected')).toBeInTheDocument();
   });
 });
