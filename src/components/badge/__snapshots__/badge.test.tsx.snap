@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BadgeComponent Dot Default should render dot badge by default 1`] = `
+.c0 {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #0858ce;
+}
+
+<div
+  class="c0"
+  data-testid="ion-dot-badge"
+/>
+`;
