@@ -2,8 +2,8 @@
 
 <b>React Version</b>
 
-<a href="https://codeclimate.com/github/Brisanet/ion-react/maintainability"><img src="https://api.codeclimate.com/v1/badges/e8fcf18ab55b749c0c31/maintainability" /></a>
-<a href="https://codeclimate.com/github/iurynogueira/ion-react/test_coverage"><img src="https://api.codeclimate.com/v1/badges/48ab263c3be483f0a6d2/test_coverage" /></a>
+[![Maintainability](https://api.codeclimate.com/v1/badges/e8fcf18ab55b749c0c31/maintainability)](https://codeclimate.com/github/Brisanet/ion-react/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/e8fcf18ab55b749c0c31/test_coverage)](https://codeclimate.com/github/Brisanet/ion-react/test_coverage)
 [![Production](https://github.com/iurynogueira/ion-react/actions/workflows/prod.yml/badge.svg?branch=main)](https://github.com/iurynogueira/ion-react/actions/workflows/prod.yml)
 [![npm version](https://badge.fury.io/js/@brisanet%2Fion-react.svg)](https://www.npmjs.com/package/@brisanet/ion-react)
 
@@ -16,7 +16,9 @@ npm i @brisanet/ion-react
 ```bash
 yarn add @brisanet/ion-react
 ```
+
 # Contribute
+
 ## Install and run project
 
 To run this project, You will need to use [node v.16.19](https://nodejs.org/en/)
