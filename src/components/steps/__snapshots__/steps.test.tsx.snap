@@ -1,6 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Passing through the IonStepComponent should initiate from step 2 1`] = `
+.c5 {
+  width: unset;
+  height: unset;
+  background-color: transparent;
+  display: inline-flex;
+}
+
+.c6 {
+  width: 24px;
+  height: 24px;
+  fill: #282B33;
+}
+
 .c0 {
   display: flex;
 }
@@ -10,13 +23,13 @@ exports[`Passing through the IonStepComponent should initiate from step 2 1`] = 
   align-items: center;
 }
 
-.c9 {
+.c11 {
   width: 64.5px;
   height: 1px;
   background-color: #ced2db;
 }
 
-.c5 {
+.c7 {
   width: 64.5px;
   height: 1px;
   background-color: #0858ce;
@@ -40,7 +53,7 @@ exports[`Passing through the IonStepComponent should initiate from step 2 1`] = 
   font-weight: 600;
 }
 
-.c7 {
+.c9 {
   text-align: center;
   color: #8d93a5;
   font-style: normal;
@@ -51,39 +64,39 @@ exports[`Passing through the IonStepComponent should initiate from step 2 1`] = 
   box-sizing: border-box;
 }
 
-.c7 .label,
-.c7 .description {
+.c9 .label,
+.c9 .description {
   font-family: 'Inter',sans-serif;
 }
 
-.c7 .label {
+.c9 .label {
   font-size: 1.4rem;
   line-height: 2rem;
 }
 
-.c7 .description {
+.c9 .description {
   font-size: 1.2rem;
   line-height: 1.6rem;
 }
 
-.c10 {
+.c12 {
   display: flex;
   flex-direction: column;
 }
 
-.c10:first-child .c6 .label,
-.c10:first-child .c6 .description {
+.c12:first-child .c8 .label,
+.c12:first-child .c8 .description {
   text-align: left;
   max-width: 118.5px;
 }
 
-.c10:last-child .c6 .label,
-.c10:last-child .c6 .description {
+.c12:last-child .c8 .label,
+.c12:last-child .c8 .description {
   text-align: right;
   max-width: 118.5px;
 }
 
-.c10 .c3 {
+.c12 .c3 {
   border-color: #8d93a5;
   background-color: #fcfcfd;
   color: #282b33;
@@ -94,14 +107,14 @@ exports[`Passing through the IonStepComponent should initiate from step 2 1`] = 
   flex-direction: column;
 }
 
-.c1:first-child .c6 .label,
-.c1:first-child .c6 .description {
+.c1:first-child .c8 .label,
+.c1:first-child .c8 .description {
   text-align: left;
   max-width: 118.5px;
 }
 
-.c1:last-child .c6 .label,
-.c1:last-child .c6 .description {
+.c1:last-child .c8 .label,
+.c1:last-child .c8 .description {
   text-align: right;
   max-width: 118.5px;
 }
@@ -117,30 +130,30 @@ exports[`Passing through the IonStepComponent should initiate from step 2 1`] = 
   fill: #0858ce;
 }
 
-.c8 {
+.c10 {
   display: flex;
   flex-direction: column;
 }
 
-.c8:first-child .c6 .label,
-.c8:first-child .c6 .description {
+.c10:first-child .c8 .label,
+.c10:first-child .c8 .description {
   text-align: left;
   max-width: 118.5px;
 }
 
-.c8:last-child .c6 .label,
-.c8:last-child .c6 .description {
+.c10:last-child .c8 .label,
+.c10:last-child .c8 .description {
   text-align: right;
   max-width: 118.5px;
 }
 
-.c8 .c3 {
+.c10 .c3 {
   border-color: #0858ce;
   background-color: #0858ce;
   color: #fcfcfd;
 }
 
-.c8 .c6 .label {
+.c10 .c8 .label {
   color: #505566;
 }
 
@@ -160,27 +173,35 @@ exports[`Passing through the IonStepComponent should initiate from step 2 1`] = 
           class="c3 c4"
         >
           <span>
-            <svg
-              data-testid="ion-icon-check"
-              fill="#282B33"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
+            <div
+              class="c5"
+              data-testid="ion-icon-outer-highlight"
             >
-               
-              <path
-                d="M19.4603 8.3002C19.9022 7.76993 19.8306 6.98172 19.3002 6.5397C18.7699 6.09781 17.9817 6.16946 17.5397 6.69986L10.8752 14.6973L6.34085 10.5751C5.83003 10.1107 5.03947 10.1483 4.57508 10.6592C4.1107 11.1699 4.14835 11.9606 4.65917 12.425L10.1592 17.425C10.4114 17.6542 10.7463 17.7705 11.0863 17.7471C11.4264 17.7235 11.7421 17.5622 11.9603 17.3002L19.4603 8.3002Z"
-              />
-               
-            </svg>
+              <div
+                class="c5"
+                data-testid="ion-icon-inner-highlight"
+              >
+                <svg
+                  class="c6"
+                  data-testid="ion-icon-check"
+                  viewBox="0 0 24 24"
+                >
+                   
+                  <path
+                    d="M19.4603 8.3002C19.9022 7.76993 19.8306 6.98172 19.3002 6.5397C18.7699 6.09781 17.9817 6.16946 17.5397 6.69986L10.8752 14.6973L6.34085 10.5751C5.83003 10.1107 5.03947 10.1483 4.57508 10.6592C4.1107 11.1699 4.14835 11.9606 4.65917 12.425L10.1592 17.425C10.4114 17.6542 10.7463 17.7705 11.0863 17.7471C11.4264 17.7235 11.7421 17.5622 11.9603 17.3002L19.4603 8.3002Z"
+                  />
+                   
+                </svg>
+              </div>
+            </div>
           </span>
         </div>
         <div
-          class="c5"
+          class="c7"
         />
       </div>
       <div
-        class="c6 c7"
+        class="c8 c9"
       >
         <div
           class="label"
@@ -190,14 +211,14 @@ exports[`Passing through the IonStepComponent should initiate from step 2 1`] = 
       </div>
     </div>
     <div
-      class="c8"
+      class="c10"
       data-testid="step-2-selected"
     >
       <div
         class="c2"
       >
         <div
-          class="c5"
+          class="c7"
         />
         <div
           class="c3 c4"
@@ -207,11 +228,11 @@ exports[`Passing through the IonStepComponent should initiate from step 2 1`] = 
           </span>
         </div>
         <div
-          class="c9"
+          class="c11"
         />
       </div>
       <div
-        class="c6 c7"
+        class="c8 c9"
       >
         <div
           class="label"
@@ -221,14 +242,14 @@ exports[`Passing through the IonStepComponent should initiate from step 2 1`] = 
       </div>
     </div>
     <div
-      class="c10"
+      class="c12"
       data-testid="step-3-default"
     >
       <div
         class="c2"
       >
         <div
-          class="c9"
+          class="c11"
         />
         <div
           class="c3 c4"
@@ -239,7 +260,7 @@ exports[`Passing through the IonStepComponent should initiate from step 2 1`] = 
         </div>
       </div>
       <div
-        class="c6 c7"
+        class="c8 c9"
       >
         <div
           class="label"
@@ -253,6 +274,19 @@ exports[`Passing through the IonStepComponent should initiate from step 2 1`] = 
 `;
 
 exports[`Static IonStepComponent should render first step checked 1`] = `
+.c5 {
+  width: unset;
+  height: unset;
+  background-color: transparent;
+  display: inline-flex;
+}
+
+.c6 {
+  width: 24px;
+  height: 24px;
+  fill: #282B33;
+}
+
 .c0 {
   display: flex;
 }
@@ -262,13 +296,13 @@ exports[`Static IonStepComponent should render first step checked 1`] = `
   align-items: center;
 }
 
-.c5 {
+.c7 {
   width: 64.5px;
   height: 1px;
   background-color: #0858ce;
 }
 
-.c9 {
+.c11 {
   width: 64.5px;
   height: 1px;
   background-color: #ced2db;
@@ -292,7 +326,7 @@ exports[`Static IonStepComponent should render first step checked 1`] = `
   font-weight: 600;
 }
 
-.c7 {
+.c9 {
   text-align: center;
   color: #8d93a5;
   font-style: normal;
@@ -303,17 +337,17 @@ exports[`Static IonStepComponent should render first step checked 1`] = `
   box-sizing: border-box;
 }
 
-.c7 .label,
-.c7 .description {
+.c9 .label,
+.c9 .description {
   font-family: 'Inter',sans-serif;
 }
 
-.c7 .label {
+.c9 .label {
   font-size: 1.4rem;
   line-height: 2rem;
 }
 
-.c7 .description {
+.c9 .description {
   font-size: 1.2rem;
   line-height: 1.6rem;
 }
@@ -323,14 +357,14 @@ exports[`Static IonStepComponent should render first step checked 1`] = `
   flex-direction: column;
 }
 
-.c1:first-child .c6 .label,
-.c1:first-child .c6 .description {
+.c1:first-child .c8 .label,
+.c1:first-child .c8 .description {
   text-align: left;
   max-width: 118.5px;
 }
 
-.c1:last-child .c6 .label,
-.c1:last-child .c6 .description {
+.c1:last-child .c8 .label,
+.c1:last-child .c8 .description {
   text-align: right;
   max-width: 118.5px;
 }
@@ -346,24 +380,24 @@ exports[`Static IonStepComponent should render first step checked 1`] = `
   fill: #0858ce;
 }
 
-.c8 {
+.c10 {
   display: flex;
   flex-direction: column;
 }
 
-.c8:first-child .c6 .label,
-.c8:first-child .c6 .description {
+.c10:first-child .c8 .label,
+.c10:first-child .c8 .description {
   text-align: left;
   max-width: 118.5px;
 }
 
-.c8:last-child .c6 .label,
-.c8:last-child .c6 .description {
+.c10:last-child .c8 .label,
+.c10:last-child .c8 .description {
   text-align: right;
   max-width: 118.5px;
 }
 
-.c8 .c3 {
+.c10 .c3 {
   border-color: #8d93a5;
   background-color: #fcfcfd;
   color: #282b33;
@@ -385,27 +419,35 @@ exports[`Static IonStepComponent should render first step checked 1`] = `
           class="c3 c4"
         >
           <span>
-            <svg
-              data-testid="ion-icon-check"
-              fill="#282B33"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
+            <div
+              class="c5"
+              data-testid="ion-icon-outer-highlight"
             >
-               
-              <path
-                d="M19.4603 8.3002C19.9022 7.76993 19.8306 6.98172 19.3002 6.5397C18.7699 6.09781 17.9817 6.16946 17.5397 6.69986L10.8752 14.6973L6.34085 10.5751C5.83003 10.1107 5.03947 10.1483 4.57508 10.6592C4.1107 11.1699 4.14835 11.9606 4.65917 12.425L10.1592 17.425C10.4114 17.6542 10.7463 17.7705 11.0863 17.7471C11.4264 17.7235 11.7421 17.5622 11.9603 17.3002L19.4603 8.3002Z"
-              />
-               
-            </svg>
+              <div
+                class="c5"
+                data-testid="ion-icon-inner-highlight"
+              >
+                <svg
+                  class="c6"
+                  data-testid="ion-icon-check"
+                  viewBox="0 0 24 24"
+                >
+                   
+                  <path
+                    d="M19.4603 8.3002C19.9022 7.76993 19.8306 6.98172 19.3002 6.5397C18.7699 6.09781 17.9817 6.16946 17.5397 6.69986L10.8752 14.6973L6.34085 10.5751C5.83003 10.1107 5.03947 10.1483 4.57508 10.6592C4.1107 11.1699 4.14835 11.9606 4.65917 12.425L10.1592 17.425C10.4114 17.6542 10.7463 17.7705 11.0863 17.7471C11.4264 17.7235 11.7421 17.5622 11.9603 17.3002L19.4603 8.3002Z"
+                  />
+                   
+                </svg>
+              </div>
+            </div>
           </span>
         </div>
         <div
-          class="c5"
+          class="c7"
         />
       </div>
       <div
-        class="c6 c7"
+        class="c8 c9"
       >
         <div
           class="label"
@@ -415,14 +457,14 @@ exports[`Static IonStepComponent should render first step checked 1`] = `
       </div>
     </div>
     <div
-      class="c8"
+      class="c10"
       data-testid="step-2-default"
     >
       <div
         class="c2"
       >
         <div
-          class="c5"
+          class="c7"
         />
         <div
           class="c3 c4"
@@ -432,11 +474,11 @@ exports[`Static IonStepComponent should render first step checked 1`] = `
           </span>
         </div>
         <div
-          class="c9"
+          class="c11"
         />
       </div>
       <div
-        class="c6 c7"
+        class="c8 c9"
       >
         <div
           class="label"
@@ -446,14 +488,14 @@ exports[`Static IonStepComponent should render first step checked 1`] = `
       </div>
     </div>
     <div
-      class="c8"
+      class="c10"
       data-testid="step-3-default"
     >
       <div
         class="c2"
       >
         <div
-          class="c9"
+          class="c11"
         />
         <div
           class="c3 c4"
@@ -464,7 +506,7 @@ exports[`Static IonStepComponent should render first step checked 1`] = `
         </div>
       </div>
       <div
-        class="c6 c7"
+        class="c8 c9"
       >
         <div
           class="label"
@@ -1039,12 +1081,25 @@ exports[`Static IonStepComponent should render step step-3-default disabled when
 `;
 
 exports[`Static IonStepComponent should render step with id step-1-checked 1`] = `
+.c4 {
+  width: unset;
+  height: unset;
+  background-color: transparent;
+  display: inline-flex;
+}
+
+.c5 {
+  width: 24px;
+  height: 24px;
+  fill: #282B33;
+}
+
 .c1 {
   display: flex;
   align-items: center;
 }
 
-.c4 {
+.c6 {
   width: 64.5px;
   height: 1px;
   background-color: #0858ce;
@@ -1068,7 +1123,7 @@ exports[`Static IonStepComponent should render step with id step-1-checked 1`] =
   font-weight: 600;
 }
 
-.c6 {
+.c8 {
   text-align: center;
   color: #8d93a5;
   font-style: normal;
@@ -1079,17 +1134,17 @@ exports[`Static IonStepComponent should render step with id step-1-checked 1`] =
   box-sizing: border-box;
 }
 
-.c6 .label,
-.c6 .description {
+.c8 .label,
+.c8 .description {
   font-family: 'Inter',sans-serif;
 }
 
-.c6 .label {
+.c8 .label {
   font-size: 1.4rem;
   line-height: 2rem;
 }
 
-.c6 .description {
+.c8 .description {
   font-size: 1.2rem;
   line-height: 1.6rem;
 }
@@ -1099,14 +1154,14 @@ exports[`Static IonStepComponent should render step with id step-1-checked 1`] =
   flex-direction: column;
 }
 
-.c0:first-child .c5 .label,
-.c0:first-child .c5 .description {
+.c0:first-child .c7 .label,
+.c0:first-child .c7 .description {
   text-align: left;
   max-width: 118.5px;
 }
 
-.c0:last-child .c5 .label,
-.c0:last-child .c5 .description {
+.c0:last-child .c7 .label,
+.c0:last-child .c7 .description {
   text-align: right;
   max-width: 118.5px;
 }
@@ -1133,27 +1188,35 @@ exports[`Static IonStepComponent should render step with id step-1-checked 1`] =
       class="c2 c3"
     >
       <span>
-        <svg
-          data-testid="ion-icon-check"
-          fill="#282B33"
-          height="24"
-          viewBox="0 0 24 24"
-          width="24"
+        <div
+          class="c4"
+          data-testid="ion-icon-outer-highlight"
         >
-           
-          <path
-            d="M19.4603 8.3002C19.9022 7.76993 19.8306 6.98172 19.3002 6.5397C18.7699 6.09781 17.9817 6.16946 17.5397 6.69986L10.8752 14.6973L6.34085 10.5751C5.83003 10.1107 5.03947 10.1483 4.57508 10.6592C4.1107 11.1699 4.14835 11.9606 4.65917 12.425L10.1592 17.425C10.4114 17.6542 10.7463 17.7705 11.0863 17.7471C11.4264 17.7235 11.7421 17.5622 11.9603 17.3002L19.4603 8.3002Z"
-          />
-           
-        </svg>
+          <div
+            class="c4"
+            data-testid="ion-icon-inner-highlight"
+          >
+            <svg
+              class="c5"
+              data-testid="ion-icon-check"
+              viewBox="0 0 24 24"
+            >
+               
+              <path
+                d="M19.4603 8.3002C19.9022 7.76993 19.8306 6.98172 19.3002 6.5397C18.7699 6.09781 17.9817 6.16946 17.5397 6.69986L10.8752 14.6973L6.34085 10.5751C5.83003 10.1107 5.03947 10.1483 4.57508 10.6592C4.1107 11.1699 4.14835 11.9606 4.65917 12.425L10.1592 17.425C10.4114 17.6542 10.7463 17.7705 11.0863 17.7471C11.4264 17.7235 11.7421 17.5622 11.9603 17.3002L19.4603 8.3002Z"
+              />
+               
+            </svg>
+          </div>
+        </div>
       </span>
     </div>
     <div
-      class="c4"
+      class="c6"
     />
   </div>
   <div
-    class="c5 c6"
+    class="c7 c8"
   >
     <div
       class="label"
@@ -1165,6 +1228,19 @@ exports[`Static IonStepComponent should render step with id step-1-checked 1`] =
 `;
 
 exports[`Static IonStepComponent should render step with id step-2-checked 1`] = `
+.c5 {
+  width: unset;
+  height: unset;
+  background-color: transparent;
+  display: inline-flex;
+}
+
+.c6 {
+  width: 24px;
+  height: 24px;
+  fill: #282B33;
+}
+
 .c1 {
   display: flex;
   align-items: center;
@@ -1194,7 +1270,7 @@ exports[`Static IonStepComponent should render step with id step-2-checked 1`] =
   font-weight: 600;
 }
 
-.c6 {
+.c8 {
   text-align: center;
   color: #8d93a5;
   font-style: normal;
@@ -1205,17 +1281,17 @@ exports[`Static IonStepComponent should render step with id step-2-checked 1`] =
   box-sizing: border-box;
 }
 
-.c6 .label,
-.c6 .description {
+.c8 .label,
+.c8 .description {
   font-family: 'Inter',sans-serif;
 }
 
-.c6 .label {
+.c8 .label {
   font-size: 1.4rem;
   line-height: 2rem;
 }
 
-.c6 .description {
+.c8 .description {
   font-size: 1.2rem;
   line-height: 1.6rem;
 }
@@ -1225,14 +1301,14 @@ exports[`Static IonStepComponent should render step with id step-2-checked 1`] =
   flex-direction: column;
 }
 
-.c0:first-child .c5 .label,
-.c0:first-child .c5 .description {
+.c0:first-child .c7 .label,
+.c0:first-child .c7 .description {
   text-align: left;
   max-width: 118.5px;
 }
 
-.c0:last-child .c5 .label,
-.c0:last-child .c5 .description {
+.c0:last-child .c7 .label,
+.c0:last-child .c7 .description {
   text-align: right;
   max-width: 118.5px;
 }
@@ -1262,19 +1338,27 @@ exports[`Static IonStepComponent should render step with id step-2-checked 1`] =
       class="c3 c4"
     >
       <span>
-        <svg
-          data-testid="ion-icon-check"
-          fill="#282B33"
-          height="24"
-          viewBox="0 0 24 24"
-          width="24"
+        <div
+          class="c5"
+          data-testid="ion-icon-outer-highlight"
         >
-           
-          <path
-            d="M19.4603 8.3002C19.9022 7.76993 19.8306 6.98172 19.3002 6.5397C18.7699 6.09781 17.9817 6.16946 17.5397 6.69986L10.8752 14.6973L6.34085 10.5751C5.83003 10.1107 5.03947 10.1483 4.57508 10.6592C4.1107 11.1699 4.14835 11.9606 4.65917 12.425L10.1592 17.425C10.4114 17.6542 10.7463 17.7705 11.0863 17.7471C11.4264 17.7235 11.7421 17.5622 11.9603 17.3002L19.4603 8.3002Z"
-          />
-           
-        </svg>
+          <div
+            class="c5"
+            data-testid="ion-icon-inner-highlight"
+          >
+            <svg
+              class="c6"
+              data-testid="ion-icon-check"
+              viewBox="0 0 24 24"
+            >
+               
+              <path
+                d="M19.4603 8.3002C19.9022 7.76993 19.8306 6.98172 19.3002 6.5397C18.7699 6.09781 17.9817 6.16946 17.5397 6.69986L10.8752 14.6973L6.34085 10.5751C5.83003 10.1107 5.03947 10.1483 4.57508 10.6592C4.1107 11.1699 4.14835 11.9606 4.65917 12.425L10.1592 17.425C10.4114 17.6542 10.7463 17.7705 11.0863 17.7471C11.4264 17.7235 11.7421 17.5622 11.9603 17.3002L19.4603 8.3002Z"
+              />
+               
+            </svg>
+          </div>
+        </div>
       </span>
     </div>
     <div
@@ -1282,7 +1366,7 @@ exports[`Static IonStepComponent should render step with id step-2-checked 1`] =
     />
   </div>
   <div
-    class="c5 c6"
+    class="c7 c8"
   >
     <div
       class="label"
@@ -1294,6 +1378,19 @@ exports[`Static IonStepComponent should render step with id step-2-checked 1`] =
 `;
 
 exports[`Static IonStepComponent should render step with id step-3-checked 1`] = `
+.c5 {
+  width: unset;
+  height: unset;
+  background-color: transparent;
+  display: inline-flex;
+}
+
+.c6 {
+  width: 24px;
+  height: 24px;
+  fill: #282B33;
+}
+
 .c1 {
   display: flex;
   align-items: center;
@@ -1323,7 +1420,7 @@ exports[`Static IonStepComponent should render step with id step-3-checked 1`] =
   font-weight: 600;
 }
 
-.c6 {
+.c8 {
   text-align: center;
   color: #8d93a5;
   font-style: normal;
@@ -1334,17 +1431,17 @@ exports[`Static IonStepComponent should render step with id step-3-checked 1`] =
   box-sizing: border-box;
 }
 
-.c6 .label,
-.c6 .description {
+.c8 .label,
+.c8 .description {
   font-family: 'Inter',sans-serif;
 }
 
-.c6 .label {
+.c8 .label {
   font-size: 1.4rem;
   line-height: 2rem;
 }
 
-.c6 .description {
+.c8 .description {
   font-size: 1.2rem;
   line-height: 1.6rem;
 }
@@ -1354,14 +1451,14 @@ exports[`Static IonStepComponent should render step with id step-3-checked 1`] =
   flex-direction: column;
 }
 
-.c0:first-child .c5 .label,
-.c0:first-child .c5 .description {
+.c0:first-child .c7 .label,
+.c0:first-child .c7 .description {
   text-align: left;
   max-width: 118.5px;
 }
 
-.c0:last-child .c5 .label,
-.c0:last-child .c5 .description {
+.c0:last-child .c7 .label,
+.c0:last-child .c7 .description {
   text-align: right;
   max-width: 118.5px;
 }
@@ -1391,24 +1488,32 @@ exports[`Static IonStepComponent should render step with id step-3-checked 1`] =
       class="c3 c4"
     >
       <span>
-        <svg
-          data-testid="ion-icon-check"
-          fill="#282B33"
-          height="24"
-          viewBox="0 0 24 24"
-          width="24"
+        <div
+          class="c5"
+          data-testid="ion-icon-outer-highlight"
         >
-           
-          <path
-            d="M19.4603 8.3002C19.9022 7.76993 19.8306 6.98172 19.3002 6.5397C18.7699 6.09781 17.9817 6.16946 17.5397 6.69986L10.8752 14.6973L6.34085 10.5751C5.83003 10.1107 5.03947 10.1483 4.57508 10.6592C4.1107 11.1699 4.14835 11.9606 4.65917 12.425L10.1592 17.425C10.4114 17.6542 10.7463 17.7705 11.0863 17.7471C11.4264 17.7235 11.7421 17.5622 11.9603 17.3002L19.4603 8.3002Z"
-          />
-           
-        </svg>
+          <div
+            class="c5"
+            data-testid="ion-icon-inner-highlight"
+          >
+            <svg
+              class="c6"
+              data-testid="ion-icon-check"
+              viewBox="0 0 24 24"
+            >
+               
+              <path
+                d="M19.4603 8.3002C19.9022 7.76993 19.8306 6.98172 19.3002 6.5397C18.7699 6.09781 17.9817 6.16946 17.5397 6.69986L10.8752 14.6973L6.34085 10.5751C5.83003 10.1107 5.03947 10.1483 4.57508 10.6592C4.1107 11.1699 4.14835 11.9606 4.65917 12.425L10.1592 17.425C10.4114 17.6542 10.7463 17.7705 11.0863 17.7471C11.4264 17.7235 11.7421 17.5622 11.9603 17.3002L19.4603 8.3002Z"
+              />
+               
+            </svg>
+          </div>
+        </div>
       </span>
     </div>
   </div>
   <div
-    class="c5 c6"
+    class="c7 c8"
   >
     <div
       class="label"

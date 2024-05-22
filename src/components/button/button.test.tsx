@@ -103,7 +103,7 @@ describe('Button', () => {
       const icon = 'pencil';
       sut({ ...defaultButton, icon: icon });
       const Tab = screen.getByTestId(`ion-icon-${icon}`);
-      expect(Tab).toHaveAttribute('height', sm);
+      expect(Tab).toHaveStyleRule('height', `${sm}px`);
     });
 
     it('should render icon lg when button is lg', () => {
@@ -115,9 +115,9 @@ describe('Button', () => {
         size: 'lg',
         icon: lgIconName,
       });
-      expect(screen.getByTestId(`ion-icon-${lgIconName}`)).toHaveAttribute(
+      expect(screen.getByTestId(`ion-icon-${lgIconName}`)).toHaveStyleRule(
         'height',
-        lgSize
+        `${lgSize}px`
       );
     });
 
