@@ -92,16 +92,16 @@ describe('Tab', () => {
       const sm = '16';
       sut({ ...defaultTab, icon: iconName });
       const Tab = screen.getByTestId(`ion-icon-${iconName}`);
-      expect(Tab).toHaveAttribute('height', sm);
+      expect(Tab).toHaveStyleRule('height', `${sm}px`);
     });
 
     it('should render icon md when tab is md', () => {
       const mdSize = '20';
       const mdIconName = 'alert';
       sut({ ...defaultTab, size: 'md', icon: mdIconName });
-      expect(screen.getByTestId(`ion-icon-${mdIconName}`)).toHaveAttribute(
+      expect(screen.getByTestId(`ion-icon-${mdIconName}`)).toHaveStyleRule(
         'height',
-        mdSize
+        `${mdSize}px`
       );
     });
   });
