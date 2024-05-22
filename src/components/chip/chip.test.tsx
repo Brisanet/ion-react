@@ -63,9 +63,9 @@ describe('IonChip', () => {
 
     it('should render icon sm by default', () => {
       const smSize = '16';
-      expect(screen.getByTestId(`ion-icon-${iconName}`)).toHaveAttribute(
+      expect(screen.getByTestId(`ion-icon-${iconName}`)).toHaveStyleRule(
         'height',
-        smSize
+        `${smSize}px`
       );
     });
 
@@ -73,9 +73,9 @@ describe('IonChip', () => {
       const mdSize = '20';
       const mdIconName = 'alert';
       sut({ ...defaultChip, size: 'md', icon: mdIconName });
-      expect(screen.getByTestId(`ion-icon-${mdIconName}`)).toHaveAttribute(
+      expect(screen.getByTestId(`ion-icon-${mdIconName}`)).toHaveStyleRule(
         'height',
-        mdSize
+        `${mdSize}px`
       );
     });
   });
