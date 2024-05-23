@@ -7,6 +7,7 @@ module.exports = {
     '!src/**/*.stories.tsx',
     '!src/styles/**/*.ts',
     '!src/core/**/*.ts',
+    '!src/components/icons/svgs/**/*.ts',
   ],
   coverageReporters: ['json', 'html', 'lcov', 'text'],
   setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
