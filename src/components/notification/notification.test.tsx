@@ -1,5 +1,8 @@
 import { IconType } from '../icons/svgs/icons';
-import { ICON_BY_TYPE, MessageTypes } from '../message';
+import {
+  FeedbackTypes,
+  ICON_BY_TYPE,
+} from '../shared/FeedbackIcon/feedbackIcon';
 import { renderWithTheme } from '../utils/test-utils';
 import { IonNotification, IonNotificationProps } from './notification';
 
@@ -34,7 +37,7 @@ describe('IonNotification', () => {
       expect(onClose).toHaveBeenCalledTimes(1);
     });
   });
-  describe.each(Object.keys(ICON_BY_TYPE) as MessageTypes[])(
+  describe.each(Object.keys(ICON_BY_TYPE) as FeedbackTypes[])(
     'Type %s',
     (type) => {
       it(`should render the notification with the ${type} icon`, () => {

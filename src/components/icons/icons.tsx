@@ -1,7 +1,7 @@
 import DOMPurify from 'dompurify';
 
-import { iconsPaths, IconType } from './svgs/icons';
 import { Icon, IconHighlight } from './styles';
+import { iconsPaths, IconType } from './svgs/icons';
 
 export type Highlight = 'none' | 'simple' | 'double';
 export interface IonIconProps {
@@ -88,7 +88,7 @@ export const IonIcon = ({
 
   const iconContent = (
     <Icon
-      $color={color}
+      $color={color || defaultColor}
       $size={size}
       data-testid={`ion-icon-${type}`}
       viewBox='0 0 24 24'

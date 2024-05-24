@@ -1,6 +1,9 @@
 import { IonButton } from '../button';
-import { IonIcon, IonIconProps } from '../icons';
-import { ICON_BY_TYPE, MessageTypes } from '../message';
+import { IonIconProps } from '../icons';
+import {
+  FeedbackIcon,
+  FeedbackTypes,
+} from '../shared/FeedbackIcon/feedbackIcon';
 import {
   Container,
   Description,
@@ -12,11 +15,8 @@ import {
 export interface IonNotificationProps {
   title: string;
   description: string;
-  customIcon?: {
-    type: IonIconProps['type'];
-    color?: IonIconProps['color'];
-  };
-  type?: MessageTypes;
+  customIcon?: Pick<IonIconProps, 'type' | 'color'>;
+  type?: FeedbackTypes;
   onClose?: () => void;
 }
 
@@ -27,17 +27,10 @@ export const IonNotification = ({
   customIcon,
   onClose,
 }: IonNotificationProps) => {
-  const { type: icon, color } = ICON_BY_TYPE[type];
-
   return (
     <Notification>
       <Container>
-        <IonIcon
-          size={24}
-          type={customIcon?.type || icon}
-          color={customIcon ? customIcon.color || '' : color}
-        />
-
+        <FeedbackIcon type={type} customIcon={customIcon} />
         <TextContainer>
           <Title>{title}</Title>
           <Description>{description}</Description>

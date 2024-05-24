@@ -1,11 +1,10 @@
 import { IonIconProps } from '../icons';
-import { renderWithTheme } from '../utils/test-utils';
 import {
+  FeedbackTypes,
   ICON_BY_TYPE,
-  IonMessage,
-  IonMessageProps,
-  MessageTypes,
-} from './message';
+} from '../shared/FeedbackIcon/feedbackIcon';
+import { renderWithTheme } from '../utils/test-utils';
+import { IonMessage, IonMessageProps } from './message';
 
 const message = 'This is a message';
 
@@ -24,7 +23,7 @@ describe('IonMessage', () => {
       ).toBeInTheDocument();
     });
   });
-  describe.each(Object.keys(ICON_BY_TYPE) as MessageTypes[])(
+  describe.each(Object.keys(ICON_BY_TYPE) as FeedbackTypes[])(
     'Type %s',
     (type) => {
       it(`should render the message with the ${type} icon`, () => {
