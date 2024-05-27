@@ -1,0 +1,429 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IonRadio should render a given option selected 1`] = `
+.c0 {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.c1 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.c1 label {
+  font-size: 1.4rem;
+  line-height: 2rem;
+  font-weight: 400;
+  color: #505566;
+  cursor: pointer;
+}
+
+.c1 input[type='radio'] {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  margin: 4px;
+  border-radius: 50%;
+  border: 1px solid #aeb2bd;
+  background-color: #fcfcfd;
+  cursor: pointer;
+}
+
+.c1 input[type='radio']:focus-visible {
+  outline: 2px solid #146ff5;
+  outline-offset: 2px;
+}
+
+.c1 input[type='radio']::before {
+  content: '';
+  display: none;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #b5d2fc;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: scale(1) translate(-50%, -50%);
+}
+
+.c1 input[type='radio']:hover,
+.c1 input[type='radio']:focus-visible {
+  border: 1px solid #84b4fa;
+  background-color: #ebf3fe;
+  box-shadow: 0 0 0 4px #ebf3fe;
+}
+
+.c1 input[type='radio']:hover::before {
+  display: block;
+}
+
+.c1 input[type='radio']:active {
+  border: 1px solid #146ff5;
+  background-color: #b5d2fc;
+  box-shadow: none;
+}
+
+.c1 input[type='radio']:active::before {
+  display: block;
+  background-color: #ebf3fe;
+}
+
+.c1 input[type='radio']:disabled {
+  border: 1px solid #ced2db;
+  background-color: #e4e6eb;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.c1 input[type='radio']:disabled::before {
+  display: none;
+}
+
+.c1 input[type='radio']:checked {
+  border: 4px solid #0858ce;
+  background-color: #ebf3fe;
+}
+
+.c1 input[type='radio']:checked:hover,
+.c1 input[type='radio']:checked:focus-visible {
+  border: 4px solid #146ff5;
+  box-shadow: 0 0 0 4px #ebf3fe;
+}
+
+.c1 input[type='radio']:checked:hover::before,
+.c1 input[type='radio']:checked:focus-visible::before {
+  display: none;
+}
+
+.c1 input[type='radio']:checked:active {
+  border: 5px solid #06439d;
+  box-shadow: none;
+}
+
+.c1 input[type='radio']:checked:disabled {
+  border: 4px solid #f2f3f5;
+  background-color: #ced2db;
+  box-shadow: none;
+}
+
+<div>
+  <fieldset
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <input
+        checked=""
+        id="option1"
+        name="radio"
+        type="radio"
+        value="option1"
+      />
+      <label
+        for="option1"
+      >
+        Option 1
+      </label>
+    </div>
+    <div
+      class="c1"
+    >
+      <input
+        id="option2"
+        name="radio"
+        type="radio"
+        value="option2"
+      />
+      <label
+        for="option2"
+      >
+        Option 2
+      </label>
+    </div>
+  </fieldset>
+</div>
+`;
+
+exports[`IonRadio should render correctly when disabled 1`] = `
+.c0 {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.c1 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.c1 label {
+  font-size: 1.4rem;
+  line-height: 2rem;
+  font-weight: 400;
+  color: #505566;
+  cursor: pointer;
+}
+
+.c1 input[type='radio'] {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  margin: 4px;
+  border-radius: 50%;
+  border: 1px solid #aeb2bd;
+  background-color: #fcfcfd;
+  cursor: pointer;
+}
+
+.c1 input[type='radio']:focus-visible {
+  outline: 2px solid #146ff5;
+  outline-offset: 2px;
+}
+
+.c1 input[type='radio']::before {
+  content: '';
+  display: none;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #b5d2fc;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: scale(1) translate(-50%, -50%);
+}
+
+.c1 input[type='radio']:hover,
+.c1 input[type='radio']:focus-visible {
+  border: 1px solid #84b4fa;
+  background-color: #ebf3fe;
+  box-shadow: 0 0 0 4px #ebf3fe;
+}
+
+.c1 input[type='radio']:hover::before {
+  display: block;
+}
+
+.c1 input[type='radio']:active {
+  border: 1px solid #146ff5;
+  background-color: #b5d2fc;
+  box-shadow: none;
+}
+
+.c1 input[type='radio']:active::before {
+  display: block;
+  background-color: #ebf3fe;
+}
+
+.c1 input[type='radio']:disabled {
+  border: 1px solid #ced2db;
+  background-color: #e4e6eb;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.c1 input[type='radio']:disabled::before {
+  display: none;
+}
+
+.c1 input[type='radio']:checked {
+  border: 4px solid #0858ce;
+  background-color: #ebf3fe;
+}
+
+.c1 input[type='radio']:checked:hover,
+.c1 input[type='radio']:checked:focus-visible {
+  border: 4px solid #146ff5;
+  box-shadow: 0 0 0 4px #ebf3fe;
+}
+
+.c1 input[type='radio']:checked:hover::before,
+.c1 input[type='radio']:checked:focus-visible::before {
+  display: none;
+}
+
+.c1 input[type='radio']:checked:active {
+  border: 5px solid #06439d;
+  box-shadow: none;
+}
+
+.c1 input[type='radio']:checked:disabled {
+  border: 4px solid #f2f3f5;
+  background-color: #ced2db;
+  box-shadow: none;
+}
+
+.c2 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.c2 label {
+  font-size: 1.4rem;
+  line-height: 2rem;
+  font-weight: 400;
+  color: #505566;
+  cursor: pointer;
+  color: #aeb2bd;
+  cursor: not-allowed;
+}
+
+.c2 input[type='radio'] {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  margin: 4px;
+  border-radius: 50%;
+  border: 1px solid #aeb2bd;
+  background-color: #fcfcfd;
+  cursor: pointer;
+}
+
+.c2 input[type='radio']:focus-visible {
+  outline: 2px solid #146ff5;
+  outline-offset: 2px;
+}
+
+.c2 input[type='radio']::before {
+  content: '';
+  display: none;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #b5d2fc;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: scale(1) translate(-50%, -50%);
+}
+
+.c2 input[type='radio']:hover,
+.c2 input[type='radio']:focus-visible {
+  border: 1px solid #84b4fa;
+  background-color: #ebf3fe;
+  box-shadow: 0 0 0 4px #ebf3fe;
+}
+
+.c2 input[type='radio']:hover::before {
+  display: block;
+}
+
+.c2 input[type='radio']:active {
+  border: 1px solid #146ff5;
+  background-color: #b5d2fc;
+  box-shadow: none;
+}
+
+.c2 input[type='radio']:active::before {
+  display: block;
+  background-color: #ebf3fe;
+}
+
+.c2 input[type='radio']:disabled {
+  border: 1px solid #ced2db;
+  background-color: #e4e6eb;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.c2 input[type='radio']:disabled::before {
+  display: none;
+}
+
+.c2 input[type='radio']:checked {
+  border: 4px solid #0858ce;
+  background-color: #ebf3fe;
+}
+
+.c2 input[type='radio']:checked:hover,
+.c2 input[type='radio']:checked:focus-visible {
+  border: 4px solid #146ff5;
+  box-shadow: 0 0 0 4px #ebf3fe;
+}
+
+.c2 input[type='radio']:checked:hover::before,
+.c2 input[type='radio']:checked:focus-visible::before {
+  display: none;
+}
+
+.c2 input[type='radio']:checked:active {
+  border: 5px solid #06439d;
+  box-shadow: none;
+}
+
+.c2 input[type='radio']:checked:disabled {
+  border: 4px solid #f2f3f5;
+  background-color: #ced2db;
+  box-shadow: none;
+}
+
+<div>
+  <fieldset
+    class="c0"
+  >
+    <div
+      class="c1"
+    >
+      <input
+        checked=""
+        id="option1"
+        name="radio"
+        type="radio"
+        value="option1"
+      />
+      <label
+        for="option1"
+      >
+        Option 1
+      </label>
+    </div>
+    <div
+      class="c1"
+    >
+      <input
+        id="option2"
+        name="radio"
+        type="radio"
+        value="option2"
+      />
+      <label
+        for="option2"
+      >
+        Option 2
+      </label>
+    </div>
+    <div
+      class="c2"
+    >
+      <input
+        disabled=""
+        id="option3"
+        name="radio"
+        type="radio"
+        value="option3"
+      />
+      <label
+        for="option3"
+      >
+        Option 3
+      </label>
+    </div>
+  </fieldset>
+</div>
+`;
